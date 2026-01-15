@@ -1,11 +1,25 @@
 # 🕰️ Digital Pendulum
 
-**Autore:** Egidio Ziggiotto (Dregi56)  
 Un pendolo digitale parlante per Home Assistant
+<br>**Autore:** Egidio Ziggiotto (Dregi56)  e-mail: [dregi@cyberservices.com](mailto:dregi@cyberservices.com)
+
+
+[![HACS](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz/)
+[![Version](https://img.shields.io/github/v/release/Dregi56/digital_pendulum)](https://github.com/Dregi56/digital_pendulum/releases)
+![License](https://img.shields.io/github/license/Dregi56/digital_pendulum)
+[![GitHub stars](https://img.shields.io/github/stars/Dregi56/digital_pendulum?style=social)](https://github.com/Dregi56/digital_pendulum)
+
+
+## ❤️ Ti piace Digital Pendulum?
+
+Se ti è utile, considera di lasciare una ⭐ su GitHub:  
+👉 **https://github.com/Dregi56/digital_pendulum**
+<br>Grazie.
 
 ## 📌 Descrizione
 
 Digital Pendulum è un’integrazione personalizzata per Home Assistant che annuncia vocalmente l’orario, proprio come un pendolo digitale 🕰️.
+
 
 Utilizzando un dispositivo Alexa come speaker, il sistema:
 
@@ -133,6 +147,8 @@ Utile per verificare: lingua, volume, chime, corretto funzionamento del TTS
 - 📣 Supporto ad altri TTS
 
 ---
+
+## 
 
 ## ☕ Supporta il progetto
 
