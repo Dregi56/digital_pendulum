@@ -36,17 +36,29 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
                         domain="media_player",
-                        integration="alexa_media"  # ← AGGIUNTO
+                        integration="alexa_media"
                     )
                 ),
                 vol.Required(
                     CONF_START_HOUR,
                     default=DEFAULT_START_HOUR,
-                ): vol.All(vol.Coerce(int), vol.Range(min=0, max=23)),
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0,
+                        max=23,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
+                ),
                 vol.Required(
                     CONF_END_HOUR,
                     default=DEFAULT_END_HOUR,
-                ): vol.All(vol.Coerce(int), vol.Range(min=0, max=23)),
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0,
+                        max=23,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
+                ),
                 vol.Required(
                     CONF_ENABLED,
                     default=DEFAULT_ENABLED,
@@ -92,17 +104,29 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
                         domain="media_player",
-                        integration="alexa_media"  # ← AGGIUNTO
+                        integration="alexa_media"
                     )
                 ),
                 vol.Required(
                     CONF_START_HOUR,
                     default=current_options.get(CONF_START_HOUR, DEFAULT_START_HOUR),
-                ): vol.All(vol.Coerce(int), vol.Range(min=0, max=23)),
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0,
+                        max=23,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
+                ),
                 vol.Required(
                     CONF_END_HOUR,
                     default=current_options.get(CONF_END_HOUR, DEFAULT_END_HOUR),
-                ): vol.All(vol.Coerce(int), vol.Range(min=0, max=23)),
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0,
+                        max=23,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
+                ),
                 vol.Required(
                     CONF_USE_CHIME,
                     default=current_options.get(CONF_USE_CHIME, DEFAULT_USE_CHIME),
@@ -114,5 +138,3 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
             step_id="init",
             data_schema=schema,
         )
-
-
