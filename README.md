@@ -9,6 +9,12 @@ Un pendolo digitale parlante per Home Assistant
 ![License](https://img.shields.io/github/license/Dregi56/digital_pendulum)
 [![GitHub stars](https://img.shields.io/github/stars/Dregi56/digital_pendulum?style=social)](https://github.com/Dregi56/digital_pendulum)
 
+🌍 Lingue disponibili:
+[Italiano](README.it.md) |
+[English](README.en.md) |
+[Deutsch](README.de.md) |
+[Français](README.fr.md) |
+[Español](README.es.md)
 
 ## ❤️ Ti piace Digital Pendulum?
 
