@@ -1,4 +1,5 @@
 import asyncio
+import os
 from datetime import datetime, timedelta
 
 from homeassistant.helpers.event import async_track_time_interval
@@ -10,10 +11,12 @@ from .const import (
     CONF_PLAYER_DEVICE,
     CONF_ENABLED,
     CONF_USE_CHIME,
+    CONF_CUSTOM_CHIME_PATH,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
     DEFAULT_USE_CHIME,
+    DEFAULT_CUSTOM_CHIME_PATH,
     DOMAIN, 
 )
 
@@ -34,6 +37,7 @@ class DigitalPendulum:
         self.player = config.get(CONF_PLAYER_DEVICE)
         self.enabled = config.get(CONF_ENABLED, DEFAULT_ENABLED)
         self.use_chime = config.get(CONF_USE_CHIME, DEFAULT_USE_CHIME)
+        self.custom_chime_path = config.get(CONF_CUSTOM_CHIME_PATH, DEFAULT_CUSTOM_CHIME_PATH)
 
     def update_config(self):
         """Update configuration when options change."""
@@ -71,25 +75,37 @@ class DigitalPendulum:
 
     def _build_text(self, hour: int, minute: int) -> str:
         """Build announcement text using translations."""
-        # Ottieni la lingua di Home Assistant
         language = self.hass.config.language
-        
-        # Carica le traduzioni
         translations = self._get_translations(language)
         
-        if minute == 30:
-            # Gestione speciale per tedesco (halb = mezza)
-            if language == "de":
-                next_hour = (hour + 1) % 24
-                return translations.get("hour_and_half", "Es ist halb {next_hour}").format(next_hour=next_hour)
+        # Gestione speciale per tedesco (halb = mezza)
+        if language == "de" and minute == 30:
+            next_hour = (hour + 1) % 24
+            return translations.get("hour_and_half", "Es ist halb {next_hour}").format(next_hour=next_hour)
+        
+        # Gestione speciale per spagnolo (singolare per l'1)
+        if language == "es" and (hour == 1 or hour == 13):
+            if minute == 30:
+                return "Es la una y media"
             else:
-                return translations.get("hour_and_half", f"Ore {hour} e trenta").format(hour=hour)
+                return "Es la una"
+        
+        # Gestione speciale per italiano: converti solo 1 in "una"
+        if language == "it":
+            hour_text = "una" if hour == 1 else str(hour)
+            if minute == 30:
+                return f"Ore {hour_text} e trenta"
+            else:
+                return f"Ore {hour_text}"
+        
+        # Tutti gli altri casi (inglese, francese, ecc.)
+        if minute == 30:
+            return translations.get("hour_and_half", f"Ore {hour} e trenta").format(hour=hour)
         else:
             return translations.get("hour", f"Ore {hour}").format(hour=hour)
 
     def _get_translations(self, language: str) -> dict:
         """Get translations for the given language."""
-        # Traduzioni di fallback (italiano)
         fallback = {
             "hour": "Ore {hour}",
             "hour_and_half": "Ore {hour} e trenta",
@@ -97,7 +113,6 @@ class DigitalPendulum:
             "hour_and_minutes": "Ore {hour} e {minutes}"
         }
         
-        # Dizionario completo delle traduzioni
         translations = {
             "it": {
                 "hour": "Ore {hour}",
@@ -133,19 +148,55 @@ class DigitalPendulum:
         
         return translations.get(language, fallback)
 
+    async def _play_chime(self):
+        """Play chime sound (custom or default)."""
+        if self.custom_chime_path and self.custom_chime_path.strip():
+            # Usa file audio personalizzato
+            await self._play_custom_chime()
+        else:
+            # Usa suono announce di default
+            await self._play_default_chime()
+
+    async def _play_default_chime(self):
+        """Play default announce chime."""
+        await self.hass.services.async_call(
+            "notify",
+            "alexa_media",
+            {
+                "target": self.player,
+                "data": {"type": "announce"},
+                "message": " ",
+            },
+            blocking=False,
+        )
+
+    async def _play_custom_chime(self):
+        """Play custom audio file."""
+        # Costruisci il percorso completo
+        config_path = self.hass.config.path()
+        full_path = os.path.join(config_path, self.custom_chime_path.strip())
+        
+        # Verifica che il file esista
+        if not os.path.isfile(full_path):
+            # Se il file non esiste, usa il suono di default come fallback
+            await self._play_default_chime()
+            return
+        
+        # Riproduci il file audio personalizzato
+        await self.hass.services.async_call(
+            "media_player",
+            "play_media",
+            {
+                "entity_id": self.player,
+                "media_content_id": full_path,
+                "media_content_type": "music",
+            },
+            blocking=False,
+        )
+
     async def _speak(self, text: str):
         if self.use_chime:
-            await self.hass.services.async_call(
-                "notify",
-                "alexa_media",
-                {
-                    "target": self.player,
-                    "data": {"type": "announce"},
-                    "message": " ",
-                },
-                blocking=False,
-            )
-            
+            await self._play_chime()
             await asyncio.sleep(1.5)
         
         await self.hass.services.async_call(
@@ -166,11 +217,23 @@ class DigitalPendulum:
         minute = now.minute
         
         language = self.hass.config.language
-        translations = self._get_translations(language)
         
-        if minute == 0:
-            text = translations.get("hour_exact", f"Ore {hour} in punto").format(hour=hour)
+        if language == "it":
+            hour_text = "una" if hour == 1 else str(hour)
+            if minute == 0:
+                text = f"Ore {hour_text} in punto"
+            else:
+                text = f"Ore {hour_text} e {minute:02d}"
+        elif language == "es" and (hour == 1 or hour == 13):
+            if minute == 0:
+                text = "Es la una en punto"
+            else:
+                text = f"Es la una y {minute:02d}"
         else:
-            text = translations.get("hour_and_minutes", f"Ore {hour} e {minute:02d}").format(hour=hour, minutes=f"{minute:02d}")
+            translations = self._get_translations(language)
+            if minute == 0:
+                text = translations.get("hour_exact", f"Ore {hour} in punto").format(hour=hour)
+            else:
+                text = translations.get("hour_and_minutes", f"Ore {hour} e {minute:02d}").format(hour=hour, minutes=f"{minute:02d}")
         
         await self._speak(text)

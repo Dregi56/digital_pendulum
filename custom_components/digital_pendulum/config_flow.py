@@ -11,10 +11,12 @@ from .const import (
     CONF_PLAYER_DEVICE,
     CONF_ENABLED,
     CONF_USE_CHIME,
+    CONF_CUSTOM_CHIME_PATH,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
     DEFAULT_USE_CHIME,
+    DEFAULT_CUSTOM_CHIME_PATH,
 )
 
 
@@ -67,6 +69,14 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONF_USE_CHIME,
                     default=DEFAULT_USE_CHIME,
                 ): bool,
+                vol.Optional(
+                    CONF_CUSTOM_CHIME_PATH,
+                    default=DEFAULT_CUSTOM_CHIME_PATH,
+                ): selector.TextSelector(
+                    selector.TextSelectorConfig(
+                        type=selector.TextSelectorType.TEXT,
+                    )
+                ),
             }
         )
 
@@ -131,6 +141,14 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                     CONF_USE_CHIME,
                     default=current_options.get(CONF_USE_CHIME, DEFAULT_USE_CHIME),
                 ): bool,
+                vol.Optional(
+                    CONF_CUSTOM_CHIME_PATH,
+                    default=current_options.get(CONF_CUSTOM_CHIME_PATH, DEFAULT_CUSTOM_CHIME_PATH),
+                ): selector.TextSelector(
+                    selector.TextSelectorConfig(
+                        type=selector.TextSelectorType.TEXT,
+                    )
+                ),
             }
         )
 
