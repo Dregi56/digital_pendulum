@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Configuración Digital Pendulum",
-        "description": "Configure su reloj de péndulo digital",
+        "description": "El péndulo funcionará entre las horas de inicio y fin establecidas",
         "data": {
           "player_device": "Dispositivo Alexa",
           "start_hour": "Hora de inicio",
@@ -18,7 +18,7 @@
     "step": {
       "init": {
         "title": "Opciones Digital Pendulum",
-        "description": "Modifique la configuración del péndulo",
+        "description": "El péndulo funcionará entre las horas de inicio y fin establecidas",
         "data": {
           "player_device": "Dispositivo Alexa",
           "start_hour": "Hora de inicio",

@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Configuration Digital Pendulum",
-        "description": "Configurez votre horloge à balancier numérique",
+        "description": "Le balancier fonctionnera entre les heures de début et de fin définies",
         "data": {
           "player_device": "Appareil Alexa",
           "start_hour": "Heure de début",
@@ -18,7 +18,7 @@
     "step": {
       "init": {
         "title": "Options Digital Pendulum",
-        "description": "Modifier les paramètres du balancier",
+        "description": "Le balancier fonctionnera entre les heures de début et de fin définies",
         "data": {
           "player_device": "Appareil Alexa",
           "start_hour": "Heure de début",

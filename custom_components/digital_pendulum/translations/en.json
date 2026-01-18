@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Digital Pendulum Setup",
-        "description": "Configure your digital pendulum clock",
+        "description": "The pendulum will operate between the set start and end times",
         "data": {
           "player_device": "Alexa Device",
           "start_hour": "Start Hour",
@@ -18,7 +18,7 @@
     "step": {
       "init": {
         "title": "Digital Pendulum Options",
-        "description": "Modify your pendulum settings",
+        "description": "The pendulum will operate between the set start and end times",
         "data": {
           "player_device": "Alexa Device",
           "start_hour": "Start Hour",

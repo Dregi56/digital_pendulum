@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Digital Pendulum Einrichtung",
-        "description": "Konfigurieren Sie Ihre digitale Pendeluhr",
+        "description": "Das Pendel wird zwischen den eingestellten Start- und Endzeiten funktionieren",
         "data": {
           "player_device": "Alexa Gerät",
           "start_hour": "Startstunde",
@@ -18,7 +18,7 @@
     "step": {
       "init": {
         "title": "Digital Pendulum Optionen",
-        "description": "Ändern Sie Ihre Pendeleinstellungen",
+        "description": "Das Pendel wird zwischen den eingestellten Start- und Endzeiten funktionieren",
         "data": {
           "player_device": "Alexa Gerät",
           "start_hour": "Startstunde",
