@@ -56,7 +56,7 @@ fallback automatico in italiano
 
 ###  🔔 Chime opzionale
 - 🔕 breve annuncio silenzioso prima del TTS
-- 🎵 suoni personalizzati. Se definita una path, suono loacale
+- 🎵 suoni personalizzati. Se definita una path, suono locale
 
 ### 🧪 Funzione di test
 - per provare immediatamente l’annuncio
