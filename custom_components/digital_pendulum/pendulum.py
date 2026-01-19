@@ -196,7 +196,7 @@ class DigitalPendulum:
     async def _speak(self, text: str):
         if self.use_chime:
             await self._play_chime()
-            await asyncio.sleep(1.5)
+            await asyncio.sleep(1.0)
         
         await self.hass.services.async_call(
             "notify",
