@@ -96,7 +96,7 @@ Ejemplos de anuncios:
 
 Si la opción use_chime está activa:
 - se envía un anuncio vacío
-- el sistema espera 1,5 segundos
+- el sistema espera 1,3 segundos
 - comienza el TTS con la hora  
 
 Esto crea un efecto similar a un péndulo real 🎶.

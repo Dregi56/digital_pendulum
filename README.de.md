@@ -96,7 +96,7 @@ Beispiele für Ansagen:
 
 Wenn die Option use_chime aktiviert ist:
 - wird eine leere Ankündigung gesendet
-- das System wartet 1,5 Sekunden
+- das System wartet 1,3 Sekunden
 - die TTS-Zeitansage startet  
 
 Dies erzeugt einen Effekt ähnlich einem echten Pendel 🎶.

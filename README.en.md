@@ -96,7 +96,7 @@ Announcement examples:
 
 If the use_chime option is enabled:
 - an empty announce is sent
-- the system waits 1.5 seconds
+- the system waits 1.3 seconds
 - the TTS with the time starts  
 
 This creates an effect similar to a real pendulum 🎶.

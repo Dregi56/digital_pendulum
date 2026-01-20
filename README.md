@@ -97,7 +97,7 @@ Esempi di annunci:
 
 Se l’opzione use_chime è attiva:
 - viene inviato un announce vuoto
-- il sistema attende 1,5 secondi
+- il sistema attende 1,3 secondi
 - parte il TTS con l’orario  
 
 Questo crea un effetto simile a un vero pendolo 🎶.
