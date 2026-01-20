@@ -160,6 +160,8 @@ Que:
 
 ¿Te gusta este proyecto? Si te resulta útil, ¡invítame a un café virtual para apoyar futuras evoluciones! Cada pequeña contribución es muy apreciada. 🙏
 
+**Digital Pendulum es y siempre será gratuito y de código abierto.** ¡Las donaciones son completamente voluntarias! ❤️
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
 
 💡 **¿Prefieres otros métodos?** Puedes usar:

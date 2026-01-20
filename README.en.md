@@ -160,6 +160,8 @@ Useful to verify: language, volume, chime, correct TTS operation
 
 Do you like this project? If you find it useful, offer me a virtual coffee to support future developments! Every small contribution is greatly appreciated. 🙏
 
+**Digital Pendulum is and will always remain free and open source.** Donations are completely voluntary! ❤️
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
 
 💡 **Prefer other methods?** You can use:
