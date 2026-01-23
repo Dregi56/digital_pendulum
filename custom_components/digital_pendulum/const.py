@@ -72,6 +72,10 @@ PRESET_CHIMES = {
         "name": "Ding Dong P",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/pendulum-clock-ding-dong-2.mp3"
     },
+    "bell-grave": {
+        "name": "Bell Grave",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/bell-grave.mp3"
+    },
     "custom": {
         "name": "Custom (use custom path)",
         "url": ""
