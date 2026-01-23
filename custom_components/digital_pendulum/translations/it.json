@@ -9,11 +9,11 @@
           "start_hour": "Ora di inizio",
           "end_hour": "Ora di fine",
           "enabled": "Abilitato",
-          "use_chime": "Usa suono campanella",
+          "use_chime": "Usa suono campana",
           "custom_chime_path": "Percorso suono personalizzato (opzionale)"
         },
         "data_description": {
-          "custom_chime_path": "Es: www/sounds/campanella.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per suono predefinito)"
+          "custom_chime_path": "Es: www/sounds/campana.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per suono predefinito)"
         }
       }
     }
@@ -27,11 +27,11 @@
           "player_device": "Dispositivo Alexa",
           "start_hour": "Ora di inizio",
           "end_hour": "Ora di fine",
-          "use_chime": "Usa suono campanella",
+          "use_chime": "Usa suono campana",
           "custom_chime_path": "Percorso suono personalizzato (opzionale)"
         },
         "data_description": {
-          "custom_chime_path": "Es: www/sounds/campanella.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per suono predefinito)"
+          "custom_chime_path": "Es: www/sounds/campana.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per suono predefinito)"
         }
       }
     }

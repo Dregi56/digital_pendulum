@@ -93,7 +93,7 @@ Esempi di annunci:
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 en punto |
 
-## 🔔 Chime (campanella iniziale)
+## 🔔 Chime (campana iniziale)
 
 Se l’opzione use_chime è attiva:
 - viene inviato un announce vuoto
@@ -110,7 +110,7 @@ Questo crea un effetto simile a un vero pendolo 🎶.
 | start_hour | Ora di inizio funzionamento |
 | end_hour | Ora di fine funzionamento |
 | player | Dispositivo Alexa target |
-| use_chime | Attiva/disattiva la campanella |
+| use_chime | Attiva/disattiva la campana |
 
 Valori di default:
 
