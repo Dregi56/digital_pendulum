@@ -34,7 +34,7 @@ Utilizzando un dispositivo Alexa come speaker, il sistema:
 - 🌍 parla automaticamente nella lingua impostata in Home Assistant  
 - ⏰ funziona solo in una fascia oraria configurabile 
 - 🔔 può riprodurre un suono personalizzato (di default suono 'announce' (chime) prima dell’annuncio
--   
+- 🏰 può riprodurre la melodia di westminster alle ore 12  
 
 Il risultato è un effetto elegante e discreto, ideale per casa o ufficio.
 
