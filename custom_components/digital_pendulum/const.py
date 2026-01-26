@@ -34,17 +34,37 @@ PRESET_CHIMES = {
         "name": "Simple Bell",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/simple-bell.mp3"
     },
-    "gong": {
-        "name": "Gong",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/gong.mp3"
+    "bell-grave": {
+        "name": "Bell Grave",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/bell-grave.mp3"
     },
-    "doorbell": {
-        "name": "Doorbell",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/doorbell.mp3"
+    "bells-bong": {
+        "name": "Bells Bong",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/bells-bong.mp3"
     },
-    "wind-chimes": {
-        "name": "Wind Chimes",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/wind-chimes.mp3"
+    "bell_med": {
+        "name": "Bell Med",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/bell_med_.mp3"
+    },
+    "church-bell-distant": {
+        "name": "Church Bell Distant",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/church-bell-distant.mp3"
+    },
+    "church-bell_la": {
+        "name": "Church Bell La",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/church-bell_la.mp3"
+    },
+    "church-clock-strikes": {
+        "name": "Church Clock Strikes",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/church-clock-strikes.mp3"
+    },
+    "clock-bell-chimes": {
+        "name": "Clock Bell Chimes",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/clock-bell-chimes.mp3"
+    },
+    "clock-strikes": {
+        "name": "Clock Strikes",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/clock-strikes.mp3"
     },
     "westminster": {
         "name": "Westminster",
