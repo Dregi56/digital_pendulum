@@ -9,72 +9,46 @@ CONF_PLAYER_DEVICE = "player_device"
 CONF_USE_CHIME = "use_chime"
 CONF_CUSTOM_CHIME_PATH = "custom_chime_path"
 CONF_PRESET_CHIME = "preset_chime"
+CONF_TOWER_CLOCK = "tower_clock"
 
 DEFAULT_START_HOUR = 8
 DEFAULT_END_HOUR = 22
 DEFAULT_USE_CHIME = True
 DEFAULT_CUSTOM_CHIME_PATH = ""
 DEFAULT_PRESET_CHIME = "church-bell"
+DEFAULT_TOWER_CLOCK = False
 
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
 
-#----- Lista suoni predefiniti  ------
+# Lista suoni predefiniti
 PRESET_CHIMES = {
     "church-bell": {
         "name": "Church Bell",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/church-bell.mp3"
     },
-    "church-bell_la": {
-        "name": "Church Bell_la",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/church-bell_la.mp3"
+    "clock-chime": {
+        "name": "Clock Chime",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/clock-chime.mp3"
     },
-    "church-bell-distant": {
-        "name": "Church Bell Distant",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/church-bell-distant.mp3"
+    "simple-bell": {
+        "name": "Simple Bell",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/simple-bell.mp3"
     },
-    "church-clock-strikes": {
-        "name": "Church-Clock-Strikes",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/church-clock-strikes.mp3"
+    "gong": {
+        "name": "Gong",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/gong.mp3"
     },
-    "clock-bell-chimes": {
-        "name": "Clock-Bell-Chimes",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/clock-bell-chimes.mp3"
+    "doorbell": {
+        "name": "Doorbell",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/doorbell.mp3"
     },
-    "clock-strikes": {
-        "name": "Clock Strikes",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/clock-strikes.mp3"
-    },
-    "grandfather-clock-strikes": {
-        "name": "Grandfather Clock",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/grandfather-clock-strikes.mp3"
-    },
-    "grandfathers-clock-ding-dong": {
-        "name": "Clock Ding Dong",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/grandfathers-clock-ding-dong.mp3"
-    },
-    "oldclock": {
-        "name": "Oldclock",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/oldclock.mp3"
-    },
-    "oldclock-2": {
+    "wind-chimes": {
         "name": "Wind Chimes",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/oldclock-2.mp3"
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/wind-chimes.mp3"
     },
-    "oldclock-bell": {
-        "name": "Oldclock Bell",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/oldclock-bell.mp3"
-    },
-    "pendulum-clock-ding-dong": {
-        "name": "Pendulum Ding Dong",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/pendulum-clock-ding-dong.mp3"
-    },
-    "pendulum-clock-ding-dong-2": {
-        "name": "Ding Dong P",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/pendulum-clock-ding-dong-2.mp3"
-    },
-    "bell-grave": {
-        "name": "Bell Grave",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/bell-grave.mp3"
+    "westminster": {
+        "name": "Westminster",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/westminster.mp3"
     },
     "custom": {
         "name": "Custom (use custom path)",
