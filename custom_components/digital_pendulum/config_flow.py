@@ -77,12 +77,12 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     default=DEFAULT_ENABLED,
                 ): bool,
                 vol.Required(
-                    CONF_USE_CHIME,
-                    default=DEFAULT_USE_CHIME,
-                ): bool,
-                vol.Required(
                     CONF_TOWER_CLOCK,
                     default=DEFAULT_TOWER_CLOCK,
+                ): bool,
+                vol.Required(
+                    CONF_USE_CHIME,
+                    default=DEFAULT_USE_CHIME,
                 ): bool,
                 vol.Required(
                     CONF_PRESET_CHIME,
@@ -189,10 +189,7 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                         type=selector.TextSelectorType.TEXT,
                     )
                 ),
-                vol.Required(
-                    CONF_TOWER_CLOCK,
-                    default=current_options.get(CONF_TOWER_CLOCK, DEFAULT_TOWER_CLOCK),
-                ): bool,
+                
             }
         )
 
@@ -200,4 +197,5 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
             step_id="init",
             data_schema=schema,
         )
+
 
