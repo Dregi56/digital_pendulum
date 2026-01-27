@@ -16,7 +16,7 @@ Un péndulo digital parlante para Home Assistant
 [Deutsch](README.de.md) |
 [Français](README.fr.md) 
 <br>👉Este es el README en español. Usa el selector de idioma de arriba
-
+<br>
 > ⚠️ **Digital Pendulum es una integración exclusiva de HACS**
 <br> Requiere la integración **Alexa Media Player** instalada y en funcionamiento.
 
