@@ -46,6 +46,11 @@
       "test_announcement": {
         "name": "Test d'annonce"
       }
+    },
+    "binary_sensor": {
+      "status_warning": {
+        "name": "Alerte d'état"
+      }
     }
   },
   "services": {
@@ -60,4 +65,5 @@
     "hour_exact": "Il est {hour} heures pile",
     "hour_and_minutes": "Il est {hour} heures {minutes}"
   }
+
 }
