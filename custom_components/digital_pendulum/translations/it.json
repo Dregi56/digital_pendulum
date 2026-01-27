@@ -46,7 +46,7 @@
       "test_announcement": {
         "name": "Test Annuncio"
       }
-    }
+    },
     "binary_sensor": {
       "status_warning": {
         "name": "Avviso Stato"
@@ -67,3 +67,4 @@
   }
 
 }
+
