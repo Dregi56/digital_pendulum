@@ -100,7 +100,7 @@ Ejemplos de anuncios:
 | 🇬🇧 EN | 14:00 | It's 14 o'clock |
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
-| 🇪🇸 ES | 11:00 | Son las 11 en punto |
+| 🇪🇸 ES | 11:00 | Son las 11 |
 
 ## 🔔 Chime (campana inicial)
 
