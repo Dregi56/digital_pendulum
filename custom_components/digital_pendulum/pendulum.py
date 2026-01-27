@@ -2,7 +2,7 @@ import asyncio
 import os
 from datetime import datetime, timedelta
 
-from homeassistant.helpers.event import async_track_time_interval
+from homeassistant.helpers.event import async_track_time_change
 from homeassistant.util import dt as dt_util
 
 from .const import (
@@ -48,10 +48,11 @@ class DigitalPendulum:
         self._load_config()
 
     async def async_start(self):
-        self._unsub_timer = async_track_time_interval(
+        # Sincronizza il timer esattamente all'inizio di ogni minuto (secondo=0)
+        self._unsub_timer = async_track_time_change(
             self.hass,
             self._time_tick,
-            timedelta(minutes=1),
+            second=0,
         )
 
     async def async_stop(self):
