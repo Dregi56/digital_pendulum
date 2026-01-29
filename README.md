@@ -144,13 +144,12 @@ Which:
 Useful to verify: language, volume, chime, correct TTS operation
 
 ## 📦 Requirements
-
+> ⚠️ **Digital Pendulum is a HACS-only integration**
+> 
 - 🏠 Home Assistant
 - 🔊 Alexa Media Player installed and working
 - 📡 Alexa device configured as player
 
-> ⚠️ **Digital Pendulum is a HACS-only integration**
-<br> It requires the **Alexa Media Player** integration installed and working.
 
 ## 🎯 Ideal use
 
