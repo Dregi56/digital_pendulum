@@ -3,17 +3,19 @@
     "step": {
       "user": {
         "title": "Configurazione Digital Pendulum",
-        "description": "Il pendolo funzionerà tra l'orario di inizio e fine impostati",
+        "description": "Il pendolo funzionerà tra l'ora di inizio e fine impostate",
         "data": {
           "player_device": "Dispositivo Alexa",
-          "start_hour": "Ora di inizio",
-          "end_hour": "Ora di fine",
+          "start_hour": "Ora Inizio",
+          "end_hour": "Ora Fine",
           "enabled": "Abilitato",
-          "use_chime": "Usa suono campana",
-          "custom_chime_path": "Percorso suono personalizzato (opzionale)"
+          "tower_clock": "Orologio a Torre (Westminster alle 12:00)",
+          "use_chime": "Usa Suono Campana",
+          "preset_chime": "Suono Campana",
+          "custom_chime_path": "Percorso campana personalizzata (opzionale)"
         },
         "data_description": {
-          "custom_chime_path": "Es: www/sounds/campana.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per suono predefinito)"
+          "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)"
         }
       }
     }
@@ -22,16 +24,19 @@
     "step": {
       "init": {
         "title": "Opzioni Digital Pendulum",
-        "description": "Il pendolo funzionerà tra l'orario di inizio e fine impostati",
+        "description": "Il pendolo funzionerà tra l'ora di inizio e fine impostate",
         "data": {
           "player_device": "Dispositivo Alexa",
-          "start_hour": "Ora di inizio",
-          "end_hour": "Ora di fine",
-          "use_chime": "Usa suono campana",
-          "custom_chime_path": "Percorso suono personalizzato (opzionale)"
+          "start_hour": "Ora Inizio",
+          "end_hour": "Ora Fine",
+          "enabled": "Abilitato",
+          "tower_clock": "Orologio a Torre (Westminster alle 12:00)",
+          "use_chime": "Usa Suono Campana",
+          "preset_chime": "Suono Campana",
+          "custom_chime_path": "Percorso campana personalizzata (opzionale)"
         },
         "data_description": {
-          "custom_chime_path": "Es: www/sounds/campana.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per suono predefinito)"
+          "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)"
         }
       }
     }
@@ -56,11 +61,7 @@
   "services": {
     "test_announcement": {
       "name": "Test Annuncio",
-      "description": "Testa l'annuncio dell'ora immediatamente"
+      "description": "Testa immediatamente l'annuncio dell'ora"
     }
-  },
+  }
 }
-
-
-
-
