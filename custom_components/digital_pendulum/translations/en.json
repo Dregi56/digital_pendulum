@@ -9,7 +9,9 @@
           "start_hour": "Start Hour",
           "end_hour": "End Hour",
           "enabled": "Enabled",
+          "tower_clock": "Tower Clock (Westminster at 12:00)",
           "use_chime": "Use Chime Sound",
+          "preset_chime": "Chime Sound",
           "custom_chime_path": "Custom chime path (optional)"
         },
         "data_description": {
@@ -27,7 +29,10 @@
           "player_device": "Alexa Device",
           "start_hour": "Start Hour",
           "end_hour": "End Hour",
+          "enabled": "Enabled",
+          "tower_clock": "Tower Clock (Westminster at 12:00)",
           "use_chime": "Use Chime Sound",
+          "preset_chime": "Chime Sound",
           "custom_chime_path": "Custom chime path (optional)"
         },
         "data_description": {
@@ -60,6 +65,3 @@
     }
   }
 }
-
-
-
