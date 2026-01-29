@@ -59,10 +59,8 @@
       "description": "Testet die Zeitansage sofort"
     }
   },
-  "time_announcements": {
-    "hour": "Es ist {hour} Uhr",
-    "hour_and_half": "Es ist {hour} Uhr dreißig",
-    "hour_exact": "Es ist genau {hour} Uhr",
-    "hour_and_minutes": "Es ist {hour} Uhr {minutes}"
-  }
+  "time_announcements_hour": "Es ist {hour} Uhr",
+  "time_announcements_hour_and_half": "Es ist {hour} Uhr dreißig",
+  "time_announcements_hour_exact": "Es ist genau {hour} Uhr",
+  "time_announcements_hour_and_minutes": "Es ist {hour} Uhr {minutes}"
 }
