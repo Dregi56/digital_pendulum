@@ -59,9 +59,6 @@
       "description": "Tester l'annonce de l'heure immédiatement"
     }
   },
-  "time_announcements_hour": "Il est {hour} heures",
-  "time_announcements_hour_and_half": "Il est {hour} heures trente",
-  "time_announcements_hour_exact": "Il est {hour} heures pile",
-  "time_announcements_hour_and_minutes": "Il est {hour} heures {minutes}"
 }
+
 
