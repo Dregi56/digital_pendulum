@@ -6,14 +6,16 @@
         "description": "El péndulo funcionará entre las horas de inicio y fin establecidas",
         "data": {
           "player_device": "Dispositivo Alexa",
-          "start_hour": "Hora de inicio",
-          "end_hour": "Hora de fin",
-          "enabled": "Activado",
-          "use_chime": "Usar sonido de campana",
-          "custom_chime_path": "Ruta del sonido personalizado (opcional)"
+          "start_hour": "Hora de Inicio",
+          "end_hour": "Hora de Fin",
+          "enabled": "Habilitado",
+          "tower_clock": "Reloj de Torre (Westminster a las 12:00)",
+          "use_chime": "Usar Sonido de Campana",
+          "preset_chime": "Sonido de Campana",
+          "custom_chime_path": "Ruta de campana personalizada (opcional)"
         },
         "data_description": {
-          "custom_chime_path": "Ej: www/sounds/campana.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para sonido predeterminado)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
         }
       }
     }
@@ -25,13 +27,16 @@
         "description": "El péndulo funcionará entre las horas de inicio y fin establecidas",
         "data": {
           "player_device": "Dispositivo Alexa",
-          "start_hour": "Hora de inicio",
-          "end_hour": "Hora de fin",
-          "use_chime": "Usar sonido de campana",
-          "custom_chime_path": "Ruta del sonido personalizado (opcional)"
+          "start_hour": "Hora de Inicio",
+          "end_hour": "Hora de Fin",
+          "enabled": "Habilitado",
+          "tower_clock": "Reloj de Torre (Westminster a las 12:00)",
+          "use_chime": "Usar Sonido de Campana",
+          "preset_chime": "Sonido de Campana",
+          "custom_chime_path": "Ruta de campana personalizada (opcional)"
         },
         "data_description": {
-          "custom_chime_path": "Ej: www/sounds/campana.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para sonido predeterminado)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
         }
       }
     }
@@ -39,24 +44,24 @@
   "entity": {
     "switch": {
       "digital_pendulum_enabled": {
-        "name": "Activado"
+        "name": "Habilitado"
       }
     },
     "button": {
       "test_announcement": {
-        "name": "Probar anuncio"
+        "name": "Prueba de Anuncio"
       }
     },
     "binary_sensor": {
       "status_warning": {
-        "name": "Alerta de estado"
+        "name": "Advertencia de Estado"
       }
     }
   },
   "services": {
     "test_announcement": {
-      "name": "Probar anuncio",
-      "description": "Probar el anuncio de la hora inmediatamente"
+      "name": "Prueba de Anuncio",
+      "description": "Prueba el anuncio de la hora inmediatamente"
     }
-  },
+  }
 }
