@@ -145,7 +145,7 @@ Utile per verificare: lingua, volume, chime, corretto funzionamento del TTS
 ## 📦 Requisiti
 
 > ⚠️ **Digital Pendulum è un’integrazione HACS-only** 
-
+>
 - 🏠 Home Assistant
 - 🔊 Alexa Media Player installato e funzionante
 - 📡 Dispositivo Alexa configurato come player
