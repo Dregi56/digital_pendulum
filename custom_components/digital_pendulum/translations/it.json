@@ -9,6 +9,8 @@
           "start_hour": "Ora Inizio",
           "end_hour": "Ora Fine",
           "enabled": "Abilitato",
+          "announce_half_hours": "Annuncia le mezz'ore",
+          "voice_announcement": "Annuncio vocale",
           "tower_clock": "Orologio a Torre (Westminster alle 12:00)",
           "use_chime": "Usa Suono Campana",
           "preset_chime": "Suono Campana",
@@ -65,3 +67,4 @@
     }
   }
 }
+
