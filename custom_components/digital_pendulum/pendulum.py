@@ -83,7 +83,10 @@ class DigitalPendulum:
         if minute == 30 and not self.announce_half_hours:
             return
         
-        if not (self.start_hour <= hour <= self.end_hour):
+        # Controllo orario migliorato: se siamo all'ora di fine, accetta solo i minuti :00
+        if hour < self.start_hour or hour > self.end_hour:
+            return
+        if hour == self.end_hour and minute > 0:
             return
         
         text = self._build_text(hour, minute)
