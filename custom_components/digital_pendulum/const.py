@@ -10,6 +10,14 @@ CONF_USE_CHIME = "use_chime"
 CONF_CUSTOM_CHIME_PATH = "custom_chime_path"
 CONF_PRESET_CHIME = "preset_chime"
 CONF_TOWER_CLOCK = "tower_clock"
+CONF_ANNOUNCE_HALF_HOURS = "announce_half_hours"
+CONF_VOICE_ANNOUNCEMENT = "voice_announcement"
+
+# Defaults
+DEFAULT_ANNOUNCE_HALF_HOURS = True
+DEFAULT_VOICE_ANNOUNCEMENT = True
+DEFAULT_ANNOUNCE_HALF_HOURS = True
+DEFAULT_VOICE_ANNOUNCEMENT = True
 
 DEFAULT_START_HOUR = 8
 DEFAULT_END_HOUR = 22
@@ -75,3 +83,4 @@ PRESET_CHIMES = {
         "url": ""
     }
 }
+
