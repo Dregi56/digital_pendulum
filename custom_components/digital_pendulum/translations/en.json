@@ -9,6 +9,8 @@
           "start_hour": "Start Hour",
           "end_hour": "End Hour",
           "enabled": "Enabled",
+          "announce_half_hours": "Announce Half Hours",
+          "voice_announcement": "Voice Announcement",
           "tower_clock": "Tower Clock (Westminster at 12:00)",
           "use_chime": "Use Chime Sound",
           "preset_chime": "Chime Sound",
@@ -30,6 +32,8 @@
           "start_hour": "Start Hour",
           "end_hour": "End Hour",
           "enabled": "Enabled",
+          "announce_half_hours": "Announce Half Hours",
+          "voice_announcement": "Voice Announcement",
           "tower_clock": "Tower Clock (Westminster at 12:00)",
           "use_chime": "Use Chime Sound",
           "preset_chime": "Chime Sound",
@@ -65,3 +69,4 @@
     }
   }
 }
+
