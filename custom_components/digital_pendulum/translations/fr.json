@@ -9,6 +9,8 @@
           "start_hour": "Heure de Début",
           "end_hour": "Heure de Fin",
           "enabled": "Activé",
+          "announce_half_hours": "Annoncer les demi-heures",
+          "voice_announcement": "Annonce vocale",
           "tower_clock": "Horloge de Tour (Westminster à 12h00)",
           "use_chime": "Utiliser le Carillon",
           "preset_chime": "Son de Carillon",
@@ -30,6 +32,8 @@
           "start_hour": "Heure de Début",
           "end_hour": "Heure de Fin",
           "enabled": "Activé",
+          "announce_half_hours": "Annoncer les demi-heures",
+          "voice_announcement": "Annonce vocale",
           "tower_clock": "Horloge de Tour (Westminster à 12h00)",
           "use_chime": "Utiliser le Carillon",
           "preset_chime": "Son de Carillon",
@@ -65,3 +69,4 @@
     }
   }
 }
+
