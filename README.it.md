@@ -203,7 +203,3 @@ Ti piace questo progetto? Se lo trovi utile, offrimi un caffè virtuale per sost
 💡 **Preferisci altri metodi?** Puoi usare:
 
 [![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
-
-💡 **Preferisci altri metodi?** Puoi usare:
-
-[![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
