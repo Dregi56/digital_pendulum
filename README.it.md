@@ -167,6 +167,8 @@ Utile per verificare: lingua, volume, chime, corretto funzionamento del TTS
 
 ## 📦 Requisiti
 
+> ✨ **Disponibile su HACS** - installazione e aggiornamenti semplificati!
+
 - 🏠 Home Assistant 2024.1.0 o superiore
 - 🔊 Alexa Media Player installato e funzionante
 - 📡 Dispositivo Alexa configurato come player
