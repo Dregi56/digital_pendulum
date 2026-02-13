@@ -10,6 +10,8 @@ CONF_PRESET_CHIME = "preset_chime"
 CONF_TOWER_CLOCK = "tower_clock"
 CONF_ANNOUNCE_HALF_HOURS = "announce_half_hours"
 CONF_VOICE_ANNOUNCEMENT = "voice_announcement"
+CONF_USE_VOLUME_CONTROL = "use_volume_control"
+CONF_ANNOUNCEMENT_VOLUME = "announcement_volume"
 
 # Defaults
 DEFAULT_ANNOUNCE_HALF_HOURS = True
@@ -21,6 +23,8 @@ DEFAULT_CUSTOM_CHIME_PATH = ""
 DEFAULT_PRESET_CHIME = "church-bell"
 DEFAULT_TOWER_CLOCK = False
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
+DEFAULT_USE_VOLUME_CONTROL = False
+DEFAULT_ANNOUNCEMENT_VOLUME = 0.5
 
 # Lista suoni predefiniti
 PRESET_CHIMES = {
@@ -77,3 +81,4 @@ PRESET_CHIMES = {
         "url": ""
     }
 }
+
