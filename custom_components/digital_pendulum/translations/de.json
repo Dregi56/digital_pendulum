@@ -14,9 +14,7 @@
           "tower_clock": "Turmuhr (Westminster um 12:00)",
           "use_chime": "Glockenton verwenden",
           "preset_chime": "Glockenton",
-          "custom_chime_path": "Benutzerdefinierter Glockenpfad (optional)",
-          "use_volume_control": "Lautstärkeregelung aktivieren",
-          "announcement_volume": "Ansagelautstärke"
+          "custom_chime_path": "Benutzerdefinierter Glockenpfad (optional)"
         },
         "data_description": {
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
@@ -40,9 +38,7 @@
           "tower_clock": "Turmuhr (Westminster um 12:00)",
           "use_chime": "Glockenton verwenden",
           "preset_chime": "Glockenton",
-          "custom_chime_path": "Benutzerdefinierter Glockenpfad (optional)",
-          "use_volume_control": "Lautstärkeregelung aktivieren",
-          "announcement_volume": "Ansagelautstärke"
+          "custom_chime_path": "Benutzerdefinierter Glockenpfad (optional)"
         },
         "data_description": {
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
