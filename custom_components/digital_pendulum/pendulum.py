@@ -196,7 +196,7 @@ class DigitalPendulum:
         """Set volume on media player without beep."""
         try:
             await self.hass.services.async_call(
-                "media_player",
+                "alexa_media",
                 "volume_set",
                 {
                     "entity_id": self.player,
@@ -357,3 +357,4 @@ class DigitalPendulum:
         
         # Usa la stessa logica di volume del metodo _speak
         await self._speak(text, hour, minute)
+
