@@ -27,14 +27,13 @@ from .const import (
     DOMAIN, 
 )
 
-
 class DigitalPendulum:
     def __init__(self, hass, entry):
         self.hass = hass
         self.entry = entry
         self._unsub_timer = None
         self._load_config()
-
+    
     def _load_config(self):
         """Load configuration from entry (options or data)."""
         config = self.entry.options or self.entry.data
@@ -50,11 +49,11 @@ class DigitalPendulum:
         # NUOVE OPZIONI
         self.announce_half_hours = config.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS)
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
-
+    
     def update_config(self):
         """Update configuration when options change."""
         self._load_config()
-
+    
     async def async_start(self):
         # Sincronizza il timer esattamente all'inizio di ogni minuto (secondo=0)
         self._unsub_timer = async_track_time_change(
@@ -62,12 +61,12 @@ class DigitalPendulum:
             self._time_tick,
             second=0,
         )
-
+    
     async def async_stop(self):
         if self._unsub_timer:
             self._unsub_timer()
             self._unsub_timer = None
-
+    
     async def _time_tick(self, now: datetime):
         if not self.enabled:
             return
@@ -92,7 +91,7 @@ class DigitalPendulum:
         
         text = self._build_text(hour, minute)
         await self._speak(text, hour, minute)
-
+    
     def _build_text(self, hour: int, minute: int) -> str:
         """Build announcement text using translations."""
         language = self.hass.config.language
@@ -123,7 +122,7 @@ class DigitalPendulum:
             return translations.get("hour_and_half", f"Ore {hour} e trenta").format(hour=hour)
         else:
             return translations.get("hour", f"Ore {hour}").format(hour=hour)
-
+    
     def _get_translations(self, language: str) -> dict:
         """Get translations for the given language."""
         fallback = {
@@ -167,7 +166,7 @@ class DigitalPendulum:
         }
         
         return translations.get(language, fallback)
-
+    
     async def _play_chime(self, hour: int = None, minute: int = None):
         """Play chime sound (custom, default, or Westminster for tower clock)."""
         # Se tower_clock è attivo e sono le 12:00, suona Westminster
@@ -181,7 +180,7 @@ class DigitalPendulum:
             await self._play_custom_chime()
         else:
             await self._play_default_chime()
-
+    
     async def _play_default_chime(self):
         """Play default announce chime."""
         await self.hass.services.async_call(
@@ -189,12 +188,16 @@ class DigitalPendulum:
             "alexa_media",
             {
                 "target": self.player,
-                "data": {"type": "announce"},
+                "data": {
+                    "type": "announce",
+                    "method": "speak",
+                    "volume": 0.5  # VOLUME SPERIMENTALE (cambia questo valore da 0.0 a 1.0)
+                },
                 "message": " ",
             },
             blocking=False,
         )
-
+    
     async def _play_westminster(self):
         """Play Westminster chime for tower clock at 12:00."""
         westminster_url = "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/westminster.mp3"
@@ -206,14 +209,18 @@ class DigitalPendulum:
                 {
                     "target": self.player,
                     "message": f"<audio src='{westminster_url}'/>",
-                    "data": {"type": "tts"},
+                    "data": {
+                        "type": "tts",
+                        "method": "speak",
+                        "volume": 0.5  # VOLUME SPERIMENTALE
+                    },
                 },
                 blocking=False,
             )
         except Exception:
             # Se fallisce, usa suono default
             await self._play_default_chime()
-
+    
     async def _play_custom_chime(self):
         """Play custom audio file or preset chime."""
         
@@ -243,14 +250,18 @@ class DigitalPendulum:
                 {
                     "target": self.player,
                     "message": f"<audio src='{chime_url}'/>",
-                    "data": {"type": "tts"},
+                    "data": {
+                        "type": "tts",
+                        "method": "speak",
+                        "volume": 0.5  # VOLUME SPERIMENTALE
+                    },
                 },
                 blocking=False,
             )
         except Exception:
             # Se fallisce, usa suono default
             await self._play_default_chime()
-
+    
     async def _speak(self, text: str, hour: int = None, minute: int = None):
         if self.use_chime:
             await self._play_chime(hour, minute)
@@ -264,11 +275,15 @@ class DigitalPendulum:
                 {
                     "target": self.player,
                     "message": text,
-                    "data": {"type": "tts"},
+                    "data": {
+                        "type": "tts",
+                        "method": "speak",
+                        "volume": 0.5  # VOLUME SPERIMENTALE (cambia questo valore da 0.0 a 1.0)
+                    },
                 },
                 blocking=False,
             )
-
+    
     async def async_test_announcement(self):
         """Test immediato dell'annuncio con orario completo."""
         now = dt_util.now()
@@ -296,3 +311,4 @@ class DigitalPendulum:
                 text = translations.get("hour_and_minutes", f"Ore {hour} e {minute:02d}").format(hour=hour, minutes=f"{minute:02d}")
         
         await self._speak(text)
+
