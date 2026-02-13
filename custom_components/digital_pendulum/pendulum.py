@@ -191,7 +191,7 @@ class DigitalPendulum:
                 "data": {
                     "type": "announce",
                     "method": "speak",
-                    "volume": 0.5  # VOLUME SPERIMENTALE (cambia questo valore da 0.0 a 1.0)
+                    "volume": 0.7  # VOLUME SPERIMENTALE (cambia questo valore da 0.0 a 1.0)
                 },
                 "message": " ",
             },
@@ -212,7 +212,7 @@ class DigitalPendulum:
                     "data": {
                         "type": "tts",
                         "method": "speak",
-                        "volume": 0.5  # VOLUME SPERIMENTALE
+                        "volume": 0.7  # VOLUME SPERIMENTALE
                     },
                 },
                 blocking=False,
@@ -253,7 +253,7 @@ class DigitalPendulum:
                     "data": {
                         "type": "tts",
                         "method": "speak",
-                        "volume": 0.5  # VOLUME SPERIMENTALE
+                        "volume": 0.7  # VOLUME SPERIMENTALE
                     },
                 },
                 blocking=False,
@@ -278,7 +278,7 @@ class DigitalPendulum:
                     "data": {
                         "type": "tts",
                         "method": "speak",
-                        "volume": 0.5  # VOLUME SPERIMENTALE (cambia questo valore da 0.0 a 1.0)
+                        "volume": 0.7  # VOLUME SPERIMENTALE (cambia questo valore da 0.0 a 1.0)
                     },
                 },
                 blocking=False,
@@ -311,4 +311,5 @@ class DigitalPendulum:
                 text = translations.get("hour_and_minutes", f"Ore {hour} e {minute:02d}").format(hour=hour, minutes=f"{minute:02d}")
         
         await self._speak(text)
+
 
