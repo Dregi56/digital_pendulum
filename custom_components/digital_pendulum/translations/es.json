@@ -14,10 +14,13 @@
           "tower_clock": "Reloj de Torre (Westminster a las 12:00)",
           "use_chime": "Usar Sonido de Campana",
           "preset_chime": "Sonido de Campana",
-          "custom_chime_path": "Ruta de campana personalizada (opcional)"
+          "custom_chime_path": "Ruta de campana personalizada (opcional)",
+          "use_volume_control": "Activar control de volumen",
+          "announcement_volume": "Volumen de anuncios"
         },
         "data_description": {
-          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
+          "announcement_volume": "Nivel de volumen usado durante los anuncios (0.0 - 1.0)"
         }
       }
     }
@@ -37,10 +40,13 @@
           "tower_clock": "Reloj de Torre (Westminster a las 12:00)",
           "use_chime": "Usar Sonido de Campana",
           "preset_chime": "Sonido de Campana",
-          "custom_chime_path": "Ruta de campana personalizada (opcional)"
+          "custom_chime_path": "Ruta de campana personalizada (opcional)",
+          "use_volume_control": "Activar control de volumen",
+          "announcement_volume": "Volumen de anuncios"
         },
         "data_description": {
-          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
+          "announcement_volume": "Nivel de volumen usado durante los anuncios (0.0 - 1.0)"
         }
       }
     }
