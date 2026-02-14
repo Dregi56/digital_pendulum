@@ -26,9 +26,7 @@ from .const import (
 )
 
 # ==========================================================
-# 🔥 TEST VOLUME (per ora hardcoded qui)
-# None = usa volume attuale
-# 0.0 → 1.0 = volume temporaneo senza beep
+# 🔥 VOLUME TEMPORANEO TEST (0.0 → 1.0)
 # ==========================================================
 TEST_TTS_VOLUME = 0.7
 # ==========================================================
@@ -55,9 +53,8 @@ class DigitalPendulum:
         self.announce_half_hours = config.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS)
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
 
-        # 🔥 volume temporaneo per test
+        # 🔥 Volume temporaneo (test)
         self.tts_volume = TEST_TTS_VOLUME
-
         if self.tts_volume is not None:
             self.tts_volume = max(0.0, min(1.0, float(self.tts_volume)))
 
@@ -103,7 +100,9 @@ class DigitalPendulum:
 
         if language == "it":
             hour_text = "una" if hour == 1 else str(hour)
-            return f"Ore {hour_text}" if minute == 0 else f"Ore {hour_text} e trenta"
+            if minute == 0:
+                return f"Ore {hour_text}"
+            return f"Ore {hour_text} e trenta"
 
         if minute == 30:
             return f"It's {hour} thirty"
@@ -114,7 +113,7 @@ class DigitalPendulum:
             "notify",
             "alexa_media",
             {
-                "target": self.player,
+                "target": [self.player],
                 "data": {"type": "announce"},
                 "message": " ",
             },
@@ -129,17 +128,22 @@ class DigitalPendulum:
         if not self.voice_announcement:
             return
 
-        data_payload = {"type": "tts"}
+        data_payload = {
+            "type": "tts",
+        }
 
-        # 🔥 VOLUME SENZA BEEP
+        # 🔥 Volume temporaneo senza beep
         if self.tts_volume is not None:
             data_payload["volume"] = self.tts_volume
+
+        # Garantiamo che target sia lista
+        targets = [self.player] if isinstance(self.player, str) else self.player
 
         await self.hass.services.async_call(
             "notify",
             "alexa_media",
             {
-                "target": self.player,
+                "target": targets,
                 "message": text,
                 "data": data_payload,
             },
@@ -152,5 +156,7 @@ class DigitalPendulum:
         minute = now.minute
         text = f"Ora sono le {hour}:{minute:02d}"
         await self._speak(text)
+
+
 
 
