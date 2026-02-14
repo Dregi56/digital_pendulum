@@ -1,5 +1,6 @@
 import asyncio
 import os
+import logging  # ← QUESTA RIGA per log
 from datetime import datetime, timedelta
 from homeassistant.helpers.event import async_track_time_change
 from homeassistant.util import dt as dt_util
@@ -263,26 +264,34 @@ class DigitalPendulum:
             await self._play_default_chime()
     
     async def _speak(self, text: str, hour: int = None, minute: int = None):
-        if self.use_chime:
-            await self._play_chime(hour, minute)
-            await asyncio.sleep(1.2)
+    if self.use_chime:
+        await self._play_chime(hour, minute)
+        await asyncio.sleep(1.2)
+    
+    # NUOVA LOGICA: Annuncio vocale solo se abilitato
+    if self.voice_announcement:
+        service_data = {
+            "target": self.player,
+            "message": text,
+            "data": {
+                "type": "tts",
+                "method": "speak",
+                "volume": 0.4
+            },
+        }
         
-        # NUOVA LOGICA: Annuncio vocale solo se abilitato
-        if self.voice_announcement:
-            await self.hass.services.async_call(
-                "notify",
-                "alexa_media",
-                {
-                    "target": self.player,
-                    "message": text,
-                    "data": {
-                        "type": "tts",
-                        "method": "speak",
-                        "volume": 70  # VOLUME SPERIMENTALE (cambia questo valore da 0.0 a 1.0)
-                    },
-                },
-                blocking=False,
-            )
+        # LOG PER DEBUG
+        import logging
+        _LOGGER = logging.getLogger(__name__)
+        _LOGGER.warning(f"DIGITAL PENDULUM - Chiamata notify con dati: {service_data}")
+        _LOGGER.warning(f"DIGITAL PENDULUM - Player: {self.player}")
+        
+        await self.hass.services.async_call(
+            "notify",
+            "alexa_media",
+            service_data,
+            blocking=False,
+        )
     
     async def async_test_announcement(self):
         """Test immediato dell'annuncio con orario completo."""
@@ -311,6 +320,7 @@ class DigitalPendulum:
                 text = translations.get("hour_and_minutes", f"Ore {hour} e {minute:02d}").format(hour=hour, minutes=f"{minute:02d}")
         
         await self._speak(text)
+
 
 
 
