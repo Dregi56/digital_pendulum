@@ -14,6 +14,7 @@ Un pendolo digitale parlante per Home Assistant
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
 [Français](README.fr.md) 
+
 <br>👉This is the Italian README. Use the language selector above
 
 
@@ -88,19 +89,14 @@ fallback automatico in italiano
 
 ## ⚙️ Come funziona
 
-Il cuore del sistema è la classe:
+Digital Pendulum si sincronizza con l'orologio di sistema e controlla automaticamente ogni minuto se è il momento di fare un annuncio.
 
-class DigitalPendulum
+**Quando scatta l'annuncio:**
+1. 🔔 Riproduce la campana scelta (se abilitata)
+2. ⏱️ Attende 1,2 secondi
+3. 🗣️ Alexa pronuncia l'ora nella lingua di Home Assistant (se abilitata)
 
-che:
-- si registra a un timer interno sincronizzato (ogni minuto allo :00 dei secondi)
-- controlla:
-  - se l'integrazione è abilitata
-  - se l'orario rientra nella fascia consentita
-  - se il minuto è :00 (o :30 se abilitato)
-- costruisce il testo parlato in base alla lingua
-- riproduce la campana (se abilitata)
-- invia l'annuncio vocale al dispositivo Alexa (se abilitato)
+Tutto avviene automaticamente senza bisogno di configurare automazioni!
 
 ## 🗣️ Gestione delle lingue
 
@@ -156,8 +152,6 @@ Valori di default:
 
 È disponibile un metodo di test manuale:
 
-async_test_announcement()
-
 Che:
 - legge l'orario attuale
 - genera una frase completa (es. "Ore 15 e 42")
@@ -173,6 +167,29 @@ Utile per verificare: lingua, volume, chime, corretto funzionamento del TTS
 - 🔊 Alexa Media Player installato e funzionante
 - 📡 Dispositivo Alexa configurato come player
 
+## 💾 Installazione
+
+### Via HACS (consigliato)
+
+1. Apri **HACS** nel menu laterale
+2. Vai su **Integrazioni**
+3. Cerca **"Digital Pendulum"**
+4. Clicca **Scarica**
+5. **Riavvia Home Assistant**
+6. Vai in **Impostazioni** → **Dispositivi e Servizi** → **Aggiungi Integrazione**
+7. Cerca **"Digital Pendulum"**
+8. Segui la configurazione guidata
+
+### Installazione manuale
+
+1. Scarica l'ultima release da [GitHub](https://github.com/Dregi56/digital_pendulum/releases)
+2. Estrai i file
+3. Copia la cartella `digital_pendulum` in `config/custom_components/`
+4. Riavvia Home Assistant
+5. Vai in **Impostazioni** → **Dispositivi e Servizi** → **Aggiungi Integrazione**
+6. Cerca **"Digital Pendulum"**
+7. Segui la configurazione guidata
+
 
 ## 🎯 Uso ideale
 
@@ -181,6 +198,53 @@ Utile per verificare: lingua, volume, chime, corretto funzionamento del TTS
 - ✔️ Ambienti comuni
 - ✔️ Effetto "pendolo moderno"
 - ✔️ Promemoria temporale non invasivo
+
+## 🔧 Risoluzione problemi
+
+### Errore "Cannot find EU skill" o problemi Alexa
+
+Problema di **Alexa Media Player**, non di Digital Pendulum.
+
+**Soluzione rapida:**
+1. Impostazioni → Dispositivi e servizi → Alexa Media Player
+2. Tre puntini → Ricarica
+3. Se non funziona: disinstalla e reinstalla Alexa Media Player
+
+---
+
+### Lingua sbagliata
+
+Digital Pendulum usa automaticamente la lingua di Home Assistant.
+
+1. Verifica: Impostazioni → Sistema → Generali → Lingua
+2. Lingue supportate: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+3. Dopo aver cambiato lingua, riavvia Home Assistant
+
+---
+
+### Nessun annuncio
+
+**Controlla:**
+- Integrazione abilitata? (Interruttore ON)
+- Sei nell'orario configurato? (default 8:00-22:00)
+- Dispositivo Alexa online?
+- Prova il pulsante "Test"
+
+---
+
+### Solo campana o solo voce
+
+- **Solo campana:** Attiva "Voice announcement"
+- **Solo voce:** Attiva "Use chime"
+
+---
+
+### Westminster non suona alle 12
+
+- Verifica che "Tower Clock" sia attivo
+- Funziona **solo alle 12:00** (mezzogiorno, non mezzanotte)
+
+---
 
 ## 🚀 Possibili evoluzioni future
 
