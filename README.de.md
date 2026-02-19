@@ -1,7 +1,7 @@
 # 🕰️ Digital Pendulum
 
-Ein sprechendes digitales Pendel für Home Assistant  
-<br>**Autor:** Egidio Ziggiotto (Dregi56)  E-Mail: [dregi@cyberservices.com](mailto:dregi@cyberservices.com)
+Ein sprechendes digitales Pendel für Home Assistant
+<br>**Autor:** Egidio Ziggiotto (Dregi56)  e-mail: [dregi@cyberservices.com](mailto:dregi@cyberservices.com)
 
 [![HACS](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://hacs.xyz/)
 [![Version](https://img.shields.io/github/v/release/Dregi56/digital_pendulum)](https://github.com/Dregi56/digital_pendulum/releases)
@@ -14,28 +14,29 @@ Ein sprechendes digitales Pendel für Home Assistant
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
 [Français](README.fr.md) 
-<br>👉Dies ist die deutsche README. Verwenden Sie oben die Sprachauswahl
+
+<br>👉Dies ist die Deutsche README. Verwenden Sie den Sprachauswähler oben
 
 
-## ❤️ Gefällt dir Digital Pendulum?
+## ❤️ Gefällt Ihnen Digital Pendulum?
 
-Wenn du es nützlich findest, hinterlasse bitte einen ⭐ auf GitHub:  
+Wenn Sie es nützlich finden, hinterlassen Sie bitte ein ⭐ auf GitHub:  
 👉 **https://github.com/Dregi56/digital_pendulum**
 <br>Danke.
 
 ## 📌 Beschreibung
 
-Digital Pendulum ist eine benutzerdefinierte Integration für Home Assistant, die die Uhrzeit per Sprache ankündigt – wie ein digitales Pendel 🕰️.
+Digital Pendulum ist eine benutzerdefinierte Integration für Home Assistant, die die Uhrzeit akustisch ansagt, genau wie ein digitales Pendel 🕰️.
 
 
-Mit einem Alexa-Gerät als Lautsprecher:
+Mit einem Alexa-Gerät als Lautsprecher kann das System:
 
-- 📢 kündigt die Uhrzeit jede Stunde und/oder jede halbe Stunde an (konfigurierbar)
-- 🌍 spricht automatisch in der in Home Assistant eingestellten Sprache  
-- ⏰ funktioniert nur in einem konfigurierbaren Zeitfenster 
-- 🔔 kann vor der Ansage einen benutzerdefinierten Ton abspielen
-- 🔕 kann die Sprachausgabe deaktivieren (nur Glocke)
-- 🏰 kann um 12 Uhr die Westminster-Melodie abspielen
+- 📢 die Uhrzeit jede Stunde und/oder jede halbe Stunde ansagen (konfigurierbar)
+- 🌍 automatisch in der in Home Assistant eingestellten Sprache sprechen  
+- ⏰ nur innerhalb eines konfigurierbaren Zeitfensters funktionieren 
+- 🔔 vor der Ansage einen benutzerdefinierten Ton abspielen
+- 🔕 die Sprachansage deaktivieren (nur Glocke)
+- 🏰 um 12 Uhr die Westminster-Melodie abspielen
 
 Das Ergebnis ist ein eleganter und dezenter Effekt, ideal für Zuhause oder Büro.
 
@@ -43,72 +44,67 @@ Das Ergebnis ist ein eleganter und dezenter Effekt, ideal für Zuhause oder Bür
 
 ### 🕑 Automatische Zeitansage
 - jede Stunde (xx:00)
-- jede halbe Stunde (xx:30) – optional
+- jede halbe Stunde (xx:30) - optional
 
-### 🌐 Automatische Mehrsprachenunterstützung
+### 🌐 Automatische Mehrsprachunterstützung
 - Italienisch 🇮🇹
 - Englisch 🇬🇧
 - Französisch 🇫🇷
-- Deutsch 🇩🇪 (mit korrekter Behandlung von „halb“)
+- Deutsch 🇩🇪 (mit korrekter Behandlung von "halb")
 - Spanisch 🇪🇸
 
 automatischer Fallback auf Italienisch
 
 ### ⏱️ Konfigurierbares Zeitfenster
-- z. B. nur von 8:00 bis 22:00
+- z.B. nur von 8:00 bis 22:00 Uhr
 
 ###  🔔 Optionale Glocke
-- 🎵 12 vordefinierte Sounds zur Auswahl
-- 🎶 Möglichkeit zur Verwendung einer eigenen Audiodatei
-- 🔕 Alexa-Benachrichtigungssound „announce“ (Standard)
+- 🎵 12 voreingestellte Töne zur Auswahl
+- 🎶 Möglichkeit, eine benutzerdefinierte Audiodatei zu verwenden
+- 🔕 Alexa "announce" Benachrichtigungston (Standard)
 
 ### 🧪 Testfunktion
-- zum sofortigen Testen der Ansage
+- um die Ansage sofort auszuprobieren
 
 ### 🎯 Verhalten
 
 **Glocke (Chime):**
-- **Verfügbare Presets**: 12 Sounds wie church-bell, simple-bell, clock-chime usw.
-- **Benutzerdefinierter Sound**: „custom“ auswählen und den Pfad zur Audiodatei eingeben
-- **Standard**: Alexa-„announce“-Sound (wenn nichts ausgewählt ist)
-- **Deaktiviert**: „use_chime“ deaktivieren, um keinen Ton vor der Ansage abzuspielen
+- **Verfügbare Presets**: 12 Töne darunter church-bell, simple-bell, clock-chime, usw.
+- **Benutzerdefinierter Ton**: Wählen Sie "custom" und geben Sie den Pfad Ihrer Audiodatei ein
+- **Standard**: Alexa "announce" Ton (wenn Sie nichts auswählen)
+- **Deaktiviert**: Deaktivieren Sie "use_chime" für keinen Ton vor der Ansage
 
 **Westminster-Melodie (Tower Clock):**
-- Separate Option „tower_clock“
+- Separate Option "tower_clock"
 - Spielt **nur um 12:00 Uhr** (Mittag)
-- Ersetzt zu dieser Zeit die normale Glocke
+- Ersetzt den normalen Chime zu dieser Zeit
 
 **Sprachansage:**
-- **Aktiviert** (Standard): Alexa spricht die Uhrzeit nach der Glocke
-- **Deaktiviert**: Nur Glocke, keine Sprachansage
+- **Aktiviert** (Standard): Alexa spricht die Uhrzeit nach der Glocke aus
+- **Deaktiviert**: Nur Glockenton, keine Sprachansage
 
 **Halbstunden-Ansagen:**
 - **Aktiviert** (Standard): Ansagen um :00 und :30
 - **Deaktiviert**: Nur Ansagen um :00
 
-## ⚙️ Funktionsweise
+## ⚙️ Wie es funktioniert
 
-Das Herzstück des Systems ist die Klasse:
+Digital Pendulum synchronisiert sich mit der Systemuhr und prüft automatisch jede Minute, ob es Zeit für eine Ansage ist.
 
-class DigitalPendulum
+**Wenn die Ansage ausgelöst wird:**
+1. 🔔 Spielt die gewählte Glocke ab (wenn aktiviert)
+2. ⏱️ Wartet 1,2 Sekunden
+3. 🗣️ Alexa spricht die Uhrzeit in der Home Assistant Sprache (wenn aktiviert)
 
-die:
-- sich bei einem synchronisierten internen Timer registriert (jede Minute bei Sekunde :00)
-- überprüft:
-  - ob die Integration aktiviert ist
-  - ob die Uhrzeit im erlaubten Zeitfenster liegt
-  - ob die Minute :00 ist (oder :30, wenn aktiviert)
-- den gesprochenen Text anhand der Sprache erstellt
-- die Glocke abspielt (falls aktiviert)
-- die Sprachansage an das Alexa-Gerät sendet (falls aktiviert)
+Alles geschieht automatisch, ohne Automationen konfigurieren zu müssen!
 
 ## 🗣️ Sprachverwaltung
 
-Die Sprache wird automatisch erkannt über:
+Die Sprache wird automatisch erkannt von:
 
 self.hass.config.language
 
-Beispiele für Ansagen:
+Ansage-Beispiele:
 
 | Sprache | Uhrzeit | Ansage |
 |------|------|--------|
@@ -118,29 +114,29 @@ Beispiele für Ansagen:
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
 
-## 🔔 Glocke (Startsignal)
+## 🔔 Chime (Eröffnungsglocke)
 
-Wenn die Option use_chime aktiviert ist:
-- wird der Alexa-Benachrichtigungston oder der gewählte Sound abgespielt
-- das System wartet 1,2 Sekunden
-- die Sprachansage startet (falls aktiviert)
+Wenn die Option use_chime aktiv ist:
+- wird der Alexa-Benachrichtigungston oder der gewählte Ton abgespielt
+- wartet das System 1,2 Sekunden
+- beginnt die Sprachansage (wenn aktiviert)
 
-Dies erzeugt einen Effekt ähnlich einer echten Pendeluhr 🎶.
+Dies erzeugt einen Effekt ähnlich einem echten Pendel 🎶.
 
 ## 🧩 Konfigurationsoptionen
 
 | Option | Beschreibung |
 |------|------------|
 | player | Ziel-Alexa-Gerät |
-| start_hour | Startzeit |
-| end_hour | Endzeit |
-| enabled | Pendel aktivieren/deaktivieren |
-| announce_half_hours | Halbstunden-Ansagen aktivieren (sonst nur stündlich) |
-| voice_announcement | Sprachansage aktivieren/deaktivieren |
-| tower_clock | Westminster-Melodie um 12:00 aktivieren |
-| use_chime | Glocke vor der Ansage aktivieren/deaktivieren |
-| preset_chime | Auswahl des Glockensounds (12 Presets verfügbar) |
-| custom_chime_path | Pfad für benutzerdefinierten Glockensound |
+| start_hour | Betriebsstartzeit |
+| end_hour | Betriebsendzeit |
+| enabled | Aktiviert/deaktiviert das Pendel |
+| announce_half_hours | Aktiviert Ansagen jede halbe Stunde (sonst nur jede Stunde) |
+| voice_announcement | Aktiviert/deaktiviert die Sprachzeitansage |
+| tower_clock | Aktiviert Westminster-Melodie um 12:00 Uhr |
+| use_chime | Aktiviert/deaktiviert die Glocke vor der Ansage |
+| preset_chime | Wahl des Glockenklangs (12 verfügbare Presets) |
+| custom_chime_path | Pfad für benutzerdefinierten Glockenklang |
 
 Standardwerte:
 
@@ -156,51 +152,120 @@ Standardwerte:
 
 Eine manuelle Testmethode ist verfügbar:
 
-async_test_announcement()
-
-Die:
+Diese Funktion:
 - die aktuelle Uhrzeit liest
-- einen vollständigen Satz generiert (z. B. „Ore 15 e 42“)
-- ihn sofort auf dem Alexa-Gerät abspielt  
+- einen vollständigen Satz generiert (z.B. "Es ist 15 Uhr 42")
+- ihn sofort auf dem Alexa-Gerät wiedergibt  
 
-Nützlich zur Überprüfung von: Sprache, Lautstärke, Glocke, korrekter TTS-Funktion
+Nützlich zur Überprüfung von: Sprache, Lautstärke, Chime, korrektem TTS-Betrieb
 
-## 📦 Anforderungen
+## 📦 Voraussetzungen
 
-> ✨ **Verfügbar über HACS** – vereinfachte Installation und Updates!
+> ✨ **Verfügbar auf HACS** - vereinfachte Installation und Updates!
 
 - 🏠 Home Assistant 2024.1.0 oder höher
 - 🔊 Alexa Media Player installiert und funktionsfähig
 - 📡 Alexa-Gerät als Player konfiguriert
 
+## 💾 Installation
 
-## 🎯 Ideale Nutzung
+### Über HACS (empfohlen)
 
-- ✔️ Smarte Häuser
+1. Öffnen Sie **HACS** im Seitenmenü
+2. Gehen Sie zu **Integrationen**
+3. Suchen Sie nach **"Digital Pendulum"**
+4. Klicken Sie auf **Herunterladen**
+5. **Home Assistant neu starten**
+6. Gehen Sie zu **Einstellungen** → **Geräte und Dienste** → **Integration hinzufügen**
+7. Suchen Sie nach **"Digital Pendulum"**
+8. Folgen Sie der geführten Konfiguration
+
+### Manuelle Installation
+
+1. Laden Sie die neueste Version von [GitHub](https://github.com/Dregi56/digital_pendulum/releases) herunter
+2. Extrahieren Sie die Dateien
+3. Kopieren Sie den Ordner `digital_pendulum` nach `config/custom_components/`
+4. Home Assistant neu starten
+5. Gehen Sie zu **Einstellungen** → **Geräte und Dienste** → **Integration hinzufügen**
+6. Suchen Sie nach **"Digital Pendulum"**
+7. Folgen Sie der geführten Konfiguration
+
+
+## 🎯 Ideale Verwendung
+
+- ✔️ Smart Homes
 - ✔️ Büros
 - ✔️ Gemeinschaftsbereiche
-- ✔️ „Modernes Pendel“-Effekt
-- ✔️ Unaufdringliche Zeit-Erinnerung
+- ✔️ Effekt "modernes Pendel"
+- ✔️ Nicht-invasive Zeiterinnerung
 
-## 🚀 Mögliche zukünftige Erweiterungen
+## 🔧 Fehlerbehebung
+
+### Fehler "Cannot find EU skill" oder Alexa-Probleme
+
+Problem mit **Alexa Media Player**, nicht mit Digital Pendulum.
+
+**Schnelle Lösung:**
+1. Einstellungen → Geräte und Dienste → Alexa Media Player
+2. Drei Punkte → Neu laden
+3. Falls es nicht funktioniert: Alexa Media Player deinstallieren und neu installieren
+
+---
+
+### Falsche Sprache
+
+Digital Pendulum verwendet automatisch die Home Assistant Sprache.
+
+1. Überprüfen Sie: Einstellungen → System → Allgemein → Sprache
+2. Unterstützte Sprachen: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+3. Nach dem Ändern der Sprache Home Assistant neu starten
+
+---
+
+### Keine Ansagen
+
+**Überprüfen Sie:**
+- Integration aktiviert? (Schalter EIN)
+- Befinden Sie sich im konfigurierten Zeitfenster? (Standard 8:00-22:00 Uhr)
+- Alexa-Gerät online?
+- Versuchen Sie die Schaltfläche "Test"
+
+---
+
+### Nur Glocke oder nur Stimme
+
+- **Nur Glocke:** Aktivieren Sie "Voice announcement"
+- **Nur Stimme:** Aktivieren Sie "Use chime"
+
+---
+
+### Westminster läutet nicht um 12 Uhr
+
+- Überprüfen Sie, ob "Tower Clock" aktiv ist
+- Funktioniert **nur um 12:00 Uhr** (Mittag, nicht Mitternacht)
+
+---
+
+## 🚀 Mögliche zukünftige Entwicklungen
 
 - ⏳ Ansagen alle 15 Minuten
 - 🔇 Automatische Nachtlautstärke
 - 🗓️ Tagesansage
-- 📣 Unterstützung weiterer TTS-Systeme
+- 📣 Unterstützung anderer TTS
 
 ---
+
 ## 
 
-## ☕ Unterstütze das Projekt
+## ☕ Unterstützen Sie das Projekt
 
-Gefällt dir dieses Projekt? Wenn du es nützlich findest, spendiere mir einen virtuellen Kaffee, um zukünftige Entwicklungen zu unterstützen! Jeder noch so kleine Beitrag wird sehr geschätzt. 🙏
+Gefällt Ihnen dieses Projekt? Wenn Sie es nützlich finden, spendieren Sie mir einen virtuellen Kaffee, um zukünftige Entwicklungen zu unterstützen! Jeder kleine Beitrag wird sehr geschätzt. 🙏
 
 **Digital Pendulum ist und bleibt immer kostenlos und Open Source.** Spenden sind vollkommen freiwillig! ❤️
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
 
-💡 **Bevorzugst du andere Methoden?** Du kannst verwenden:
+💡 **Bevorzugen Sie andere Methoden?** Sie können verwenden:
 
 [![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)

@@ -1,6 +1,6 @@
 # 🕰️ Digital Pendulum
 
-A talking digital pendulum for Home Assistant  
+A talking digital pendulum for Home Assistant
 <br>**Author:** Egidio Ziggiotto (Dregi56)  e-mail: [dregi@cyberservices.com](mailto:dregi@cyberservices.com)
 
 [![HACS](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://hacs.xyz/)
@@ -14,7 +14,8 @@ A talking digital pendulum for Home Assistant
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
 [Français](README.fr.md) 
-<br>👉This is the English README. Use the language selector above 
+
+<br>👉This is the English README. Use the language selector above
 
 
 ## ❤️ Do you like Digital Pendulum?
@@ -25,17 +26,17 @@ If you find it useful, consider leaving a ⭐ on GitHub:
 
 ## 📌 Description
 
-Digital Pendulum is a custom integration for Home Assistant that announces the time vocally, just like a digital pendulum clock 🕰️.
+Digital Pendulum is a custom integration for Home Assistant that vocally announces the time, just like a digital pendulum 🕰️.
 
 
 Using an Alexa device as a speaker, the system:
 
 - 📢 announces the time every hour and/or every half hour (configurable)
 - 🌍 automatically speaks in the language set in Home Assistant  
-- ⏰ works only within a configurable time range 
+- ⏰ only works within a configurable time slot 
 - 🔔 can play a custom sound before the announcement
-- 🔕 can disable voice announcements (chime only)
-- 🏰 can play the Westminster melody at 12 o'clock
+- 🔕 can disable the voice announcement (bell only)
+- 🏰 can play the Westminster chime at 12 o'clock
 
 The result is an elegant and discreet effect, ideal for home or office.
 
@@ -54,23 +55,23 @@ The result is an elegant and discreet effect, ideal for home or office.
 
 automatic fallback to Italian
 
-### ⏱️ Configurable time range
+### ⏱️ Configurable time slot
 - e.g. only from 8:00 to 22:00
 
-###  🔔 Optional chime
-- 🎵 12 predefined sounds to choose from
-- 🎶 ability to use a custom audio file
+###  🔔 Optional bell
+- 🎵 12 preset sounds to choose from
+- 🎶 option to use a custom audio file
 - 🔕 Alexa "announce" notification sound (default)
 
 ### 🧪 Test function
-- to immediately test the announcement
+- to immediately try the announcement
 
-### 🎯 Behavior
+### 🎯 Behaviour
 
-**Chime:**
+**Bell (Chime):**
 - **Available presets**: 12 sounds including church-bell, simple-bell, clock-chime, etc.
-- **Custom sound**: Select "custom" and enter the path to your audio file
-- **Default**: Alexa "announce" sound (if nothing is selected)
+- **Custom sound**: Select "custom" and enter the path of your audio file
+- **Default**: Alexa "announce" sound (if you select nothing)
 - **Disabled**: Disable "use_chime" for no sound before the announcement
 
 **Westminster Melody (Tower Clock):**
@@ -79,30 +80,25 @@ automatic fallback to Italian
 - Replaces the normal chime at that time
 
 **Voice announcement:**
-- **Enabled** (default): Alexa speaks the time after the chime
-- **Disabled**: Chime only, no voice announcement
+- **Enabled** (default): Alexa pronounces the time after the bell
+- **Disabled**: Bell sound only, no voice announcement
 
 **Half-hour announcements:**
 - **Enabled** (default): Announcements at :00 and :30
-- **Disabled**: Announcements only at :00
+- **Disabled**: Announcements at :00 only
 
 ## ⚙️ How it works
 
-The core of the system is the class:
+Digital Pendulum synchronises with the system clock and automatically checks every minute whether it is time to make an announcement.
 
-class DigitalPendulum
+**When the announcement triggers:**
+1. 🔔 Plays the chosen bell (if enabled)
+2. ⏱️ Waits 1.2 seconds
+3. 🗣️ Alexa pronounces the time in the Home Assistant language (if enabled)
 
-which:
-- registers itself to a synchronized internal timer (every minute at second :00)
-- checks:
-  - whether the integration is enabled
-  - whether the time is within the allowed range
-  - whether the minute is :00 (or :30 if enabled)
-- builds the spoken text based on the language
-- plays the chime (if enabled)
-- sends the voice announcement to the Alexa device (if enabled)
+Everything happens automatically without the need to configure automations!
 
-## 🗣️ Language management
+## 🗣️ Language handling
 
 The language is automatically detected from:
 
@@ -120,27 +116,27 @@ Announcement examples:
 
 ## 🔔 Chime (initial bell)
 
-If the use_chime option is enabled:
-- the Alexa notification sound or selected sound is played
+If the use_chime option is active:
+- the Alexa notification sound or the chosen sound is played
 - the system waits 1.2 seconds
 - the voice announcement starts (if enabled)
 
-This creates an effect similar to a real pendulum clock 🎶.
+This creates an effect similar to a real pendulum 🎶.
 
 ## 🧩 Configuration options
 
 | Option | Description |
 |------|------------|
 | player | Target Alexa device |
-| start_hour | Start time |
-| end_hour | End time |
-| enabled | Enable/disable the pendulum |
-| announce_half_hours | Enable half-hour announcements (otherwise hourly only) |
-| voice_announcement | Enable/disable voice time announcement |
-| tower_clock | Enable Westminster melody at 12:00 |
-| use_chime | Enable/disable chime before announcement |
-| preset_chime | Chime sound selection (12 presets available) |
-| custom_chime_path | Path for custom chime sound |
+| start_hour | Operating start time |
+| end_hour | Operating end time |
+| enabled | Enables/disables the pendulum |
+| announce_half_hours | Enables announcements every half hour (otherwise every hour only) |
+| voice_announcement | Enables/disables the voice time announcement |
+| tower_clock | Enables Westminster melody at 12:00 |
+| use_chime | Enables/disables the bell before the announcement |
+| preset_chime | Choice of bell sound (12 available presets) |
+| custom_chime_path | Path for custom bell sound |
 
 Default values:
 
@@ -152,15 +148,13 @@ Default values:
 - 🏰 tower_clock → False
 - ✅ enabled → True
 
-## 🧪 Instant test
+## 🧪 Immediate test
 
 A manual test method is available:
 
-async_test_announcement()
-
 Which:
 - reads the current time
-- generates a complete phrase (e.g. "Ore 15 e 42")
+- generates a complete sentence (e.g. "It's 15 hours and 42 minutes")
 - plays it immediately on the Alexa device  
 
 Useful to verify: language, volume, chime, correct TTS operation
@@ -169,9 +163,32 @@ Useful to verify: language, volume, chime, correct TTS operation
 
 > ✨ **Available on HACS** - simplified installation and updates!
 
-- 🏠 Home Assistant 2024.1.0 or later
+- 🏠 Home Assistant 2024.1.0 or higher
 - 🔊 Alexa Media Player installed and working
 - 📡 Alexa device configured as player
+
+## 💾 Installation
+
+### Via HACS (recommended)
+
+1. Open **HACS** in the side menu
+2. Go to **Integrations**
+3. Search for **"Digital Pendulum"**
+4. Click **Download**
+5. **Restart Home Assistant**
+6. Go to **Settings** → **Devices & Services** → **Add Integration**
+7. Search for **"Digital Pendulum"**
+8. Follow the guided configuration
+
+### Manual installation
+
+1. Download the latest release from [GitHub](https://github.com/Dregi56/digital_pendulum/releases)
+2. Extract the files
+3. Copy the `digital_pendulum` folder to `config/custom_components/`
+4. Restart Home Assistant
+5. Go to **Settings** → **Devices & Services** → **Add Integration**
+6. Search for **"Digital Pendulum"**
+7. Follow the guided configuration
 
 
 ## 🎯 Ideal use
@@ -180,7 +197,54 @@ Useful to verify: language, volume, chime, correct TTS operation
 - ✔️ Offices
 - ✔️ Common areas
 - ✔️ "Modern pendulum" effect
-- ✔️ Non-intrusive time reminder
+- ✔️ Non-invasive time reminder
+
+## 🔧 Troubleshooting
+
+### "Cannot find EU skill" error or Alexa issues
+
+**Alexa Media Player** problem, not Digital Pendulum.
+
+**Quick fix:**
+1. Settings → Devices and services → Alexa Media Player
+2. Three dots → Reload
+3. If it doesn't work: uninstall and reinstall Alexa Media Player
+
+---
+
+### Wrong language
+
+Digital Pendulum automatically uses the Home Assistant language.
+
+1. Check: Settings → System → General → Language
+2. Supported languages: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+3. After changing the language, restart Home Assistant
+
+---
+
+### No announcements
+
+**Check:**
+- Integration enabled? (Switch ON)
+- Are you within the configured time slot? (default 8:00-22:00)
+- Alexa device online?
+- Try the "Test" button
+
+---
+
+### Bell only or voice only
+
+- **Bell only:** Enable "Voice announcement"
+- **Voice only:** Enable "Use chime"
+
+---
+
+### Westminster doesn't play at 12
+
+- Check that "Tower Clock" is active
+- Works **only at 12:00** (noon, not midnight)
+
+---
 
 ## 🚀 Possible future developments
 
