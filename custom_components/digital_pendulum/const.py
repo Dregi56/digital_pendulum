@@ -28,13 +28,9 @@ PRESET_CHIMES = {
         "name": "Church Bell",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/church-bell.mp3"
     },
-    "clock-chime": {
-        "name": "Clock Chime",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/clock-chime.mp3"
-    },
-    "simple-bell": {
-        "name": "Simple Bell",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/simple-bell.mp3"
+    "chimes-silver": {
+        "name": "Chimes silver",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/chimes-silver.mp3"
     },
     "bell-grave": {
         "name": "Bell Grave",
@@ -44,9 +40,9 @@ PRESET_CHIMES = {
         "name": "Bells Bong",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/bells-bong.mp3"
     },
-    "bell_med": {
-        "name": "Bell Med",
-        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/bell_med_.mp3"
+    "bells-med": {
+        "name": "Bells Med",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/bells-med.mp3"
     },
     "church-bell-distant": {
         "name": "Church Bell Distant",
@@ -68,6 +64,14 @@ PRESET_CHIMES = {
         "name": "Clock Strikes",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/clock-strikes.mp3"
     },
+    "oldclock-bell": {
+        "name": "Oldclock Bell",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/oldclock-bell.mp3"
+    },
+    "grandfathers-ding-dong": {
+        "name": "Grandfathers ding dong",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/grandfathers-ding-dong.mp3"
+    },
     "westminster": {
         "name": "Westminster",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/westminster.mp3"
@@ -77,5 +81,7 @@ PRESET_CHIMES = {
         "url": ""
     }
 }
+
+
 
 
