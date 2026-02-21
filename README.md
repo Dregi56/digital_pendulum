@@ -285,4 +285,4 @@ Do you like this project? If you find it useful, buy me a virtual coffee to supp
 
 [![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
 
-[!paypal](https://www.paypal.com/donate/?business=TYNRWSF8NDMV4&no_recurring=1&item_name=Ti+ringrazio+di+sostenere+il+mio+progetto&currency_code=EUR)
+[![paypal](https://www.paypal.com/donate/?business=TYNRWSF8NDMV4&no_recurring=1&item_name=Ti+ringrazio+di+sostenere+il+mio+progetto&currency_code=EUR)
