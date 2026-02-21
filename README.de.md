@@ -159,6 +159,21 @@ Diese Funktion:
 
 Nützlich zur Überprüfung von: Sprache, Lautstärke, Chime, korrektem TTS-Betrieb
 
+## 🔍 Statussensor
+
+Digital Pendulum enthält einen Diagnosesensor:
+
+`binary_sensor.digital_pendulum_status_warning`
+
+**Zustände:**
+- ✅ **OFF** - Alles funktioniert einwandfrei
+- ⚠️ **ON** - Probleme erkannt (Integration deaktiviert, Alexa offline, usw.)
+
+**Verwendung:**
+- Dashboard-Überwachung
+- Automatisierungen für Benachrichtigungen
+- Schnelldiagnose
+
 ## 📦 Voraussetzungen
 
 > ✨ **Verfügbar auf HACS** - vereinfachte Installation und Updates!
