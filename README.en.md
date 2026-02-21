@@ -159,6 +159,22 @@ Which:
 
 Useful to verify: language, volume, chime, correct TTS operation
 
+## 🔍 Status Sensor
+
+Digital Pendulum includes a diagnostic sensor:
+
+`binary_sensor.digital_pendulum_status_warning`
+
+**States:**
+- ✅ **OFF** - Everything working correctly
+- ⚠️ **ON** - Issues detected (integration disabled, Alexa offline, etc.)
+
+**Uses:**
+- Dashboard monitoring
+- Notification automations
+- Quick diagnostics
+
+
 ## 📦 Requirements
 
 > ✨ **Available on HACS** - simplified installation and updates!
