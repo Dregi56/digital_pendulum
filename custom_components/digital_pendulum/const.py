@@ -24,7 +24,7 @@ DEFAULT_PRESET_CHIME = "church-bell"
 DEFAULT_TOWER_CLOCK = False
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
 
-# Lista player
+# Lista players
 PLAYER_TYPES = {
     "alexa": "Alexa (alexa_media_player)",
     "google": "Google Home / Assistant",
@@ -90,6 +90,7 @@ PRESET_CHIMES = {
         "url": ""
     }
 }
+
 
 
 
