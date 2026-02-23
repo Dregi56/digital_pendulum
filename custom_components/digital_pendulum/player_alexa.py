@@ -1,4 +1,4 @@
-from .base_player import BasePlayer
+from .player_base import BasePlayer
 
 class AlexaPlayer(BasePlayer):
     """Player per dispositivi Alexa tramite alexa_media_player."""
