@@ -5,16 +5,20 @@
         "title": "Digital Pendulum Setup",
         "description": "The pendulum will operate between the set start and end times",
         "data": {
-          "player_device": "Alexa Device",
+          "player_type": "Player Type",
+          "player_device": "Device",
           "start_hour": "Start Hour",
           "end_hour": "End Hour",
           "enabled": "Enabled",
+          "announce_half_hours": "Announce Half Hours",
+          "voice_announcement": "Voice Announcement",
           "tower_clock": "Tower Clock (Westminster at 12:00)",
           "use_chime": "Use Chime Sound",
           "preset_chime": "Chime Sound",
           "custom_chime_path": "Custom chime path (optional)"
         },
         "data_description": {
+          "player_type": "Select your device type (Alexa, Google Home, or Generic)",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)"
         }
       }
@@ -26,16 +30,20 @@
         "title": "Digital Pendulum Options",
         "description": "The pendulum will operate between the set start and end times",
         "data": {
-          "player_device": "Alexa Device",
+          "player_type": "Player Type",
+          "player_device": "Device",
           "start_hour": "Start Hour",
           "end_hour": "End Hour",
           "enabled": "Enabled",
+          "announce_half_hours": "Announce Half Hours",
+          "voice_announcement": "Voice Announcement",
           "tower_clock": "Tower Clock (Westminster at 12:00)",
           "use_chime": "Use Chime Sound",
           "preset_chime": "Chime Sound",
           "custom_chime_path": "Custom chime path (optional)"
         },
         "data_description": {
+          "player_type": "Select your device type (Alexa, Google Home, or Generic)",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)"
         }
       }
