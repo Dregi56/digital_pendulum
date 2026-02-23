@@ -10,6 +10,13 @@ CONF_PRESET_CHIME = "preset_chime"
 CONF_TOWER_CLOCK = "tower_clock"
 CONF_ANNOUNCE_HALF_HOURS = "announce_half_hours"
 CONF_VOICE_ANNOUNCEMENT = "voice_announcement"
+CONF_PLAYER_TYPE = "player_type"
+
+PLAYER_TYPES = {
+    "alexa": "Alexa (alexa_media_player)",
+    "google": "Google Home / Assistant",
+    "generic": "Generic (media_player)",
+}
 
 # Defaults
 DEFAULT_ANNOUNCE_HALF_HOURS = True
@@ -81,6 +88,7 @@ PRESET_CHIMES = {
         "url": ""
     }
 }
+
 
 
 
