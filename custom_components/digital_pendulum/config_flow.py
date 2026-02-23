@@ -7,6 +7,7 @@ from .const import (
     CONF_START_HOUR,
     CONF_END_HOUR,
     CONF_PLAYER_DEVICE,
+    CONF_PLAYER_TYPE,
     CONF_ENABLED,
     CONF_USE_CHIME,
     CONF_CUSTOM_CHIME_PATH,
@@ -24,6 +25,7 @@ from .const import (
     DEFAULT_ANNOUNCE_HALF_HOURS,
     DEFAULT_VOICE_ANNOUNCEMENT,
     PRESET_CHIMES,
+    PLAYER_TYPES,
 )
 
 class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -37,21 +39,36 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 data=user_input,
             )
 
-        # Crea lista opzioni per dropdown
+        # Lista opzioni chime
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
         ]
 
+        # Lista opzioni player type
+        player_type_options = [
+            selector.SelectOptionDict(value=key, label=label)
+            for key, label in PLAYER_TYPES.items()
+        ]
+
         schema = vol.Schema(
             {
+                # 0) Tipo di player
+                vol.Required(
+                    CONF_PLAYER_TYPE,
+                    default="alexa",
+                ): selector.SelectSelector(
+                    selector.SelectSelectorConfig(
+                        options=player_type_options,
+                        mode=selector.SelectSelectorMode.DROPDOWN,
+                    )
+                ),
                 # 1) Device
                 vol.Required(
                     CONF_PLAYER_DEVICE
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
                         domain="media_player",
-                        integration="alexa_media"
                     )
                 ),
                 # 2) Orario di lavoro
@@ -80,7 +97,7 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONF_ENABLED,
                     default=DEFAULT_ENABLED,
                 ): bool,
-                # 4) NUOVE OPZIONI - Annunci
+                # 4) Annunci
                 vol.Required(
                     CONF_ANNOUNCE_HALF_HOURS,
                     default=DEFAULT_ANNOUNCE_HALF_HOURS,
@@ -120,7 +137,6 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 ),
             }
         )
-
         return self.async_show_form(
             step_id="user",
             data_schema=schema,
@@ -147,14 +163,30 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
 
         current_options = self.entry.options or self.entry.data
 
-        # Crea lista opzioni per dropdown
+        # Lista opzioni chime
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
         ]
 
+        # Lista opzioni player type
+        player_type_options = [
+            selector.SelectOptionDict(value=key, label=label)
+            for key, label in PLAYER_TYPES.items()
+        ]
+
         schema = vol.Schema(
             {
+                # 0) Tipo di player
+                vol.Required(
+                    CONF_PLAYER_TYPE,
+                    default=current_options.get(CONF_PLAYER_TYPE, "alexa"),
+                ): selector.SelectSelector(
+                    selector.SelectSelectorConfig(
+                        options=player_type_options,
+                        mode=selector.SelectSelectorMode.DROPDOWN,
+                    )
+                ),
                 # 1) Device
                 vol.Required(
                     CONF_PLAYER_DEVICE,
@@ -162,7 +194,6 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
                         domain="media_player",
-                        integration="alexa_media"
                     )
                 ),
                 # 2) Orario di lavoro
@@ -191,7 +222,7 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                     CONF_ENABLED,
                     default=current_options.get(CONF_ENABLED, DEFAULT_ENABLED),
                 ): bool,
-                # 4) NUOVE OPZIONI - Annunci
+                # 4) Annunci
                 vol.Required(
                     CONF_ANNOUNCE_HALF_HOURS,
                     default=current_options.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS),
@@ -231,7 +262,6 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 ),
             }
         )
-
         return self.async_show_form(
             step_id="init",
             data_schema=schema,
