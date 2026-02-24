@@ -28,8 +28,7 @@ If you find it useful, consider leaving a ⭐ on GitHub:
 
 Digital Pendulum is a custom integration for Home Assistant that vocally announces the time, just like a digital pendulum 🕰️.
 
-
-Using an Alexa device as a speaker, the system:
+Using a compatible smart speaker as a player, the system:
 
 - 📢 announces the time every hour and/or every half hour (configurable)
 - 🌍 automatically speaks in the language set in Home Assistant  
@@ -39,6 +38,18 @@ Using an Alexa device as a speaker, the system:
 - 🏰 can play the Westminster chime at 12 o'clock
 
 The result is an elegant and discreet effect, ideal for home or office.
+
+## 🔊 Supported Devices
+
+Digital Pendulum supports three player types:
+
+| Type | Description | Requirement |
+|------|-------------|-------------|
+| **Alexa** | Amazon Echo devices | [alexa_media_player](https://github.com/custom-components/alexa_media_player) via HACS |
+| **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (native HA integration) |
+| **Generic** | Any other HA media_player device | TTS engine configured in HA (functionality may vary) |
+
+During setup you will be asked to select the player type first, then the specific device.
 
 ## ✨ Main features
 
@@ -61,7 +72,7 @@ automatic fallback to Italian
 ###  🔔 Optional bell
 - 🎵 12 preset sounds to choose from
 - 🎶 option to use a custom audio file
-- 🔕 Alexa "announce" notification sound (default)
+- 🔕 default notification sound (if nothing is selected)
 
 ### 🧪 Test function
 - to immediately try the announcement
@@ -71,7 +82,7 @@ automatic fallback to Italian
 **Bell (Chime):**
 - **Available presets**: 12 sounds including church-bell, simple-bell, clock-chime, etc.
 - **Custom sound**: Select "custom" and enter the path of your audio file
-- **Default**: Alexa "announce" sound (if you select nothing)
+- **Default**: notification sound (if you select nothing)
 - **Disabled**: Disable "use_chime" for no sound before the announcement
 
 **Westminster Melody (Tower Clock):**
@@ -80,7 +91,7 @@ automatic fallback to Italian
 - Replaces the normal chime at that time
 
 **Voice announcement:**
-- **Enabled** (default): Alexa pronounces the time after the bell
+- **Enabled** (default): the device pronounces the time after the bell
 - **Disabled**: Bell sound only, no voice announcement
 
 **Half-hour announcements:**
@@ -94,7 +105,7 @@ Digital Pendulum synchronises with the system clock and automatically checks eve
 **When the announcement triggers:**
 1. 🔔 Plays the chosen bell (if enabled)
 2. ⏱️ Waits 1.2 seconds
-3. 🗣️ Alexa pronounces the time in the Home Assistant language (if enabled)
+3. 🗣️ The device pronounces the time in the Home Assistant language (if enabled)
 
 Everything happens automatically without the need to configure automations!
 
@@ -117,7 +128,7 @@ Announcement examples:
 ## 🔔 Chime (initial bell)
 
 If the use_chime option is active:
-- the Alexa notification sound or the chosen sound is played
+- the notification sound or the chosen sound is played
 - the system waits 1.2 seconds
 - the voice announcement starts (if enabled)
 
@@ -127,7 +138,8 @@ This creates an effect similar to a real pendulum 🎶.
 
 | Option | Description |
 |------|------------|
-| player | Target Alexa device |
+| player_type | Type of player device (Alexa, Google Home, Generic) |
+| player | Target device |
 | start_hour | Operating start time |
 | end_hour | Operating end time |
 | enabled | Enables/disables the pendulum |
@@ -155,7 +167,7 @@ A manual test method is available:
 Which:
 - reads the current time
 - generates a complete sentence (e.g. "It's 15 hours and 42 minutes")
-- plays it immediately on the Alexa device  
+- plays it immediately on the selected device
 
 Useful to verify: language, volume, chime, correct TTS operation
 
@@ -167,7 +179,7 @@ Digital Pendulum includes a diagnostic sensor:
 
 **States:**
 - ✅ **OFF** - Everything working correctly
-- ⚠️ **ON** - Issues detected (integration disabled, Alexa offline, etc.)
+- ⚠️ **ON** - Issues detected (integration disabled, device offline, etc.)
 
 **Uses:**
 - Dashboard monitoring
@@ -179,8 +191,9 @@ Digital Pendulum includes a diagnostic sensor:
 > ✨ **Available on HACS** - simplified installation and updates!
 
 - 🏠 Home Assistant 2024.1.0 or higher
-- 🔊 Alexa Media Player installed and working
-- 📡 Alexa device configured as player
+- 🔊 A compatible media_player device (see [Supported Devices](#-supported-devices))
+- 📡 For Alexa: [alexa_media_player](https://github.com/custom-components/alexa_media_player) installed via HACS
+- 📡 For Google Home / Nest: Google Cast integration (native in HA)
 
 ## 💾 Installation
 
@@ -216,14 +229,24 @@ Digital Pendulum includes a diagnostic sensor:
 
 ## 🔧 Troubleshooting
 
-### "Cannot find EU skill" error or Alexa issues
+### Alexa issues or "Cannot find EU skill" error
 
-**Alexa Media Player** problem, not Digital Pendulum.
+**alexa_media_player** problem, not Digital Pendulum.
 
 **Quick fix:**
 1. Settings → Devices and services → Alexa Media Player
 2. Three dots → Reload
 3. If it doesn't work: uninstall and reinstall Alexa Media Player
+
+---
+
+### Google Home / Nest: no voice announcement
+
+Digital Pendulum uses the TTS engine configured in HA for Google devices.
+
+1. Check that a TTS engine is configured in HA (Settings → Voice assistants)
+2. Try the "Test" button to verify
+3. Check the HA log for TTS errors
 
 ---
 
@@ -242,7 +265,8 @@ Digital Pendulum automatically uses the Home Assistant language.
 **Check:**
 - Integration enabled? (Switch ON)
 - Are you within the configured time slot? (default 8:00-22:00)
-- Alexa device online?
+- Device online?
+- Correct player type selected? (Alexa, Google, Generic)
 - Try the "Test" button
 
 ---
@@ -266,11 +290,9 @@ Digital Pendulum automatically uses the Home Assistant language.
 - ⏳ Announcements every 15 minutes
 - 🔇 Automatic night volume
 - 🗓️ Day announcement
-- 📣 Support for other TTS
+- 📣 Support for additional TTS engines and players
 
 ---
-
-## 
 
 ## ☕ Support the project
 
@@ -280,6 +302,10 @@ Do you like this project? If you find it useful, buy me a virtual coffee to supp
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
+
+💡 **Prefer other methods?** You can use:
+
+[![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
 
 💡 **Prefer other methods?** You can use:
 
