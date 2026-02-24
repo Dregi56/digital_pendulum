@@ -159,6 +159,21 @@ Che:
 
 Utile per verificare: lingua, volume, chime, corretto funzionamento del TTS
 
+## 🔍 Sensore di stato
+
+Digital Pendulum include un sensore diagnostico:
+
+`binary_sensor.digital_pendulum_status_warning`
+
+**Stati:**
+- ✅ **OFF** - Tutto funziona correttamente
+- ⚠️ **ON** - Problemi rilevati (integrazione disabilitata, Alexa offline, ecc.)
+
+**Utilizzi:**
+- Monitoraggio dashboard
+- Automazioni per notifiche
+- Diagnostica rapida
+
 ## 📦 Requisiti
 
 > ✨ **Disponibile su HACS** - installazione e aggiornamenti semplificati!
@@ -265,6 +280,10 @@ Ti piace questo progetto? Se lo trovi utile, offrimi un caffè virtuale per sost
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
+
+💡 **Preferisci altri metodi?** Puoi usare:
+
+[![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
 
 💡 **Preferisci altri metodi?** Puoi usare:
 
