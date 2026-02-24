@@ -158,6 +158,21 @@ Qui:
 
 Utile pour vérifier: langue, volume, chime, bon fonctionnement du TTS
 
+## 🔍 Capteur d'état
+
+Digital Pendulum inclut un capteur de diagnostic :
+
+`binary_sensor.digital_pendulum_status_warning`
+
+**États :**
+- ✅ **OFF** - Tout fonctionne correctement
+- ⚠️ **ON** - Problèmes détectés (intégration désactivée, Alexa hors ligne, etc.)
+
+**Utilisations :**
+- Surveillance du tableau de bord
+- Automatisations pour notifications
+- Diagnostic rapide
+
 ## 📦 Prérequis
 
 > ✨ **Disponible sur HACS** - installation et mises à jour simplifiées!
