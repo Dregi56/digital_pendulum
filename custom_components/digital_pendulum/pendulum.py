@@ -39,7 +39,6 @@ def _create_player(hass, player_entity_id: str, player_type: str):
         # Fallback generico: usa AlexaPlayer
         return AlexaPlayer(hass, player_entity_id)
 
-
 class DigitalPendulum:
     def __init__(self, hass, entry):
         self.hass = hass
@@ -50,7 +49,6 @@ class DigitalPendulum:
     def _load_config(self):
         """Load configuration from entry (options or data)."""
         config = self.entry.options or self.entry.data
-
         self.start_hour = config.get(CONF_START_HOUR, DEFAULT_START_HOUR)
         self.end_hour = config.get(CONF_END_HOUR, DEFAULT_END_HOUR)
         self.player = config.get(CONF_PLAYER_DEVICE)
@@ -61,7 +59,6 @@ class DigitalPendulum:
         self.tower_clock = config.get(CONF_TOWER_CLOCK, DEFAULT_TOWER_CLOCK)
         self.announce_half_hours = config.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS)
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
-
         # Crea il player corretto in base al tipo scelto
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
@@ -69,6 +66,11 @@ class DigitalPendulum:
     def update_config(self):
         """Update configuration when options change."""
         self._load_config()
+
+    def _normalize_language(self) -> str:
+        """Normalize HA language code to 2-char ISO code (e.g. 'en-GB' -> 'en')."""
+        lang = self.hass.config.language or "en"
+        return lang[:2].lower()
 
     async def async_start(self):
         """Sincronizza il timer esattamente all'inizio di ogni minuto."""
@@ -86,44 +88,36 @@ class DigitalPendulum:
     async def _time_tick(self, now: datetime):
         if not self.enabled:
             return
-
         local_time = dt_util.as_local(now)
         hour = local_time.hour
         minute = local_time.minute
-
         if minute not in (0, 30):
             return
-
         # Salta le mezz'ore se disabilitate
         if minute == 30 and not self.announce_half_hours:
             return
-
         # Controllo orario
         if hour < self.start_hour or hour > self.end_hour:
             return
         if hour == self.end_hour and minute > 0:
             return
-
         text = self._build_text(hour, minute)
         await self._speak(text, hour, minute)
 
     def _build_text(self, hour: int, minute: int) -> str:
         """Build announcement text using translations."""
-        language = self.hass.config.language
+        language = self._normalize_language()
         translations = self._get_translations(language)
-
         # Gestione speciale per tedesco (halb = mezza)
         if language == "de" and minute == 30:
             next_hour = (hour + 1) % 24
             return translations.get("hour_and_half", "Es ist halb {next_hour}").format(next_hour=next_hour)
-
         # Gestione speciale per spagnolo (singolare per l'1)
         if language == "es" and (hour == 1 or hour == 13):
             if minute == 30:
                 return "Es la una y media"
             else:
                 return "Es la una"
-
         # Gestione speciale per italiano
         if language == "it":
             hour_text = "una" if hour == 1 else str(hour)
@@ -131,22 +125,20 @@ class DigitalPendulum:
                 return f"Ore {hour_text} e trenta"
             else:
                 return f"Ore {hour_text}"
-
         # Tutti gli altri casi (inglese, francese, ecc.)
         if minute == 30:
-            return translations.get("hour_and_half", f"Ore {hour} e trenta").format(hour=hour)
+            return translations.get("hour_and_half", "It's {hour} thirty").format(hour=hour)
         else:
-            return translations.get("hour", f"Ore {hour}").format(hour=hour)
+            return translations.get("hour", "It's {hour} o'clock").format(hour=hour)
 
     def _get_translations(self, language: str) -> dict:
         """Get translations for the given language."""
         fallback = {
-            "hour": "Ore {hour}",
-            "hour_and_half": "Ore {hour} e trenta",
-            "hour_exact": "Ore {hour} in punto",
-            "hour_and_minutes": "Ore {hour} e {minutes}"
+            "hour": "It's {hour} o'clock",
+            "hour_and_half": "It's {hour} thirty",
+            "hour_exact": "It's {hour} o'clock exactly",
+            "hour_and_minutes": "It's {hour} {minutes}"
         }
-
         translations = {
             "it": {
                 "hour": "Ore {hour}",
@@ -179,7 +171,6 @@ class DigitalPendulum:
                 "hour_and_minutes": "Son las {hour} y {minutes}"
             }
         }
-
         return translations.get(language, fallback)
 
     async def _play_chime(self, hour: int = None, minute: int = None):
@@ -189,18 +180,15 @@ class DigitalPendulum:
             westminster_url = PRESET_CHIMES["westminster"]["url"]
             await self._player.play_chime(westminster_url)
             return
-
         # Comportamento normale
         if self.preset_chime and self.preset_chime != "custom":
             chime_info = PRESET_CHIMES.get(self.preset_chime)
             if chime_info and chime_info["url"]:
                 await self._player.play_chime(chime_info["url"])
                 return
-
         elif self.preset_chime == "custom" and self.custom_chime_path and self.custom_chime_path.strip():
             await self._player.play_chime(self.custom_chime_path.strip())
             return
-
         # Fallback
         await self._player.play_default_chime()
 
@@ -208,7 +196,6 @@ class DigitalPendulum:
         if self.use_chime:
             await self._play_chime(hour, minute)
             await asyncio.sleep(1.2)
-
         if self.voice_announcement:
             await self._player.speak(text)
 
@@ -217,9 +204,7 @@ class DigitalPendulum:
         now = dt_util.now()
         hour = now.hour
         minute = now.minute
-
-        language = self.hass.config.language
-
+        language = self._normalize_language()
         if language == "it":
             hour_text = "una" if hour == 1 else str(hour)
             if minute == 0:
@@ -234,9 +219,9 @@ class DigitalPendulum:
         else:
             translations = self._get_translations(language)
             if minute == 0:
-                text = translations.get("hour_exact", f"Ore {hour} in punto").format(hour=hour)
+                text = translations.get("hour_exact", "It's {hour} o'clock exactly").format(hour=hour)
             else:
-                text = translations.get("hour_and_minutes", f"Ore {hour} e {minute:02d}").format(hour=hour, minutes=f"{minute:02d}")
-
+                text = translations.get("hour_and_minutes", "It's {hour} {minutes}").format(hour=hour, minutes=f"{minute:02d}")
         await self._speak(text)
+
 
