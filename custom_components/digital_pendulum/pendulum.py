@@ -26,8 +26,6 @@ from .const import (
     PRESET_CHIMES,
     DOMAIN, 
 )
-
-
 class DigitalPendulum:
     def __init__(self, hass, entry):
         self.hass = hass
@@ -47,7 +45,6 @@ class DigitalPendulum:
         self.preset_chime = config.get(CONF_PRESET_CHIME, DEFAULT_PRESET_CHIME)
         self.custom_chime_path = config.get(CONF_CUSTOM_CHIME_PATH, DEFAULT_CUSTOM_CHIME_PATH)
         self.tower_clock = config.get(CONF_TOWER_CLOCK, DEFAULT_TOWER_CLOCK)
-        # NUOVE OPZIONI
         self.announce_half_hours = config.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS)
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
 
@@ -55,8 +52,12 @@ class DigitalPendulum:
         """Update configuration when options change."""
         self._load_config()
 
+    def _normalize_language(self) -> str:
+        """Normalize HA language code to 2-char ISO code (e.g. 'en-GB' -> 'en')."""
+        lang = self.hass.config.language or "en"
+        return lang[:2].lower()
+
     async def async_start(self):
-        # Sincronizza il timer esattamente all'inizio di ogni minuto (secondo=0)
         self._unsub_timer = async_track_time_change(
             self.hass,
             self._time_tick,
@@ -80,11 +81,9 @@ class DigitalPendulum:
         if minute not in (0, 30):
             return
         
-        # NUOVA LOGICA: Salta le mezz'ore se disabilitate
         if minute == 30 and not self.announce_half_hours:
             return
         
-        # Controllo orario migliorato: se siamo all'ora di fine, accetta solo i minuti :00
         if hour < self.start_hour or hour > self.end_hour:
             return
         if hour == self.end_hour and minute > 0:
@@ -95,7 +94,7 @@ class DigitalPendulum:
 
     def _build_text(self, hour: int, minute: int) -> str:
         """Build announcement text using translations."""
-        language = self.hass.config.language
+        language = self._normalize_language()
         translations = self._get_translations(language)
         
         # Gestione speciale per tedesco (halb = mezza)
@@ -120,17 +119,17 @@ class DigitalPendulum:
         
         # Tutti gli altri casi (inglese, francese, ecc.)
         if minute == 30:
-            return translations.get("hour_and_half", f"Ore {hour} e trenta").format(hour=hour)
+            return translations.get("hour_and_half", "It's {hour} thirty").format(hour=hour)
         else:
-            return translations.get("hour", f"Ore {hour}").format(hour=hour)
+            return translations.get("hour", "It's {hour} o'clock").format(hour=hour)
 
     def _get_translations(self, language: str) -> dict:
         """Get translations for the given language."""
         fallback = {
-            "hour": "Ore {hour}",
-            "hour_and_half": "Ore {hour} e trenta",
-            "hour_exact": "Ore {hour} in punto",
-            "hour_and_minutes": "Ore {hour} e {minutes}"
+            "hour": "It's {hour} o'clock",
+            "hour_and_half": "It's {hour} thirty",
+            "hour_exact": "It's {hour} o'clock exactly",
+            "hour_and_minutes": "It's {hour} {minutes}"
         }
         
         translations = {
@@ -170,13 +169,10 @@ class DigitalPendulum:
 
     async def _play_chime(self, hour: int = None, minute: int = None):
         """Play chime sound (custom, default, or Westminster for tower clock)."""
-        # Se tower_clock è attivo e sono le 12:00, suona Westminster
         if self.tower_clock and hour == 12 and minute == 0:
             await self._play_westminster()
             return
         
-        # Altrimenti comportamento normale
-        # Determina se usare suono personalizzato o default
         if self.preset_chime or self.custom_chime_path:
             await self._play_custom_chime()
         else:
@@ -211,31 +207,24 @@ class DigitalPendulum:
                 blocking=False,
             )
         except Exception:
-            # Se fallisce, usa suono default
             await self._play_default_chime()
 
     async def _play_custom_chime(self):
         """Play custom audio file or preset chime."""
-        
-        # Determina quale URL usare
         chime_url = None
         
-        # Se ha selezionato un preset (non "custom")
         if self.preset_chime and self.preset_chime != "custom":
             chime_info = PRESET_CHIMES.get(self.preset_chime)
             if chime_info and chime_info["url"]:
                 chime_url = chime_info["url"]
         
-        # Altrimenti usa custom path se "custom" è selezionato
         elif self.preset_chime == "custom" and self.custom_chime_path and self.custom_chime_path.strip():
             chime_url = self.custom_chime_path.strip()
         
-        # Se non ha URL valido, usa default
         if not chime_url:
             await self._play_default_chime()
             return
         
-        # Riproduci tramite TTS con SSML (come nel tuo script)
         try:
             await self.hass.services.async_call(
                 "notify",
@@ -248,7 +237,6 @@ class DigitalPendulum:
                 blocking=False,
             )
         except Exception:
-            # Se fallisce, usa suono default
             await self._play_default_chime()
 
     async def _speak(self, text: str, hour: int = None, minute: int = None):
@@ -256,7 +244,6 @@ class DigitalPendulum:
             await self._play_chime(hour, minute)
             await asyncio.sleep(1.2)
         
-        # NUOVA LOGICA: Annuncio vocale solo se abilitato
         if self.voice_announcement:
             await self.hass.services.async_call(
                 "notify",
@@ -275,7 +262,7 @@ class DigitalPendulum:
         hour = now.hour
         minute = now.minute
         
-        language = self.hass.config.language
+        language = self._normalize_language()
         
         if language == "it":
             hour_text = "una" if hour == 1 else str(hour)
@@ -291,8 +278,9 @@ class DigitalPendulum:
         else:
             translations = self._get_translations(language)
             if minute == 0:
-                text = translations.get("hour_exact", f"Ore {hour} in punto").format(hour=hour)
+                text = translations.get("hour_exact", "It's {hour} o'clock exactly").format(hour=hour)
             else:
-                text = translations.get("hour_and_minutes", f"Ore {hour} e {minute:02d}").format(hour=hour, minutes=f"{minute:02d}")
+                text = translations.get("hour_and_minutes", "It's {hour} {minutes}").format(hour=hour, minutes=f"{minute:02d}")
         
         await self._speak(text)
+
