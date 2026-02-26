@@ -14,7 +14,7 @@ Un péndulo digital parlante para Home Assistant
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
 [Français](README.fr.md) |
-[Polski](README.pl.md) |
+[Polski](README.pl.md) 
 
 <br>👉Este es el README en Español. Usa el selector de idioma arriba
 
