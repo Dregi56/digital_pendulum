@@ -1,0 +1,71 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Konfigurace Digital Pendulum",
+        "description": "Kyvadlo bude fungovat mezi nastavenými hodinami začátku a konce",
+        "data": {
+          "player_device": "Přehrávací zařízení",
+          "start_hour": "Hodina začátku",
+          "end_hour": "Hodina konce",
+          "enabled": "Povoleno",
+          "announce_half_hours": "Oznamovat půlhodiny",
+          "voice_announcement": "Hlasové oznámení",
+          "tower_clock": "Věžní hodiny (Westminster ve 12:00)",
+          "use_chime": "Použít zvuk zvonu",
+          "preset_chime": "Zvuk zvonu",
+          "custom_chime_path": "Cesta k vlastnímu zvonu (volitelné)"
+        },
+        "data_description": {
+          "custom_chime_path": "Např.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechte prázdné pro výchozí)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Možnosti Digital Pendulum",
+        "description": "Kyvadlo bude fungovat mezi nastavenými hodinami začátku a konce",
+        "data": {
+          "player_device": "Přehrávací zařízení",
+          "start_hour": "Hodina začátku",
+          "end_hour": "Hodina konce",
+          "enabled": "Povoleno",
+          "announce_half_hours": "Oznamovat půlhodiny",
+          "voice_announcement": "Hlasové oznámení",
+          "tower_clock": "Věžní hodiny (Westminster ve 12:00)",
+          "use_chime": "Použít zvuk zvonu",
+          "preset_chime": "Zvuk zvonu",
+          "custom_chime_path": "Cesta k vlastnímu zvonu (volitelné)"
+        },
+        "data_description": {
+          "custom_chime_path": "Např.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechte prázdné pro výchozí)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "digital_pendulum_enabled": {
+        "name": "Povoleno"
+      }
+    },
+    "button": {
+      "test_announcement": {
+        "name": "Test oznámení"
+      }
+    },
+    "binary_sensor": {
+      "status_warning": {
+        "name": "Stavové upozornění"
+      }
+    }
+  },
+  "services": {
+    "test_announcement": {
+      "name": "Test oznámení",
+      "description": "Okamžitě otestuje oznámení hodiny"
+    }
+  }
+}
