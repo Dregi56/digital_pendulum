@@ -1,0 +1,71 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Konfiguracja Digital Pendulum",
+        "description": "Wahadło będzie działać między ustawionymi godzinami początku i końca",
+        "data": {
+          "player_device": "Urządzenie odtwarzacza",
+          "start_hour": "Godzina rozpoczęcia",
+          "end_hour": "Godzina zakończenia",
+          "enabled": "Włączone",
+          "announce_half_hours": "Ogłaszaj półgodziny",
+          "voice_announcement": "Ogłoszenie głosowe",
+          "tower_clock": "Zegar wieżowy (Westminster o 12:00)",
+          "use_chime": "Użyj dźwięku dzwonu",
+          "preset_chime": "Dźwięk dzwonu",
+          "custom_chime_path": "Ścieżka niestandardowego dzwonu (opcjonalne)"
+        },
+        "data_description": {
+          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - zostaw puste dla domyślnego)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcje Digital Pendulum",
+        "description": "Wahadło będzie działać między ustawionymi godzinami początku i końca",
+        "data": {
+          "player_device": "Urządzenie odtwarzacza",
+          "start_hour": "Godzina rozpoczęcia",
+          "end_hour": "Godzina zakończenia",
+          "enabled": "Włączone",
+          "announce_half_hours": "Ogłaszaj półgodziny",
+          "voice_announcement": "Ogłoszenie głosowe",
+          "tower_clock": "Zegar wieżowy (Westminster o 12:00)",
+          "use_chime": "Użyj dźwięku dzwonu",
+          "preset_chime": "Dźwięk dzwonu",
+          "custom_chime_path": "Ścieżka niestandardowego dzwonu (opcjonalne)"
+        },
+        "data_description": {
+          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - zostaw puste dla domyślnego)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "digital_pendulum_enabled": {
+        "name": "Włączone"
+      }
+    },
+    "button": {
+      "test_announcement": {
+        "name": "Test ogłoszenia"
+      }
+    },
+    "binary_sensor": {
+      "status_warning": {
+        "name": "Ostrzeżenie o stanie"
+      }
+    }
+  },
+  "services": {
+    "test_announcement": {
+      "name": "Test ogłoszenia",
+      "description": "Natychmiast testuje ogłoszenie godziny"
+    }
+  }
+}
