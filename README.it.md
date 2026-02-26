@@ -114,6 +114,7 @@ Esempi di annunci:
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
+| 🇵🇱 PL | 15:30 | Jest godzina 15:30 |
 
 ## 🔔 Chime (campana iniziale)
 
