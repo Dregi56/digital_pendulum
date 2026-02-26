@@ -13,8 +13,8 @@ Ein sprechendes digitales Pendel für Home Assistant
 [English](README.en.md) |
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
-[Français](README.fr.md) 
-
+[Français](README.fr.md) |
+[Polski](README.pl.md) |
 <br>👉Dies ist die Deutsche README. Verwenden Sie den Sprachauswähler oben
 
 
@@ -113,6 +113,7 @@ Ansage-Beispiele:
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
+| 🇵🇱 PL | 15:30 |Jest godzina 15:30 |
 
 ## 🔔 Chime (Eröffnungsglocke)
 
