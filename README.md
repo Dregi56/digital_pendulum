@@ -14,7 +14,7 @@ A talking digital pendulum for Home Assistant
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
 [Français](README.fr.md) |
-[Polski](README.pl.md) |
+[Polski](README.pl.md) 
 
 <br>👉This is the English README. Use the language selector above
 
