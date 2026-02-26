@@ -53,7 +53,8 @@ Das Ergebnis ist ein eleganter und dezenter Effekt, ideal für Zuhause oder Bür
 - Französisch 🇫🇷
 - Deutsch 🇩🇪 (mit korrekter Behandlung von "halb")
 - Spanisch 🇪🇸
-
+- Polish 🇵🇱
+- 
 automatischer Fallback auf Italienisch
 
 ### ⏱️ Konfigurierbares Zeitfenster
