@@ -13,7 +13,8 @@ Un péndulo digital parlante para Home Assistant
 [English](README.en.md) |
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
-[Français](README.fr.md)
+[Français](README.fr.md) |
+[Polski](README.pl.md) |
 
 <br>👉Este es el README en Español. Usa el selector de idioma arriba
 
@@ -52,6 +53,7 @@ El resultado es un efecto elegante y discreto, ideal para el hogar o la oficina.
 - Francés 🇫🇷
 - Alemán 🇩🇪 (con gestión correcta de "halb")
 - Español 🇪🇸
+- Polish 🇵🇱
 
 fallback automático al italiano
 
