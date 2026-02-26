@@ -52,6 +52,7 @@ Le résultat est un effet élégant et discret, idéal pour la maison ou le bure
 - Français 🇫🇷
 - Allemand 🇩🇪 (avec gestion correcte de "halb")
 - Espagnol 🇪🇸
+- Polski 🇵🇱
 
 fallback automatique en italien
 
