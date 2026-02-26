@@ -53,7 +53,8 @@ Il risultato è un effetto elegante e discreto, ideale per casa o ufficio.
 - Francese 🇫🇷
 - Tedesco 🇩🇪 (con gestione corretta di "halb")
 - Spagnolo 🇪🇸
-
+- Polacco 🇵🇱
+  
 fallback automatico in italiano
 
 ### ⏱️ Fascia oraria configurabile
