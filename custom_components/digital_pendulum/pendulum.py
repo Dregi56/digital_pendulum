@@ -28,7 +28,13 @@ from .const import (
 )
 from .player_alexa import AlexaPlayer
 from .player_google import GooglePlayer
-from .languages import PL_HOUR_NAMES
+from .languages import (
+    PL_HOUR_NAMES,
+    CS_HOUR_NAMES_EXACT,
+    CS_HOUR_NAMES_HALF,
+    SK_HOUR_NAMES_EXACT,
+    SK_HOUR_NAMES_HALF,
+)
 
 
 def _create_player(hass, player_entity_id: str, player_type: str):
@@ -137,6 +143,24 @@ class DigitalPendulum:
             else:
                 return f"Jest {PL_HOUR_NAMES.get(hour, str(hour))}"
 
+        # --- Ceco: půl = riferimento all'ora successiva in genitivo ---
+        if language == "cs":
+            if minute == 30:
+                next_hour = (hour + 1) % 24
+                next_name = CS_HOUR_NAMES_HALF.get(next_hour, str(next_hour))
+                return f"Půl {next_name}"
+            else:
+                return f"Je {CS_HOUR_NAMES_EXACT.get(hour, str(hour))}"
+
+        # --- Slovacco: pol = riferimento all'ora successiva in genitivo ---
+        if language == "sk":
+            if minute == 30:
+                next_hour = (hour + 1) % 24
+                next_name = SK_HOUR_NAMES_HALF.get(next_hour, str(next_hour))
+                return f"Pol {next_name}"
+            else:
+                return f"Je {SK_HOUR_NAMES_EXACT.get(hour, str(hour))}"
+
         # --- Tutti gli altri casi (inglese, francese, ecc.) ---
         if minute == 30:
             return translations.get("hour_and_half", "It's {hour} thirty").format(hour=hour)
@@ -187,6 +211,18 @@ class DigitalPendulum:
                 "hour_and_half": "Wpół do {next_hour}",
                 "hour_exact": "Jest dokładnie {hour}",
                 "hour_and_minutes": "Jest {hour} i {minutes}"
+            },
+            "cs": {
+                "hour": "Je {hour}",
+                "hour_and_half": "Půl {next_hour}",
+                "hour_exact": "Je přesně {hour}",
+                "hour_and_minutes": "Je {hour} a {minutes} minut"
+            },
+            "sk": {
+                "hour": "Je {hour}",
+                "hour_and_half": "Pol {next_hour}",
+                "hour_exact": "Je presne {hour}",
+                "hour_and_minutes": "Je {hour} a {minutes} minút"
             },
         }
         return translations.get(language, fallback)
@@ -240,6 +276,18 @@ class DigitalPendulum:
             else:
                 text = f"Jest {PL_HOUR_NAMES.get(hour, str(hour))} i {minute:02d}"
 
+        elif language == "cs":
+            if minute == 0:
+                text = f"Je přesně {CS_HOUR_NAMES_EXACT.get(hour, str(hour))}"
+            else:
+                text = f"Je {CS_HOUR_NAMES_EXACT.get(hour, str(hour))} a {minute:02d} minut"
+
+        elif language == "sk":
+            if minute == 0:
+                text = f"Je presne {SK_HOUR_NAMES_EXACT.get(hour, str(hour))}"
+            else:
+                text = f"Je {SK_HOUR_NAMES_EXACT.get(hour, str(hour))} a {minute:02d} minút"
+
         else:
             translations = self._get_translations(language)
             if minute == 0:
@@ -248,8 +296,3 @@ class DigitalPendulum:
                 text = translations.get("hour_and_minutes", "It's {hour} {minutes}").format(hour=hour, minutes=f"{minute:02d}")
 
         await self._speak(text)
-
-
-
-
-
