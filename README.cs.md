@@ -15,6 +15,7 @@ Mluvící digitální kyvadlo pro Home Assistant
 [Polski](README.pl.md) |
 [Čeština](README.cs.md) |
 [Slovenčina](README.sk.md)
+
 <br>👉 Toto je README v češtině. Použijte výběr jazyka výše.
 
 ## ❤️ Líbí se vám Digital Pendulum?
