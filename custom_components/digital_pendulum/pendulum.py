@@ -169,7 +169,13 @@ class DigitalPendulum:
                 "hour_and_half": "Son las {hour} y media",
                 "hour_exact": "Son las {hour} en punto",
                 "hour_and_minutes": "Son las {hour} y {minutes}"
-            }
+            },
+            "pl": {
+                "hour": "Jest {hour}",
+                "hour_and_half": "Wpół do {next_hour}",
+                "hour_exact": "Jest dokładnie {hour}",
+                "hour_and_minutes": "Jest {hour} i {minutes}"
+           }
         }
         return translations.get(language, fallback)
 
@@ -223,5 +229,6 @@ class DigitalPendulum:
             else:
                 text = translations.get("hour_and_minutes", "It's {hour} {minutes}").format(hour=hour, minutes=f"{minute:02d}")
         await self._speak(text)
+
 
 
