@@ -3,21 +3,22 @@
     "step": {
       "user": {
         "title": "Konfiguracja Digital Pendulum",
-        "description": "Wahadło będzie działać między ustawionymi godzinami początku i końca",
+        "description": "Wahadło będzie działać między ustawioną godziną początkową i końcową",
         "data": {
-          "player_device": "Urządzenie odtwarzacza",
-          "start_hour": "Godzina rozpoczęcia",
-          "end_hour": "Godzina zakończenia",
+          "player_type": "Typ odtwarzacza",
+          "player_device": "Urządzenie media player",
+          "start_hour": "Godzina początkowa",
+          "end_hour": "Godzina końcowa",
           "enabled": "Włączone",
           "announce_half_hours": "Ogłaszaj półgodziny",
           "voice_announcement": "Ogłoszenie głosowe",
           "tower_clock": "Zegar wieżowy (Westminster o 12:00)",
-          "use_chime": "Użyj dźwięku dzwonu",
-          "preset_chime": "Dźwięk dzwonu",
-          "custom_chime_path": "Ścieżka niestandardowego dzwonu (opcjonalne)"
+          "use_chime": "Użyj dźwięku dzwonka",
+          "preset_chime": "Predefiniowany dźwięk",
+          "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)"
         },
         "data_description": {
-          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - zostaw puste dla domyślnego)"
+          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)"
         }
       }
     }
@@ -26,21 +27,22 @@
     "step": {
       "init": {
         "title": "Opcje Digital Pendulum",
-        "description": "Wahadło będzie działać między ustawionymi godzinami początku i końca",
+        "description": "Wahadło będzie działać między ustawioną godziną początkową i końcową",
         "data": {
-          "player_device": "Urządzenie odtwarzacza",
-          "start_hour": "Godzina rozpoczęcia",
-          "end_hour": "Godzina zakończenia",
+          "player_type": "Typ odtwarzacza",
+          "player_device": "Urządzenie media player",
+          "start_hour": "Godzina początkowa",
+          "end_hour": "Godzina końcowa",
           "enabled": "Włączone",
           "announce_half_hours": "Ogłaszaj półgodziny",
           "voice_announcement": "Ogłoszenie głosowe",
           "tower_clock": "Zegar wieżowy (Westminster o 12:00)",
-          "use_chime": "Użyj dźwięku dzwonu",
-          "preset_chime": "Dźwięk dzwonu",
-          "custom_chime_path": "Ścieżka niestandardowego dzwonu (opcjonalne)"
+          "use_chime": "Użyj dźwięku dzwonka",
+          "preset_chime": "Predefiniowany dźwięk",
+          "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)"
         },
         "data_description": {
-          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - zostaw puste dla domyślnego)"
+          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)"
         }
       }
     }
@@ -58,7 +60,7 @@
     },
     "binary_sensor": {
       "status_warning": {
-        "name": "Ostrzeżenie o stanie"
+        "name": "Ostrzeżenie stanu"
       }
     }
   },
