@@ -18,6 +18,7 @@
           "custom_chime_path": "Custom chime path (optional)"
         },
         "data_description": {
+          "player_type": "Select your device type (Alexa, Google Home, or Generic)",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)"
         }
       }
@@ -42,6 +43,7 @@
           "custom_chime_path": "Custom chime path (optional)"
         },
         "data_description": {
+          "player_type": "Select your device type (Alexa, Google Home, or Generic)",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)"
         }
       }

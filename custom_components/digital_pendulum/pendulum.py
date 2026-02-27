@@ -316,3 +316,7 @@ class DigitalPendulum:
                 text = translations.get("hour_and_minutes", "It's {hour} {minutes}").format(hour=hour, minutes=f"{minute:02d}")
 
         await self._speak(text)
+
+
+
+
