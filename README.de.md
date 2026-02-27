@@ -14,7 +14,9 @@ Ein sprechendes digitales Pendel für Home Assistant
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
 [Français](README.fr.md) |
-[Polski](README.pl.md) 
+[Polski](README.pl.md) |
+[Čeština](README.cs.md) |
+[Slovenčina](README.sk.md)
 
 <br>👉Dies ist die Deutsche README. Verwenden Sie den Sprachauswähler oben
 
