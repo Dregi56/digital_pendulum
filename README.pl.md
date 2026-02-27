@@ -9,12 +9,14 @@ Cyfrowy zegar wahadłowy z zapowiedzią głosową dla Home Assistant
 [![GitHub stars](https://img.shields.io/github/stars/Dregi56/digital_pendulum?style=social)](https://github.com/Dregi56/digital_pendulum)
 
 🌍 Dostępne języki:  
-[Italiano](README.it.md) |  
-[English](README.en.md) |  
-[Español](README.es.md) |  
-[Deutsch](README.de.md) |  
-[Français](README.fr.md) |  
-[Polski](README.pl.md)
+[Italiano](README.it.md) |
+[English](README.en.md) |
+[Español](README.es.md) |
+[Deutsch](README.de.md) |
+[Français](README.fr.md) |
+[Polski](README.pl.md) |
+[Čeština](README.cs.md) |
+[Slovenčina](README.sk.md)
 
 <br>👉To jest polska wersja README. Użyj selektora języka powyżej.
 
