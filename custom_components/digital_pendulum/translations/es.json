@@ -3,17 +3,18 @@
     "step": {
       "user": {
         "title": "Configuración Digital Pendulum",
-        "description": "El péndulo funcionará entre las horas de inicio y fin establecidas",
+        "description": "El péndulo funcionará entre las horas de inicio y fin configuradas",
         "data": {
-          "player_device": "Dispositivo Alexa",
-          "start_hour": "Hora de Inicio",
-          "end_hour": "Hora de Fin",
+          "player_type": "Tipo de reproductor",
+          "player_device": "Dispositivo media player",
+          "start_hour": "Hora de inicio",
+          "end_hour": "Hora de fin",
           "enabled": "Habilitado",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
-          "tower_clock": "Reloj de Torre (Westminster a las 12:00)",
-          "use_chime": "Usar Sonido de Campana",
-          "preset_chime": "Sonido de Campana",
+          "tower_clock": "Reloj de torre (Westminster a las 12:00)",
+          "use_chime": "Usar sonido de campana",
+          "preset_chime": "Sonido predefinido",
           "custom_chime_path": "Ruta de campana personalizada (opcional)"
         },
         "data_description": {
@@ -26,17 +27,18 @@
     "step": {
       "init": {
         "title": "Opciones Digital Pendulum",
-        "description": "El péndulo funcionará entre las horas de inicio y fin establecidas",
+        "description": "El péndulo funcionará entre las horas de inicio y fin configuradas",
         "data": {
-          "player_device": "Dispositivo Alexa",
-          "start_hour": "Hora de Inicio",
-          "end_hour": "Hora de Fin",
+          "player_type": "Tipo de reproductor",
+          "player_device": "Dispositivo media player",
+          "start_hour": "Hora de inicio",
+          "end_hour": "Hora de fin",
           "enabled": "Habilitado",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
-          "tower_clock": "Reloj de Torre (Westminster a las 12:00)",
-          "use_chime": "Usar Sonido de Campana",
-          "preset_chime": "Sonido de Campana",
+          "tower_clock": "Reloj de torre (Westminster a las 12:00)",
+          "use_chime": "Usar sonido de campana",
+          "preset_chime": "Sonido predefinido",
           "custom_chime_path": "Ruta de campana personalizada (opcional)"
         },
         "data_description": {
@@ -53,19 +55,19 @@
     },
     "button": {
       "test_announcement": {
-        "name": "Prueba de Anuncio"
+        "name": "Probar anuncio"
       }
     },
     "binary_sensor": {
       "status_warning": {
-        "name": "Advertencia de Estado"
+        "name": "Aviso de estado"
       }
     }
   },
   "services": {
     "test_announcement": {
-      "name": "Prueba de Anuncio",
-      "description": "Prueba el anuncio de la hora inmediatamente"
+      "name": "Probar anuncio",
+      "description": "Prueba inmediatamente el anuncio de la hora"
     }
   }
 }
