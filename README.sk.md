@@ -51,6 +51,7 @@ Výsledkom je elegantný a diskrétny efekt, ideálny pre domov alebo kancelári
 - Poľština 🇵🇱
 - Čeština 🇨🇿 (so správnym spracovaním výrazu "půl")
 - Slovenčina 🇸🇰 (so správnym spracovaním výrazu "pol")
+- Portugalčina 🇵🇹
 
 automatický záložný jazyk: taliančina
 
