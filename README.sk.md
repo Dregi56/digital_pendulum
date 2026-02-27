@@ -1,6 +1,7 @@
 # 🕰️ Digital Pendulum
 Hovoriace digitálne kyvadlo pre Home Assistant
 <br>**Autor:** Egidio Ziggiotto (Dregi56)  e-mail: [dregi@cyberservices.com](mailto:dregi@cyberservices.com)
+
 [![HACS](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://hacs.xyz/)
 [![Version](https://img.shields.io/github/v/release/Dregi56/digital_pendulum)](https://github.com/Dregi56/digital_pendulum/releases)
 ![License](https://img.shields.io/github/license/Dregi56/digital_pendulum)
