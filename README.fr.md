@@ -16,7 +16,8 @@ Un pendule numérique parlant pour Home Assistant
 [Français](README.fr.md) |
 [Polski](README.pl.md) |
 [Čeština](README.cs.md) |
-[Slovenčina](README.sk.md) 
+[Slovenčina](README.sk.md) |
+[Português](README.pt.md)
  
 <br>👉Ceci est le README en Français. Utilisez le sélecteur de langue ci-dessus
 
