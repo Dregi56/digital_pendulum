@@ -5,7 +5,8 @@
         "title": "Configurazione Digital Pendulum",
         "description": "Il pendolo funzionerà tra l'ora di inizio e fine impostate",
         "data": {
-          "player_device": "Dispositivo Alexa",
+          "player_type": "Tipo di player",
+          "player_device": "Dispositivo media player",
           "start_hour": "Ora Inizio",
           "end_hour": "Ora Fine",
           "enabled": "Abilitato",
@@ -28,7 +29,8 @@
         "title": "Opzioni Digital Pendulum",
         "description": "Il pendolo funzionerà tra l'ora di inizio e fine impostate",
         "data": {
-          "player_device": "Dispositivo Alexa",
+          "player_type": "Tipo di player",
+          "player_device": "Dispositivo media player",
           "start_hour": "Ora Inizio",
           "end_hour": "Ora Fine",
           "enabled": "Abilitato",
@@ -69,8 +71,3 @@
     }
   }
 }
-
-
-
-
-
