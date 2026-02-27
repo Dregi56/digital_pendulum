@@ -275,6 +275,15 @@ class DigitalPendulum:
             else:
                 text = f"Ore {hour_text} e {minute:02d}"
 
+        elif language == "de":
+            if minute == 0:
+                text = f"Es ist genau {hour} Uhr"
+            elif minute == 30:
+                next_hour = (hour + 1) % 24
+                text = f"Es ist halb {next_hour}"
+            else:
+                text = f"Es ist {hour} Uhr {minute:02d}"
+
         elif language == "es" and (hour == 1 or hour == 13):
             if minute == 0:
                 text = "Es la una en punto"
