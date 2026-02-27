@@ -15,7 +15,8 @@ Mluvící digitální kyvadlo pro Home Assistant
 [Français](README.fr.md) |
 [Polski](README.pl.md) |
 [Čeština](README.cs.md) |
-[Slovenčina](README.sk.md)
+[Slovenčina](README.sk.md) |
+[Português](README.pt.md)
 
 <br>👉 Toto je README v češtině. Použijte výběr jazyka výše.
 
