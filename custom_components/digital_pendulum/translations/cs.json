@@ -2,19 +2,20 @@
   "config": {
     "step": {
       "user": {
-        "title": "Konfigurace Digital Pendulum",
-        "description": "Kyvadlo bude fungovat mezi nastavenými hodinami začátku a konce",
+        "title": "Nastavení Digital Pendulum",
+        "description": "Kyvadlo bude fungovat mezi nastavenou počáteční a koncovou hodinou",
         "data": {
-          "player_device": "Přehrávací zařízení",
-          "start_hour": "Hodina začátku",
-          "end_hour": "Hodina konce",
+          "player_type": "Typ přehrávače",
+          "player_device": "Zařízení media player",
+          "start_hour": "Počáteční hodina",
+          "end_hour": "Koncová hodina",
           "enabled": "Povoleno",
           "announce_half_hours": "Oznamovat půlhodiny",
           "voice_announcement": "Hlasové oznámení",
           "tower_clock": "Věžní hodiny (Westminster ve 12:00)",
-          "use_chime": "Použít zvuk zvonu",
-          "preset_chime": "Zvuk zvonu",
-          "custom_chime_path": "Cesta k vlastnímu zvonu (volitelné)"
+          "use_chime": "Použít zvuk zvonku",
+          "preset_chime": "Přednastavený zvuk",
+          "custom_chime_path": "Vlastní cesta ke zvuku (volitelné)"
         },
         "data_description": {
           "custom_chime_path": "Např.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechte prázdné pro výchozí)"
@@ -26,18 +27,19 @@
     "step": {
       "init": {
         "title": "Možnosti Digital Pendulum",
-        "description": "Kyvadlo bude fungovat mezi nastavenými hodinami začátku a konce",
+        "description": "Kyvadlo bude fungovat mezi nastavenou počáteční a koncovou hodinou",
         "data": {
-          "player_device": "Přehrávací zařízení",
-          "start_hour": "Hodina začátku",
-          "end_hour": "Hodina konce",
+          "player_type": "Typ přehrávače",
+          "player_device": "Zařízení media player",
+          "start_hour": "Počáteční hodina",
+          "end_hour": "Koncová hodina",
           "enabled": "Povoleno",
           "announce_half_hours": "Oznamovat půlhodiny",
           "voice_announcement": "Hlasové oznámení",
           "tower_clock": "Věžní hodiny (Westminster ve 12:00)",
-          "use_chime": "Použít zvuk zvonu",
-          "preset_chime": "Zvuk zvonu",
-          "custom_chime_path": "Cesta k vlastnímu zvonu (volitelné)"
+          "use_chime": "Použít zvuk zvonku",
+          "preset_chime": "Přednastavený zvuk",
+          "custom_chime_path": "Vlastní cesta ke zvuku (volitelné)"
         },
         "data_description": {
           "custom_chime_path": "Např.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechte prázdné pro výchozí)"
@@ -58,14 +60,14 @@
     },
     "binary_sensor": {
       "status_warning": {
-        "name": "Stavové upozornění"
+        "name": "Stavové varování"
       }
     }
   },
   "services": {
     "test_announcement": {
       "name": "Test oznámení",
-      "description": "Okamžitě otestuje oznámení hodiny"
+      "description": "Okamžitě otestuje oznámení času"
     }
   }
 }
