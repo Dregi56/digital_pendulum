@@ -2,23 +2,23 @@
   "config": {
     "step": {
       "user": {
-        "title": "Digital Pendulum Setup",
-        "description": "The pendulum will work between the start and end hours set",
+        "title": "Configuración Digital Pendulum",
+        "description": "El péndulo funcionará entre las horas de inicio y fin configuradas",
         "data": {
-          "player_type": "Player type",
-          "player_device": "Media player device",
-          "start_hour": "Start hour",
-          "end_hour": "End hour",
-          "enabled": "Enabled",
-          "announce_half_hours": "Announce half hours",
-          "voice_announcement": "Voice announcement",
-          "tower_clock": "Tower clock (Westminster at 12:00)",
-          "use_chime": "Use chime sound",
-          "preset_chime": "Chime sound",
-          "custom_chime_path": "Custom chime path (optional)"
+          "player_type": "Tipo de reproductor",
+          "player_device": "Dispositivo media player",
+          "start_hour": "Hora de inicio",
+          "end_hour": "Hora de fin",
+          "enabled": "Habilitado",
+          "announce_half_hours": "Anunciar las medias horas",
+          "voice_announcement": "Anuncio de voz",
+          "tower_clock": "Reloj de torre (Westminster a las 12:00)",
+          "use_chime": "Usar sonido de campana",
+          "preset_chime": "Sonido predefinido",
+          "custom_chime_path": "Ruta de campana personalizada (opcional)"
         },
         "data_description": {
-          "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
         }
       }
     }
@@ -26,23 +26,23 @@
   "options": {
     "step": {
       "init": {
-        "title": "Digital Pendulum Options",
-        "description": "The pendulum will work between the start and end hours set",
+        "title": "Opciones Digital Pendulum",
+        "description": "El péndulo funcionará entre las horas de inicio y fin configuradas",
         "data": {
-          "player_type": "Player type",
-          "player_device": "Media player device",
-          "start_hour": "Start hour",
-          "end_hour": "End hour",
-          "enabled": "Enabled",
-          "announce_half_hours": "Announce half hours",
-          "voice_announcement": "Voice announcement",
-          "tower_clock": "Tower clock (Westminster at 12:00)",
-          "use_chime": "Use chime sound",
-          "preset_chime": "Chime sound",
-          "custom_chime_path": "Custom chime path (optional)"
+          "player_type": "Tipo de reproductor",
+          "player_device": "Dispositivo media player",
+          "start_hour": "Hora de inicio",
+          "end_hour": "Hora de fin",
+          "enabled": "Habilitado",
+          "announce_half_hours": "Anunciar las medias horas",
+          "voice_announcement": "Anuncio de voz",
+          "tower_clock": "Reloj de torre (Westminster a las 12:00)",
+          "use_chime": "Usar sonido de campana",
+          "preset_chime": "Sonido predefinido",
+          "custom_chime_path": "Ruta de campana personalizada (opcional)"
         },
         "data_description": {
-          "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
         }
       }
     }
@@ -50,24 +50,24 @@
   "entity": {
     "switch": {
       "digital_pendulum_enabled": {
-        "name": "Enabled"
+        "name": "Habilitado"
       }
     },
     "button": {
       "test_announcement": {
-        "name": "Test Announcement"
+        "name": "Probar anuncio"
       }
     },
     "binary_sensor": {
       "status_warning": {
-        "name": "Status Warning"
+        "name": "Aviso de estado"
       }
     }
   },
   "services": {
     "test_announcement": {
-      "name": "Test Announcement",
-      "description": "Immediately tests the time announcement"
+      "name": "Probar anuncio",
+      "description": "Prueba inmediatamente el anuncio de la hora"
     }
   }
 }
