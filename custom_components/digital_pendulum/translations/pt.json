@@ -1,0 +1,73 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configuração Digital Pendulum",
+        "description": "O pêndulo funcionará entre a hora de início e fim definidas",
+        "data": {
+          "player_type": "Tipo de player",
+          "player_device": "Dispositivo media player",
+          "start_hour": "Hora de Início",
+          "end_hour": "Hora de Fim",
+          "enabled": "Ativado",
+          "announce_half_hours": "Anunciar as meias horas",
+          "voice_announcement": "Anúncio vocal",
+          "tower_clock": "Relógio de Torre (Westminster às 12:00)",
+          "use_chime": "Usar Som de Sino",
+          "preset_chime": "Som de Sino",
+          "custom_chime_path": "Caminho do sino personalizado (opcional)"
+        },
+        "data_description": {
+          "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - deixe vazio para o padrão)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opções Digital Pendulum",
+        "description": "O pêndulo funcionará entre a hora de início e fim definidas",
+        "data": {
+          "player_type": "Tipo de player",
+          "player_device": "Dispositivo media player",
+          "start_hour": "Hora de Início",
+          "end_hour": "Hora de Fim",
+          "enabled": "Ativado",
+          "announce_half_hours": "Anunciar as meias horas",
+          "voice_announcement": "Anúncio vocal",
+          "tower_clock": "Relógio de Torre (Westminster às 12:00)",
+          "use_chime": "Usar Som de Sino",
+          "preset_chime": "Som de Sino",
+          "custom_chime_path": "Caminho do sino personalizado (opcional)"
+        },
+        "data_description": {
+          "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - deixe vazio para o padrão)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "digital_pendulum_enabled": {
+        "name": "Ativado"
+      }
+    },
+    "button": {
+      "test_announcement": {
+        "name": "Teste de Anúncio"
+      }
+    },
+    "binary_sensor": {
+      "status_warning": {
+        "name": "Aviso de Estado"
+      }
+    }
+  },
+  "services": {
+    "test_announcement": {
+      "name": "Teste de Anúncio",
+      "description": "Testa imediatamente o anúncio da hora"
+    }
+  }
+}
