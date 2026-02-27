@@ -3,15 +3,18 @@
     "step": {
       "user": {
         "title": "Digital Pendulum Setup",
-        "description": "The pendulum will operate between the set start and end times",
+        "description": "The pendulum will work between the start and end hours set",
         "data": {
-          "player_device": "Alexa Device",
-          "start_hour": "Start Hour",
-          "end_hour": "End Hour",
+          "player_type": "Player type",
+          "player_device": "Media player device",
+          "start_hour": "Start hour",
+          "end_hour": "End hour",
           "enabled": "Enabled",
-          "tower_clock": "Tower Clock (Westminster at 12:00)",
-          "use_chime": "Use Chime Sound",
-          "preset_chime": "Chime Sound",
+          "announce_half_hours": "Announce half hours",
+          "voice_announcement": "Voice announcement",
+          "tower_clock": "Tower clock (Westminster at 12:00)",
+          "use_chime": "Use chime sound",
+          "preset_chime": "Chime sound",
           "custom_chime_path": "Custom chime path (optional)"
         },
         "data_description": {
@@ -24,15 +27,18 @@
     "step": {
       "init": {
         "title": "Digital Pendulum Options",
-        "description": "The pendulum will operate between the set start and end times",
+        "description": "The pendulum will work between the start and end hours set",
         "data": {
-          "player_device": "Alexa Device",
-          "start_hour": "Start Hour",
-          "end_hour": "End Hour",
+          "player_type": "Player type",
+          "player_device": "Media player device",
+          "start_hour": "Start hour",
+          "end_hour": "End hour",
           "enabled": "Enabled",
-          "tower_clock": "Tower Clock (Westminster at 12:00)",
-          "use_chime": "Use Chime Sound",
-          "preset_chime": "Chime Sound",
+          "announce_half_hours": "Announce half hours",
+          "voice_announcement": "Voice announcement",
+          "tower_clock": "Tower clock (Westminster at 12:00)",
+          "use_chime": "Use chime sound",
+          "preset_chime": "Chime sound",
           "custom_chime_path": "Custom chime path (optional)"
         },
         "data_description": {
@@ -51,12 +57,17 @@
       "test_announcement": {
         "name": "Test Announcement"
       }
+    },
+    "binary_sensor": {
+      "status_warning": {
+        "name": "Status Warning"
+      }
     }
   },
   "services": {
     "test_announcement": {
       "name": "Test Announcement",
-      "description": "Test the time announcement immediately"
+      "description": "Immediately tests the time announcement"
     }
   }
 }
