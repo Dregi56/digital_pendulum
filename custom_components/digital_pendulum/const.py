@@ -10,6 +10,8 @@ CONF_PRESET_CHIME = "preset_chime"
 CONF_TOWER_CLOCK = "tower_clock"
 CONF_ANNOUNCE_HALF_HOURS = "announce_half_hours"
 CONF_VOICE_ANNOUNCEMENT = "voice_announcement"
+CONF_PLAYER_TYPE = "player_type"
+
 
 # Defaults
 DEFAULT_ANNOUNCE_HALF_HOURS = True
@@ -21,6 +23,13 @@ DEFAULT_CUSTOM_CHIME_PATH = ""
 DEFAULT_PRESET_CHIME = "church-bell"
 DEFAULT_TOWER_CLOCK = False
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
+
+# Lista players
+PLAYER_TYPES = {
+    "alexa": "Alexa (alexa_media_player)",
+    "google": "Google Home / Assistant",
+    "generic": "Generic (media_player)",
+}
 
 # Lista suoni predefiniti
 PRESET_CHIMES = {
@@ -81,6 +90,10 @@ PRESET_CHIMES = {
         "url": ""
     }
 }
+
+
+
+
 
 
 
