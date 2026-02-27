@@ -13,7 +13,10 @@ Un péndulo digital parlante para Home Assistant
 [English](README.en.md) |
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
-[Français](README.fr.md)
+[Français](README.fr.md) |
+[Polski](README.pl.md) |
+[Čeština](README.cs.md) |
+[Slovenčina](README.sk.md)
 
 <br>👉Este es el README en Español. Usa el selector de idioma arriba
 
@@ -52,6 +55,7 @@ El resultado es un efecto elegante y discreto, ideal para el hogar o la oficina.
 - Francés 🇫🇷
 - Alemán 🇩🇪 (con gestión correcta de "halb")
 - Español 🇪🇸
+- Polish 🇵🇱
 
 fallback automático al italiano
 
@@ -113,6 +117,9 @@ Ejemplos de anuncios:
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
+| 🇵🇱 PL | 15:30 | Wpół do czwartej |
+| 🇨🇿 CS | 8:30 | Půl deváté |
+| 🇸🇰 SK | 8:30 | Pol deviatej |
 
 ## 🔔 Chime (campana inicial)
 

@@ -13,7 +13,10 @@ A talking digital pendulum for Home Assistant
 [English](README.en.md) |
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
-[Français](README.fr.md) 
+[Français](README.fr.md) |
+[Polski](README.pl.md) |
+[Čeština](README.cs.md) |
+[Slovenčina](README.sk.md)
 
 <br>👉This is the English README. Use the language selector above
 
@@ -63,7 +66,8 @@ During setup you will be asked to select the player type first, then the specifi
 - French 🇫🇷
 - German 🇩🇪 (with correct handling of "halb")
 - Spanish 🇪🇸
-
+- Polish 🇵🇱
+  
 automatic fallback to Italian
 
 ### ⏱️ Configurable time slot
@@ -124,6 +128,9 @@ Announcement examples:
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
+| 🇵🇱 PL | 15:30 | Wpół do czwartej |
+| 🇨🇿 CS | 8:30 | Půl deváté |
+| 🇸🇰 SK | 8:30 | Pol deviatej |
 
 ## 🔔 Chime (initial bell)
 
@@ -179,7 +186,7 @@ Digital Pendulum includes a diagnostic sensor:
 
 **States:**
 - ✅ **OFF** - Everything working correctly
-- ⚠️ **ON** - Issues detected (integration disabled, device offline, etc.)
+- ⚠️ **ON** - Issues detected (integration disabled, Alexa offline, etc.)
 
 **Uses:**
 - Dashboard monitoring
@@ -302,10 +309,6 @@ Do you like this project? If you find it useful, buy me a virtual coffee to supp
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
-
-💡 **Prefer other methods?** You can use:
-
-[![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
 
 💡 **Prefer other methods?** You can use:
 

@@ -1,4 +1,5 @@
 import asyncio
+import logging
 from datetime import datetime
 from homeassistant.helpers.event import async_track_time_change
 from homeassistant.util import dt as dt_util
@@ -28,7 +29,15 @@ from .const import (
 )
 from .player_alexa import AlexaPlayer
 from .player_google import GooglePlayer
-from .languages import PL_HOUR_NAMES
+from .languages import (
+    PL_HOUR_NAMES,
+    CS_HOUR_NAMES_EXACT,
+    CS_HOUR_NAMES_HALF,
+    SK_HOUR_NAMES_EXACT,
+    SK_HOUR_NAMES_HALF,
+)
+
+_LOGGER = logging.getLogger(__name__)
 
 
 def _create_player(hass, player_entity_id: str, player_type: str):
@@ -137,6 +146,24 @@ class DigitalPendulum:
             else:
                 return f"Jest {PL_HOUR_NAMES.get(hour, str(hour))}"
 
+        # --- Ceco: půl = riferimento all'ora successiva in genitivo ---
+        if language == "cs":
+            if minute == 30:
+                next_hour = (hour + 1) % 24
+                next_name = CS_HOUR_NAMES_HALF.get(next_hour, str(next_hour))
+                return f"Půl {next_name}"
+            else:
+                return f"Je {CS_HOUR_NAMES_EXACT.get(hour, str(hour))}"
+
+        # --- Slovacco: pol = riferimento all'ora successiva in genitivo ---
+        if language == "sk":
+            if minute == 30:
+                next_hour = (hour + 1) % 24
+                next_name = SK_HOUR_NAMES_HALF.get(next_hour, str(next_hour))
+                return f"Pol {next_name}"
+            else:
+                return f"Je {SK_HOUR_NAMES_EXACT.get(hour, str(hour))}"
+
         # --- Tutti gli altri casi (inglese, francese, ecc.) ---
         if minute == 30:
             return translations.get("hour_and_half", "It's {hour} thirty").format(hour=hour)
@@ -188,6 +215,18 @@ class DigitalPendulum:
                 "hour_exact": "Jest dokładnie {hour}",
                 "hour_and_minutes": "Jest {hour} i {minutes}"
             },
+            "cs": {
+                "hour": "Je {hour}",
+                "hour_and_half": "Půl {next_hour}",
+                "hour_exact": "Je přesně {hour}",
+                "hour_and_minutes": "Je {hour} a {minutes} minut"
+            },
+            "sk": {
+                "hour": "Je {hour}",
+                "hour_and_half": "Pol {next_hour}",
+                "hour_exact": "Je presne {hour}",
+                "hour_and_minutes": "Je {hour} a {minutes} minút"
+            },
         }
         return translations.get(language, fallback)
 
@@ -208,11 +247,19 @@ class DigitalPendulum:
         await self._player.play_default_chime()
 
     async def _speak(self, text: str, hour: int = None, minute: int = None):
-        if self.use_chime:
-            await self._play_chime(hour, minute)
-            await asyncio.sleep(1.2)
-        if self.voice_announcement:
-            await self._player.speak(text)
+        """Esegui chime e/o annuncio vocale, loggando eventuali errori."""
+        try:
+            if self.use_chime:
+                await self._play_chime(hour, minute)
+                await asyncio.sleep(1.2)
+            if self.voice_announcement:
+                await self._player.speak(text)
+        except Exception as e:
+            _LOGGER.error(
+                "Digital Pendulum: errore durante l'annuncio su '%s': %s",
+                self.player,
+                e,
+            )
 
     async def async_test_announcement(self):
         """Test immediato dell'annuncio con orario completo."""
@@ -228,6 +275,15 @@ class DigitalPendulum:
             else:
                 text = f"Ore {hour_text} e {minute:02d}"
 
+        elif language == "de":
+            if minute == 0:
+                text = f"Es ist genau {hour} Uhr"
+            elif minute == 30:
+                next_hour = (hour + 1) % 24
+                text = f"Es ist halb {next_hour}"
+            else:
+                text = f"Es ist {hour} Uhr {minute:02d}"
+
         elif language == "es" and (hour == 1 or hour == 13):
             if minute == 0:
                 text = "Es la una en punto"
@@ -239,6 +295,18 @@ class DigitalPendulum:
                 text = f"Jest dokładnie {PL_HOUR_NAMES.get(hour, str(hour))}"
             else:
                 text = f"Jest {PL_HOUR_NAMES.get(hour, str(hour))} i {minute:02d}"
+
+        elif language == "cs":
+            if minute == 0:
+                text = f"Je přesně {CS_HOUR_NAMES_EXACT.get(hour, str(hour))}"
+            else:
+                text = f"Je {CS_HOUR_NAMES_EXACT.get(hour, str(hour))} a {minute:02d} minut"
+
+        elif language == "sk":
+            if minute == 0:
+                text = f"Je presne {SK_HOUR_NAMES_EXACT.get(hour, str(hour))}"
+            else:
+                text = f"Je {SK_HOUR_NAMES_EXACT.get(hour, str(hour))} a {minute:02d} minút"
 
         else:
             translations = self._get_translations(language)

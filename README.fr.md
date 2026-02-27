@@ -13,7 +13,10 @@ Un pendule numérique parlant pour Home Assistant
 [English](README.en.md) |
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
-[Français](README.fr.md)
+[Français](README.fr.md) |
+[Polski](README.pl.md) |
+[Čeština](README.cs.md) |
+[Slovenčina](README.sk.md) 
  
 <br>👉Ceci est le README en Français. Utilisez le sélecteur de langue ci-dessus
 
@@ -51,6 +54,7 @@ Le résultat est un effet élégant et discret, idéal pour la maison ou le bure
 - Français 🇫🇷
 - Allemand 🇩🇪 (avec gestion correcte de "halb")
 - Espagnol 🇪🇸
+- Polski 🇵🇱
 
 fallback automatique en italien
 
@@ -112,6 +116,9 @@ Exemples d'annonces:
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
+| 🇵🇱 PL | 15:30 | Wpół do czwartej |
+| 🇨🇿 CS | 8:30 | Půl deváté |
+| 🇸🇰 SK | 8:30 | Pol deviatej |
 
 ## 🔔 Chime (sonnerie initiale)
 

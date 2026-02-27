@@ -5,16 +5,17 @@
         "title": "Configuration Digital Pendulum",
         "description": "Le pendule fonctionnera entre les heures de début et de fin définies",
         "data": {
-          "player_device": "Appareil Alexa",
-          "start_hour": "Heure de Début",
-          "end_hour": "Heure de Fin",
+          "player_type": "Type de lecteur",
+          "player_device": "Appareil media player",
+          "start_hour": "Heure de début",
+          "end_hour": "Heure de fin",
           "enabled": "Activé",
           "announce_half_hours": "Annoncer les demi-heures",
           "voice_announcement": "Annonce vocale",
-          "tower_clock": "Horloge de Tour (Westminster à 12h00)",
-          "use_chime": "Utiliser le Carillon",
-          "preset_chime": "Son de Carillon",
-          "custom_chime_path": "Chemin du carillon personnalisé (optionnel)"
+          "tower_clock": "Horloge de tour (Westminster à 12:00)",
+          "use_chime": "Utiliser un son de cloche",
+          "preset_chime": "Son prédéfini",
+          "custom_chime_path": "Chemin de cloche personnalisé (optionnel)"
         },
         "data_description": {
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)"
@@ -28,16 +29,17 @@
         "title": "Options Digital Pendulum",
         "description": "Le pendule fonctionnera entre les heures de début et de fin définies",
         "data": {
-          "player_device": "Appareil Alexa",
-          "start_hour": "Heure de Début",
-          "end_hour": "Heure de Fin",
+          "player_type": "Type de lecteur",
+          "player_device": "Appareil media player",
+          "start_hour": "Heure de début",
+          "end_hour": "Heure de fin",
           "enabled": "Activé",
           "announce_half_hours": "Annoncer les demi-heures",
           "voice_announcement": "Annonce vocale",
-          "tower_clock": "Horloge de Tour (Westminster à 12h00)",
-          "use_chime": "Utiliser le Carillon",
-          "preset_chime": "Son de Carillon",
-          "custom_chime_path": "Chemin du carillon personnalisé (optionnel)"
+          "tower_clock": "Horloge de tour (Westminster à 12:00)",
+          "use_chime": "Utiliser un son de cloche",
+          "preset_chime": "Son prédéfini",
+          "custom_chime_path": "Chemin de cloche personnalisé (optionnel)"
         },
         "data_description": {
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)"
@@ -53,23 +55,19 @@
     },
     "button": {
       "test_announcement": {
-        "name": "Test d'Annonce"
+        "name": "Tester l'annonce"
       }
     },
     "binary_sensor": {
       "status_warning": {
-        "name": "Avertissement d'État"
+        "name": "Avertissement d'état"
       }
     }
   },
   "services": {
     "test_announcement": {
-      "name": "Test d'Annonce",
-      "description": "Teste l'annonce de l'heure immédiatement"
+      "name": "Tester l'annonce",
+      "description": "Teste immédiatement l'annonce de l'heure"
     }
   }
 }
-
-
-
-

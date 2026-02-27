@@ -13,7 +13,10 @@ A talking digital pendulum for Home Assistant
 [English](README.en.md) |
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
-[Français](README.fr.md) 
+[Français](README.fr.md) |
+[Polski](README.pl.md) |
+[Čeština](README.cs.md) |
+[Slovenčina](README.sk.md)
 
 <br>👉This is the English README. Use the language selector above
 
@@ -52,7 +55,8 @@ The result is an elegant and discreet effect, ideal for home or office.
 - French 🇫🇷
 - German 🇩🇪 (with correct handling of "halb")
 - Spanish 🇪🇸
-
+- Polish 🇵🇱
+  
 automatic fallback to Italian
 
 ### ⏱️ Configurable time slot
@@ -113,6 +117,9 @@ Announcement examples:
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
+| 🇵🇱 PL | 15:30 | Wpół do czwartej |
+| 🇨🇿 CS | 8:30 | Půl deváté |
+| 🇸🇰 SK | 8:30 | Pol deviatej |
 
 ## 🔔 Chime (initial bell)
 
@@ -173,7 +180,6 @@ Digital Pendulum includes a diagnostic sensor:
 - Dashboard monitoring
 - Notification automations
 - Quick diagnostics
-
 
 ## 📦 Requirements
 

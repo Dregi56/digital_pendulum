@@ -13,9 +13,12 @@ Un pendolo digitale parlante per Home Assistant
 [English](README.en.md) |
 [Español](README.es.md) |
 [Deutsch](README.de.md) |
-[Français](README.fr.md) 
+[Français](README.fr.md) |
+[Polski](README.pl.md) |
+[Čeština](README.cs.md) |
+[Slovenčina](README.sk.md)
 
-<br>👉 Stai leggendo il README in italiano. Usa il selettore qui sopra per cambiare lingua.
+<br>👉Questo è README in italiano. Usa il selettore di linguaggio qui sopra.
 
 
 ## ❤️ Ti piace Digital Pendulum?
@@ -63,8 +66,9 @@ Durante la configurazione ti verrà chiesto di selezionare prima il tipo di play
 - Francese 🇫🇷
 - Tedesco 🇩🇪 (con gestione corretta di "halb")
 - Spagnolo 🇪🇸
-
-fallback automatico all'italiano
+- Polacco 🇵🇱
+  
+fallback automatico in italiano
 
 ### ⏱️ Fascia oraria configurabile
 - es. solo dalle 8:00 alle 22:00
@@ -124,6 +128,9 @@ Esempi di annuncio:
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
+| 🇵🇱 PL | 15:30 | Wpół do czwartej |
+| 🇨🇿 CS | 8:30 | Půl deváté |
+| 🇸🇰 SK | 8:30 | Pol deviatej |
 
 ## 🔔 Chime (campana iniziale)
 
@@ -177,11 +184,11 @@ Digital Pendulum include un sensore diagnostico:
 
 **Stati:**
 - ✅ **OFF** - Tutto funziona correttamente
-- ⚠️ **ON** - Problemi rilevati (integrazione disabilitata, dispositivo offline, ecc.)
+- ⚠️ **ON** - Problemi rilevati (integrazione disabilitata, Alexa offline, ecc.)
 
 **Utilizzi:**
 - Monitoraggio dashboard
-- Automazioni di notifica
+- Automazioni per notifiche
 - Diagnostica rapida
 
 ## 📦 Requisiti
@@ -300,6 +307,10 @@ Ti piace questo progetto? Se lo trovi utile, offrimi un caffè virtuale per supp
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
+
+💡 **Preferisci altri metodi?** Puoi usare:
+
+[![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
 
 💡 **Preferisci altri metodi?** Puoi usare:
 

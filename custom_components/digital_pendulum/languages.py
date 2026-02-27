@@ -1,9 +1,9 @@
 # ---------------------------------------------------------------------------
-# Costante condivisa: nomi polacchi delle ore (0–23)
+# Nomi delle ore per lingue con declinazione speciale
 # ---------------------------------------------------------------------------
 
-#-- Polacco --
-_PL_HOUR_NAMES = {
+# Polacco
+PL_HOUR_NAMES = {
     0:  "dwunasta w nocy",
     1:  "pierwsza",
     2:  "druga",
@@ -28,4 +28,120 @@ _PL_HOUR_NAMES = {
     21: "dwudziesta pierwsza",
     22: "dwudziesta druga",
     23: "dwudziesta trzecia",
+}
+
+# Ceco
+# Ora esatta: "Je jedna hodina", "Jsou dvě hodiny" ecc.
+# Mezz'ora: "půl druhé" (= metà verso la seconda = 1:30)
+# Il nome dell'ora successiva va in genitivo femminile
+CS_HOUR_NAMES_EXACT = {
+    0:  "půlnoc",
+    1:  "jedna hodina",
+    2:  "dvě hodiny",
+    3:  "tři hodiny",
+    4:  "čtyři hodiny",
+    5:  "pět hodin",
+    6:  "šest hodin",
+    7:  "sedm hodin",
+    8:  "osm hodin",
+    9:  "devět hodin",
+    10: "deset hodin",
+    11: "jedenáct hodin",
+    12: "dvanáct hodin",
+    13: "třináct hodin",
+    14: "čtrnáct hodin",
+    15: "patnáct hodin",
+    16: "šestnáct hodin",
+    17: "sedmnáct hodin",
+    18: "osmnáct hodin",
+    19: "devatenáct hodin",
+    20: "dvacet hodin",
+    21: "dvacet jedna hodin",
+    22: "dvacet dva hodin",
+    23: "dvacet tři hodin",
+}
+
+CS_HOUR_NAMES_HALF = {
+    0:  "půlnoční",
+    1:  "druhé",
+    2:  "třetí",
+    3:  "čtvrté",
+    4:  "páté",
+    5:  "šesté",
+    6:  "sedmé",
+    7:  "osmé",
+    8:  "deváté",
+    9:  "desáté",
+    10: "jedenácté",
+    11: "dvanácté",
+    12: "třinácté",
+    13: "čtrnácté",
+    14: "patnácté",
+    15: "šestnácté",
+    16: "sedmnácté",
+    17: "osmnácté",
+    18: "devatenácté",
+    19: "dvacáté",
+    20: "dvacáté první",
+    21: "dvacáté druhé",
+    22: "dvacáté třetí",
+    23: "první",
+}
+
+# Slovacco
+# Ora esatta: "Je jedna hodina", "Sú dve hodiny" ecc.
+# Mezz'ora: "pol druhej" (= metà verso la seconda = 1:30)
+# Il nome dell'ora successiva va in genitivo femminile
+SK_HOUR_NAMES_EXACT = {
+    0:  "polnoc",
+    1:  "jedna hodina",
+    2:  "dve hodiny",
+    3:  "tri hodiny",
+    4:  "štyri hodiny",
+    5:  "päť hodín",
+    6:  "šesť hodín",
+    7:  "sedem hodín",
+    8:  "osem hodín",
+    9:  "deväť hodín",
+    10: "desať hodín",
+    11: "jedenásť hodín",
+    12: "dvanásť hodín",
+    13: "trinásť hodín",
+    14: "štrnásť hodín",
+    15: "pätnásť hodín",
+    16: "šestnásť hodín",
+    17: "sedemnásť hodín",
+    18: "osemnásť hodín",
+    19: "devätnásť hodín",
+    20: "dvadsať hodín",
+    21: "dvadsaťjeden hodín",
+    22: "dvadsaťdva hodín",
+    23: "dvadsaťtri hodín",
+}
+
+SK_HOUR_NAMES_HALF = {
+    0:  "polnočnej",
+    1:  "druhej",
+    2:  "tretej",
+    3:  "štvrtej",
+    4:  "piatej",
+    5:  "šiestej",
+    6:  "siedmej",
+    7:  "ôsmej",
+    8:  "deviatej",
+    9:  "desiatej",
+    10: "jedenástej",
+    11: "dvanástej",
+    12: "trinástej",
+    13: "štrnástej",
+    14: "pätnástej",
+    15: "šestnástej",
+    16: "sedemnástej",
+    17: "osemnástej",
+    18: "devätnástej",
+    19: "dvadsiatej",
+    20: "dvadsiatej prvej",
+    21: "dvadsiatej druhej",
+    22: "dvadsiatej tretej",
+    23: "prvej",
 }

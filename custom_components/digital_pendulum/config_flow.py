@@ -267,3 +267,4 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
             data_schema=schema,
         )
 
+

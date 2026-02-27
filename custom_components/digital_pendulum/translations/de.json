@@ -3,18 +3,19 @@
     "step": {
       "user": {
         "title": "Digital Pendulum Einrichtung",
-        "description": "Das Pendel arbeitet zwischen den eingestellten Start- und Endzeiten",
+        "description": "Das Pendel arbeitet zwischen der eingestellten Start- und Endstunde",
         "data": {
-          "player_device": "Alexa Gerät",
+          "player_type": "Player-Typ",
+          "player_device": "Media-Player-Gerät",
           "start_hour": "Startstunde",
           "end_hour": "Endstunde",
           "enabled": "Aktiviert",
-          "announce_half_hours": "Halbe Stunden ansagen",
+          "announce_half_hours": "Halbe Stunden ankündigen",
           "voice_announcement": "Sprachansage",
           "tower_clock": "Turmuhr (Westminster um 12:00)",
           "use_chime": "Glockenton verwenden",
-          "preset_chime": "Glockenton",
-          "custom_chime_path": "Benutzerdefinierter Glockenpfad (optional)"
+          "preset_chime": "Voreingestellter Glockenton",
+          "custom_chime_path": "Eigener Glockenton-Pfad (optional)"
         },
         "data_description": {
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)"
@@ -26,18 +27,19 @@
     "step": {
       "init": {
         "title": "Digital Pendulum Optionen",
-        "description": "Das Pendel arbeitet zwischen den eingestellten Start- und Endzeiten",
+        "description": "Das Pendel arbeitet zwischen der eingestellten Start- und Endstunde",
         "data": {
-          "player_device": "Alexa Gerät",
+          "player_type": "Player-Typ",
+          "player_device": "Media-Player-Gerät",
           "start_hour": "Startstunde",
           "end_hour": "Endstunde",
           "enabled": "Aktiviert",
-          "announce_half_hours": "Halbe Stunden ansagen",
+          "announce_half_hours": "Halbe Stunden ankündigen",
           "voice_announcement": "Sprachansage",
           "tower_clock": "Turmuhr (Westminster um 12:00)",
           "use_chime": "Glockenton verwenden",
-          "preset_chime": "Glockenton",
-          "custom_chime_path": "Benutzerdefinierter Glockenpfad (optional)"
+          "preset_chime": "Voreingestellter Glockenton",
+          "custom_chime_path": "Eigener Glockenton-Pfad (optional)"
         },
         "data_description": {
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)"
@@ -65,7 +67,7 @@
   "services": {
     "test_announcement": {
       "name": "Ansage testen",
-      "description": "Teste die Zeitansage sofort"
+      "description": "Testet die Zeitansage sofort"
     }
   }
 }
