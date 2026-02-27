@@ -1,4 +1,5 @@
 import asyncio
+import logging
 from datetime import datetime
 from homeassistant.helpers.event import async_track_time_change
 from homeassistant.util import dt as dt_util
@@ -35,6 +36,8 @@ from .languages import (
     SK_HOUR_NAMES_EXACT,
     SK_HOUR_NAMES_HALF,
 )
+
+_LOGGER = logging.getLogger(__name__)
 
 
 def _create_player(hass, player_entity_id: str, player_type: str):
@@ -244,11 +247,19 @@ class DigitalPendulum:
         await self._player.play_default_chime()
 
     async def _speak(self, text: str, hour: int = None, minute: int = None):
-        if self.use_chime:
-            await self._play_chime(hour, minute)
-            await asyncio.sleep(1.2)
-        if self.voice_announcement:
-            await self._player.speak(text)
+        """Esegui chime e/o annuncio vocale, loggando eventuali errori."""
+        try:
+            if self.use_chime:
+                await self._play_chime(hour, minute)
+                await asyncio.sleep(1.2)
+            if self.voice_announcement:
+                await self._player.speak(text)
+        except Exception as e:
+            _LOGGER.error(
+                "Digital Pendulum: errore durante l'annuncio su '%s': %s",
+                self.player,
+                e,
+            )
 
     async def async_test_announcement(self):
         """Test immediato dell'annuncio con orario completo."""
