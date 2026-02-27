@@ -68,6 +68,9 @@ Durante la configurazione ti verrà chiesto di selezionare prima il tipo di play
 - Tedesco 🇩🇪 (con gestione corretta di "halb")
 - Spagnolo 🇪🇸
 - Polacco 🇵🇱
+- Ceco 🇨🇿
+- Slovacco 🇸🇰
+- Portoghese 🇵🇹
   
 fallback automatico in italiano
 
