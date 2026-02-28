@@ -54,10 +54,13 @@ Das Ergebnis ist ein eleganter und dezenter Effekt, ideal für Zuhause oder Bür
 - Italienisch 🇮🇹
 - Englisch 🇬🇧
 - Französisch 🇫🇷
-- Deutsch 🇩🇪 (mit korrekter Behandlung von "halb")
+- Deutsch 🇩🇪
 - Spanisch 🇪🇸
-- Polish 🇵🇱
-- 
+- Polnisch 🇵🇱
+- Tschechisch 🇨🇿
+- Slowakisch 🇸🇰
+- Portugiesisch 🇵🇹
+  
 automatischer Fallback auf Italienisch
 
 ### ⏱️ Konfigurierbares Zeitfenster
