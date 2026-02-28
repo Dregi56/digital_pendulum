@@ -65,9 +65,12 @@ During setup you will be asked to select the player type first, then the specifi
 - Italian 🇮🇹
 - English 🇬🇧
 - French 🇫🇷
-- German 🇩🇪 (with correct handling of "halb")
+- German 🇩🇪
 - Spanish 🇪🇸
 - Polish 🇵🇱
+- Czech 🇨🇿
+- Slovak 🇸🇰
+- Portuguese 🇵🇹
   
 automatic fallback to Italian
 
