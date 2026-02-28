@@ -113,7 +113,7 @@ Exemples d'annonces:
 | Langue | Heure | Annonce |
 |------|------|--------|
 | 🇮🇹 IT | 10:30 | Ore 10 e trenta |
-| 🇬🇧 EN | 14:00 | It's 14 o'clock |
+| 🇬🇧 EN | 14:00 | It's 2 o'clock in the afternoon |
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
