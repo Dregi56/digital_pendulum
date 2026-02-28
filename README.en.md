@@ -241,7 +241,7 @@ Digital Pendulum includes a diagnostic sensor:
 Digital Pendulum automatically uses the Home Assistant language.
 
 1. Check: Settings → System → General → Language
-2. Supported languages: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+2. Supported languages: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. After changing the language, restart Home Assistant
 
 ---
