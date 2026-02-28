@@ -240,7 +240,7 @@ Problème d'**Alexa Media Player**, pas de Digital Pendulum.
 Digital Pendulum utilise automatiquement la langue de Home Assistant.
 
 1. Vérifiez: Paramètres → Système → Général → Langue
-2. Langues supportées: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+2. Langues supportées: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Après avoir changé la langue, redémarrez Home Assistant
 
 ---
