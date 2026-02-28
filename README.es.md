@@ -54,9 +54,12 @@ El resultado es un efecto elegante y discreto, ideal para el hogar o la oficina.
 - Italiano 🇮🇹
 - Inglés 🇬🇧
 - Francés 🇫🇷
-- Alemán 🇩🇪 (con gestión correcta de "halb")
+- Alemán 🇩🇪
 - Español 🇪🇸
-- Polish 🇵🇱
+- Polaco 🇵🇱
+- Checo 🇨🇿
+- Eslovaco 🇸🇰
+- Portugués 🇵🇹
 
 fallback automático al italiano
 
