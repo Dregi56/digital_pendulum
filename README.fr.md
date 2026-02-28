@@ -53,9 +53,12 @@ Le résultat est un effet élégant et discret, idéal pour la maison ou le bure
 - Italien 🇮🇹
 - Anglais 🇬🇧
 - Français 🇫🇷
-- Allemand 🇩🇪 (avec gestion correcte de "halb")
+- Allemand 🇩🇪
 - Espagnol 🇪🇸
-- Polski 🇵🇱
+- Polonais 🇵🇱
+- Tchèque 🇨🇿
+- Slovaque 🇸🇰
+- Portugais 🇵🇹
 
 fallback automatique en italien
 
