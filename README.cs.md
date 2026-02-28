@@ -47,11 +47,12 @@ Výsledkem je elegantní a diskrétní efekt, ideální pro domov nebo kancelá�
 - Italština 🇮🇹
 - Angličtina 🇬🇧
 - Francouzština 🇫🇷
-- Němčina 🇩🇪 (se správným zpracováním výrazu "halb")
+- Němčina 🇩🇪
 - Španělština 🇪🇸
 - Polština 🇵🇱
-- Čeština 🇨🇿 (se správným zpracováním výrazu "půl")
-- Slovenština 🇸🇰 (se správným zpracováním výrazu "pol")
+- Čeština 🇨🇿
+- Slovenština 🇸🇰
+- Portugalština 🇵🇹
 
 automatický záložní jazyk: italština
 
