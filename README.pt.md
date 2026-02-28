@@ -57,9 +57,9 @@ Durante a configuração, será solicitado que selecione primeiro o tipo de play
 - Italiano 🇮🇹
 - Inglês 🇬🇧
 - Francês 🇫🇷
-- Alemão 🇩🇪 (com gestão correta de "halb")
+- Alemão 🇩🇪
 - Espanhol 🇪🇸
-- Polaco 🇵🇱
+- Polonês 🇵🇱
 - Checo 🇨🇿
 - Eslovaco 🇸🇰
 - Português 🇵🇹
