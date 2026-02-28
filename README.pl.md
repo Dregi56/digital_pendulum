@@ -55,12 +55,15 @@ Efekt jest elegancki i dyskretny – idealny do domu lub biura.
 - co pół godziny (xx:30) – opcjonalnie  
 
 ### 🌐 Automatyczna obsługa wielu języków
-- Włoski 🇮🇹  
-- Angielski 🇬🇧  
-- Francuski 🇫🇷  
-- Niemiecki 🇩🇪 (z poprawną obsługą „halb”)  
-- Hiszpański 🇪🇸  
-- Polski 🇵🇱  
+- Włoski 🇮🇹
+- Angielski 🇬🇧
+- Francuski 🇫🇷
+- Niemiecki 🇩🇪
+- Hiszpański 🇪🇸
+- Polski 🇵🇱
+- Czeski 🇨🇿
+- Słowacki 🇸🇰
+- Portugalski 🇵🇹
 
 automatyczny fallback na włoski
 
