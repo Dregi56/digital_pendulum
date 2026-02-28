@@ -128,7 +128,7 @@ class DigitalPendulum:
         language = self._normalize_language()
         translations = self._get_translations(language)
 
-        # --- Inglese migliorato ---
+        # --- Inglese ---
         if language == "en":
             hour12, period = self._to_12h_with_period(hour)
             if minute == 30:
@@ -152,6 +152,24 @@ class DigitalPendulum:
             if minute == 30:
                 return f"Ore {hour_text} e trenta"
             return f"Ore {hour_text}"
+
+        # --- Portoghese ---
+        if language == "pt":
+            if hour == 0 and minute == 0:
+                return "É meia-noite"
+            if hour == 0 and minute == 30:
+                return "É meia-noite e meia"
+            if hour == 12 and minute == 0:
+                return "É meio-dia"
+            if hour == 12 and minute == 30:
+                return "São meio-dia e meia"
+            if hour == 1:
+                if minute == 30:
+                    return "É uma e meia"
+                return "É uma hora"
+            if minute == 30:
+                return f"São {hour} e meia"
+            return f"São {hour} horas"
 
         # --- Polacco ---
         if language == "pl":
@@ -196,6 +214,12 @@ class DigitalPendulum:
                 "hour_and_half": "Ore {hour} e trenta",
                 "hour_exact": "Ore {hour} in punto",
                 "hour_and_minutes": "Ore {hour} e {minutes}"
+            },
+            "pt": {
+                "hour": "São {hour} horas",
+                "hour_and_half": "São {hour} e meia",
+                "hour_exact": "São {hour} horas em ponto",
+                "hour_and_minutes": "São {hour} e {minutes}"
             },
             "en": fallback,
         }
@@ -246,6 +270,22 @@ class DigitalPendulum:
                 text = f"It's {hour12} o'clock {period}"
             else:
                 text = f"It's {hour12} and {minute:02d} {period}"
+
+        elif language == "pt":
+            if hour == 0 and minute == 0:
+                text = "É meia-noite"
+            elif hour == 12 and minute == 0:
+                text = "É meio-dia"
+            elif hour == 1:
+                if minute == 0:
+                    text = "É uma hora em ponto"
+                else:
+                    text = f"É uma e {minute:02d}"
+            else:
+                if minute == 0:
+                    text = f"São {hour} horas em ponto"
+                else:
+                    text = f"São {hour} e {minute:02d}"
 
         else:
             translations = self._get_translations(language)
