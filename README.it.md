@@ -265,7 +265,7 @@ Digital Pendulum usa il motore TTS configurato in HA per i dispositivi Google.
 Digital Pendulum usa automaticamente la lingua di Home Assistant.
 
 1. Controlla: Impostazioni → Sistema → Generale → Lingua
-2. Lingue supportate: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+2. Lingue supportate: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Dopo aver cambiato la lingua, riavvia Home Assistant
 
 ---
