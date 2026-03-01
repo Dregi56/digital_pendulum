@@ -57,8 +57,8 @@ class DigitalPendulum:
 
     def _load_config(self):
         config = self.entry.options or self.entry.data
-        self.start_hour = config.get(CONF_START_HOUR, DEFAULT_START_HOUR)
-        self.end_hour = config.get(CONF_END_HOUR, DEFAULT_END_HOUR)
+        self.start_hour = int(config.get(CONF_START_HOUR, DEFAULT_START_HOUR))
+        self.end_hour = int(config.get(CONF_END_HOUR, DEFAULT_END_HOUR))
         self.player = config.get(CONF_PLAYER_DEVICE)
         self.enabled = config.get(CONF_ENABLED, DEFAULT_ENABLED)
         self.use_chime = config.get(CONF_USE_CHIME, DEFAULT_USE_CHIME)
