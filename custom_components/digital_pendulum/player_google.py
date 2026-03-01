@@ -1,17 +1,10 @@
 from .player_base import BasePlayer
 
 class GooglePlayer(BasePlayer):
-    """
-    Player per dispositivi Google Home / Nest / Chromecast.
-    Usa Google Cast (integrazione nativa HA).
-    """
-
     async def play_default_chime(self):
-        """Google Cast non ha un announce nativo, non fa nulla."""
         pass
 
     async def play_chime(self, chime_url: str):
-        """Riproduce audio tramite media_player standard."""
         try:
             await self.hass.services.async_call(
                 "media_player",
@@ -26,15 +19,43 @@ class GooglePlayer(BasePlayer):
         except Exception:
             await self.play_default_chime()
 
+    def _find_tts_entity(self) -> str | None:
+        preferred = [
+            "tts.home_assistant_cloud",
+            "tts.google_translate_en_com",
+            "tts.google_translate",
+        ]
+        for entity_id in preferred:
+            if self.hass.states.get(entity_id) is not None:
+                return entity_id
+        for state in self.hass.states.async_all("tts"):
+            return state.entity_id
+        return None
+
     async def speak(self, text: str):
-        """TTS universale - funziona con qualsiasi motore TTS configurato in HA."""
-        await self.hass.services.async_call(
-            "tts",
-            "speak",
-            {
-                "media_player_entity_id": self.player,
-                "message": text,
-                "language": self.hass.config.language,
-            },
-            blocking=False,
-        )
+        language = self.hass.config.language or "en"
+        tts_entity = self._find_tts_entity()
+
+        if tts_entity:
+            await self.hass.services.async_call(
+                "tts",
+                "speak",
+                {
+                    "entity_id": tts_entity,
+                    "media_player_entity_id": self.player,
+                    "message": text,
+                    "language": language,
+                },
+                blocking=False,
+            )
+        else:
+            await self.hass.services.async_call(
+                "tts",
+                "google_translate_say",
+                {
+                    "entity_id": self.player,
+                    "message": text,
+                    "language": language,
+                },
+                blocking=False,
+            )

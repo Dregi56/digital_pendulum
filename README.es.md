@@ -16,7 +16,8 @@ Un péndulo digital parlante para Home Assistant
 [Français](README.fr.md) |
 [Polski](README.pl.md) |
 [Čeština](README.cs.md) |
-[Slovenčina](README.sk.md)
+[Slovenčina](README.sk.md) |
+[Português](README.pt.md)
 
 <br>👉Este es el README en Español. Usa el selector de idioma arriba
 
@@ -53,9 +54,12 @@ El resultado es un efecto elegante y discreto, ideal para el hogar o la oficina.
 - Italiano 🇮🇹
 - Inglés 🇬🇧
 - Francés 🇫🇷
-- Alemán 🇩🇪 (con gestión correcta de "halb")
+- Alemán 🇩🇪
 - Español 🇪🇸
-- Polish 🇵🇱
+- Polaco 🇵🇱
+- Checo 🇨🇿
+- Eslovaco 🇸🇰
+- Portugués 🇵🇹
 
 fallback automático al italiano
 
@@ -113,13 +117,14 @@ Ejemplos de anuncios:
 | Idioma | Hora | Anuncio |
 |------|------|--------|
 | 🇮🇹 IT | 10:30 | Ore 10 e trenta |
-| 🇬🇧 EN | 14:00 | It's 14 o'clock |
+| 🇬🇧 EN | 14:00 | It's 2 o'clock in the afternoon |
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
 | 🇵🇱 PL | 15:30 | Wpół do czwartej |
 | 🇨🇿 CS | 8:30 | Půl deváté |
 | 🇸🇰 SK | 8:30 | Pol deviatej |
+| 🇵🇹 PT | 10:30 | São 10 e meia |
 
 ## 🔔 Chime (campana inicial)
 
@@ -239,7 +244,7 @@ Problema de **Alexa Media Player**, no de Digital Pendulum.
 Digital Pendulum utiliza automáticamente el idioma de Home Assistant.
 
 1. Verifica: Ajustes → Sistema → General → Idioma
-2. Idiomas soportados: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+2. Idiomas soportados: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Después de cambiar el idioma, reinicia Home Assistant
 
 ---

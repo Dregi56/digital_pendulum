@@ -15,7 +15,8 @@ Hovoriace digitálne kyvadlo pre Home Assistant
 [Français](README.fr.md) |
 [Polski](README.pl.md) |
 [Čeština](README.cs.md) |
-[Slovenčina](README.sk.md)
+[Slovenčina](README.sk.md) |
+[Português](README.pt.md)
 
 <br>👉 Toto je README v slovenčine. Použite výber jazyka vyššie.
 
@@ -46,11 +47,12 @@ Výsledkom je elegantný a diskrétny efekt, ideálny pre domov alebo kancelári
 - Taliančina 🇮🇹
 - Angličtina 🇬🇧
 - Francúzština 🇫🇷
-- Nemčina 🇩🇪 (so správnym spracovaním výrazu "halb")
+- Nemčina 🇩🇪
 - Španielčina 🇪🇸
 - Poľština 🇵🇱
-- Čeština 🇨🇿 (so správnym spracovaním výrazu "půl")
-- Slovenčina 🇸🇰 (so správnym spracovaním výrazu "pol")
+- Čeština 🇨🇿
+- Slovenčina 🇸🇰
+- Portugalčina 🇵🇹
 
 automatický záložný jazyk: taliančina
 
@@ -104,13 +106,14 @@ Príklady oznámení:
 | Jazyk | Čas | Oznámenie |
 |------|------|--------|
 | 🇮🇹 IT | 10:30 | Ore 10 e trenta |
-| 🇬🇧 EN | 14:00 | It's 14 o'clock |
+| 🇬🇧 EN | 14:00 | It's 2 o'clock in the afternoon |
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
 | 🇵🇱 PL | 15:30 | Wpół do czwartej |
 | 🇨🇿 CS | 8:30 | Půl deváté |
 | 🇸🇰 SK | 8:30 | Pol deviatej |
+| 🇵🇹 PT | 10:30 | São 10 e meia |
 
 ## 🔔 Chime (úvodný zvon)
 Ak je možnosť use_chime aktívna:
@@ -213,7 +216,7 @@ Problém s **Alexa Media Player**, nie s Digital Pendulum.
 ### Nesprávny jazyk
 Digital Pendulum automaticky používa jazyk Home Assistant.
 1. Skontrolujte: Nastavenia → Systém → Všeobecné → Jazyk
-2. Podporované jazyky: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰
+2. Podporované jazyky: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Po zmene jazyka reštartujte Home Assistant
 
 ---

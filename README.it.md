@@ -16,7 +16,8 @@ Un pendolo digitale parlante per Home Assistant
 [Français](README.fr.md) |
 [Polski](README.pl.md) |
 [Čeština](README.cs.md) |
-[Slovenčina](README.sk.md)
+[Slovenčina](README.sk.md) |
+[Português](README.pt.md)
 
 <br>👉Questo è README in italiano. Usa il selettore di linguaggio qui sopra.
 
@@ -67,6 +68,9 @@ Durante la configurazione ti verrà chiesto di selezionare prima il tipo di play
 - Tedesco 🇩🇪 (con gestione corretta di "halb")
 - Spagnolo 🇪🇸
 - Polacco 🇵🇱
+- Ceco 🇨🇿
+- Slovacco 🇸🇰
+- Portoghese 🇵🇹
   
 fallback automatico in italiano
 
@@ -124,13 +128,14 @@ Esempi di annuncio:
 | Lingua | Ora | Annuncio |
 |------|------|--------|
 | 🇮🇹 IT | 10:30 | Ore 10 e trenta |
-| 🇬🇧 EN | 14:00 | It's 14 o'clock |
+| 🇬🇧 EN | 14:00 | It's 2 o'clock in the afternoon |
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
 | 🇵🇱 PL | 15:30 | Wpół do czwartej |
 | 🇨🇿 CS | 8:30 | Půl deváté |
 | 🇸🇰 SK | 8:30 | Pol deviatej |
+| 🇵🇹 PT | 10:30 | São 10 e meia |
 
 ## 🔔 Chime (campana iniziale)
 
@@ -260,7 +265,7 @@ Digital Pendulum usa il motore TTS configurato in HA per i dispositivi Google.
 Digital Pendulum usa automaticamente la lingua di Home Assistant.
 
 1. Controlla: Impostazioni → Sistema → Generale → Lingua
-2. Lingue supportate: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+2. Lingue supportate: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Dopo aver cambiato la lingua, riavvia Home Assistant
 
 ---

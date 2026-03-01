@@ -16,7 +16,8 @@ Un pendule numérique parlant pour Home Assistant
 [Français](README.fr.md) |
 [Polski](README.pl.md) |
 [Čeština](README.cs.md) |
-[Slovenčina](README.sk.md) 
+[Slovenčina](README.sk.md) |
+[Português](README.pt.md)
  
 <br>👉Ceci est le README en Français. Utilisez le sélecteur de langue ci-dessus
 
@@ -52,9 +53,12 @@ Le résultat est un effet élégant et discret, idéal pour la maison ou le bure
 - Italien 🇮🇹
 - Anglais 🇬🇧
 - Français 🇫🇷
-- Allemand 🇩🇪 (avec gestion correcte de "halb")
+- Allemand 🇩🇪
 - Espagnol 🇪🇸
-- Polski 🇵🇱
+- Polonais 🇵🇱
+- Tchèque 🇨🇿
+- Slovaque 🇸🇰
+- Portugais 🇵🇹
 
 fallback automatique en italien
 
@@ -112,13 +116,14 @@ Exemples d'annonces:
 | Langue | Heure | Annonce |
 |------|------|--------|
 | 🇮🇹 IT | 10:30 | Ore 10 e trenta |
-| 🇬🇧 EN | 14:00 | It's 14 o'clock |
+| 🇬🇧 EN | 14:00 | It's 2 o'clock in the afternoon |
 | 🇫🇷 FR | 9:30 | Il est 9 heures trente |
 | 🇩🇪 DE | 16:30 | Es ist halb 17 |
 | 🇪🇸 ES | 11:00 | Son las 11 |
 | 🇵🇱 PL | 15:30 | Wpół do czwartej |
 | 🇨🇿 CS | 8:30 | Půl deváté |
 | 🇸🇰 SK | 8:30 | Pol deviatej |
+| 🇵🇹 PT | 10:30 | São 10 e meia |
 
 ## 🔔 Chime (sonnerie initiale)
 
@@ -238,7 +243,7 @@ Problème d'**Alexa Media Player**, pas de Digital Pendulum.
 Digital Pendulum utilise automatiquement la langue de Home Assistant.
 
 1. Vérifiez: Paramètres → Système → Général → Langue
-2. Langues supportées: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸
+2. Langues supportées: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Après avoir changé la langue, redémarrez Home Assistant
 
 ---
