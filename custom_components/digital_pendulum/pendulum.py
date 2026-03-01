@@ -163,12 +163,15 @@ class DigitalPendulum:
                 return "É meio-dia"
             if hour == 12 and minute == 30:
                 return "São meio-dia e meia"
-            if hour == 1:
-                if minute == 30:
-                    return "É uma e meia"
-                return "É uma hora"
             if minute == 30:
-                return f"São {hour} e meia"
+                if 1 <= hour <= 11:
+                    hour_word = "uma" if hour == 1 else str(hour)
+                    return f"É {hour_word} e meia"
+                else:  # 13–23
+                    return f"São {hour} e trinta"
+            # ore esatte
+            if hour == 1:
+                return "É uma hora"
             return f"São {hour} horas"
 
         # --- Polacco ---
@@ -296,8 +299,14 @@ class DigitalPendulum:
         elif language == "pt":
             if minute == 0:
                 text = self._build_text(hour, minute)
+            elif hour == 0:
+                text = f"É meia-noite e {minute:02d}"
+            elif hour == 12:
+                text = f"São meio-dia e {minute:02d}"
             elif hour == 1:
                 text = f"É uma e {minute:02d}"
+            elif 2 <= hour <= 11:
+                text = f"É {hour} e {minute:02d}"
             else:
                 text = f"São {hour} e {minute:02d}"
 
