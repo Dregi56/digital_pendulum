@@ -1,0 +1,17 @@
+name: Build Release Asset
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create ZIP
+        run: zip -r digital_pendulum.zip . -x "*.git*"
+      - name: Upload asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: digital_pendulum.zip
