@@ -12,13 +12,17 @@
           "enabled": "Habilitado",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
+          "announce_half_hours_voice": "Anuncio de voz en las medias horas",
           "tower_clock": "Reloj de torre (Westminster a las 12:00)",
           "use_chime": "Usar sonido de campana",
           "preset_chime": "Sonido predefinido",
-          "custom_chime_path": "Ruta de campana personalizada (opcional)"
+          "custom_chime_path": "Ruta de campana personalizada (opcional)",
+          "chime_delay": "Pausa después de la campana (segundos)"
         },
         "data_description": {
-          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
+          "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
+          "chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)"
         }
       }
     }
@@ -36,13 +40,17 @@
           "enabled": "Habilitado",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
+          "announce_half_hours_voice": "Anuncio de voz en las medias horas",
           "tower_clock": "Reloj de torre (Westminster a las 12:00)",
           "use_chime": "Usar sonido de campana",
           "preset_chime": "Sonido predefinido",
-          "custom_chime_path": "Ruta de campana personalizada (opcional)"
+          "custom_chime_path": "Ruta de campana personalizada (opcional)",
+          "chime_delay": "Pausa después de la campana (segundos)"
         },
         "data_description": {
-          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
+          "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
+          "chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)"
         }
       }
     }
