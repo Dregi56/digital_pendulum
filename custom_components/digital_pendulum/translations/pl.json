@@ -12,13 +12,17 @@
           "enabled": "Włączone",
           "announce_half_hours": "Ogłaszaj półgodziny",
           "voice_announcement": "Ogłoszenie głosowe",
+          "announce_half_hours_voice": "Ogłoszenie głosowe o półgodzinach",
           "tower_clock": "Zegar wieżowy (Westminster o 12:00)",
           "use_chime": "Użyj dźwięku dzwonka",
           "preset_chime": "Predefiniowany dźwięk",
-          "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)"
+          "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)",
+          "chime_delay": "Pauza po dzwonku (sekundy)"
         },
         "data_description": {
-          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)"
+          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
+          "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
+          "chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)"
         }
       }
     }
@@ -36,13 +40,17 @@
           "enabled": "Włączone",
           "announce_half_hours": "Ogłaszaj półgodziny",
           "voice_announcement": "Ogłoszenie głosowe",
+          "announce_half_hours_voice": "Ogłoszenie głosowe o półgodzinach",
           "tower_clock": "Zegar wieżowy (Westminster o 12:00)",
           "use_chime": "Użyj dźwięku dzwonka",
           "preset_chime": "Predefiniowany dźwięk",
-          "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)"
+          "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)",
+          "chime_delay": "Pauza po dzwonku (sekundy)"
         },
         "data_description": {
-          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)"
+          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
+          "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
+          "chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)"
         }
       }
     }
