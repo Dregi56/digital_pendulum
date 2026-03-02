@@ -12,13 +12,17 @@
           "enabled": "Aktiviert",
           "announce_half_hours": "Halbe Stunden ankündigen",
           "voice_announcement": "Sprachansage",
+          "announce_half_hours_voice": "Sprachansage zur halben Stunde",
           "tower_clock": "Turmuhr (Westminster um 12:00)",
           "use_chime": "Glockenton verwenden",
           "preset_chime": "Voreingestellter Glockenton",
-          "custom_chime_path": "Eigener Glockenton-Pfad (optional)"
+          "custom_chime_path": "Eigener Glockenton-Pfad (optional)",
+          "chime_delay": "Pause nach dem Glockenton (Sekunden)"
         },
         "data_description": {
-          "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)"
+          "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
+          "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
+          "chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)"
         }
       }
     }
@@ -36,13 +40,17 @@
           "enabled": "Aktiviert",
           "announce_half_hours": "Halbe Stunden ankündigen",
           "voice_announcement": "Sprachansage",
+          "announce_half_hours_voice": "Sprachansage zur halben Stunde",
           "tower_clock": "Turmuhr (Westminster um 12:00)",
           "use_chime": "Glockenton verwenden",
           "preset_chime": "Voreingestellter Glockenton",
-          "custom_chime_path": "Eigener Glockenton-Pfad (optional)"
+          "custom_chime_path": "Eigener Glockenton-Pfad (optional)",
+          "chime_delay": "Pause nach dem Glockenton (Sekunden)"
         },
         "data_description": {
-          "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)"
+          "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
+          "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
+          "chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)"
         }
       }
     }
