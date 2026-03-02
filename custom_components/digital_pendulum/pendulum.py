@@ -15,6 +15,8 @@ from .const import (
     CONF_TOWER_CLOCK,
     CONF_ANNOUNCE_HALF_HOURS,
     CONF_VOICE_ANNOUNCEMENT,
+    CONF_CHIME_DELAY,  # modificata per importare la costante del tempo di attesa
+    CONF_ANNOUNCE_HALF_HOURS_VOICE,  # modificata per importare la costante annuncio vocale mezz'ora
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -24,6 +26,8 @@ from .const import (
     DEFAULT_TOWER_CLOCK,
     DEFAULT_ANNOUNCE_HALF_HOURS,
     DEFAULT_VOICE_ANNOUNCEMENT,
+    DEFAULT_CHIME_DELAY,  # modificata per importare il default del tempo di attesa
+    DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,  # modificata per importare il default annuncio vocale mezz'ora
     PRESET_CHIMES,
     DOMAIN,
 )
@@ -67,6 +71,8 @@ class DigitalPendulum:
         self.tower_clock = config.get(CONF_TOWER_CLOCK, DEFAULT_TOWER_CLOCK)
         self.announce_half_hours = config.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS)
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
+        self.chime_delay = float(config.get(CONF_CHIME_DELAY, DEFAULT_CHIME_DELAY))  # modificata per caricare il tempo di attesa configurabile
+        self.announce_half_hours_voice = config.get(CONF_ANNOUNCE_HALF_HOURS_VOICE, DEFAULT_ANNOUNCE_HALF_HOURS_VOICE)  # modificata per caricare il flag annuncio vocale mezz'ora
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
 
@@ -114,7 +120,7 @@ class DigitalPendulum:
 
         if minute not in (0, 30):
             return
-        if minute == 30 and not self.announce_half_hours:
+        if minute == 30 and not self.announce_half_hours:  # campana e annuncio alla mezz'ora disabilitati completamente
             return
         if hour < self.start_hour or hour > self.end_hour:
             return
@@ -251,8 +257,10 @@ class DigitalPendulum:
         try:
             if self.use_chime:
                 await self._play_chime(hour, minute)
-                await asyncio.sleep(1.2)
+                await asyncio.sleep(self.chime_delay)  # modificata per usare il tempo di attesa configurabile invece del valore fisso 1.2
             if self.voice_announcement:
+                if minute == 30 and not self.announce_half_hours_voice:  # modificata per saltare l'annuncio vocale alla mezz'ora se disabilitato
+                    return  # modificata per saltare l'annuncio vocale alla mezz'ora se disabilitato
                 await self._player.speak(text)
         except Exception as e:
             _LOGGER.error(
