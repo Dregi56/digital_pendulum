@@ -71,7 +71,7 @@ class DigitalPendulum:
         self.tower_clock = config.get(CONF_TOWER_CLOCK, DEFAULT_TOWER_CLOCK)
         self.announce_half_hours = config.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS)
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
-        self.chime_delay = float(config.get(CONF_CHIME_DELAY, DEFAULT_CHIME_DELAY))  # modificata per caricare il tempo di attesa configurabile
+        self.chime_delay = max(0.0, min(10.0, float(config.get(CONF_CHIME_DELAY, DEFAULT_CHIME_DELAY))))  # modificata per caricare il tempo di attesa configurabile e limitare il valore tra 0 e 10 indipendentemente dalla UI
         self.announce_half_hours_voice = config.get(CONF_ANNOUNCE_HALF_HOURS_VOICE, DEFAULT_ANNOUNCE_HALF_HOURS_VOICE)  # modificata per caricare il flag annuncio vocale mezz'ora
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
