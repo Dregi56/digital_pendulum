@@ -311,8 +311,7 @@ Digital Pendulum automatically uses the Home Assistant language.
 
 - ⏳ Announcements every 15 minutes
 - 🔇 Automatic night volume
-- 🗓️ Day announcement
-- 📣 Support for additional TTS engines and players
+
 
 ---
 
