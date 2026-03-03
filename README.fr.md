@@ -1,6 +1,6 @@
 # 🕰️ Digital Pendulum
 
-Un pendule numérique parlant pour Home Assistant
+Une horloge à pendule numérique parlante pour Home Assistant
 <br>**Auteur:** Egidio Ziggiotto (Dregi56)  e-mail: [dregi@cyberservices.com](mailto:dregi@cyberservices.com)
 
 [![HACS](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://hacs.xyz/)
@@ -18,100 +18,115 @@ Un pendule numérique parlant pour Home Assistant
 [Čeština](README.cs.md) |
 [Slovenčina](README.sk.md) |
 [Português](README.pt.md)
- 
-<br>👉Ceci est le README en Français. Utilisez le sélecteur de langue ci-dessus
 
-## ❤️ Vous aimez Digital Pendulum?
+<br>👉 Ceci est le README en français. Utilisez le sélecteur de langue ci-dessus.
 
-Si vous le trouvez utile, pensez à laisser une ⭐ sur GitHub:  
+## ❤️ Vous aimez Digital Pendulum ?
+
+Si vous le trouvez utile, pensez à laisser une ⭐ sur GitHub :  
 👉 **https://github.com/Dregi56/digital_pendulum**
 <br>Merci.
 
 ## 📌 Description
 
-Digital Pendulum est une intégration personnalisée pour Home Assistant qui annonce vocalement l'heure, tout comme une pendule numérique 🕰️.
+Digital Pendulum est une intégration personnalisée pour Home Assistant qui annonce vocalement l'heure, comme une horloge à pendule numérique 🕰️.
 
-
-En utilisant un appareil Alexa comme haut-parleur, le système:
+En utilisant un haut-parleur intelligent compatible comme lecteur, le système :
 
 - 📢 annonce l'heure toutes les heures et/ou toutes les demi-heures (configurable)
-- 🌍 parle automatiquement dans la langue configurée dans Home Assistant  
-- ⏰ fonctionne uniquement dans une plage horaire configurable 
-- 🔔 peut reproduire un son personnalisé avant l'annonce
+- 🌍 parle automatiquement dans la langue configurée dans Home Assistant
+- ⏰ fonctionne uniquement dans un créneau horaire configurable
+- 🔔 peut jouer un son personnalisé avant l'annonce
 - 🔕 peut désactiver l'annonce vocale (sonnerie uniquement)
-- 🏰 peut reproduire la mélodie Westminster à 12 heures
+- 🏰 peut jouer le carillon de Westminster à 12 heures
 
 Le résultat est un effet élégant et discret, idéal pour la maison ou le bureau.
+
+## 🔊 Appareils compatibles
+
+Digital Pendulum prend en charge trois types de lecteurs :
+
+| Type | Description | Prérequis |
+|------|-------------|-------------|
+| **Alexa** | Appareils Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) via HACS |
+| **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (intégration native HA) |
+| **Générique** | Tout autre appareil HA media_player | Moteur TTS configuré dans HA (les fonctionnalités peuvent varier) |
+
+Lors de la configuration, il vous sera d'abord demandé de sélectionner le type de lecteur, puis l'appareil spécifique.
 
 ## ✨ Fonctionnalités principales
 
 ### 🕑 Annonce automatique de l'heure
 - toutes les heures (xx:00)
-- toutes les demi-heures (xx:30) - optionnel
+- toutes les demi-heures (xx:30) - optionnel (sonnerie uniquement ou sonnerie + voix, configurable)
+
+### ⏱️ Délai configurable après la sonnerie
+- temps d'attente réglable entre la sonnerie et l'annonce vocale (défaut : 1,2 secondes)
+- particulièrement utile pour les appareils Google Home / Nest, qui peuvent nécessiter un délai plus long pour reproduire correctement l'annonce vocale
 
 ### 🌐 Support multilingue automatique
-- Italien 🇮🇹
-- Anglais 🇬🇧
+- Italiano 🇮🇹
+- English 🇬🇧
 - Français 🇫🇷
-- Allemand 🇩🇪
-- Espagnol 🇪🇸
-- Polonais 🇵🇱
-- Tchèque 🇨🇿
-- Slovaque 🇸🇰
-- Portugais 🇵🇹
+- Deutsch 🇩🇪
+- Español 🇪🇸
+- Polski 🇵🇱
+- Čeština 🇨🇿
+- Slovenčina 🇸🇰
+- Português 🇵🇹
 
-fallback automatique en italien
+retour automatique à l'italien
 
-### ⏱️ Plage horaire configurable
+### 🕐 Créneau horaire configurable
 - ex. uniquement de 8h00 à 22h00
 
-###  🔔 Sonnerie optionnelle
+### 🔔 Sonnerie optionnelle
 - 🎵 12 sons prédéfinis au choix
-- 🎶 possibilité d'utiliser un fichier audio personnalisé
-- 🔕 son de notification "announce" d'Alexa (par défaut)
+- 🎶 option d'utiliser un fichier audio personnalisé
+- 🔕 son de notification par défaut (si rien n'est sélectionné)
 
 ### 🧪 Fonction de test
-- pour essayer l'annonce immédiatement
+- pour essayer immédiatement l'annonce
 
 ### 🎯 Comportement
 
-**Sonnerie (Chime):**
-- **Presets disponibles**: 12 sons dont church-bell, simple-bell, clock-chime, etc.
-- **Son personnalisé**: Sélectionnez "custom" et entrez le chemin de votre fichier audio
-- **Par défaut**: Son "announce" d'Alexa (si vous ne sélectionnez rien)
-- **Désactivé**: Désactivez "use_chime" pour aucun son avant l'annonce
+**Sonnerie (Chime) :**
+- **Préréglages disponibles** : 12 sons dont church-bell, simple-bell, clock-chime, etc.
+- **Son personnalisé** : Sélectionnez "custom" et entrez le chemin de votre fichier audio
+- **Par défaut** : son de notification (si vous ne sélectionnez rien)
+- **Désactivé** : Désactivez "use_chime" pour aucun son avant l'annonce
 
-**Mélodie Westminster (Tower Clock):**
+**Mélodie de Westminster (Horloge de tour) :**
 - Option séparée "tower_clock"
-- Sonne **uniquement à 12h00** (midi)
-- Remplace le chime normal à cette heure
+- Joue **uniquement à 12:00** (midi)
+- Remplace la sonnerie normale à ce moment
 
-**Annonce vocale:**
-- **Activée** (par défaut): Alexa prononce l'heure après la sonnerie
-- **Désactivée**: Son de sonnerie uniquement, aucune annonce vocale
+**Annonce vocale :**
+- **Activée** (par défaut) : l'appareil prononce l'heure après la sonnerie
+- **Désactivée** : son de sonnerie uniquement, pas d'annonce vocale
 
-**Annonces demi-heure:**
-- **Activées** (par défaut): Annonces à :00 et :30
-- **Désactivées**: Annonces à :00 uniquement
+**Annonce vocale à la demi-heure :**
+- **Activée** (par défaut) : l'annonce vocale est diffusée à la fois à :00 et à :30
+- **Désactivée** : la sonnerie joue toujours à :30, mais sans annonce vocale
 
-## ⚙️ Comment ça fonctionne
+## ⚙️ Fonctionnement
 
 Digital Pendulum se synchronise avec l'horloge système et vérifie automatiquement chaque minute s'il est temps de faire une annonce.
 
-**Quand l'annonce se déclenche:**
-1. 🔔 Reproduit la sonnerie choisie (si activée)
-2. ⏱️ Attend 1,2 secondes
-3. 🗣️ Alexa prononce l'heure dans la langue de Home Assistant (si activée)
+**Lorsque l'annonce se déclenche :**
+1. 🔔 Joue la sonnerie choisie (si activée)
+2. ⏱️ Attend un nombre configurable de secondes (défaut : 1,2 s) — augmentez cette valeur pour les appareils Google Home / Nest si l'annonce vocale ne se joue pas correctement
+3. 🗣️ L'appareil prononce l'heure dans la langue de Home Assistant (si activée)
 
-Tout se passe automatiquement sans avoir besoin de configurer des automatisations!
+Tout se passe automatiquement sans avoir besoin de configurer des automatisations !
 
-## 🗣️ Gestion des langues
+## 🗣️ Gestion de la langue
 
-La langue est détectée automatiquement depuis:
+La langue est automatiquement détectée depuis :
 
 self.hass.config.language
 
-Exemples d'annonces:
+Exemples d'annonces :
 
 | Langue | Heure | Annonce |
 |------|------|--------|
@@ -125,31 +140,34 @@ Exemples d'annonces:
 | 🇸🇰 SK | 8:30 | Pol deviatej |
 | 🇵🇹 PT | 10:30 | São 10 e meia |
 
-## 🔔 Chime (sonnerie initiale)
+## 🔔 Sonnerie (son initial)
 
-Si l'option use_chime est active:
-- le son de notification d'Alexa ou le son choisi est reproduit
-- le système attend 1,2 secondes
-- l'annonce vocale démarre (si activée)
+Si l'option use_chime est active :
+- le son de notification ou le son choisi est joué
+- le système attend un nombre configurable de secondes (défaut : 1,2)
+- l'annonce vocale commence (si activée)
 
-Cela crée un effet similaire à une vraie pendule 🎶.
+Cela crée un effet similaire à un vrai pendule 🎶.
 
 ## 🧩 Options de configuration
 
 | Option | Description |
 |------|------------|
-| player | Appareil Alexa cible |
+| player_type | Type d'appareil lecteur (Alexa, Google Home, Générique) |
+| player | Appareil cible |
 | start_hour | Heure de début de fonctionnement |
 | end_hour | Heure de fin de fonctionnement |
-| enabled | Active/désactive la pendule |
+| enabled | Active/désactive le pendule |
 | announce_half_hours | Active les annonces toutes les demi-heures (sinon toutes les heures uniquement) |
+| after_chime_delay | Temps d'attente en secondes entre la sonnerie et l'annonce vocale (défaut : 1,2) |
+| announce_half_hours_voice | Active/désactive l'annonce vocale à la demi-heure (la sonnerie joue toujours) |
 | voice_announcement | Active/désactive l'annonce vocale de l'heure |
-| tower_clock | Active la mélodie Westminster à 12h00 |
+| tower_clock | Active la mélodie de Westminster à 12:00 |
 | use_chime | Active/désactive la sonnerie avant l'annonce |
-| preset_chime | Choix du son de sonnerie (12 presets disponibles) |
-| custom_chime_path | Chemin pour son de sonnerie personnalisé |
+| preset_chime | Choix du son de sonnerie (12 préréglages disponibles) |
+| custom_chime_path | Chemin pour le son de sonnerie personnalisé |
 
-Valeurs par défaut:
+Valeurs par défaut :
 
 - ⏰ start_hour → 8
 - ⏰ end_hour → 22
@@ -158,17 +176,19 @@ Valeurs par défaut:
 - ⏰ announce_half_hours → True
 - 🏰 tower_clock → False
 - ✅ enabled → True
+- ⏱️ after_chime_delay → 1,2
+- 🔇 announce_half_hours_voice → True
 
 ## 🧪 Test immédiat
 
-Une méthode de test manuelle est disponible:
+Une méthode de test manuel est disponible :
 
-Qui:
+Qui :
 - lit l'heure actuelle
-- génère une phrase complète (ex. "Il est 15 heures 42")
-- la reproduit immédiatement sur l'appareil Alexa  
+- génère une phrase complète (ex. "Il est 15 heures et 42 minutes")
+- la joue immédiatement sur l'appareil sélectionné
 
-Utile pour vérifier: langue, volume, chime, bon fonctionnement du TTS
+Utile pour vérifier : la langue, le volume, la sonnerie, le bon fonctionnement du TTS
 
 ## 🔍 Capteur d'état
 
@@ -182,16 +202,17 @@ Digital Pendulum inclut un capteur de diagnostic :
 
 **Utilisations :**
 - Surveillance du tableau de bord
-- Automatisations pour notifications
+- Automatisations de notifications
 - Diagnostic rapide
 
 ## 📦 Prérequis
 
-> ✨ **Disponible sur HACS** - installation et mises à jour simplifiées!
+> ✨ **Disponible sur HACS** - installation et mises à jour simplifiées !
 
 - 🏠 Home Assistant 2024.1.0 ou supérieur
-- 🔊 Alexa Media Player installé et fonctionnel
-- 📡 Appareil Alexa configuré comme player
+- 🔊 Un appareil media_player compatible (voir [Appareils compatibles](#-appareils-compatibles))
+- 📡 Pour Alexa : [alexa_media_player](https://github.com/custom-components/alexa_media_player) installé via HACS
+- 📡 Pour Google Home / Nest : intégration Google Cast (native dans HA)
 
 ## 💾 Installation
 
@@ -202,7 +223,7 @@ Digital Pendulum inclut un capteur de diagnostic :
 3. Recherchez **"Digital Pendulum"**
 4. Cliquez sur **Télécharger**
 5. **Redémarrez Home Assistant**
-6. Allez dans **Paramètres** → **Appareils et Services** → **Ajouter une Intégration**
+6. Allez dans **Paramètres** → **Appareils et services** → **Ajouter une intégration**
 7. Recherchez **"Digital Pendulum"**
 8. Suivez la configuration guidée
 
@@ -212,10 +233,9 @@ Digital Pendulum inclut un capteur de diagnostic :
 2. Extrayez les fichiers
 3. Copiez le dossier `digital_pendulum` dans `config/custom_components/`
 4. Redémarrez Home Assistant
-5. Allez dans **Paramètres** → **Appareils et Services** → **Ajouter une Intégration**
+5. Allez dans **Paramètres** → **Appareils et services** → **Ajouter une intégration**
 6. Recherchez **"Digital Pendulum"**
 7. Suivez la configuration guidée
-
 
 ## 🎯 Utilisation idéale
 
@@ -223,18 +243,31 @@ Digital Pendulum inclut un capteur de diagnostic :
 - ✔️ Bureaux
 - ✔️ Espaces communs
 - ✔️ Effet "pendule moderne"
-- ✔️ Rappel temporel non invasif
+- ✔️ Rappel d'heure non invasif
 
-## 🔧 Résolution des problèmes
+## 🔧 Dépannage
 
-### Erreur "Cannot find EU skill" ou problèmes Alexa
+### Problèmes avec Alexa ou erreur "Cannot find EU skill"
 
-Problème d'**Alexa Media Player**, pas de Digital Pendulum.
+Problème avec **alexa_media_player**, pas avec Digital Pendulum.
 
-**Solution rapide:**
+**Solution rapide :**
 1. Paramètres → Appareils et services → Alexa Media Player
 2. Trois points → Recharger
-3. Si ça ne fonctionne pas: désinstallez et réinstallez Alexa Media Player
+3. Si ça ne fonctionne pas : désinstallez et réinstallez Alexa Media Player
+
+---
+
+### Google Home / Nest : pas d'annonce vocale
+
+Digital Pendulum utilise le moteur TTS configuré dans HA pour les appareils Google.
+
+Il s'agit d'un problème de synchronisation connu avec les appareils Google. L'annonce vocale peut être coupée ou ignorée si le délai après la sonnerie est trop court.
+
+1. Vérifiez qu'un moteur TTS est configuré dans HA (Paramètres → Assistants vocaux)
+2. Vérifiez le journal HA pour les erreurs TTS
+3. Augmentez la valeur **"Délai après la sonnerie"** (essayez 2,0 ou 3,0 secondes)
+4. Utilisez le bouton "Test" pour vérifier
 
 ---
 
@@ -242,56 +275,52 @@ Problème d'**Alexa Media Player**, pas de Digital Pendulum.
 
 Digital Pendulum utilise automatiquement la langue de Home Assistant.
 
-1. Vérifiez: Paramètres → Système → Général → Langue
-2. Langues supportées: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
+1. Vérifiez : Paramètres → Système → Général → Langue
+2. Langues prises en charge : 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Après avoir changé la langue, redémarrez Home Assistant
 
 ---
 
-### Aucune annonce
+### Pas d'annonces
 
-**Vérifiez:**
-- Intégration activée? (Interrupteur ON)
-- Êtes-vous dans la plage horaire configurée? (par défaut 8h00-22h00)
-- Appareil Alexa en ligne?
+**Vérifiez :**
+- Intégration activée ? (Interrupteur ON)
+- Êtes-vous dans le créneau horaire configuré ? (défaut 8h00-22h00)
+- Appareil en ligne ?
+- Type de lecteur correct sélectionné ? (Alexa, Google, Générique)
 - Essayez le bouton "Test"
 
 ---
 
 ### Sonnerie uniquement ou voix uniquement
 
-- **Sonnerie uniquement:** Activez "Voice announcement"
-- **Voix uniquement:** Activez "Use chime"
+- **Sonnerie uniquement :** Activez "Annonce vocale"
+- **Voix uniquement :** Activez "Utiliser la sonnerie"
 
 ---
 
-### Westminster ne sonne pas à 12h
+### Westminster ne joue pas à 12h
 
-- Vérifiez que "Tower Clock" est actif
-- Fonctionne **uniquement à 12h00** (midi, pas minuit)
+- Vérifiez que "Horloge de tour" est active
+- Fonctionne **uniquement à 12:00** (midi, pas minuit)
 
 ---
 
-## 🚀 Évolutions futures possibles
+## 🚀 Développements futurs possibles
 
 - ⏳ Annonces toutes les 15 minutes
-- 🔇 Volume automatique nocturne
-- 🗓️ Annonce du jour
-- 📣 Support d'autres TTS
+- 🔇 Volume nocturne automatique
 
 ---
-
-## 
 
 ## ☕ Soutenez le projet
 
-Vous aimez ce projet? Si vous le trouvez utile, offrez-moi un café virtuel pour soutenir les développements futurs! Chaque petite contribution est très appréciée. 🙏
+Vous aimez ce projet ? Si vous le trouvez utile, offrez-moi un café virtuel pour soutenir les développements futurs ! Chaque petite contribution est très appréciée. 🙏
 
-**Digital Pendulum est et restera toujours gratuit et open source.** Les dons sont entièrement volontaires! ❤️
-
+**Digital Pendulum est et restera toujours gratuit et open source.** Les dons sont entièrement volontaires ! ❤️
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
 
-💡 **Vous préférez d'autres méthodes?** Vous pouvez utiliser:
+💡 **Vous préférez d'autres méthodes ?** Vous pouvez utiliser :
 
 [![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
