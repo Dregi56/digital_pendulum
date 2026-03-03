@@ -78,7 +78,7 @@ During setup you will be asked to select the player type first, then the specifi
   
 automatic fallback to Italian
 
-### ⏱️ Configurable time slot
+### 🕐 Configurable time slot
 - e.g. only from 8:00 to 22:00
 
 ###  🔔 Optional bell
@@ -145,7 +145,7 @@ Announcement examples:
 
 If the use_chime option is active:
 - the notification sound or the chosen sound is played
-- the system waits 1.2 seconds
+- the system waits a configurable number of seconds (default: 1.2)
 - the voice announcement starts (if enabled)
 
 This creates an effect similar to a real pendulum 🎶.
