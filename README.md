@@ -59,7 +59,11 @@ During setup you will be asked to select the player type first, then the specifi
 
 ### 🕑 Automatic time announcement
 - every hour (xx:00)
-- every half hour (xx:30) - optional
+- every half hour (xx:30) - optional (chime only or chime + voice, configurable)
+
+### ⏱️ Configurable delay after chime
+- adjustable waiting time between chime and voice announcement (default: 1.2 seconds)
+- useful especially for Google Home / Nest devices, which may need a longer delay to play the voice announcement correctly
 
 ### 🌐 Automatic multilingual support
 - Italian 🇮🇹
@@ -102,9 +106,9 @@ automatic fallback to Italian
 - **Enabled** (default): the device pronounces the time after the bell
 - **Disabled**: Bell sound only, no voice announcement
 
-**Half-hour announcements:**
-- **Enabled** (default): Announcements at :00 and :30
-- **Disabled**: Announcements at :00 only
+**Half-hour voice announcement:**
+- **Enabled** (default): voice announcement plays at both :00 and :30
+- **Disabled**: chime still plays at :30, but no voice announcement
 
 ## ⚙️ How it works
 
@@ -112,7 +116,7 @@ Digital Pendulum synchronises with the system clock and automatically checks eve
 
 **When the announcement triggers:**
 1. 🔔 Plays the chosen bell (if enabled)
-2. ⏱️ Waits 1.2 seconds
+2. ⏱️ Waits a configurable number of seconds (default: 1.2s) — increase this value for Google Home / Nest devices if the voice announcement does not play correctly
 3. 🗣️ The device pronounces the time in the Home Assistant language (if enabled)
 
 Everything happens automatically without the need to configure automations!
@@ -156,6 +160,8 @@ This creates an effect similar to a real pendulum 🎶.
 | end_hour | Operating end time |
 | enabled | Enables/disables the pendulum |
 | announce_half_hours | Enables announcements every half hour (otherwise every hour only) |
+| after_chime_delay | Waiting time in seconds between chime and voice announcement (default: 1.2) |
+| announce_half_hours_voice | Enables/disables voice announcement at half hours (chime still plays) |
 | voice_announcement | Enables/disables the voice time announcement |
 | tower_clock | Enables Westminster melody at 12:00 |
 | use_chime | Enables/disables the bell before the announcement |
@@ -171,6 +177,8 @@ Default values:
 - ⏰ announce_half_hours → True
 - 🏰 tower_clock → False
 - ✅ enabled → True
+- ⏱️ after_chime_delay → 1.2
+- 🔇 announce_half_hours_voice → True
 
 ## 🧪 Immediate test
 
@@ -256,10 +264,12 @@ Digital Pendulum includes a diagnostic sensor:
 
 Digital Pendulum uses the TTS engine configured in HA for Google devices.
 
-1. Check that a TTS engine is configured in HA (Settings → Voice assistants)
-2. Try the "Test" button to verify
-3. Check the HA log for TTS errors
+This is a known timing issue with Google devices. The voice announcement may be cut or skipped if the delay after the chime is too short.
 
+1. Check that a TTS engine is configured in HA (Settings → Voice assistants)
+2. Check the HA log for TTS errors
+3. Increase the **"Delay after chime"** value (try 2.0 or 3.0 seconds)
+4. Try the "Test" button to verify
 ---
 
 ### Wrong language
