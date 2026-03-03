@@ -17,12 +17,12 @@
           "use_chime": "Utiliser un son de cloche",
           "preset_chime": "Son prédéfini",
           "custom_chime_path": "Chemin de cloche personnalisé (optionnel)",
-          "chime_delay": "Pause après la cloche (secondes)"
+          "after_chime_delay": "Pause après la cloche (secondes)"
         },
         "data_description": {
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)",
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
-          "chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)"
+          "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)"
         }
       }
     }
@@ -45,12 +45,12 @@
           "use_chime": "Utiliser un son de cloche",
           "preset_chime": "Son prédéfini",
           "custom_chime_path": "Chemin de cloche personnalisé (optionnel)",
-          "chime_delay": "Pause après la cloche (secondes)"
+          "after_chime_delay": "Pause après la cloche (secondes)"
         },
         "data_description": {
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)",
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
-          "chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)"
+          "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)"
         }
       }
     }
@@ -79,4 +79,5 @@
     }
   }
 }
+
 
