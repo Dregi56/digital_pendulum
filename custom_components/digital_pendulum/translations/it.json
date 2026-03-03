@@ -17,12 +17,12 @@
           "use_chime": "Usa Suono Campana",
           "preset_chime": "Suono Campana",
           "custom_chime_path": "Percorso campana personalizzata (opzionale)",
-          "chime_delay": "Pausa dopo la campana (secondi)"
+          "after_chime_delay": "Pausa dopo la campana (secondi)"
         },
         "data_description": {
           "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)",
           "announce_half_hours_voice": "Se disabilitato, la campana suonerà comunque alla mezz'ora ma non verrà fatto l'annuncio vocale",
-          "chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)"
+          "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)"
         }
       }
     }
@@ -45,12 +45,12 @@
           "use_chime": "Usa Suono Campana",
           "preset_chime": "Suono Campana",
           "custom_chime_path": "Percorso campana personalizzata (opzionale)",
-          "chime_delay": "Pausa dopo la campana (secondi)"
+          "after_chime_delay": "Pausa dopo la campana (secondi)"
         },
         "data_description": {
           "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)",
           "announce_half_hours_voice": "Se disabilitato, la campana suonerà comunque alla mezz'ora ma non verrà fatto l'annuncio vocale",
-          "chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)"
+          "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)"
         }
       }
     }
@@ -79,3 +79,4 @@
     }
   }
 }
+
