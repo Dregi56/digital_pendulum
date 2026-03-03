@@ -17,13 +17,13 @@
           "use_chime": "Use chime sound",
           "preset_chime": "Chime sound",
           "custom_chime_path": "Custom chime path (optional)",
-          "chime_delay": "Delay after chime (seconds)"
+          "after_chime_delay": "Delay after chime (seconds)"
         },
         "data_description": {
           "player_type": "Select your device type (Alexa, Google Home, or Generic)",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)",
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
-          "chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)"
+          "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)"
         }
       }
     }
@@ -46,13 +46,13 @@
           "use_chime": "Use chime sound",
           "preset_chime": "Chime sound",
           "custom_chime_path": "Custom chime path (optional)",
-          "chime_delay": "Delay after chime (seconds)"
+          "after_chime_delay": "Delay after chime (seconds)"
         },
         "data_description": {
           "player_type": "Select your device type (Alexa, Google Home, or Generic)",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)",
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
-          "chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)"
+          "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)"
         }
       }
     }
@@ -81,4 +81,5 @@
     }
   }
 }
+
 
