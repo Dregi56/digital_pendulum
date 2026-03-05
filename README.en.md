@@ -32,8 +32,7 @@ If you find it useful, consider leaving a ⭐ on GitHub:
 
 Digital Pendulum is a custom integration for Home Assistant that vocally announces the time, just like a digital pendulum 🕰️.
 
-
-Using an Alexa device as a speaker, the system:
+Using a compatible smart speaker as a player, the system:
 
 - 📢 announces the time every hour and/or every half hour (configurable)
 - 🌍 automatically speaks in the language set in Home Assistant  
@@ -44,11 +43,27 @@ Using an Alexa device as a speaker, the system:
 
 The result is an elegant and discreet effect, ideal for home or office.
 
+## 🔊 Supported Devices
+
+Digital Pendulum supports three player types:
+
+| Type | Description | Requirement |
+|------|-------------|-------------|
+| **Alexa** | Amazon Echo devices | [alexa_media_player](https://github.com/custom-components/alexa_media_player) via HACS |
+| **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (native HA integration) |
+| **Generic** | Any other HA media_player device | TTS engine configured in HA (functionality may vary) |
+
+During setup you will be asked to select the player type first, then the specific device.
+
 ## ✨ Main features
 
 ### 🕑 Automatic time announcement
 - every hour (xx:00)
-- every half hour (xx:30) - optional
+- every half hour (xx:30) - optional (chime only or chime + voice, configurable)
+
+### ⏱️ Configurable delay after chime
+- adjustable waiting time between chime and voice announcement (default: 1.2 seconds)
+- useful especially for Google Home / Nest devices, which may need a longer delay to play the voice announcement correctly
 
 ### 🌐 Automatic multilingual support
 - Italian 🇮🇹
@@ -63,13 +78,13 @@ The result is an elegant and discreet effect, ideal for home or office.
   
 automatic fallback to Italian
 
-### ⏱️ Configurable time slot
+### 🕐 Configurable time slot
 - e.g. only from 8:00 to 22:00
 
 ###  🔔 Optional bell
 - 🎵 12 preset sounds to choose from
 - 🎶 option to use a custom audio file
-- 🔕 Alexa "announce" notification sound (default)
+- 🔕 default notification sound (if nothing is selected)
 
 ### 🧪 Test function
 - to immediately try the announcement
@@ -79,7 +94,7 @@ automatic fallback to Italian
 **Bell (Chime):**
 - **Available presets**: 12 sounds including church-bell, simple-bell, clock-chime, etc.
 - **Custom sound**: Select "custom" and enter the path of your audio file
-- **Default**: Alexa "announce" sound (if you select nothing)
+- **Default**: notification sound (if you select nothing)
 - **Disabled**: Disable "use_chime" for no sound before the announcement
 
 **Westminster Melody (Tower Clock):**
@@ -88,12 +103,12 @@ automatic fallback to Italian
 - Replaces the normal chime at that time
 
 **Voice announcement:**
-- **Enabled** (default): Alexa pronounces the time after the bell
+- **Enabled** (default): the device pronounces the time after the bell
 - **Disabled**: Bell sound only, no voice announcement
 
-**Half-hour announcements:**
-- **Enabled** (default): Announcements at :00 and :30
-- **Disabled**: Announcements at :00 only
+**Half-hour voice announcement:**
+- **Enabled** (default): voice announcement plays at both :00 and :30
+- **Disabled**: chime still plays at :30, but no voice announcement
 
 ## ⚙️ How it works
 
@@ -101,8 +116,8 @@ Digital Pendulum synchronises with the system clock and automatically checks eve
 
 **When the announcement triggers:**
 1. 🔔 Plays the chosen bell (if enabled)
-2. ⏱️ Waits 1.2 seconds
-3. 🗣️ Alexa pronounces the time in the Home Assistant language (if enabled)
+2. ⏱️ Waits a configurable number of seconds (default: 1.2s) — increase this value for Google Home / Nest devices if the voice announcement does not play correctly
+3. 🗣️ The device pronounces the time in the Home Assistant language (if enabled)
 
 Everything happens automatically without the need to configure automations!
 
@@ -129,8 +144,8 @@ Announcement examples:
 ## 🔔 Chime (initial bell)
 
 If the use_chime option is active:
-- the Alexa notification sound or the chosen sound is played
-- the system waits 1.2 seconds
+- the notification sound or the chosen sound is played
+- the system waits a configurable number of seconds (default: 1.2)
 - the voice announcement starts (if enabled)
 
 This creates an effect similar to a real pendulum 🎶.
@@ -139,11 +154,14 @@ This creates an effect similar to a real pendulum 🎶.
 
 | Option | Description |
 |------|------------|
-| player | Target Alexa device |
+| player_type | Type of player device (Alexa, Google Home, Generic) |
+| player | Target device |
 | start_hour | Operating start time |
 | end_hour | Operating end time |
 | enabled | Enables/disables the pendulum |
 | announce_half_hours | Enables announcements every half hour (otherwise every hour only) |
+| after_chime_delay | Waiting time in seconds between chime and voice announcement (default: 1.2) |
+| announce_half_hours_voice | Enables/disables voice announcement at half hours (chime still plays) |
 | voice_announcement | Enables/disables the voice time announcement |
 | tower_clock | Enables Westminster melody at 12:00 |
 | use_chime | Enables/disables the bell before the announcement |
@@ -159,6 +177,8 @@ Default values:
 - ⏰ announce_half_hours → True
 - 🏰 tower_clock → False
 - ✅ enabled → True
+- ⏱️ after_chime_delay → 1.2
+- 🔇 announce_half_hours_voice → True
 
 ## 🧪 Immediate test
 
@@ -167,7 +187,7 @@ A manual test method is available:
 Which:
 - reads the current time
 - generates a complete sentence (e.g. "It's 15 hours and 42 minutes")
-- plays it immediately on the Alexa device  
+- plays it immediately on the selected device
 
 Useful to verify: language, volume, chime, correct TTS operation
 
@@ -191,8 +211,9 @@ Digital Pendulum includes a diagnostic sensor:
 > ✨ **Available on HACS** - simplified installation and updates!
 
 - 🏠 Home Assistant 2024.1.0 or higher
-- 🔊 Alexa Media Player installed and working
-- 📡 Alexa device configured as player
+- 🔊 A compatible media_player device (see [Supported Devices](#-supported-devices))
+- 📡 For Alexa: [alexa_media_player](https://github.com/custom-components/alexa_media_player) installed via HACS
+- 📡 For Google Home / Nest: Google Cast integration (native in HA)
 
 ## 💾 Installation
 
@@ -228,15 +249,27 @@ Digital Pendulum includes a diagnostic sensor:
 
 ## 🔧 Troubleshooting
 
-### "Cannot find EU skill" error or Alexa issues
+### Alexa issues or "Cannot find EU skill" error
 
-**Alexa Media Player** problem, not Digital Pendulum.
+**alexa_media_player** problem, not Digital Pendulum.
 
 **Quick fix:**
 1. Settings → Devices and services → Alexa Media Player
 2. Three dots → Reload
 3. If it doesn't work: uninstall and reinstall Alexa Media Player
 
+---
+
+### Google Home / Nest: no voice announcement
+
+Digital Pendulum uses the TTS engine configured in HA for Google devices.
+
+This is a known timing issue with Google devices. The voice announcement may be cut or skipped if the delay after the chime is too short.
+
+1. Check that a TTS engine is configured in HA (Settings → Voice assistants)
+2. Check the HA log for TTS errors
+3. Increase the **"Delay after chime"** value (try 2.0 or 3.0 seconds)
+4. Try the "Test" button to verify
 ---
 
 ### Wrong language
@@ -254,7 +287,8 @@ Digital Pendulum automatically uses the Home Assistant language.
 **Check:**
 - Integration enabled? (Switch ON)
 - Are you within the configured time slot? (default 8:00-22:00)
-- Alexa device online?
+- Device online?
+- Correct player type selected? (Alexa, Google, Generic)
 - Try the "Test" button
 
 ---
@@ -277,12 +311,9 @@ Digital Pendulum automatically uses the Home Assistant language.
 
 - ⏳ Announcements every 15 minutes
 - 🔇 Automatic night volume
-- 🗓️ Day announcement
-- 📣 Support for other TTS
+
 
 ---
-
-## 
 
 ## ☕ Support the project
 

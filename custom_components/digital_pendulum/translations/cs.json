@@ -17,12 +17,12 @@
           "use_chime": "Použít zvuk zvonku",
           "preset_chime": "Přednastavený zvuk",
           "custom_chime_path": "Vlastní cesta ke zvuku (volitelné)",
-          "chime_delay": "Pauza po zvonku (sekundy)"
+          "after_chime_delay": "Pauza po zvonku (sekundy)"
         },
         "data_description": {
           "custom_chime_path": "Např.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechte prázdné pro výchozí)",
           "announce_half_hours_voice": "Pokud je vypnuto, zvon bude stále hrát v půlhodinách, ale hlasové oznámení nebude provedeno",
-          "chime_delay": "Doba čekání v sekundách mezi zvonkem a hlasovým oznámením (výchozí: 1.2)"
+          "after_chime_delay": "Doba čekání v sekundách mezi zvonkem a hlasovým oznámením (výchozí: 1.2)"
         }
       }
     }
@@ -45,12 +45,12 @@
           "use_chime": "Použít zvuk zvonku",
           "preset_chime": "Přednastavený zvuk",
           "custom_chime_path": "Vlastní cesta ke zvuku (volitelné)",
-          "chime_delay": "Pauza po zvonku (sekundy)"
+          "after_chime_delay": "Pauza po zvonku (sekundy)"
         },
         "data_description": {
           "custom_chime_path": "Např.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechte prázdné pro výchozí)",
           "announce_half_hours_voice": "Pokud je vypnuto, zvon bude stále hrát v půlhodinách, ale hlasové oznámení nebude provedeno",
-          "chime_delay": "Doba čekání v sekundách mezi zvonkem a hlasovým oznámením (výchozí: 1.2)"
+          "after_chime_delay": "Doba čekání v sekundách mezi zvonkem a hlasovým oznámením (výchozí: 1.2)"
         }
       }
     }

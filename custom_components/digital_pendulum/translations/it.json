@@ -12,13 +12,17 @@
           "enabled": "Abilitato",
           "announce_half_hours": "Annuncia le mezz'ore",
           "voice_announcement": "Annuncio vocale",
+          "announce_half_hours_voice": "Annuncio vocale alle mezz'ore",
           "tower_clock": "Orologio a Torre (Westminster alle 12:00)",
           "use_chime": "Usa Suono Campana",
           "preset_chime": "Suono Campana",
-          "custom_chime_path": "Percorso campana personalizzata (opzionale)"
+          "custom_chime_path": "Percorso campana personalizzata (opzionale)",
+          "after_chime_delay": "Pausa dopo la campana (secondi)"
         },
         "data_description": {
-          "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)"
+          "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)",
+          "announce_half_hours_voice": "Se disabilitato, la campana suonerà comunque alla mezz'ora ma non verrà fatto l'annuncio vocale",
+          "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)"
         }
       }
     }
@@ -36,13 +40,17 @@
           "enabled": "Abilitato",
           "announce_half_hours": "Annuncia le mezz'ore",
           "voice_announcement": "Annuncio vocale",
+          "announce_half_hours_voice": "Annuncio vocale alle mezz'ore",
           "tower_clock": "Orologio a Torre (Westminster alle 12:00)",
           "use_chime": "Usa Suono Campana",
           "preset_chime": "Suono Campana",
-          "custom_chime_path": "Percorso campana personalizzata (opzionale)"
+          "custom_chime_path": "Percorso campana personalizzata (opzionale)",
+          "after_chime_delay": "Pausa dopo la campana (secondi)"
         },
         "data_description": {
-          "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)"
+          "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)",
+          "announce_half_hours_voice": "Se disabilitato, la campana suonerà comunque alla mezz'ora ma non verrà fatto l'annuncio vocale",
+          "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)"
         }
       }
     }
@@ -71,3 +79,4 @@
     }
   }
 }
+

@@ -19,8 +19,7 @@ Un pendolo digitale parlante per Home Assistant
 [Slovenčina](README.sk.md) |
 [Português](README.pt.md)
 
-<br>👉Questo è README in italiano. Usa il selettore di linguaggio qui sopra.
-
+<br>👉 Questo è il README in italiano. Usa il selettore di lingua qui sopra.
 
 ## ❤️ Ti piace Digital Pendulum?
 
@@ -30,28 +29,28 @@ Se lo trovi utile, considera di lasciare una ⭐ su GitHub:
 
 ## 📌 Descrizione
 
-Digital Pendulum è un'integrazione custom per Home Assistant che annuncia vocalmente l'ora, proprio come un pendolo digitale 🕰️.
+Digital Pendulum è un'integrazione personalizzata per Home Assistant che annuncia vocalmente l'ora, proprio come un pendolo digitale 🕰️.
 
-Utilizzando uno smart speaker compatibile come player, il sistema:
+Utilizzando un altoparlante intelligente compatibile come player, il sistema:
 
 - 📢 annuncia l'ora ogni ora e/o ogni mezz'ora (configurabile)
-- 🌍 parla automaticamente nella lingua impostata in Home Assistant  
-- ⏰ funziona solo in una fascia oraria configurabile 
+- 🌍 parla automaticamente nella lingua impostata in Home Assistant
+- ⏰ funziona solo all'interno di una fascia oraria configurabile
 - 🔔 può riprodurre un suono personalizzato prima dell'annuncio
 - 🔕 può disabilitare l'annuncio vocale (solo campana)
-- 🏰 può suonare il carillon Westminster alle 12:00
+- 🏰 può riprodurre il carillon di Westminster alle 12
 
-Il risultato è un effetto elegante e discreto, ideale per casa o ufficio.
+Il risultato è un effetto elegante e discreto, ideale per la casa o l'ufficio.
 
-## 🔊 Dispositivi Supportati
+## 🔊 Dispositivi supportati
 
 Digital Pendulum supporta tre tipi di player:
 
 | Tipo | Descrizione | Requisito |
-|------|-------------|-----------|
-| **Alexa** | Dispositivi Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) via HACS |
-| **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Integrazione Google Cast (nativa in HA) |
-| **Generic** | Qualsiasi altro dispositivo media_player di HA | Motore TTS configurato in HA (funzionalità può variare) |
+|------|-------------|-------------|
+| **Alexa** | Dispositivi Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) tramite HACS |
+| **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (integrazione nativa HA) |
+| **Generico** | Qualsiasi altro dispositivo HA media_player | Motore TTS configurato in HA (le funzionalità possono variare) |
 
 Durante la configurazione ti verrà chiesto di selezionare prima il tipo di player, poi il dispositivo specifico.
 
@@ -59,28 +58,32 @@ Durante la configurazione ti verrà chiesto di selezionare prima il tipo di play
 
 ### 🕑 Annuncio automatico dell'ora
 - ogni ora (xx:00)
-- ogni mezz'ora (xx:30) - opzionale
+- ogni mezz'ora (xx:30) - opzionale (solo campana o campana + voce, configurabile)
+
+### ⏱️ Pausa configurabile dopo la campana
+- tempo di attesa regolabile tra la campana e l'annuncio vocale (default: 1,2 secondi)
+- utile soprattutto per i dispositivi Google Home / Nest, che potrebbero aver bisogno di una pausa più lunga per riprodurre correttamente l'annuncio vocale
 
 ### 🌐 Supporto multilingua automatico
 - Italiano 🇮🇹
-- Inglese 🇬🇧
-- Francese 🇫🇷
-- Tedesco 🇩🇪 (con gestione corretta di "halb")
-- Spagnolo 🇪🇸
-- Polacco 🇵🇱
-- Ceco 🇨🇿
-- Slovacco 🇸🇰
-- Portoghese 🇵🇹
-  
-fallback automatico in italiano
+- English 🇬🇧
+- Français 🇫🇷
+- Deutsch 🇩🇪
+- Español 🇪🇸
+- Polski 🇵🇱
+- Čeština 🇨🇿
+- Slovenčina 🇸🇰
+- Português 🇵🇹
 
-### ⏱️ Fascia oraria configurabile
+fallback automatico all'italiano
+
+### 🕐 Fascia oraria configurabile
 - es. solo dalle 8:00 alle 22:00
 
-###  🔔 Campana opzionale
+### 🔔 Campana opzionale
 - 🎵 12 suoni preimpostati tra cui scegliere
 - 🎶 opzione per usare un file audio personalizzato
-- 🔕 suono di notifica predefinito (se non si seleziona nulla)
+- 🔕 suono di notifica predefinito (se non viene selezionato nulla)
 
 ### 🧪 Funzione di test
 - per provare immediatamente l'annuncio
@@ -93,18 +96,18 @@ fallback automatico in italiano
 - **Predefinito**: suono di notifica (se non selezioni nulla)
 - **Disabilitato**: Disabilita "use_chime" per nessun suono prima dell'annuncio
 
-**Melodia Westminster (Torre dell'orologio):**
+**Melodia di Westminster (Orologio a Torre):**
 - Opzione separata "tower_clock"
 - Suona **solo alle 12:00** (mezzogiorno)
-- Sostituisce il normale chime in quel momento
+- Sostituisce la campana normale in quel momento
 
 **Annuncio vocale:**
-- **Abilitato** (predefinito): il dispositivo pronuncia l'ora dopo la campana
+- **Abilitato** (default): il dispositivo pronuncia l'ora dopo la campana
 - **Disabilitato**: solo suono della campana, nessun annuncio vocale
 
-**Annunci ogni mezz'ora:**
-- **Abilitati** (predefinito): annunci alle :00 e alle :30
-- **Disabilitati**: annunci solo alle :00
+**Annuncio vocale alla mezz'ora:**
+- **Abilitato** (default): l'annuncio vocale viene riprodotto sia alle :00 che alle :30
+- **Disabilitato**: la campana suona comunque alle :30, ma senza annuncio vocale
 
 ## ⚙️ Come funziona
 
@@ -112,7 +115,7 @@ Digital Pendulum si sincronizza con l'orologio di sistema e controlla automatica
 
 **Quando scatta l'annuncio:**
 1. 🔔 Riproduce la campana scelta (se abilitata)
-2. ⏱️ Attende 1,2 secondi
+2. ⏱️ Attende un numero configurabile di secondi (default: 1,2 s) — aumenta questo valore per i dispositivi Google Home / Nest se l'annuncio vocale non viene riprodotto correttamente
 3. 🗣️ Il dispositivo pronuncia l'ora nella lingua di Home Assistant (se abilitato)
 
 Tutto avviene automaticamente senza bisogno di configurare automazioni!
@@ -123,7 +126,7 @@ La lingua viene rilevata automaticamente da:
 
 self.hass.config.language
 
-Esempi di annuncio:
+Esempi di annunci:
 
 | Lingua | Ora | Annuncio |
 |------|------|--------|
@@ -137,30 +140,32 @@ Esempi di annuncio:
 | 🇸🇰 SK | 8:30 | Pol deviatej |
 | 🇵🇹 PT | 10:30 | São 10 e meia |
 
-## 🔔 Chime (campana iniziale)
+## 🔔 Campana (suono iniziale)
 
 Se l'opzione use_chime è attiva:
 - viene riprodotto il suono di notifica o il suono scelto
-- il sistema attende 1,2 secondi
+- il sistema attende un numero configurabile di secondi (default: 1,2)
 - inizia l'annuncio vocale (se abilitato)
 
-Questo crea un effetto simile a un vero pendolo 🎶.
+Si crea così un effetto simile a un vero pendolo 🎶.
 
 ## 🧩 Opzioni di configurazione
 
 | Opzione | Descrizione |
 |------|------------|
-| player_type | Tipo di dispositivo player (Alexa, Google Home, Generic) |
+| player_type | Tipo di dispositivo player (Alexa, Google Home, Generico) |
 | player | Dispositivo di destinazione |
 | start_hour | Ora di inizio operatività |
 | end_hour | Ora di fine operatività |
 | enabled | Abilita/disabilita il pendolo |
-| announce_half_hours | Abilita annunci ogni mezz'ora (altrimenti solo ogni ora) |
+| announce_half_hours | Abilita gli annunci ogni mezz'ora (altrimenti solo ogni ora) |
+| after_chime_delay | Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1,2) |
+| announce_half_hours_voice | Abilita/disabilita l'annuncio vocale alle mezz'ore (la campana suona comunque) |
 | voice_announcement | Abilita/disabilita l'annuncio vocale dell'ora |
-| tower_clock | Abilita la melodia Westminster alle 12:00 |
+| tower_clock | Abilita la melodia di Westminster alle 12:00 |
 | use_chime | Abilita/disabilita la campana prima dell'annuncio |
 | preset_chime | Scelta del suono della campana (12 preset disponibili) |
-| custom_chime_path | Percorso per suono campana personalizzato |
+| custom_chime_path | Percorso per il suono campana personalizzato |
 
 Valori predefiniti:
 
@@ -171,15 +176,19 @@ Valori predefiniti:
 - ⏰ announce_half_hours → True
 - 🏰 tower_clock → False
 - ✅ enabled → True
+- ⏱️ after_chime_delay → 1,2
+- 🔇 announce_half_hours_voice → True
 
 ## 🧪 Test immediato
 
-È disponibile un metodo di test manuale che:
+È disponibile un metodo di test manuale:
+
+Che:
 - legge l'ora corrente
 - genera una frase completa (es. "Sono le 15 e 42 minuti")
 - la riproduce immediatamente sul dispositivo selezionato
 
-Utile per verificare: lingua, volume, chime, corretto funzionamento del TTS
+Utile per verificare: lingua, volume, campana, corretto funzionamento del TTS
 
 ## 🔍 Sensore di stato
 
@@ -193,7 +202,7 @@ Digital Pendulum include un sensore diagnostico:
 
 **Utilizzi:**
 - Monitoraggio dashboard
-- Automazioni per notifiche
+- Automazioni di notifica
 - Diagnostica rapida
 
 ## 📦 Requisiti
@@ -201,8 +210,8 @@ Digital Pendulum include un sensore diagnostico:
 > ✨ **Disponibile su HACS** - installazione e aggiornamenti semplificati!
 
 - 🏠 Home Assistant 2024.1.0 o superiore
-- 🔊 Un dispositivo media_player compatibile (vedi [Dispositivi Supportati](#-dispositivi-supportati))
-- 📡 Per Alexa: [alexa_media_player](https://github.com/custom-components/alexa_media_player) installato via HACS
+- 🔊 Un dispositivo media_player compatibile (vedi [Dispositivi supportati](#-dispositivi-supportati))
+- 📡 Per Alexa: [alexa_media_player](https://github.com/custom-components/alexa_media_player) installato tramite HACS
 - 📡 Per Google Home / Nest: integrazione Google Cast (nativa in HA)
 
 ## 💾 Installazione
@@ -228,35 +237,37 @@ Digital Pendulum include un sensore diagnostico:
 6. Cerca **"Digital Pendulum"**
 7. Segui la configurazione guidata
 
-
-## 🎯 Uso ideale
+## 🎯 Utilizzo ideale
 
 - ✔️ Case intelligenti
 - ✔️ Uffici
 - ✔️ Aree comuni
 - ✔️ Effetto "pendolo moderno"
-- ✔️ Promemoria orario non invasivo
+- ✔️ Promemoria dell'ora non invasivo
 
 ## 🔧 Risoluzione dei problemi
 
-### Errore "Cannot find EU skill" o problemi con Alexa
+### Problemi con Alexa o errore "Cannot find EU skill"
 
-Problema di **alexa_media_player**, non di Digital Pendulum.
+Problema con **alexa_media_player**, non con Digital Pendulum.
 
 **Soluzione rapida:**
 1. Impostazioni → Dispositivi e servizi → Alexa Media Player
-2. Tre puntini → Ricarica
+2. Tre punti → Ricarica
 3. Se non funziona: disinstalla e reinstalla Alexa Media Player
 
 ---
 
 ### Google Home / Nest: nessun annuncio vocale
 
-Digital Pendulum usa il motore TTS configurato in HA per i dispositivi Google.
+Digital Pendulum utilizza il motore TTS configurato in HA per i dispositivi Google.
 
-1. Verifica che un motore TTS sia configurato in HA (Impostazioni → Assistenti vocali)
-2. Prova il pulsante "Test" per verificare
-3. Controlla il log di HA per errori TTS
+Si tratta di un noto problema di temporizzazione con i dispositivi Google. L'annuncio vocale può essere interrotto o saltato se la pausa dopo la campana è troppo breve.
+
+1. Verifica che sia configurato un motore TTS in HA (Impostazioni → Assistenti vocali)
+2. Controlla il log di HA per errori TTS
+3. Aumenta il valore **"Pausa dopo la campana"** (prova 2,0 o 3,0 secondi)
+4. Usa il pulsante "Test" per verificare
 
 ---
 
@@ -264,7 +275,7 @@ Digital Pendulum usa il motore TTS configurato in HA per i dispositivi Google.
 
 Digital Pendulum usa automaticamente la lingua di Home Assistant.
 
-1. Controlla: Impostazioni → Sistema → Generale → Lingua
+1. Verifica: Impostazioni → Sistema → Generale → Lingua
 2. Lingue supportate: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Dopo aver cambiato la lingua, riavvia Home Assistant
 
@@ -273,10 +284,10 @@ Digital Pendulum usa automaticamente la lingua di Home Assistant.
 ### Nessun annuncio
 
 **Verifica:**
-- Integrazione abilitata? (Switch ON)
+- Integrazione abilitata? (Interruttore ON)
 - Sei nella fascia oraria configurata? (default 8:00-22:00)
 - Dispositivo online?
-- Tipo di player corretto selezionato? (Alexa, Google, Generic)
+- Tipo di player corretto selezionato? (Alexa, Google, Generico)
 - Prova il pulsante "Test"
 
 ---
@@ -284,13 +295,13 @@ Digital Pendulum usa automaticamente la lingua di Home Assistant.
 ### Solo campana o solo voce
 
 - **Solo campana:** Abilita "Annuncio vocale"
-- **Solo voce:** Abilita "Usa chime"
+- **Solo voce:** Abilita "Usa campana"
 
 ---
 
 ### Westminster non suona alle 12
 
-- Verifica che "Torre dell'orologio" sia attivo
+- Verifica che "Orologio a Torre" sia attivo
 - Funziona **solo alle 12:00** (mezzogiorno, non mezzanotte)
 
 ---
@@ -299,8 +310,6 @@ Digital Pendulum usa automaticamente la lingua di Home Assistant.
 
 - ⏳ Annunci ogni 15 minuti
 - 🔇 Volume notturno automatico
-- 🗓️ Annuncio del giorno
-- 📣 Supporto per motori TTS e player aggiuntivi
 
 ---
 
@@ -310,12 +319,7 @@ Ti piace questo progetto? Se lo trovi utile, offrimi un caffè virtuale per supp
 
 **Digital Pendulum è e rimarrà sempre gratuito e open source.** Le donazioni sono completamente volontarie! ❤️
 
-
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
-
-💡 **Preferisci altri metodi?** Puoi usare:
-
-[![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
 
 💡 **Preferisci altri metodi?** Puoi usare:
 

@@ -15,6 +15,8 @@ from .const import (
     CONF_TOWER_CLOCK,
     CONF_ANNOUNCE_HALF_HOURS,
     CONF_VOICE_ANNOUNCEMENT,
+    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+    CONF_ANNOUNCE_HALF_HOURS_VOICE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -24,6 +26,8 @@ from .const import (
     DEFAULT_TOWER_CLOCK,
     DEFAULT_ANNOUNCE_HALF_HOURS,
     DEFAULT_VOICE_ANNOUNCEMENT,
+    DEFAULT_AFTER_CHIME_DELAY,  # modificata per rinominare da DEFAULT_CHIME_DELAY a DEFAULT_AFTER_CHIME_DELAY
+    DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
     PRESET_CHIMES,
     PLAYER_TYPES,
 )
@@ -39,13 +43,11 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 data=user_input,
             )
 
-        # Lista opzioni chime
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
         ]
 
-        # Lista opzioni player type
         player_type_options = [
             selector.SelectOptionDict(value=key, label=label)
             for key, label in PLAYER_TYPES.items()
@@ -106,6 +108,11 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONF_VOICE_ANNOUNCEMENT,
                     default=DEFAULT_VOICE_ANNOUNCEMENT,
                 ): bool,
+                # 4b) Annuncio vocale alla mezz'ora
+                vol.Required(
+                    CONF_ANNOUNCE_HALF_HOURS_VOICE,
+                    default=DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
+                ): bool,
                 # 5) Tower Clock
                 vol.Required(
                     CONF_TOWER_CLOCK,
@@ -133,6 +140,18 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 ): selector.TextSelector(
                     selector.TextSelectorConfig(
                         type=selector.TextSelectorType.TEXT,
+                    )
+                ),
+                # 9) Tempo di attesa dopo campana e prima dell'annuncio
+                vol.Required(
+                    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+                    default=DEFAULT_AFTER_CHIME_DELAY,  # modificata per rinominare da DEFAULT_CHIME_DELAY a DEFAULT_AFTER_CHIME_DELAY
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0.0,
+                        max=10.0,
+                        step=0.1,
+                        mode=selector.NumberSelectorMode.BOX,
                     )
                 ),
             }
@@ -163,13 +182,11 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
 
         current_options = self.entry.options or self.entry.data
 
-        # Lista opzioni chime
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
         ]
 
-        # Lista opzioni player type
         player_type_options = [
             selector.SelectOptionDict(value=key, label=label)
             for key, label in PLAYER_TYPES.items()
@@ -231,6 +248,11 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                     CONF_VOICE_ANNOUNCEMENT,
                     default=current_options.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT),
                 ): bool,
+                # 4b) Annuncio vocale alla mezz'ora
+                vol.Required(
+                    CONF_ANNOUNCE_HALF_HOURS_VOICE,
+                    default=current_options.get(CONF_ANNOUNCE_HALF_HOURS_VOICE, DEFAULT_ANNOUNCE_HALF_HOURS_VOICE),
+                ): bool,
                 # 5) Tower Clock
                 vol.Required(
                     CONF_TOWER_CLOCK,
@@ -260,11 +282,21 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                         type=selector.TextSelectorType.TEXT,
                     )
                 ),
+                # 9) Tempo di attesa dopo campana e prima dell'annuncio
+                vol.Required(
+                    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+                    default=current_options.get(CONF_AFTER_CHIME_DELAY, DEFAULT_AFTER_CHIME_DELAY),  # modificata per rinominare da CONF_CHIME_DELAY/DEFAULT_CHIME_DELAY
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0.0,
+                        max=10.0,
+                        step=0.1,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
+                ),
             }
         )
         return self.async_show_form(
             step_id="init",
             data_schema=schema,
         )
-
-

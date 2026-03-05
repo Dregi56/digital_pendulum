@@ -15,6 +15,8 @@ from .const import (
     CONF_TOWER_CLOCK,
     CONF_ANNOUNCE_HALF_HOURS,
     CONF_VOICE_ANNOUNCEMENT,
+    CONF_AFTER_CHIME_DELAY,
+    CONF_ANNOUNCE_HALF_HOURS_VOICE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -24,6 +26,8 @@ from .const import (
     DEFAULT_TOWER_CLOCK,
     DEFAULT_ANNOUNCE_HALF_HOURS,
     DEFAULT_VOICE_ANNOUNCEMENT,
+    DEFAULT_AFTER_CHIME_DELAY,
+    DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
     PRESET_CHIMES,
     DOMAIN,
 )
@@ -67,6 +71,8 @@ class DigitalPendulum:
         self.tower_clock = config.get(CONF_TOWER_CLOCK, DEFAULT_TOWER_CLOCK)
         self.announce_half_hours = config.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS)
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
+        self.after_chime_delay = max(0.0, min(10.0, float(config.get(CONF_AFTER_CHIME_DELAY, DEFAULT_AFTER_CHIME_DELAY))))
+        self.announce_half_hours_voice = config.get(CONF_ANNOUNCE_HALF_HOURS_VOICE, DEFAULT_ANNOUNCE_HALF_HOURS_VOICE)
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
 
@@ -82,14 +88,12 @@ class DigitalPendulum:
         hour12 = hour % 12
         if hour12 == 0:
             hour12 = 12
-
         if hour < 12:
             period = "in the morning"
         elif hour < 18:
             period = "in the afternoon"
         else:
             period = "in the evening"
-
         return hour12, period
 
     async def async_start(self):
@@ -167,9 +171,8 @@ class DigitalPendulum:
                 if 1 <= hour <= 11:
                     hour_word = "uma" if hour == 1 else str(hour)
                     return f"É {hour_word} e meia"
-                else:  # 13–23
+                else:
                     return f"São {hour} e trinta"
-            # ore esatte
             if hour == 1:
                 return "É uma hora"
             return f"São {hour} horas"
@@ -251,8 +254,10 @@ class DigitalPendulum:
         try:
             if self.use_chime:
                 await self._play_chime(hour, minute)
-                await asyncio.sleep(1.2)
+                await asyncio.sleep(self.after_chime_delay)
             if self.voice_announcement:
+                if minute == 30 and not self.announce_half_hours_voice:
+                    return
                 await self._player.speak(text)
         except Exception as e:
             _LOGGER.error(

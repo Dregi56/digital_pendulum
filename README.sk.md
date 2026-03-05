@@ -1,4 +1,5 @@
 # 🕰️ Digital Pendulum
+
 Hovoriace digitálne kyvadlo pre Home Assistant
 <br>**Autor:** Egidio Ziggiotto (Dregi56)  e-mail: [dregi@cyberservices.com](mailto:dregi@cyberservices.com)
 
@@ -21,88 +22,112 @@ Hovoriace digitálne kyvadlo pre Home Assistant
 <br>👉 Toto je README v slovenčine. Použite výber jazyka vyššie.
 
 ## ❤️ Páči sa vám Digital Pendulum?
-Ak vám príde užitočný, zvážte zanechanie ⭐ na GitHube:  
+
+Ak ho považujete za užitočný, zvážte zanechanie ⭐ na GitHube:  
 👉 **https://github.com/Dregi56/digital_pendulum**
-<br>Ďakujem.
+<br>Ďakujeme.
 
 ## 📌 Popis
-Digital Pendulum je vlastná integrácia pre Home Assistant, ktorá hlasovo oznamuje čas, presne ako digitálne kyvadlo 🕰️.
-Pomocou zariadenia Alexa ako reproduktora systém:
-- 📢 oznamuje čas každú hodinu a/alebo každú polhodinu (konfigurovateľné)
-- 🌍 automaticky hovorí jazykom nastaveným v Home Assistant  
-- ⏰ funguje iba v konfigurovateľnom časovom rozsahu
-- 🔔 môže prehrať vlastný zvuk pred oznámením
-- 🔕 môže zakázať hlasové oznámenie (iba zvon)
-- 🏰 môže prehrať melódiu Westminster o 12 hodín
 
-Výsledkom je elegantný a diskrétny efekt, ideálny pre domov alebo kanceláriu.
+Digital Pendulum je vlastná integrácia pre Home Assistant, ktorá hlasovo oznamuje čas, podobne ako digitálne kyvadlové hodiny 🕰️.
+
+Pomocou kompatibilného inteligentného reproduktora ako prehrávača systém:
+
+- 📢 oznamuje čas každú hodinu a/alebo každú pol hodinu (konfigurovateľné)
+- 🌍 automaticky hovorí v jazyku nastavenom v Home Assistant
+- ⏰ funguje len v konfigurovateľnom časovom rozsahu
+- 🔔 môže prehrať vlastný zvuk pred oznámením
+- 🔕 môže vypnúť hlasové oznámenie (iba zvonček)
+- 🏰 môže prehrať westminsterský chorál o 12 hodín
+
+Výsledkom je elegantný a nenápadný efekt, ideálny pre domov alebo kanceláriu.
+
+## 🔊 Podporované zariadenia
+
+Digital Pendulum podporuje tri typy prehrávačov:
+
+| Typ | Popis | Požiadavka |
+|------|-------------|-------------|
+| **Alexa** | Zariadenia Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) cez HACS |
+| **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (natívna integrácia HA) |
+| **Všeobecný** | Akékoľvek iné zariadenie HA media_player | TTS engine nakonfigurovaný v HA (funkčnosť sa môže líšiť) |
+
+Počas nastavenia budete najskôr požiadaní o výber typu prehrávača, potom konkrétneho zariadenia.
 
 ## ✨ Hlavné funkcie
 
 ### 🕑 Automatické oznamovanie času
 - každú hodinu (xx:00)
-- každú polhodinu (xx:30) - voliteľné
+- každú pol hodinu (xx:30) - voliteľné (iba zvonček alebo zvonček + hlas, konfigurovateľné)
 
-### 🌐 Automatická podpora viacerých jazykov
-- Taliančina 🇮🇹
-- Angličtina 🇬🇧
-- Francúzština 🇫🇷
-- Nemčina 🇩🇪
-- Španielčina 🇪🇸
-- Poľština 🇵🇱
+### ⏱️ Konfigurovateľná pauza po zvončeku
+- nastaviteľný čas čakania medzi zvončekom a hlasovým oznámením (predvolené: 1,2 sekundy)
+- obzvlášť užitočné pre zariadenia Google Home / Nest, ktoré môžu potrebovať dlhšiu pauzu na správne prehranie hlasového oznámenia
+
+### 🌐 Automatická viacjazyčná podpora
+- Italiano 🇮🇹
+- English 🇬🇧
+- Français 🇫🇷
+- Deutsch 🇩🇪
+- Español 🇪🇸
+- Polski 🇵🇱
 - Čeština 🇨🇿
 - Slovenčina 🇸🇰
-- Portugalčina 🇵🇹
+- Português 🇵🇹
 
-automatický záložný jazyk: taliančina
+automatický návrat k taliančine
 
-### ⏱️ Konfigurovateľný časový rozsah
+### 🕐 Konfigurovateľný časový rozsah
 - napr. iba od 8:00 do 22:00
 
-### 🔔 Voliteľný zvon
+### 🔔 Voliteľný zvonček
 - 🎵 12 prednastavených zvukov na výber
-- 🎶 možnosť použiť vlastný zvukový súbor
-- 🔕 oznamovací zvuk "announce" Alexa (predvolený)
+- 🎶 možnosť použitia vlastného zvukového súboru
+- 🔕 predvolený zvuk oznámenia (ak nie je nič vybrané)
 
 ### 🧪 Testovacia funkcia
 - na okamžité vyskúšanie oznámenia
 
 ### 🎯 Správanie
 
-**Zvon (Chime):**
+**Zvonček (Chime):**
 - **Dostupné predvoľby**: 12 zvukov vrátane church-bell, simple-bell, clock-chime atď.
 - **Vlastný zvuk**: Vyberte "custom" a zadajte cestu k vášmu zvukovému súboru
-- **Predvolený**: Zvuk "announce" Alexa (ak nič nevyberiete)
-- **Vypnuté**: Zakážte "use_chime" pre žiadny zvuk pred oznámením
+- **Predvolený**: zvuk oznámenia (ak nič nevyberiete)
+- **Vypnutý**: Vypnite "use_chime" pre žiadny zvuk pred oznámením
 
-**Melódia Westminster (Tower Clock):**
+**Westminsterská melódia (Vežové hodiny):**
 - Samostatná možnosť "tower_clock"
-- Hrá **iba o 12:00** (poludnie)
-- Nahrádza normálny chime v tú hodinu
+- Prehráva sa **iba o 12:00** (poludnie)
+- Nahrádza normálny zvonček v tom čase
 
 **Hlasové oznámenie:**
-- **Zapnuté** (predvolené): Alexa vysloví čas po zvone
-- **Vypnuté**: Iba zvuk zvona, žiadne hlasové oznámenie
+- **Zapnuté** (predvolené): zariadenie vyslovuje čas po zvončeku
+- **Vypnuté**: iba zvuk zvončeka, žiadne hlasové oznámenie
 
-**Oznámenia polhodiny:**
-- **Zapnuté** (predvolené): Oznámenia v :00 a :30
-- **Vypnuté**: Iba oznámenia v :00
+**Hlasové oznámenie v polhodinách:**
+- **Zapnuté** (predvolené): hlasové oznámenie sa prehráva o :00 aj o :30
+- **Vypnuté**: zvonček stále hrá o :30, ale bez hlasového oznámenia
 
 ## ⚙️ Ako to funguje
+
 Digital Pendulum sa synchronizuje so systémovými hodinami a automaticky každú minútu kontroluje, či je čas na oznámenie.
 
 **Keď sa spustí oznámenie:**
-1. 🔔 Prehrá zvolený zvon (ak je zapnutý)
-2. ⏱️ Počká 1,2 sekundy
-3. 🗣️ Alexa vysloví čas v jazyku Home Assistant (ak je zapnuté)
+1. 🔔 Prehrá vybraný zvonček (ak je zapnutý)
+2. ⏱️ Čaká konfigurovateľný počet sekúnd (predvolené: 1,2 s) — zvýšte túto hodnotu pre zariadenia Google Home / Nest, ak sa hlasové oznámenie neprehráva správne
+3. 🗣️ Zariadenie vysloví čas v jazyku Home Assistant (ak je zapnuté)
 
 Všetko prebieha automaticky bez potreby konfigurovať automatizácie!
 
-## 🗣️ Správa jazykov
-Jazyk je automaticky detekovaný z:
+## 🗣️ Spracovanie jazyka
+
+Jazyk sa automaticky zisťuje z:
+
 self.hass.config.language
 
 Príklady oznámení:
+
 | Jazyk | Čas | Oznámenie |
 |------|------|--------|
 | 🇮🇹 IT | 10:30 | Ore 10 e trenta |
@@ -115,29 +140,35 @@ Príklady oznámení:
 | 🇸🇰 SK | 8:30 | Pol deviatej |
 | 🇵🇹 PT | 10:30 | São 10 e meia |
 
-## 🔔 Chime (úvodný zvon)
+## 🔔 Zvonček (úvodný zvuk)
+
 Ak je možnosť use_chime aktívna:
-- prehrá sa oznamovací zvuk Alexa alebo zvolený zvuk
-- systém počká 1,2 sekundy
+- prehrá sa zvuk oznámenia alebo vybraný zvuk
+- systém čaká konfigurovateľný počet sekúnd (predvolené: 1,2)
 - spustí sa hlasové oznámenie (ak je zapnuté)
 
-Tým vznikne efekt podobný skutočnému kyvadlu 🎶.
+Vzniká tak efekt podobný skutočnému kyvadlu 🎶.
 
 ## 🧩 Možnosti konfigurácie
+
 | Možnosť | Popis |
 |------|------------|
-| player | Cieľové zariadenie Alexa |
-| start_hour | Čas začiatku činnosti |
-| end_hour | Čas ukončenia činnosti |
-| enabled | Zapnutie/vypnutie kyvadla |
-| announce_half_hours | Zapnutie oznámení každú polhodinu (inak iba každú hodinu) |
-| voice_announcement | Zapnutie/vypnutie hlasového oznámenia času |
-| tower_clock | Zapnutie melódie Westminster o 12:00 |
-| use_chime | Zapnutie/vypnutie zvona pred oznámením |
-| preset_chime | Výber zvuku zvona (12 dostupných predvolieb) |
-| custom_chime_path | Cesta k vlastnému zvukovému súboru zvona |
+| player_type | Typ prehrávača (Alexa, Google Home, Všeobecný) |
+| player | Cieľové zariadenie |
+| start_hour | Čas začiatku prevádzky |
+| end_hour | Čas konca prevádzky |
+| enabled | Zapína/vypína kyvadlo |
+| announce_half_hours | Zapína oznámenia každú pol hodinu (inak iba každú hodinu) |
+| after_chime_delay | Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1,2) |
+| announce_half_hours_voice | Zapína/vypína hlasové oznámenie v polhodinách (zvonček stále hrá) |
+| voice_announcement | Zapína/vypína hlasové oznámenie času |
+| tower_clock | Zapína westminstersku melódiu o 12:00 |
+| use_chime | Zapína/vypína zvonček pred oznámením |
+| preset_chime | Výber zvuku zvončeka (12 dostupných predvolieb) |
+| custom_chime_path | Cesta k vlastnému zvuku zvončeka |
 
 Predvolené hodnoty:
+
 - ⏰ start_hour → 8
 - ⏰ end_hour → 22
 - 🔔 use_chime → True
@@ -145,66 +176,80 @@ Predvolené hodnoty:
 - ⏰ announce_half_hours → True
 - 🏰 tower_clock → False
 - ✅ enabled → True
+- ⏱️ after_chime_delay → 1,2
+- 🔇 announce_half_hours_voice → True
 
 ## 🧪 Okamžitý test
-Je dostupná metóda ručného testovania, ktorá:
-- prečíta aktuálny čas
-- vygeneruje úplnú vetu (napr. "Je presne osem hodín")
-- okamžite ju prehrá na zariadení Alexa
 
-Užitočné na overenie: jazyka, hlasitosti, chime, správneho fungovania TTS
+K dispozícii je metóda ručného testu:
+
+Ktorá:
+- prečíta aktuálny čas
+- vygeneruje celú vetu (napr. "Je 15 hodín a 42 minút")
+- okamžite ju prehrá na vybranom zariadení
+
+Užitočné na overenie: jazyka, hlasitosti, zvončeka, správnej funkcie TTS
 
 ## 🔍 Stavový senzor
+
 Digital Pendulum obsahuje diagnostický senzor:
+
 `binary_sensor.digital_pendulum_status_warning`
 
 **Stavy:**
 - ✅ **OFF** - Všetko funguje správne
-- ⚠️ **ON** - Zistené problémy (integrácia zakázaná, Alexa offline atď.)
+- ⚠️ **ON** - Zistené problémy (integrácia vypnutá, Alexa offline atď.)
 
-**Využitie:**
-- Sledovanie na dashboarde
-- Automatizácie pre notifikácie
+**Použitie:**
+- Monitorovanie dashboardu
+- Automatizácie oznámení
 - Rýchla diagnostika
 
 ## 📦 Požiadavky
-> ✨ **Dostupné v HACS** - zjednodušená inštalácia a aktualizácie!
+
+> ✨ **Dostupné na HACS** - zjednodušená inštalácia a aktualizácie!
+
 - 🏠 Home Assistant 2024.1.0 alebo vyšší
-- 🔊 Alexa Media Player nainštalovaný a funkčný
-- 📡 Zariadenie Alexa nakonfigurované ako prehrávač
+- 🔊 Kompatibilné zariadenie media_player (pozri [Podporované zariadenia](#-podporované-zariadenia))
+- 📡 Pre Alexa: [alexa_media_player](https://github.com/custom-components/alexa_media_player) nainštalovaný cez HACS
+- 📡 Pre Google Home / Nest: integrácia Google Cast (natívna v HA)
 
 ## 💾 Inštalácia
 
 ### Cez HACS (odporúčané)
-1. Otvorte **HACS** v bočnej ponuke
+
+1. Otvorte **HACS** v bočnom menu
 2. Prejdite na **Integrácie**
 3. Vyhľadajte **"Digital Pendulum"**
 4. Kliknite na **Stiahnuť**
 5. **Reštartujte Home Assistant**
-6. Prejdite do **Nastavenia** → **Zariadenia a služby** → **Pridať integráciu**
+6. Prejdite na **Nastavenia** → **Zariadenia a služby** → **Pridať integráciu**
 7. Vyhľadajte **"Digital Pendulum"**
 8. Postupujte podľa sprievodcu konfiguráciou
 
 ### Ručná inštalácia
+
 1. Stiahnite najnovšiu verziu z [GitHubu](https://github.com/Dregi56/digital_pendulum/releases)
 2. Rozbaľte súbory
 3. Skopírujte priečinok `digital_pendulum` do `config/custom_components/`
 4. Reštartujte Home Assistant
-5. Prejdite do **Nastavenia** → **Zariadenia a služby** → **Pridať integráciu**
+5. Prejdite na **Nastavenia** → **Zariadenia a služby** → **Pridať integráciu**
 6. Vyhľadajte **"Digital Pendulum"**
 7. Postupujte podľa sprievodcu konfiguráciou
 
 ## 🎯 Ideálne použitie
+
 - ✔️ Inteligentné domácnosti
 - ✔️ Kancelárie
 - ✔️ Spoločné priestory
 - ✔️ Efekt "moderného kyvadla"
-- ✔️ Nenápadná časová pripomienka
+- ✔️ Nenápadná pripomienka času
 
 ## 🔧 Riešenie problémov
 
-### Chyba "Cannot find EU skill" alebo problémy s Alexou
-Problém s **Alexa Media Player**, nie s Digital Pendulum.
+### Problémy s Alexou alebo chyba "Cannot find EU skill"
+
+Problém s **alexa_media_player**, nie s Digital Pendulum.
 
 **Rýchle riešenie:**
 1. Nastavenia → Zariadenia a služby → Alexa Media Player
@@ -213,49 +258,69 @@ Problém s **Alexa Media Player**, nie s Digital Pendulum.
 
 ---
 
+### Google Home / Nest: žiadne hlasové oznámenie
+
+Digital Pendulum používa TTS engine nakonfigurovaný v HA pre zariadenia Google.
+
+Ide o známy problém s časovaním u zariadení Google. Hlasové oznámenie môže byť prerušené alebo preskočené, ak je pauza po zvončeku príliš krátka.
+
+1. Skontrolujte, že je v HA nakonfigurovaný TTS engine (Nastavenia → Hlasové asistenty)
+2. Skontrolujte log HA pre chyby TTS
+3. Zvýšte hodnotu **"Pauza po zvončeku"** (skúste 2,0 alebo 3,0 sekundy)
+4. Na overenie použite tlačidlo "Test"
+
+---
+
 ### Nesprávny jazyk
+
 Digital Pendulum automaticky používa jazyk Home Assistant.
+
 1. Skontrolujte: Nastavenia → Systém → Všeobecné → Jazyk
 2. Podporované jazyky: 🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇵🇱 🇨🇿 🇸🇰 🇵🇹
 3. Po zmene jazyka reštartujte Home Assistant
 
 ---
 
-### Žiadne oznámenie
+### Žiadne oznámenia
+
 **Skontrolujte:**
 - Je integrácia zapnutá? (Prepínač ON)
-- Ste v nakonfigurovanom časovom rozsahu? (predvolené 8:00–22:00)
-- Je zariadenie Alexa online?
+- Ste v nakonfigurovanom časovom rozsahu? (predvolené 8:00-22:00)
+- Je zariadenie online?
+- Je vybraný správny typ prehrávača? (Alexa, Google, Všeobecný)
 - Skúste tlačidlo "Test"
 
 ---
 
-### Iba zvon alebo iba hlas
-- **Iba zvon:** Zapnite "Voice announcement"
-- **Iba hlas:** Zapnite "Use chime"
+### Iba zvonček alebo iba hlas
+
+- **Iba zvonček:** Zapnite "Hlasové oznámenie"
+- **Iba hlas:** Zapnite "Použiť zvonček"
 
 ---
 
-### Westminster nezní o 12
-- Overte, že je aktívny "Tower Clock"
+### Westminster nehrá o 12
+
+- Skontrolujte, že je aktívna možnosť "Vežové hodiny"
 - Funguje **iba o 12:00** (poludnie, nie polnoc)
 
 ---
 
 ## 🚀 Možný budúci vývoj
+
 - ⏳ Oznámenia každých 15 minút
 - 🔇 Automatická nočná hlasitosť
-- 🗓️ Oznámenie dňa
-- 📣 Podpora ďalších TTS
 
 ---
 
 ## ☕ Podporte projekt
-Páči sa vám tento projekt? Ak vám príde užitočný, dajte mi virtuálnu kávu na podporu budúceho vývoja! Každý malý príspevok je veľmi cenený. 🙏
 
-**Digital Pendulum je a vždy bude zadarmo a open source.** Dary sú úplne dobrovoľné! ❤️
+Páči sa vám tento projekt? Ak ho považujete za užitočný, kúpte mi virtuálnu kávu na podporu budúceho vývoja! Každý malý príspevok je veľmi cenený. 🙏
+
+**Digital Pendulum je a vždy zostane zadarmo a open source.** Dary sú úplne dobrovoľné! ❤️
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dregi56)
 
 💡 **Preferujete iné metódy?** Môžete použiť:
+
 [![revolut](https://img.shields.io/badge/Revolut-0075EB?style=for-the-badge&logo=revolut&logoColor=white)](https://revolut.me/egidio5t9d)
