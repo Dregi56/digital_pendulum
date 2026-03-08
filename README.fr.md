@@ -84,6 +84,7 @@ retour automatique à l'italien
 - 🎵 12 sons prédéfinis au choix
 - 🎶 option d'utiliser un fichier audio personnalisé
 - 🔕 son de notification par défaut (si rien n'est sélectionné)
+- ⏳ Option pour un son dédié à la demi-heure
 
 ### 🧪 Fonction de test
 - pour essayer immédiatement l'annonce
