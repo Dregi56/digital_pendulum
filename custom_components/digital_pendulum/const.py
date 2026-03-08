@@ -13,8 +13,7 @@ CONF_VOICE_ANNOUNCEMENT = "voice_announcement"
 CONF_PLAYER_TYPE = "player_type"
 CONF_AFTER_CHIME_DELAY = "after_chime_delay"
 CONF_ANNOUNCE_HALF_HOURS_VOICE = "announce_half_hours_voice"
-CONF_USE_HALF_HOUR_CHIME = "use_half_hour_chime"  # modificata per aggiungere opzione suono dedicato alla mezz'ora
-# Defaults
+CONF_USE_HALF_HOUR_CHIME = "use_half_hour_chime"
 DEFAULT_ANNOUNCE_HALF_HOURS = True
 DEFAULT_VOICE_ANNOUNCEMENT = True
 DEFAULT_START_HOUR = 8
@@ -25,15 +24,13 @@ DEFAULT_PRESET_CHIME = "church-bell"
 DEFAULT_TOWER_CLOCK = False
 DEFAULT_AFTER_CHIME_DELAY = 1.2
 DEFAULT_ANNOUNCE_HALF_HOURS_VOICE = True
-DEFAULT_USE_HALF_HOUR_CHIME = False  # modificata per definire il default del suono dedicato alla mezz'ora
+DEFAULT_USE_HALF_HOUR_CHIME = False
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
-# Lista players
 PLAYER_TYPES = {
     "alexa": "Alexa (alexa_media_player)",
     "google": "Google Home / Assistant",
     "generic": "Generic (media_player)",
 }
-# Lista suoni predefiniti
 PRESET_CHIMES = {
     "church-bell": {
         "name": "Church Bell",
@@ -91,4 +88,8 @@ PRESET_CHIMES = {
         "name": "Half Hour",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/half_an_hour.mp3"
     },
-
+    "custom": {
+        "name": "Custom (use custom path)",
+        "url": ""
+    }
+}
