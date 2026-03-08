@@ -17,12 +17,14 @@
           "use_chime": "Utiliser un son de cloche",
           "preset_chime": "Son prédéfini",
           "custom_chime_path": "Chemin de cloche personnalisé (optionnel)",
-          "after_chime_delay": "Pause après la cloche (secondes)"
+          "after_chime_delay": "Pause après la cloche (secondes)",
+          "use_half_hour_chime": "Utiliser un son dédié pour la demi-heure"
         },
         "data_description": {
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)",
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
-          "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)"
+          "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)",
+          "use_half_hour_chime": "Si activé, un son dédié (half_an_hour.mp3) sera joué aux demi-heures à la place de la cloche normale"
         }
       }
     }
@@ -45,12 +47,14 @@
           "use_chime": "Utiliser un son de cloche",
           "preset_chime": "Son prédéfini",
           "custom_chime_path": "Chemin de cloche personnalisé (optionnel)",
-          "after_chime_delay": "Pause après la cloche (secondes)"
+          "after_chime_delay": "Pause après la cloche (secondes)",
+          "use_half_hour_chime": "Utiliser un son dédié pour la demi-heure"
         },
         "data_description": {
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)",
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
-          "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)"
+          "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)",
+          "use_half_hour_chime": "Si activé, un son dédié (half_an_hour.mp3) sera joué aux demi-heures à la place de la cloche normale"
         }
       }
     }
@@ -79,5 +83,3 @@
     }
   }
 }
-
-
