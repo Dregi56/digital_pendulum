@@ -84,6 +84,7 @@ automatyczny powrót do języka włoskiego
 - 🎵 12 predefiniowanych dźwięków do wyboru
 - 🎶 opcja użycia własnego pliku audio
 - 🔕 domyślny dźwięk powiadomienia (jeśli nic nie zostanie wybrane)
+- ⏳ opcja dedykowanego dźwięku dla półgodziny
 
 ### 🧪 Funkcja testowa
 - aby natychmiast wypróbować ogłoszenie
