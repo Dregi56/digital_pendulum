@@ -17,12 +17,14 @@
           "use_chime": "Usar Som de Sino",
           "preset_chime": "Som de Sino",
           "custom_chime_path": "Caminho do sino personalizado (opcional)",
-          "after_chime_delay": "Pausa após o sino (segundos)"
+          "after_chime_delay": "Pausa após o sino (segundos)",
+          "use_half_hour_chime": "Usar som dedicado para a meia hora"
         },
         "data_description": {
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - deixe vazio para o padrão)",
           "announce_half_hours_voice": "Se desativado, o sino continuará a tocar nas meias horas mas o anúncio vocal não será feito",
-          "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.2)"
+          "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.2)",
+          "use_half_hour_chime": "Se ativado, um som dedicado (half_an_hour.mp3) será reproduzido nas meias horas em vez do sino normal"
         }
       }
     }
@@ -45,12 +47,14 @@
           "use_chime": "Usar Som de Sino",
           "preset_chime": "Som de Sino",
           "custom_chime_path": "Caminho do sino personalizado (opcional)",
-          "after_chime_delay": "Pausa após o sino (segundos)"
+          "after_chime_delay": "Pausa após o sino (segundos)",
+          "use_half_hour_chime": "Usar som dedicado para a meia hora"
         },
         "data_description": {
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - deixe vazio para o padrão)",
           "announce_half_hours_voice": "Se desativado, o sino continuará a tocar nas meias horas mas o anúncio vocal não será feito",
-          "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.2)"
+          "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.2)",
+          "use_half_hour_chime": "Se ativado, um som dedicado (half_an_hour.mp3) será reproduzido nas meias horas em vez do sino normal"
         }
       }
     }
