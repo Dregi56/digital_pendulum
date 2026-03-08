@@ -84,7 +84,8 @@ retorno automático al italiano
 - 🎵 12 sonidos predefinidos para elegir
 - 🎶 opción de usar un archivo de audio personalizado
 - 🔕 sonido de notificación predeterminado (si no se selecciona nada)
-
+- ⏳ opción de sonido dedicado para la media hora
+  
 ### 🧪 Función de prueba
 - para probar el anuncio inmediatamente
 
