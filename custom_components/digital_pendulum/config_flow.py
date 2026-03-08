@@ -15,8 +15,9 @@ from .const import (
     CONF_TOWER_CLOCK,
     CONF_ANNOUNCE_HALF_HOURS,
     CONF_VOICE_ANNOUNCEMENT,
-    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+    CONF_AFTER_CHIME_DELAY,
     CONF_ANNOUNCE_HALF_HOURS_VOICE,
+    CONF_USE_HALF_HOUR_CHIME,  # modificata per importare la nuova costante suono mezz'ora
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -26,8 +27,9 @@ from .const import (
     DEFAULT_TOWER_CLOCK,
     DEFAULT_ANNOUNCE_HALF_HOURS,
     DEFAULT_VOICE_ANNOUNCEMENT,
-    DEFAULT_AFTER_CHIME_DELAY,  # modificata per rinominare da DEFAULT_CHIME_DELAY a DEFAULT_AFTER_CHIME_DELAY
+    DEFAULT_AFTER_CHIME_DELAY,
     DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
+    DEFAULT_USE_HALF_HOUR_CHIME,  # modificata per importare il default suono mezz'ora
     PRESET_CHIMES,
     PLAYER_TYPES,
 )
@@ -144,8 +146,8 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 ),
                 # 9) Tempo di attesa dopo campana e prima dell'annuncio
                 vol.Required(
-                    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
-                    default=DEFAULT_AFTER_CHIME_DELAY,  # modificata per rinominare da DEFAULT_CHIME_DELAY a DEFAULT_AFTER_CHIME_DELAY
+                    CONF_AFTER_CHIME_DELAY,
+                    default=DEFAULT_AFTER_CHIME_DELAY,
                 ): selector.NumberSelector(
                     selector.NumberSelectorConfig(
                         min=0.0,
@@ -154,6 +156,11 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                         mode=selector.NumberSelectorMode.BOX,
                     )
                 ),
+                # 10) Suono dedicato alla mezz'ora  # modificata per aggiungere opzione suono mezz'ora
+                vol.Required(  # modificata per aggiungere opzione suono mezz'ora
+                    CONF_USE_HALF_HOUR_CHIME,  # modificata per aggiungere opzione suono mezz'ora
+                    default=DEFAULT_USE_HALF_HOUR_CHIME,  # modificata per aggiungere opzione suono mezz'ora
+                ): bool,  # modificata per aggiungere opzione suono mezz'ora
             }
         )
         return self.async_show_form(
@@ -284,8 +291,8 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 ),
                 # 9) Tempo di attesa dopo campana e prima dell'annuncio
                 vol.Required(
-                    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
-                    default=current_options.get(CONF_AFTER_CHIME_DELAY, DEFAULT_AFTER_CHIME_DELAY),  # modificata per rinominare da CONF_CHIME_DELAY/DEFAULT_CHIME_DELAY
+                    CONF_AFTER_CHIME_DELAY,
+                    default=current_options.get(CONF_AFTER_CHIME_DELAY, DEFAULT_AFTER_CHIME_DELAY),
                 ): selector.NumberSelector(
                     selector.NumberSelectorConfig(
                         min=0.0,
@@ -294,6 +301,11 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                         mode=selector.NumberSelectorMode.BOX,
                     )
                 ),
+                # 10) Suono dedicato alla mezz'ora  # modificata per aggiungere opzione suono mezz'ora
+                vol.Required(  # modificata per aggiungere opzione suono mezz'ora
+                    CONF_USE_HALF_HOUR_CHIME,  # modificata per aggiungere opzione suono mezz'ora
+                    default=current_options.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME),  # modificata per aggiungere opzione suono mezz'ora
+                ): bool,  # modificata per aggiungere opzione suono mezz'ora
             }
         )
         return self.async_show_form(
