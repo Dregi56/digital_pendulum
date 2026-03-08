@@ -17,6 +17,7 @@ from .const import (
     CONF_VOICE_ANNOUNCEMENT,
     CONF_AFTER_CHIME_DELAY,
     CONF_ANNOUNCE_HALF_HOURS_VOICE,
+    CONF_USE_HALF_HOUR_CHIME,  # modificata per importare la costante suono mezz'ora
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -28,6 +29,7 @@ from .const import (
     DEFAULT_VOICE_ANNOUNCEMENT,
     DEFAULT_AFTER_CHIME_DELAY,
     DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
+    DEFAULT_USE_HALF_HOUR_CHIME,  # modificata per importare il default suono mezz'ora
     PRESET_CHIMES,
     DOMAIN,
 )
@@ -73,6 +75,7 @@ class DigitalPendulum:
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
         self.after_chime_delay = max(0.0, min(10.0, float(config.get(CONF_AFTER_CHIME_DELAY, DEFAULT_AFTER_CHIME_DELAY))))
         self.announce_half_hours_voice = config.get(CONF_ANNOUNCE_HALF_HOURS_VOICE, DEFAULT_ANNOUNCE_HALF_HOURS_VOICE)
+        self.use_half_hour_chime = config.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME)  # modificata per caricare il flag suono mezz'ora
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
 
@@ -233,11 +236,19 @@ class DigitalPendulum:
         return translations.get(language, fallback)
 
     async def _play_chime(self, hour: int = None, minute: int = None):
+        # Suono Westminster alle 12:00 se tower_clock attivo
         if self.tower_clock and hour == 12 and minute == 0:
             westminster_url = PRESET_CHIMES["westminster"]["url"]
             await self._player.play_chime(westminster_url)
             return
 
+        # Suono dedicato alla mezz'ora se abilitato  # modificata per gestire suono dedicato alla mezz'ora
+        if minute == 30 and self.use_half_hour_chime:  # modificata per gestire suono dedicato alla mezz'ora
+            half_hour_url = PRESET_CHIMES["half-hour"]["url"]  # modificata per gestire suono dedicato alla mezz'ora
+            await self._player.play_chime(half_hour_url)  # modificata per gestire suono dedicato alla mezz'ora
+            return  # modificata per gestire suono dedicato alla mezz'ora
+
+        # Suono normale (preset o custom)
         if self.preset_chime and self.preset_chime != "custom":
             chime_info = PRESET_CHIMES.get(self.preset_chime)
             if chime_info and chime_info["url"]:
