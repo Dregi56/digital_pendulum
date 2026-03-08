@@ -84,6 +84,7 @@ automatický návrat k taliančine
 - 🎵 12 prednastavených zvukov na výber
 - 🎶 možnosť použitia vlastného zvukového súboru
 - 🔕 predvolený zvuk oznámenia (ak nie je nič vybrané)
+- ⏳ Možnosť vyhradeného zvuku pre polhodinu
 
 ### 🧪 Testovacia funkcia
 - na okamžité vyskúšanie oznámenia
