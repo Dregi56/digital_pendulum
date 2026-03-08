@@ -89,4 +89,6 @@ PRESET_CHIMES = {
     },
     "half-hour": {
         "name": "Half Hour",
-        "url": "https://raw.githubu
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/half_an_hour.mp3"
+    },
+
