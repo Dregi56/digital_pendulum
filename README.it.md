@@ -84,7 +84,8 @@ fallback automatico all'italiano
 - 🎵 12 suoni preimpostati tra cui scegliere
 - 🎶 opzione per usare un file audio personalizzato
 - 🔕 suono di notifica predefinito (se non viene selezionato nulla)
-
+- ⏳  opzione per suono dedicato alla mezzora
+  
 ### 🧪 Funzione di test
 - per provare immediatamente l'annuncio
 
