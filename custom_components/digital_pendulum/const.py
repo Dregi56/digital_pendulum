@@ -11,8 +11,9 @@ CONF_TOWER_CLOCK = "tower_clock"
 CONF_ANNOUNCE_HALF_HOURS = "announce_half_hours"
 CONF_VOICE_ANNOUNCEMENT = "voice_announcement"
 CONF_PLAYER_TYPE = "player_type"
-CONF_AFTER_CHIME_DELAY = "after_chime_delay"  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+CONF_AFTER_CHIME_DELAY = "after_chime_delay"
 CONF_ANNOUNCE_HALF_HOURS_VOICE = "announce_half_hours_voice"
+CONF_USE_HALF_HOUR_CHIME = "use_half_hour_chime"  # modificata per aggiungere opzione suono dedicato alla mezz'ora
 # Defaults
 DEFAULT_ANNOUNCE_HALF_HOURS = True
 DEFAULT_VOICE_ANNOUNCEMENT = True
@@ -22,8 +23,9 @@ DEFAULT_USE_CHIME = True
 DEFAULT_CUSTOM_CHIME_PATH = ""
 DEFAULT_PRESET_CHIME = "church-bell"
 DEFAULT_TOWER_CLOCK = False
-DEFAULT_AFTER_CHIME_DELAY = 1.2  # modificata per rinominare da DEFAULT_CHIME_DELAY a DEFAULT_AFTER_CHIME_DELAY
+DEFAULT_AFTER_CHIME_DELAY = 1.2
 DEFAULT_ANNOUNCE_HALF_HOURS_VOICE = True
+DEFAULT_USE_HALF_HOUR_CHIME = False  # modificata per definire il default del suono dedicato alla mezz'ora
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
 # Lista players
 PLAYER_TYPES = {
@@ -85,8 +87,6 @@ PRESET_CHIMES = {
         "name": "Westminster",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/westminster.mp3"
     },
-    "custom": {
-        "name": "Custom (use custom path)",
-        "url": ""
-    }
-}
+    "half-hour": {
+        "name": "Half Hour",
+        "url": "https://raw.githubu
