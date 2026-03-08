@@ -84,6 +84,7 @@ automatický návrat k italštině
 - 🎵 12 přednastavených zvuků na výběr
 - 🎶 možnost použití vlastního zvukového souboru
 - 🔕 výchozí zvuk oznámení (pokud není nic vybráno)
+- ⏳ Opcja dedykowanego dźwięku dla półgodziny
 
 ### 🧪 Testovací funkce
 - pro okamžité vyzkoušení oznámení
