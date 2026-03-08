@@ -17,12 +17,14 @@
           "use_chime": "Glockenton verwenden",
           "preset_chime": "Voreingestellter Glockenton",
           "custom_chime_path": "Eigener Glockenton-Pfad (optional)",
-          "after_chime_delay": "Pause nach dem Glockenton (Sekunden)"
+          "after_chime_delay": "Pause nach dem Glockenton (Sekunden)",
+          "use_half_hour_chime": "Dedizierten Glockenton für die halbe Stunde verwenden"
         },
         "data_description": {
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
           "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
-          "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)"
+          "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)",
+          "use_half_hour_chime": "Wenn aktiviert, wird zur halben Stunde ein dedizierter Klang (half_an_hour.mp3) anstelle des normalen Glockentons abgespielt"
         }
       }
     }
@@ -45,12 +47,14 @@
           "use_chime": "Glockenton verwenden",
           "preset_chime": "Voreingestellter Glockenton",
           "custom_chime_path": "Eigener Glockenton-Pfad (optional)",
-          "after_chime_delay": "Pause nach dem Glockenton (Sekunden)"
+          "after_chime_delay": "Pause nach dem Glockenton (Sekunden)",
+          "use_half_hour_chime": "Dedizierten Glockenton für die halbe Stunde verwenden"
         },
         "data_description": {
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
           "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
-          "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)"
+          "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)",
+          "use_half_hour_chime": "Wenn aktiviert, wird zur halben Stunde ein dedizierter Klang (half_an_hour.mp3) anstelle des normalen Glockentons abgespielt"
         }
       }
     }
