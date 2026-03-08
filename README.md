@@ -85,6 +85,7 @@ automatic fallback to Italian
 - 🎵 12 preset sounds to choose from
 - 🎶 option to use a custom audio file
 - 🔕 default notification sound (if nothing is selected)
+- ⏳ Option for a dedicated half-hour sound
 
 ### 🧪 Test function
 - to immediately try the announcement
