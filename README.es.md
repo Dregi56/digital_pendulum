@@ -77,6 +77,8 @@ Durante la configuración se le pedirá primero que seleccione el tipo de reprod
 
 retorno automático al italiano
 
+🌐 **Idioma personalizable:** Es posible elegir un idioma diferente al configurado en Home Assistant (útil por ejemplo para quienes tienen HA en inglés).
+
 ### 🕐 Intervalo de tiempo configurable
 - p.ej. solo de 8:00 a 22:00
 
