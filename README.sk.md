@@ -125,9 +125,9 @@ Všetko prebieha automaticky bez potreby konfigurovať automatizácie!
 
 ## 🗣️ Spracovanie jazyka
 
-Jazyk sa automaticky zisťuje z:
+Jazyk sa automaticky rozpoznáva z Home Assistant.
 
-self.hass.config.language
+🌐 **Jazyk oznámení:** Možnosť zvoliť jazyk hlasových oznámení nezávisle od jazyka nastaveného v Home Assistant (dostupné: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, alebo Automaticky pre sledovanie jazyka Home Assistant).
 
 Príklady oznámení:
 
