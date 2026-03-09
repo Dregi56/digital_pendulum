@@ -84,16 +84,13 @@ class DigitalPendulum:
 
     def update_config(self):
         self._load_config()
-    
+
     def _normalize_language(self) -> str:
-        _LOGGER.warning("Digital Pendulum: self.language = '%s'", self.language)
         if self.language and self.language != "auto":
-            _LOGGER.warning("Digital Pendulum: uso lingua manuale = '%s'", self.language)
             return self.language
         lang = self.hass.config.language or "en"
-        _LOGGER.warning("Digital Pendulum: uso lingua HA = '%s'", lang[:2].lower())
         return lang[:2].lower()
-    
+
     def _to_12h_with_period(self, hour: int):
         hour12 = hour % 12
         if hour12 == 0:
@@ -155,6 +152,20 @@ class DigitalPendulum:
                 next_hour = (hour + 1) % 24
                 return f"Es ist halb {next_hour}"
             return f"Es ist {hour} Uhr"
+
+        # --- Francese ---
+        if language == "fr":
+            if hour == 0:
+                if minute == 30:
+                    return "Il est minuit et demi"
+                return "Il est minuit"
+            if hour == 12:
+                if minute == 30:
+                    return "Il est midi et demi"
+                return "Il est midi"
+            if minute == 30:
+                return f"Il est {hour} heures et demie"
+            return f"Il est {hour} heures"
 
         # --- Spagnolo ---
         if language == "es":
@@ -245,6 +256,14 @@ class DigitalPendulum:
         # --- Tedesco ---
         if language == "de":
             return f"Es ist {hour} Uhr {minute:02d}"
+
+        # --- Francese ---
+        if language == "fr":
+            if hour == 0:
+                return f"Il est minuit et {minute:02d}"
+            if hour == 12:
+                return f"Il est midi et {minute:02d}"
+            return f"Il est {hour} heures {minute:02d}"
 
         # --- Spagnolo ---
         if language == "es":
