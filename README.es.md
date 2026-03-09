@@ -125,9 +125,9 @@ Digital Pendulum se sincroniza con el reloj del sistema y comprueba automáticam
 
 ## 🗣️ Gestión del idioma
 
-La langue est détectée automatiquement par Home Assistant.
+El idioma se detecta automáticamente desde Home Assistant.
 
-🌐 **Langue des annonces:** Possibilité de choisir la langue des annonces vocales indépendamment de la langue configurée dans Home Assistant (disponibles: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, ou Automatique pour suivre la langue de Home Assistant).
+🌐 **Idioma de los anuncios:** Posibilidad de elegir el idioma de los anuncios de voz independientemente del idioma configurado en Home Assistant (disponibles: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, o Automático para seguir el idioma de Home Assistant).
 
 Ejemplos de anuncios:
 
