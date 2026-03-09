@@ -77,6 +77,8 @@ Bei der Einrichtung werden Sie zuerst gebeten, den Wiedergabetyp auszuwählen, d
 
 automatischer Rückfall auf Italienisch
 
+🌐 **Anpassbare Sprache:** Es ist möglich, eine andere Sprache als die in Home Assistant eingestellte zu wählen (nützlich zum Beispiel für diejenigen, die HA auf Englisch haben).
+
 ### 🕐 Konfigurierbares Zeitfenster
 - z.B. nur von 8:00 bis 22:00
 
