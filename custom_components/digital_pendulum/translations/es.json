@@ -10,6 +10,7 @@
           "start_hour": "Hora de inicio",
           "end_hour": "Hora de fin",
           "enabled": "Habilitado",
+          "language": "Idioma de los anuncios",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
           "announce_half_hours_voice": "Anuncio de voz en las medias horas",
@@ -21,6 +22,7 @@
           "use_half_hour_chime": "Usar sonido dedicado para la media hora"
         },
         "data_description": {
+          "language": "Seleccione el idioma para los anuncios de hora. 'Automático' usa la configuración de idioma de Home Assistant",
           "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
           "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
           "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)",
@@ -40,6 +42,7 @@
           "start_hour": "Hora de inicio",
           "end_hour": "Hora de fin",
           "enabled": "Habilitado",
+          "language": "Idioma de los anuncios",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
           "announce_half_hours_voice": "Anuncio de voz en las medias horas",
@@ -51,6 +54,7 @@
           "use_half_hour_chime": "Usar sonido dedicado para la media hora"
         },
         "data_description": {
+          "language": "Seleccione el idioma para los anuncios de hora. 'Automático' usa la configuración de idioma de Home Assistant",
           "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
           "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
           "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)",
