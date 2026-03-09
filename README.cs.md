@@ -75,8 +75,6 @@ Během nastavení budete nejprve požádáni o výběr typu přehrávače, poté
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-automatický návrat k italštině
-
 🌐 **Přizpůsobitelný jazyk:** Je možné zvolit jiný jazyk než ten nastavený v Home Assistant (užitečné například pro ty, kteří mají HA v angličtině).
 
 ### 🕐 Konfigurovatelný časový rozsah
