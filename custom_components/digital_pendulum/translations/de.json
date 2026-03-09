@@ -10,6 +10,7 @@
           "start_hour": "Startstunde",
           "end_hour": "Endstunde",
           "enabled": "Aktiviert",
+          "language": "Sprache der Ansagen",
           "announce_half_hours": "Halbe Stunden ankündigen",
           "voice_announcement": "Sprachansage",
           "announce_half_hours_voice": "Sprachansage zur halben Stunde",
@@ -21,6 +22,7 @@
           "use_half_hour_chime": "Dedizierten Glockenton für die halbe Stunde verwenden"
         },
         "data_description": {
+          "language": "Wählen Sie die Sprache für die Zeitansagen. 'Automatisch' verwendet die Spracheinstellung von Home Assistant",
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
           "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
           "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)",
@@ -40,6 +42,7 @@
           "start_hour": "Startstunde",
           "end_hour": "Endstunde",
           "enabled": "Aktiviert",
+          "language": "Sprache der Ansagen",
           "announce_half_hours": "Halbe Stunden ankündigen",
           "voice_announcement": "Sprachansage",
           "announce_half_hours_voice": "Sprachansage zur halben Stunde",
@@ -51,6 +54,7 @@
           "use_half_hour_chime": "Dedizierten Glockenton für die halbe Stunde verwenden"
         },
         "data_description": {
+          "language": "Wählen Sie die Sprache für die Zeitansagen. 'Automatisch' verwendet die Spracheinstellung von Home Assistant",
           "custom_chime_path": "Z.B.: www/sounds/bell.mp3 (Formate: MP3, WAV, OGG - leer lassen für Standard)",
           "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
           "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)",
