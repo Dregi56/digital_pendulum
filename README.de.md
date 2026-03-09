@@ -75,8 +75,6 @@ Bei der Einrichtung werden Sie zuerst gebeten, den Wiedergabetyp auszuwählen, d
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-automatischer Rückfall auf Italienisch
-
 🌐 **Anpassbare Sprache:** Es ist möglich, eine andere Sprache als die in Home Assistant eingestellte zu wählen (nützlich zum Beispiel für diejenigen, die HA auf Englisch haben).
 
 ### 🕐 Konfigurierbares Zeitfenster
