@@ -77,6 +77,8 @@ Během nastavení budete nejprve požádáni o výběr typu přehrávače, poté
 
 automatický návrat k italštině
 
+🌐 **Přizpůsobitelný jazyk:** Je možné zvolit jiný jazyk než ten nastavený v Home Assistant (užitečné například pro ty, kteří mají HA v angličtině).
+
 ### 🕐 Konfigurovatelný časový rozsah
 - např. pouze od 8:00 do 22:00
 
