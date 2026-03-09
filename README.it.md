@@ -77,6 +77,9 @@ Durante la configurazione ti verrà chiesto di selezionare prima il tipo di play
 
 fallback automatico all'italiano
 
+🌐 **Lingua personalizzabile:** È possibile scegliere una lingua diversa da quella impostata in Home Assistant (utile ad esempio per chi ha HA in inglese).
+
+
 ### 🕐 Fascia oraria configurabile
 - es. solo dalle 8:00 alle 22:00
 
@@ -123,9 +126,9 @@ Tutto avviene automaticamente senza bisogno di configurare automazioni!
 
 ## 🗣️ Gestione della lingua
 
-La lingua viene rilevata automaticamente da:
+La lingua viene rilevata automaticamente da Homeassistant
 
-self.hass.config.language
+🌐 **Lingua degli annunci:** Possibilità di scegliere la lingua degli annunci vocali indipendentemente dalla lingua impostata in Home Assistant (disponibili: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, oppure Automatico per seguire la lingua di Home Assistant).
 
 Esempi di annunci:
 
