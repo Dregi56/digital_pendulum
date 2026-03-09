@@ -125,9 +125,8 @@ Tudo acontece automaticamente sem necessidade de configurar automatizações!
 
 ## 🗣️ Gestão do idioma
 
-O idioma é detetado automaticamente a partir de:
-
-self.hass.config.language
+O idioma é detetado automaticamente pelo Home Assistant.
+🌐 **Idioma dos anúncios:** Possibilidade de escolher o idioma dos anúncios vocais independentemente do idioma configurado no Home Assistant (disponíveis: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, ou Automático para seguir o idioma do Home Assistant).
 
 Exemplos de anúncios:
 
