@@ -77,6 +77,8 @@ Podczas konfiguracji zostaniesz najpierw poproszony o wybranie typu odtwarzacza,
 
 automatyczny powrót do języka włoskiego
 
+🌐 **Język dostosowywalny:** Możliwe jest wybranie języka innego niż ustawiony w Home Assistant (przydatne na przykład dla osób, które mają HA w języku angielskim).
+
 ### 🕐 Konfigurowalny przedział czasowy
 - np. tylko od 8:00 do 22:00
 
