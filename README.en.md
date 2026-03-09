@@ -76,8 +76,6 @@ During setup you will be asked to select the player type first, then the specifi
 - Slovak 🇸🇰
 - Portuguese 🇵🇹
   
-automatic fallback to Italian
-
 🌐 **Customizable language:** You can choose a different language from the one set in Home Assistant (useful for example for those who have HA in English but want announcements in their native language).
 
 ### 🕐 Configurable time slot
