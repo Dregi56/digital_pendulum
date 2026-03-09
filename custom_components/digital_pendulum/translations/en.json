@@ -10,6 +10,7 @@
           "start_hour": "Start hour",
           "end_hour": "End hour",
           "enabled": "Enabled",
+          "language": "Announcement language",
           "announce_half_hours": "Announce half hours",
           "voice_announcement": "Voice announcement",
           "announce_half_hours_voice": "Voice announcement at half hours",
@@ -22,6 +23,7 @@
         },
         "data_description": {
           "player_type": "Select your device type (Alexa, Google Home, or Generic)",
+          "language": "Select the language for time announcements. 'Automatic' uses the Home Assistant language setting",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)",
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)",
@@ -41,6 +43,7 @@
           "start_hour": "Start hour",
           "end_hour": "End hour",
           "enabled": "Enabled",
+          "language": "Announcement language",
           "announce_half_hours": "Announce half hours",
           "voice_announcement": "Voice announcement",
           "announce_half_hours_voice": "Voice announcement at half hours",
@@ -53,6 +56,7 @@
         },
         "data_description": {
           "player_type": "Select your device type (Alexa, Google Home, or Generic)",
+          "language": "Select the language for time announcements. 'Automatic' uses the Home Assistant language setting",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)",
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)",
