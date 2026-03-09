@@ -124,9 +124,9 @@ Alles geschieht automatisch ohne die Notwendigkeit, Automatisierungen zu konfigu
 
 ## 🗣️ Sprachverarbeitung
 
-Die Sprache wird automatisch erkannt aus:
+Die Sprache wird automatisch von Home Assistant erkannt.
 
-self.hass.config.language
+🌐 **Sprache der Ansagen:** Möglichkeit, die Sprache der Sprachansagen unabhängig von der in Home Assistant eingestellten Sprache zu wählen (verfügbar: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, oder Automatisch um der Sprache von Home Assistant zu folgen).
 
 Ansagebeispiele:
 
