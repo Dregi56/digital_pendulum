@@ -1,6 +1,7 @@
 from .player_base import BasePlayer
 
 class GooglePlayer(BasePlayer):
+
     async def play_default_chime(self):
         pass
 
@@ -32,10 +33,9 @@ class GooglePlayer(BasePlayer):
             return state.entity_id
         return None
 
-    async def speak(self, text: str):
-        language = self.hass.config.language or "en"
+    async def speak(self, text: str, language: str = "en"):
+        """Annuncio vocale nella lingua specificata."""
         tts_entity = self._find_tts_entity()
-
         if tts_entity:
             await self.hass.services.async_call(
                 "tts",
