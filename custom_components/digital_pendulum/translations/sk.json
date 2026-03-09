@@ -10,6 +10,7 @@
           "start_hour": "Počiatočná hodina",
           "end_hour": "Koncová hodina",
           "enabled": "Povolené",
+          "language": "Jazyk oznámení",
           "announce_half_hours": "Oznamovať polhodiny",
           "voice_announcement": "Hlasové oznámenie",
           "announce_half_hours_voice": "Hlasové oznámenie v polhodinách",
@@ -21,6 +22,7 @@
           "use_half_hour_chime": "Použiť zvláštny zvuk pre polhodinu"
         },
         "data_description": {
+          "language": "Vyberte jazyk pre hlasové oznámenia. 'Automaticky' použije nastavenie jazyka Home Assistant",
           "custom_chime_path": "Napr.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechajte prázdne pre predvolené)",
           "announce_half_hours_voice": "Ak je vypnuté, zvonček bude stále hrať v polhodinách, ale hlasové oznámenie nebude vykonané",
           "after_chime_delay": "Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1.2)",
@@ -40,6 +42,7 @@
           "start_hour": "Počiatočná hodina",
           "end_hour": "Koncová hodina",
           "enabled": "Povolené",
+          "language": "Jazyk oznámení",
           "announce_half_hours": "Oznamovať polhodiny",
           "voice_announcement": "Hlasové oznámenie",
           "announce_half_hours_voice": "Hlasové oznámenie v polhodinách",
@@ -51,6 +54,7 @@
           "use_half_hour_chime": "Použiť zvláštny zvuk pre polhodinu"
         },
         "data_description": {
+          "language": "Vyberte jazyk pre hlasové oznámenia. 'Automaticky' použije nastavenie jazyka Home Assistant",
           "custom_chime_path": "Napr.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechajte prázdne pre predvolené)",
           "announce_half_hours_voice": "Ak je vypnuté, zvonček bude stále hrať v polhodinách, ale hlasové oznámenie nebude vykonané",
           "after_chime_delay": "Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1.2)",
