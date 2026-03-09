@@ -125,9 +125,9 @@ Wszystko dzieje się automatycznie bez konieczności konfigurowania automatyzacj
 
 ## 🗣️ Obsługa języka
 
-Język jest automatycznie wykrywany z:
+Język jest wykrywany automatycznie przez Home Assistant.
 
-self.hass.config.language
+🌐 **Język ogłoszeń:** Możliwość wyboru języka ogłoszeń głosowych niezależnie od języka ustawionego w Home Assistant (dostępne: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, lub Automatyczny aby podążać za językiem Home Assistant).
 
 Przykłady ogłoszeń:
 
