@@ -14,6 +14,8 @@ CONF_PLAYER_TYPE = "player_type"
 CONF_AFTER_CHIME_DELAY = "after_chime_delay"
 CONF_ANNOUNCE_HALF_HOURS_VOICE = "announce_half_hours_voice"
 CONF_USE_HALF_HOUR_CHIME = "use_half_hour_chime"
+CONF_LANGUAGE = "language"
+DEFAULT_ENABLED = True
 DEFAULT_ANNOUNCE_HALF_HOURS = True
 DEFAULT_VOICE_ANNOUNCEMENT = True
 DEFAULT_START_HOUR = 8
@@ -25,11 +27,24 @@ DEFAULT_TOWER_CLOCK = False
 DEFAULT_AFTER_CHIME_DELAY = 1.2
 DEFAULT_ANNOUNCE_HALF_HOURS_VOICE = True
 DEFAULT_USE_HALF_HOUR_CHIME = False
+DEFAULT_LANGUAGE = "auto"
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
 PLAYER_TYPES = {
     "alexa": "Alexa (alexa_media_player)",
     "google": "Google Home / Assistant",
     "generic": "Generic (media_player)",
+}
+LANGUAGES = {
+    "auto": "Automatic (same as Home Assistant)",
+    "en": "English",
+    "it": "Italiano",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français",
+    "pt": "Português",
+    "pl": "Polski",
+    "cs": "Čeština",
+    "sk": "Slovenčina",
 }
 PRESET_CHIMES = {
     "church-bell": {
