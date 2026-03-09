@@ -84,13 +84,16 @@ class DigitalPendulum:
 
     def update_config(self):
         self._load_config()
-
+    
     def _normalize_language(self) -> str:
+        _LOGGER.warning("Digital Pendulum: self.language = '%s'", self.language)
         if self.language and self.language != "auto":
+            _LOGGER.warning("Digital Pendulum: uso lingua manuale = '%s'", self.language)
             return self.language
         lang = self.hass.config.language or "en"
+        _LOGGER.warning("Digital Pendulum: uso lingua HA = '%s'", lang[:2].lower())
         return lang[:2].lower()
-
+    
     def _to_12h_with_period(self, hour: int):
         hour12 = hour % 12
         if hour12 == 0:
