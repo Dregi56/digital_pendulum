@@ -10,6 +10,7 @@
           "start_hour": "Godzina początkowa",
           "end_hour": "Godzina końcowa",
           "enabled": "Włączone",
+          "language": "Język ogłoszeń",
           "announce_half_hours": "Ogłaszaj półgodziny",
           "voice_announcement": "Ogłoszenie głosowe",
           "announce_half_hours_voice": "Ogłoszenie głosowe o półgodzinach",
@@ -21,6 +22,7 @@
           "use_half_hour_chime": "Użyj dedykowanego dźwięku dla półgodziny"
         },
         "data_description": {
+          "language": "Wybierz język ogłoszeń czasowych. 'Automatyczny' używa ustawienia języka Home Assistant",
           "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
           "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)",
@@ -40,6 +42,7 @@
           "start_hour": "Godzina początkowa",
           "end_hour": "Godzina końcowa",
           "enabled": "Włączone",
+          "language": "Język ogłoszeń",
           "announce_half_hours": "Ogłaszaj półgodziny",
           "voice_announcement": "Ogłoszenie głosowe",
           "announce_half_hours_voice": "Ogłoszenie głosowe o półgodzinach",
@@ -51,6 +54,7 @@
           "use_half_hour_chime": "Użyj dedykowanego dźwięku dla półgodziny"
         },
         "data_description": {
+          "language": "Wybierz język ogłoszeń czasowych. 'Automatyczny' używa ustawienia języka Home Assistant",
           "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
           "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)",
