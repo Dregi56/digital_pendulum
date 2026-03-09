@@ -75,8 +75,6 @@ Podczas konfiguracji zostaniesz najpierw poproszony o wybranie typu odtwarzacza,
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-automatyczny powrót do języka włoskiego
-
 🌐 **Język dostosowywalny:** Możliwe jest wybranie języka innego niż ustawiony w Home Assistant (przydatne na przykład dla osób, które mają HA w języku angielskim).
 
 ### 🕐 Konfigurowalny przedział czasowy
