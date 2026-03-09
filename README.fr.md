@@ -77,6 +77,8 @@ Lors de la configuration, il vous sera d'abord demandé de sélectionner le type
 
 retour automatique à l'italien
 
+🌐 **Langue personnalisable:** Il est possible de choisir une langue différente de celle configurée dans Home Assistant (utile par exemple pour ceux qui ont HA en anglais).
+
 ### 🕐 Créneau horaire configurable
 - ex. uniquement de 8h00 à 22h00
 
