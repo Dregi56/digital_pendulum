@@ -346,7 +346,7 @@ class DigitalPendulum:
             if self.voice_announcement:
                 if minute == 30 and not self.announce_half_hours_voice:
                     return
-                await self._player.speak(text)
+                await self._player.speak(text, self._normalize_language())
         except Exception as e:
             _LOGGER.error(
                 "Digital Pendulum: errore durante l'annuncio su '%s': %s",
@@ -359,4 +359,4 @@ class DigitalPendulum:
         hour = now.hour
         minute = now.minute
         text = self._build_text_with_minutes(hour, minute)
-        await self._speak(text)
+        await self._speak(text, hour, minute)
