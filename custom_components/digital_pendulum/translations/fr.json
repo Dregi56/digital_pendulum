@@ -10,6 +10,7 @@
           "start_hour": "Heure de début",
           "end_hour": "Heure de fin",
           "enabled": "Activé",
+          "language": "Langue des annonces",
           "announce_half_hours": "Annoncer les demi-heures",
           "voice_announcement": "Annonce vocale",
           "announce_half_hours_voice": "Annonce vocale aux demi-heures",
@@ -21,6 +22,7 @@
           "use_half_hour_chime": "Utiliser un son dédié pour la demi-heure"
         },
         "data_description": {
+          "language": "Sélectionnez la langue pour les annonces horaires. 'Automatique' utilise le paramètre de langue de Home Assistant",
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)",
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
           "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)",
@@ -40,6 +42,7 @@
           "start_hour": "Heure de début",
           "end_hour": "Heure de fin",
           "enabled": "Activé",
+          "language": "Langue des annonces",
           "announce_half_hours": "Annoncer les demi-heures",
           "voice_announcement": "Annonce vocale",
           "announce_half_hours_voice": "Annonce vocale aux demi-heures",
@@ -51,6 +54,7 @@
           "use_half_hour_chime": "Utiliser un son dédié pour la demi-heure"
         },
         "data_description": {
+          "language": "Sélectionnez la langue pour les annonces horaires. 'Automatique' utilise le paramètre de langue de Home Assistant",
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)",
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
           "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)",
