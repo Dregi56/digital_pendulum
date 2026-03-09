@@ -75,8 +75,6 @@ Durante a configuração, será solicitado que selecione primeiro o tipo de repr
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-retorno automático ao italiano
-
 🌐 **Idioma personalizável:** É possível escolher um idioma diferente do configurado no Home Assistant (útil por exemplo para quem tem o HA em inglês).
 
 ### 🕐 Intervalo de tempo configurável
