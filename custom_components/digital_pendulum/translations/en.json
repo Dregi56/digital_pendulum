@@ -3,21 +3,27 @@
     "step": {
       "user": {
         "title": "Digital Pendulum Setup",
-        "description": "The pendulum will operate between the set start and end times",
+        "description": "The pendulum will work between the start and end hours set",
         "data": {
-          "player_device": "Alexa Device",
-          "start_hour": "Start Hour",
-          "end_hour": "End Hour",
+          "player_type": "Player type",
+          "player_device": "Media player device",
+          "start_hour": "Start hour",
+          "end_hour": "End hour",
           "enabled": "Enabled",
-          "announce_half_hours": "Announce Half Hours",
-          "voice_announcement": "Voice Announcement",
-          "tower_clock": "Tower Clock (Westminster at 12:00)",
-          "use_chime": "Use Chime Sound",
-          "preset_chime": "Chime Sound",
-          "custom_chime_path": "Custom chime path (optional)"
+          "announce_half_hours": "Announce half hours",
+          "voice_announcement": "Voice announcement",
+          "announce_half_hours_voice": "Voice announcement at half hours",
+          "tower_clock": "Tower clock (Westminster at 12:00)",
+          "use_chime": "Use chime sound",
+          "preset_chime": "Chime sound",
+          "custom_chime_path": "Custom chime path (optional)",
+          "after_chime_delay": "Delay after chime (seconds)"
         },
         "data_description": {
-          "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)"
+          "player_type": "Select your device type (Alexa, Google Home, or Generic)",
+          "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)",
+          "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
+          "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)"
         }
       }
     }
@@ -26,21 +32,27 @@
     "step": {
       "init": {
         "title": "Digital Pendulum Options",
-        "description": "The pendulum will operate between the set start and end times",
+        "description": "The pendulum will work between the start and end hours set",
         "data": {
-          "player_device": "Alexa Device",
-          "start_hour": "Start Hour",
-          "end_hour": "End Hour",
+          "player_type": "Player type",
+          "player_device": "Media player device",
+          "start_hour": "Start hour",
+          "end_hour": "End hour",
           "enabled": "Enabled",
-          "announce_half_hours": "Announce Half Hours",
-          "voice_announcement": "Voice Announcement",
-          "tower_clock": "Tower Clock (Westminster at 12:00)",
-          "use_chime": "Use Chime Sound",
-          "preset_chime": "Chime Sound",
-          "custom_chime_path": "Custom chime path (optional)"
+          "announce_half_hours": "Announce half hours",
+          "voice_announcement": "Voice announcement",
+          "announce_half_hours_voice": "Voice announcement at half hours",
+          "tower_clock": "Tower clock (Westminster at 12:00)",
+          "use_chime": "Use chime sound",
+          "preset_chime": "Chime sound",
+          "custom_chime_path": "Custom chime path (optional)",
+          "after_chime_delay": "Delay after chime (seconds)"
         },
         "data_description": {
-          "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)"
+          "player_type": "Select your device type (Alexa, Google Home, or Generic)",
+          "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)",
+          "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
+          "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)"
         }
       }
     }
@@ -65,10 +77,9 @@
   "services": {
     "test_announcement": {
       "name": "Test Announcement",
-      "description": "Test the time announcement immediately"
+      "description": "Immediately tests the time announcement"
     }
   }
 }
-
 
 

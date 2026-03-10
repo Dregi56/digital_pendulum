@@ -7,6 +7,7 @@ from .const import (
     CONF_START_HOUR,
     CONF_END_HOUR,
     CONF_PLAYER_DEVICE,
+    CONF_PLAYER_TYPE,
     CONF_ENABLED,
     CONF_USE_CHIME,
     CONF_CUSTOM_CHIME_PATH,
@@ -14,6 +15,8 @@ from .const import (
     CONF_TOWER_CLOCK,
     CONF_ANNOUNCE_HALF_HOURS,
     CONF_VOICE_ANNOUNCEMENT,
+    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+    CONF_ANNOUNCE_HALF_HOURS_VOICE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -23,7 +26,10 @@ from .const import (
     DEFAULT_TOWER_CLOCK,
     DEFAULT_ANNOUNCE_HALF_HOURS,
     DEFAULT_VOICE_ANNOUNCEMENT,
+    DEFAULT_AFTER_CHIME_DELAY,  # modificata per rinominare da DEFAULT_CHIME_DELAY a DEFAULT_AFTER_CHIME_DELAY
+    DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
     PRESET_CHIMES,
+    PLAYER_TYPES,
 )
 
 class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -37,21 +43,34 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 data=user_input,
             )
 
-        # Crea lista opzioni per dropdown
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
         ]
 
+        player_type_options = [
+            selector.SelectOptionDict(value=key, label=label)
+            for key, label in PLAYER_TYPES.items()
+        ]
+
         schema = vol.Schema(
             {
+                # 0) Tipo di player
+                vol.Required(
+                    CONF_PLAYER_TYPE,
+                    default="alexa",
+                ): selector.SelectSelector(
+                    selector.SelectSelectorConfig(
+                        options=player_type_options,
+                        mode=selector.SelectSelectorMode.DROPDOWN,
+                    )
+                ),
                 # 1) Device
                 vol.Required(
                     CONF_PLAYER_DEVICE
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
                         domain="media_player",
-                        integration="alexa_media"
                     )
                 ),
                 # 2) Orario di lavoro
@@ -80,7 +99,7 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONF_ENABLED,
                     default=DEFAULT_ENABLED,
                 ): bool,
-                # 4) NUOVE OPZIONI - Annunci
+                # 4) Annunci
                 vol.Required(
                     CONF_ANNOUNCE_HALF_HOURS,
                     default=DEFAULT_ANNOUNCE_HALF_HOURS,
@@ -88,6 +107,11 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 vol.Required(
                     CONF_VOICE_ANNOUNCEMENT,
                     default=DEFAULT_VOICE_ANNOUNCEMENT,
+                ): bool,
+                # 4b) Annuncio vocale alla mezz'ora
+                vol.Required(
+                    CONF_ANNOUNCE_HALF_HOURS_VOICE,
+                    default=DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
                 ): bool,
                 # 5) Tower Clock
                 vol.Required(
@@ -118,9 +142,20 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                         type=selector.TextSelectorType.TEXT,
                     )
                 ),
+                # 9) Tempo di attesa dopo campana e prima dell'annuncio
+                vol.Required(
+                    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+                    default=DEFAULT_AFTER_CHIME_DELAY,  # modificata per rinominare da DEFAULT_CHIME_DELAY a DEFAULT_AFTER_CHIME_DELAY
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0.0,
+                        max=10.0,
+                        step=0.1,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
+                ),
             }
         )
-
         return self.async_show_form(
             step_id="user",
             data_schema=schema,
@@ -147,14 +182,28 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
 
         current_options = self.entry.options or self.entry.data
 
-        # Crea lista opzioni per dropdown
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
         ]
 
+        player_type_options = [
+            selector.SelectOptionDict(value=key, label=label)
+            for key, label in PLAYER_TYPES.items()
+        ]
+
         schema = vol.Schema(
             {
+                # 0) Tipo di player
+                vol.Required(
+                    CONF_PLAYER_TYPE,
+                    default=current_options.get(CONF_PLAYER_TYPE, "alexa"),
+                ): selector.SelectSelector(
+                    selector.SelectSelectorConfig(
+                        options=player_type_options,
+                        mode=selector.SelectSelectorMode.DROPDOWN,
+                    )
+                ),
                 # 1) Device
                 vol.Required(
                     CONF_PLAYER_DEVICE,
@@ -162,7 +211,6 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
                         domain="media_player",
-                        integration="alexa_media"
                     )
                 ),
                 # 2) Orario di lavoro
@@ -191,7 +239,7 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                     CONF_ENABLED,
                     default=current_options.get(CONF_ENABLED, DEFAULT_ENABLED),
                 ): bool,
-                # 4) NUOVE OPZIONI - Annunci
+                # 4) Annunci
                 vol.Required(
                     CONF_ANNOUNCE_HALF_HOURS,
                     default=current_options.get(CONF_ANNOUNCE_HALF_HOURS, DEFAULT_ANNOUNCE_HALF_HOURS),
@@ -199,6 +247,11 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 vol.Required(
                     CONF_VOICE_ANNOUNCEMENT,
                     default=current_options.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT),
+                ): bool,
+                # 4b) Annuncio vocale alla mezz'ora
+                vol.Required(
+                    CONF_ANNOUNCE_HALF_HOURS_VOICE,
+                    default=current_options.get(CONF_ANNOUNCE_HALF_HOURS_VOICE, DEFAULT_ANNOUNCE_HALF_HOURS_VOICE),
                 ): bool,
                 # 5) Tower Clock
                 vol.Required(
@@ -229,11 +282,21 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                         type=selector.TextSelectorType.TEXT,
                     )
                 ),
+                # 9) Tempo di attesa dopo campana e prima dell'annuncio
+                vol.Required(
+                    CONF_AFTER_CHIME_DELAY,  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+                    default=current_options.get(CONF_AFTER_CHIME_DELAY, DEFAULT_AFTER_CHIME_DELAY),  # modificata per rinominare da CONF_CHIME_DELAY/DEFAULT_CHIME_DELAY
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0.0,
+                        max=10.0,
+                        step=0.1,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
+                ),
             }
         )
-
         return self.async_show_form(
             step_id="init",
             data_schema=schema,
         )
-

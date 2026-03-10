@@ -3,21 +3,26 @@
     "step": {
       "user": {
         "title": "Configuración Digital Pendulum",
-        "description": "El péndulo funcionará entre las horas de inicio y fin establecidas",
+        "description": "El péndulo funcionará entre las horas de inicio y fin configuradas",
         "data": {
-          "player_device": "Dispositivo Alexa",
-          "start_hour": "Hora de Inicio",
-          "end_hour": "Hora de Fin",
+          "player_type": "Tipo de reproductor",
+          "player_device": "Dispositivo media player",
+          "start_hour": "Hora de inicio",
+          "end_hour": "Hora de fin",
           "enabled": "Habilitado",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
-          "tower_clock": "Reloj de Torre (Westminster a las 12:00)",
-          "use_chime": "Usar Sonido de Campana",
-          "preset_chime": "Sonido de Campana",
-          "custom_chime_path": "Ruta de campana personalizada (opcional)"
+          "announce_half_hours_voice": "Anuncio de voz en las medias horas",
+          "tower_clock": "Reloj de torre (Westminster a las 12:00)",
+          "use_chime": "Usar sonido de campana",
+          "preset_chime": "Sonido predefinido",
+          "custom_chime_path": "Ruta de campana personalizada (opcional)",
+          "after_chime_delay": "Pausa después de la campana (segundos)"
         },
         "data_description": {
-          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
+          "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
+          "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)"
         }
       }
     }
@@ -26,21 +31,26 @@
     "step": {
       "init": {
         "title": "Opciones Digital Pendulum",
-        "description": "El péndulo funcionará entre las horas de inicio y fin establecidas",
+        "description": "El péndulo funcionará entre las horas de inicio y fin configuradas",
         "data": {
-          "player_device": "Dispositivo Alexa",
-          "start_hour": "Hora de Inicio",
-          "end_hour": "Hora de Fin",
+          "player_type": "Tipo de reproductor",
+          "player_device": "Dispositivo media player",
+          "start_hour": "Hora de inicio",
+          "end_hour": "Hora de fin",
           "enabled": "Habilitado",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
-          "tower_clock": "Reloj de Torre (Westminster a las 12:00)",
-          "use_chime": "Usar Sonido de Campana",
-          "preset_chime": "Sonido de Campana",
-          "custom_chime_path": "Ruta de campana personalizada (opcional)"
+          "announce_half_hours_voice": "Anuncio de voz en las medias horas",
+          "tower_clock": "Reloj de torre (Westminster a las 12:00)",
+          "use_chime": "Usar sonido de campana",
+          "preset_chime": "Sonido predefinido",
+          "custom_chime_path": "Ruta de campana personalizada (opcional)",
+          "after_chime_delay": "Pausa después de la campana (segundos)"
         },
         "data_description": {
-          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)"
+          "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
+          "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
+          "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)"
         }
       }
     }
@@ -53,19 +63,19 @@
     },
     "button": {
       "test_announcement": {
-        "name": "Prueba de Anuncio"
+        "name": "Probar anuncio"
       }
     },
     "binary_sensor": {
       "status_warning": {
-        "name": "Advertencia de Estado"
+        "name": "Aviso de estado"
       }
     }
   },
   "services": {
     "test_announcement": {
-      "name": "Prueba de Anuncio",
-      "description": "Prueba el anuncio de la hora inmediatamente"
+      "name": "Probar anuncio",
+      "description": "Prueba inmediatamente el anuncio de la hora"
     }
   }
 }

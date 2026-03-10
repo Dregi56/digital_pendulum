@@ -1,0 +1,81 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Konfiguracja Digital Pendulum",
+        "description": "Wahadło będzie działać między ustawioną godziną początkową i końcową",
+        "data": {
+          "player_type": "Typ odtwarzacza",
+          "player_device": "Urządzenie media player",
+          "start_hour": "Godzina początkowa",
+          "end_hour": "Godzina końcowa",
+          "enabled": "Włączone",
+          "announce_half_hours": "Ogłaszaj półgodziny",
+          "voice_announcement": "Ogłoszenie głosowe",
+          "announce_half_hours_voice": "Ogłoszenie głosowe o półgodzinach",
+          "tower_clock": "Zegar wieżowy (Westminster o 12:00)",
+          "use_chime": "Użyj dźwięku dzwonka",
+          "preset_chime": "Predefiniowany dźwięk",
+          "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)",
+          "after_chime_delay": "Pauza po dzwonku (sekundy)"
+        },
+        "data_description": {
+          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
+          "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
+          "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcje Digital Pendulum",
+        "description": "Wahadło będzie działać między ustawioną godziną początkową i końcową",
+        "data": {
+          "player_type": "Typ odtwarzacza",
+          "player_device": "Urządzenie media player",
+          "start_hour": "Godzina początkowa",
+          "end_hour": "Godzina końcowa",
+          "enabled": "Włączone",
+          "announce_half_hours": "Ogłaszaj półgodziny",
+          "voice_announcement": "Ogłoszenie głosowe",
+          "announce_half_hours_voice": "Ogłoszenie głosowe o półgodzinach",
+          "tower_clock": "Zegar wieżowy (Westminster o 12:00)",
+          "use_chime": "Użyj dźwięku dzwonka",
+          "preset_chime": "Predefiniowany dźwięk",
+          "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)",
+          "after_chime_delay": "Pauza po dzwonku (sekundy)"
+        },
+        "data_description": {
+          "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
+          "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
+          "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "digital_pendulum_enabled": {
+        "name": "Włączone"
+      }
+    },
+    "button": {
+      "test_announcement": {
+        "name": "Test ogłoszenia"
+      }
+    },
+    "binary_sensor": {
+      "status_warning": {
+        "name": "Ostrzeżenie stanu"
+      }
+    }
+  },
+  "services": {
+    "test_announcement": {
+      "name": "Test ogłoszenia",
+      "description": "Natychmiast testuje ogłoszenie godziny"
+    }
+  }
+}
