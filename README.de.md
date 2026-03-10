@@ -75,7 +75,7 @@ Bei der Einrichtung werden Sie zuerst gebeten, den Wiedergabetyp auszuwählen, d
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-automatischer Rückfall auf Italienisch
+🌐 **Anpassbare Sprache:** Es ist möglich, eine andere Sprache als die in Home Assistant eingestellte zu wählen (nützlich zum Beispiel für diejenigen, die HA auf Englisch haben).
 
 ### 🕐 Konfigurierbares Zeitfenster
 - z.B. nur von 8:00 bis 22:00
@@ -122,9 +122,9 @@ Alles geschieht automatisch ohne die Notwendigkeit, Automatisierungen zu konfigu
 
 ## 🗣️ Sprachverarbeitung
 
-Die Sprache wird automatisch erkannt aus:
+Die Sprache wird automatisch von Home Assistant erkannt.
 
-self.hass.config.language
+🌐 **Sprache der Ansagen:** Möglichkeit, die Sprache der Sprachansagen unabhängig von der in Home Assistant eingestellten Sprache zu wählen (verfügbar: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, oder Automatisch um der Sprache von Home Assistant zu folgen).
 
 Ansagebeispiele:
 

@@ -75,7 +75,7 @@ Lors de la configuration, il vous sera d'abord demandé de sélectionner le type
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-retour automatique à l'italien
+🌐 **Langue personnalisable:** Il est possible de choisir une langue différente de celle configurée dans Home Assistant (utile par exemple pour ceux qui ont HA en anglais).
 
 ### 🕐 Créneau horaire configurable
 - ex. uniquement de 8h00 à 22h00
@@ -84,6 +84,7 @@ retour automatique à l'italien
 - 🎵 12 sons prédéfinis au choix
 - 🎶 option d'utiliser un fichier audio personnalisé
 - 🔕 son de notification par défaut (si rien n'est sélectionné)
+- ⏳ Option pour un son dédié à la demi-heure
 
 ### 🧪 Fonction de test
 - pour essayer immédiatement l'annonce
@@ -122,9 +123,9 @@ Tout se passe automatiquement sans avoir besoin de configurer des automatisation
 
 ## 🗣️ Gestion de la langue
 
-La langue est automatiquement détectée depuis :
+La langue est détectée automatiquement par Home Assistant.
 
-self.hass.config.language
+🌐 **Langue des annonces:** Possibilité de choisir la langue des annonces vocales indépendamment de la langue configurée dans Home Assistant (disponibles: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, ou Automatique pour suivre la langue de Home Assistant).
 
 Exemples d'annonces :
 

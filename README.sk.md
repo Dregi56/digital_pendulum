@@ -75,7 +75,7 @@ Počas nastavenia budete najskôr požiadaní o výber typu prehrávača, potom 
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-automatický návrat k taliančine
+🌐 **Jazyk prispôsobiteľný:** Je možné zvoliť iný jazyk ako ten nastavený v Home Assistant (užitočné napríklad pre tých, ktorí majú HA v angličtine).
 
 ### 🕐 Konfigurovateľný časový rozsah
 - napr. iba od 8:00 do 22:00
@@ -84,6 +84,7 @@ automatický návrat k taliančine
 - 🎵 12 prednastavených zvukov na výber
 - 🎶 možnosť použitia vlastného zvukového súboru
 - 🔕 predvolený zvuk oznámenia (ak nie je nič vybrané)
+- ⏳ Možnosť vyhradeného zvuku pre polhodinu
 
 ### 🧪 Testovacia funkcia
 - na okamžité vyskúšanie oznámenia
@@ -122,9 +123,9 @@ Všetko prebieha automaticky bez potreby konfigurovať automatizácie!
 
 ## 🗣️ Spracovanie jazyka
 
-Jazyk sa automaticky zisťuje z:
+Jazyk sa automaticky rozpoznáva z Home Assistant.
 
-self.hass.config.language
+🌐 **Jazyk oznámení:** Možnosť zvoliť jazyk hlasových oznámení nezávisle od jazyka nastaveného v Home Assistant (dostupné: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, alebo Automaticky pre sledovanie jazyka Home Assistant).
 
 Príklady oznámení:
 

@@ -11,9 +11,11 @@ CONF_TOWER_CLOCK = "tower_clock"
 CONF_ANNOUNCE_HALF_HOURS = "announce_half_hours"
 CONF_VOICE_ANNOUNCEMENT = "voice_announcement"
 CONF_PLAYER_TYPE = "player_type"
-CONF_AFTER_CHIME_DELAY = "after_chime_delay"  # modificata per rinominare da CONF_CHIME_DELAY a CONF_AFTER_CHIME_DELAY
+CONF_AFTER_CHIME_DELAY = "after_chime_delay"
 CONF_ANNOUNCE_HALF_HOURS_VOICE = "announce_half_hours_voice"
-# Defaults
+CONF_USE_HALF_HOUR_CHIME = "use_half_hour_chime"
+CONF_LANGUAGE = "language"
+DEFAULT_ENABLED = True
 DEFAULT_ANNOUNCE_HALF_HOURS = True
 DEFAULT_VOICE_ANNOUNCEMENT = True
 DEFAULT_START_HOUR = 8
@@ -22,16 +24,28 @@ DEFAULT_USE_CHIME = True
 DEFAULT_CUSTOM_CHIME_PATH = ""
 DEFAULT_PRESET_CHIME = "church-bell"
 DEFAULT_TOWER_CLOCK = False
-DEFAULT_AFTER_CHIME_DELAY = 1.2  # modificata per rinominare da DEFAULT_CHIME_DELAY a DEFAULT_AFTER_CHIME_DELAY
+DEFAULT_AFTER_CHIME_DELAY = 1.2
 DEFAULT_ANNOUNCE_HALF_HOURS_VOICE = True
+DEFAULT_USE_HALF_HOUR_CHIME = False
+DEFAULT_LANGUAGE = "auto"
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
-# Lista players
 PLAYER_TYPES = {
     "alexa": "Alexa (alexa_media_player)",
     "google": "Google Home / Assistant",
     "generic": "Generic (media_player)",
 }
-# Lista suoni predefiniti
+LANGUAGES = {
+    "auto": "Automatic (same as Home Assistant)",
+    "en": "English",
+    "it": "Italiano",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français",
+    "pt": "Português",
+    "pl": "Polski",
+    "cs": "Čeština",
+    "sk": "Slovenčina",
+}
 PRESET_CHIMES = {
     "church-bell": {
         "name": "Church Bell",
@@ -84,6 +98,10 @@ PRESET_CHIMES = {
     "westminster": {
         "name": "Westminster",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/westminster.mp3"
+    },
+    "half-hour": {
+        "name": "Half Hour",
+        "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/half_an_hour.mp3"
     },
     "custom": {
         "name": "Custom (use custom path)",
