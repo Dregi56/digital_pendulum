@@ -75,7 +75,7 @@ Durante a configuração, será solicitado que selecione primeiro o tipo de repr
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-retorno automático ao italiano
+🌐 **Idioma personalizável:** É possível escolher um idioma diferente do configurado no Home Assistant (útil por exemplo para quem tem o HA em inglês).
 
 ### 🕐 Intervalo de tempo configurável
 - ex. apenas das 8:00 às 22:00
@@ -84,7 +84,8 @@ retorno automático ao italiano
 - 🎵 12 sons predefinidos para escolher
 - 🎶 opção de usar um ficheiro de áudio personalizado
 - 🔕 som de notificação padrão (se nada for selecionado)
-
+- ⏳ Opção de som dedicado para a meia hora
+  
 ### 🧪 Função de teste
 - para experimentar imediatamente o anúncio
 
@@ -122,9 +123,8 @@ Tudo acontece automaticamente sem necessidade de configurar automatizações!
 
 ## 🗣️ Gestão do idioma
 
-O idioma é detetado automaticamente a partir de:
-
-self.hass.config.language
+O idioma é detetado automaticamente pelo Home Assistant.
+🌐 **Idioma dos anúncios:** Possibilidade de escolher o idioma dos anúncios vocais independentemente do idioma configurado no Home Assistant (disponíveis: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, ou Automático para seguir o idioma do Home Assistant).
 
 Exemplos de anúncios:
 

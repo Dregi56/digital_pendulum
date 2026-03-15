@@ -75,7 +75,7 @@ Podczas konfiguracji zostaniesz najpierw poproszony o wybranie typu odtwarzacza,
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-automatyczny powrót do języka włoskiego
+🌐 **Język dostosowywalny:** Możliwe jest wybranie języka innego niż ustawiony w Home Assistant (przydatne na przykład dla osób, które mają HA w języku angielskim).
 
 ### 🕐 Konfigurowalny przedział czasowy
 - np. tylko od 8:00 do 22:00
@@ -84,6 +84,7 @@ automatyczny powrót do języka włoskiego
 - 🎵 12 predefiniowanych dźwięków do wyboru
 - 🎶 opcja użycia własnego pliku audio
 - 🔕 domyślny dźwięk powiadomienia (jeśli nic nie zostanie wybrane)
+- ⏳ opcja dedykowanego dźwięku dla półgodziny
 
 ### 🧪 Funkcja testowa
 - aby natychmiast wypróbować ogłoszenie
@@ -122,9 +123,9 @@ Wszystko dzieje się automatycznie bez konieczności konfigurowania automatyzacj
 
 ## 🗣️ Obsługa języka
 
-Język jest automatycznie wykrywany z:
+Język jest wykrywany automatycznie przez Home Assistant.
 
-self.hass.config.language
+🌐 **Język ogłoszeń:** Możliwość wyboru języka ogłoszeń głosowych niezależnie od języka ustawionego w Home Assistant (dostępne: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, lub Automatyczny aby podążać za językiem Home Assistant).
 
 Przykłady ogłoszeń:
 

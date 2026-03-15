@@ -30,7 +30,8 @@ class AlexaPlayer(BasePlayer):
         except Exception:
             await self.play_default_chime()
 
-    async def speak(self, text: str):
+    async def speak(self, text: str, language: str = "en"):
+        """Alexa usa la lingua del dispositivo fisico, il parametro language viene ignorato."""
         await self.hass.services.async_call(
             "notify",
             "alexa_media",

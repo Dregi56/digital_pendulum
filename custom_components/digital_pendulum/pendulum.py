@@ -17,6 +17,8 @@ from .const import (
     CONF_VOICE_ANNOUNCEMENT,
     CONF_AFTER_CHIME_DELAY,
     CONF_ANNOUNCE_HALF_HOURS_VOICE,
+    CONF_USE_HALF_HOUR_CHIME,
+    CONF_LANGUAGE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -28,6 +30,8 @@ from .const import (
     DEFAULT_VOICE_ANNOUNCEMENT,
     DEFAULT_AFTER_CHIME_DELAY,
     DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
+    DEFAULT_USE_HALF_HOUR_CHIME,
+    DEFAULT_LANGUAGE,
     PRESET_CHIMES,
     DOMAIN,
 )
@@ -73,6 +77,8 @@ class DigitalPendulum:
         self.voice_announcement = config.get(CONF_VOICE_ANNOUNCEMENT, DEFAULT_VOICE_ANNOUNCEMENT)
         self.after_chime_delay = max(0.0, min(10.0, float(config.get(CONF_AFTER_CHIME_DELAY, DEFAULT_AFTER_CHIME_DELAY))))
         self.announce_half_hours_voice = config.get(CONF_ANNOUNCE_HALF_HOURS_VOICE, DEFAULT_ANNOUNCE_HALF_HOURS_VOICE)
+        self.use_half_hour_chime = config.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME)
+        self.language = config.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
 
@@ -80,11 +86,12 @@ class DigitalPendulum:
         self._load_config()
 
     def _normalize_language(self) -> str:
+        if self.language and self.language != "auto":
+            return self.language
         lang = self.hass.config.language or "en"
         return lang[:2].lower()
 
     def _to_12h_with_period(self, hour: int):
-        """Convert 24h hour to 12h format with period."""
         hour12 = hour % 12
         if hour12 == 0:
             hour12 = 12
@@ -140,15 +147,43 @@ class DigitalPendulum:
             return f"It's {hour12} o'clock {period}"
 
         # --- Tedesco ---
-        if language == "de" and minute == 30:
-            next_hour = (hour + 1) % 24
-            return translations.get("hour_and_half", "Es ist halb {next_hour}").format(next_hour=next_hour)
+        if language == "de":
+            if minute == 30:
+                next_hour = (hour + 1) % 24
+                return f"Es ist halb {next_hour}"
+            return f"Es ist {hour} Uhr"
+
+        # --- Francese ---
+        if language == "fr":
+            if hour == 0:
+                if minute == 30:
+                    return "Il est minuit et demi"
+                return "Il est minuit"
+            if hour == 12:
+                if minute == 30:
+                    return "Il est midi et demi"
+                return "Il est midi"
+            if minute == 30:
+                return f"Il est {hour} heures et demie"
+            return f"Il est {hour} heures"
 
         # --- Spagnolo ---
-        if language == "es" and (hour == 1 or hour == 13):
+        if language == "es":
+            if hour == 1 or hour == 13:
+                if minute == 30:
+                    return "Es la una y media"
+                return "Es la una"
+            if hour == 0:
+                if minute == 30:
+                    return "Es la medianoche y media"
+                return "Es medianoche"
+            if hour == 12:
+                if minute == 30:
+                    return "Es el mediodía y medio"
+                return "Es mediodía"
             if minute == 30:
-                return "Es la una y media"
-            return "Es la una"
+                return f"Son las {hour % 12 if hour > 12 else hour} y media"
+            return f"Son las {hour % 12 if hour > 12 else hour}"
 
         # --- Italiano ---
         if language == "it":
@@ -206,6 +241,76 @@ class DigitalPendulum:
             return translations.get("hour_and_half", "It's {hour} thirty").format(hour=hour)
         return translations.get("hour", "It's {hour} o'clock").format(hour=hour)
 
+    def _build_text_with_minutes(self, hour: int, minute: int) -> str:
+        """Genera il testo per il test con ora e minuti esatti."""
+        language = self._normalize_language()
+
+        if minute == 0 or minute == 30:
+            return self._build_text(hour, minute)
+
+        # --- Inglese ---
+        if language == "en":
+            hour12, period = self._to_12h_with_period(hour)
+            return f"It's {hour12} and {minute:02d} {period}"
+
+        # --- Tedesco ---
+        if language == "de":
+            return f"Es ist {hour} Uhr {minute:02d}"
+
+        # --- Francese ---
+        if language == "fr":
+            if hour == 0:
+                return f"Il est minuit et {minute:02d}"
+            if hour == 12:
+                return f"Il est midi et {minute:02d}"
+            return f"Il est {hour} heures {minute:02d}"
+
+        # --- Spagnolo ---
+        if language == "es":
+            if hour == 0:
+                return f"Es medianoche y {minute:02d}"
+            if hour == 1 or hour == 13:
+                return f"Es la una y {minute:02d}"
+            if hour == 12:
+                return f"Es el mediodía y {minute:02d}"
+            h = hour % 12 if hour > 12 else hour
+            return f"Son las {h} y {minute:02d}"
+
+        # --- Italiano ---
+        if language == "it":
+            hour_text = "una" if hour == 1 else str(hour)
+            return f"Ore {hour_text} e {minute:02d}"
+
+        # --- Portoghese ---
+        if language == "pt":
+            if hour == 0:
+                return f"É meia-noite e {minute:02d}"
+            if hour == 12:
+                return f"São meio-dia e {minute:02d}"
+            if hour == 1:
+                return f"É uma e {minute:02d}"
+            if 2 <= hour <= 11:
+                return f"É {hour} e {minute:02d}"
+            return f"São {hour} e {minute:02d}"
+
+        # --- Polacco ---
+        if language == "pl":
+            hour_name = PL_HOUR_NAMES.get(hour, str(hour))
+            return f"Jest {hour_name} i {minute:02d}"
+
+        # --- Ceco ---
+        if language == "cs":
+            hour_name = CS_HOUR_NAMES_EXACT.get(hour, str(hour))
+            return f"Je {hour_name} a {minute:02d} minut"
+
+        # --- Slovacco ---
+        if language == "sk":
+            hour_name = SK_HOUR_NAMES_EXACT.get(hour, str(hour))
+            return f"Je {hour_name} a {minute:02d} minút"
+
+        # --- Fallback ---
+        return f"It's {hour}:{minute:02d}"
+
     def _get_translations(self, language: str) -> dict:
         fallback = {
             "hour": "It's {hour} o'clock",
@@ -238,6 +343,11 @@ class DigitalPendulum:
             await self._player.play_chime(westminster_url)
             return
 
+        if minute == 30 and self.use_half_hour_chime:
+            half_hour_url = PRESET_CHIMES["half-hour"]["url"]
+            await self._player.play_chime(half_hour_url)
+            return
+
         if self.preset_chime and self.preset_chime != "custom":
             chime_info = PRESET_CHIMES.get(self.preset_chime)
             if chime_info and chime_info["url"]:
@@ -258,7 +368,7 @@ class DigitalPendulum:
             if self.voice_announcement:
                 if minute == 30 and not self.announce_half_hours_voice:
                     return
-                await self._player.speak(text)
+                await self._player.speak(text, self._normalize_language())
         except Exception as e:
             _LOGGER.error(
                 "Digital Pendulum: errore durante l'annuncio su '%s': %s",
@@ -270,59 +380,5 @@ class DigitalPendulum:
         now = dt_util.now()
         hour = now.hour
         minute = now.minute
-        language = self._normalize_language()
-
-        if language == "en":
-            hour12, period = self._to_12h_with_period(hour)
-            if minute == 0:
-                text = f"It's {hour12} o'clock {period}"
-            else:
-                text = f"It's {hour12} and {minute:02d} {period}"
-
-        elif language == "it":
-            if minute == 0:
-                text = self._build_text(hour, minute)
-            else:
-                hour_text = "una" if hour == 1 else str(hour)
-                text = f"Ore {hour_text} e {minute:02d}"
-
-        elif language == "de":
-            if minute == 0:
-                text = self._build_text(hour, minute)
-            else:
-                text = f"Es ist {hour} Uhr {minute:02d}"
-
-        elif language == "es":
-            if minute == 0:
-                text = self._build_text(hour, minute)
-            else:
-                if hour == 1 or hour == 13:
-                    text = f"Es la una y {minute:02d}"
-                else:
-                    text = f"Son las {hour} y {minute:02d}"
-
-        elif language == "pt":
-            if minute == 0:
-                text = self._build_text(hour, minute)
-            elif hour == 0:
-                text = f"É meia-noite e {minute:02d}"
-            elif hour == 12:
-                text = f"São meio-dia e {minute:02d}"
-            elif hour == 1:
-                text = f"É uma e {minute:02d}"
-            elif 2 <= hour <= 11:
-                text = f"É {hour} e {minute:02d}"
-            else:
-                text = f"São {hour} e {minute:02d}"
-
-        else:
-            translations = self._get_translations(language)
-            if minute == 0:
-                text = translations.get("hour_exact", "It's {hour} o'clock exactly").format(hour=hour)
-            else:
-                text = translations.get("hour_and_minutes", "It's {hour} {minutes}").format(
-                    hour=hour,
-                    minutes=f"{minute:02d}"
-                )
-
-        await self._speak(text)
+        text = self._build_text_with_minutes(hour, minute)
+        await self._speak(text, hour, minute)

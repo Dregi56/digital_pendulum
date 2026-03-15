@@ -76,7 +76,7 @@ During setup you will be asked to select the player type first, then the specifi
 - Slovak 🇸🇰
 - Portuguese 🇵🇹
   
-automatic fallback to Italian
+🌐 **Customizable language:** You can choose a different language from the one set in Home Assistant (useful for example for those who have HA in English but want announcements in their native language).
 
 ### 🕐 Configurable time slot
 - e.g. only from 8:00 to 22:00
@@ -85,6 +85,7 @@ automatic fallback to Italian
 - 🎵 12 preset sounds to choose from
 - 🎶 option to use a custom audio file
 - 🔕 default notification sound (if nothing is selected)
+- ⏳ option for a dedicated half-hour sound
 
 ### 🧪 Test function
 - to immediately try the announcement
@@ -123,9 +124,9 @@ Everything happens automatically without the need to configure automations!
 
 ## 🗣️ Language handling
 
-The language is automatically detected from:
+The language is automatically detected from Home Assistant.
 
-self.hass.config.language
+🌐 **Announcement language:** Possibility to choose the language of voice announcements independently from the language set in Home Assistant (available: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, or Automatic to follow the Home Assistant language).
 
 Announcement examples:
 

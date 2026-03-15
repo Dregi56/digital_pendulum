@@ -75,7 +75,7 @@ Durante la configuración se le pedirá primero que seleccione el tipo de reprod
 - Slovenčina 🇸🇰
 - Português 🇵🇹
 
-retorno automático al italiano
+🌐 **Idioma personalizable:** Es posible elegir un idioma diferente al configurado en Home Assistant (útil por ejemplo para quienes tienen HA en inglés).
 
 ### 🕐 Intervalo de tiempo configurable
 - p.ej. solo de 8:00 a 22:00
@@ -84,7 +84,8 @@ retorno automático al italiano
 - 🎵 12 sonidos predefinidos para elegir
 - 🎶 opción de usar un archivo de audio personalizado
 - 🔕 sonido de notificación predeterminado (si no se selecciona nada)
-
+- ⏳ opción de sonido dedicado para la media hora
+  
 ### 🧪 Función de prueba
 - para probar el anuncio inmediatamente
 
@@ -122,9 +123,9 @@ Digital Pendulum se sincroniza con el reloj del sistema y comprueba automáticam
 
 ## 🗣️ Gestión del idioma
 
-El idioma se detecta automáticamente desde:
+El idioma se detecta automáticamente desde Home Assistant.
 
-self.hass.config.language
+🌐 **Idioma de los anuncios:** Posibilidad de elegir el idioma de los anuncios de voz independientemente del idioma configurado en Home Assistant (disponibles: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, o Automático para seguir el idioma de Home Assistant).
 
 Ejemplos de anuncios:
 

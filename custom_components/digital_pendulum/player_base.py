@@ -18,6 +18,6 @@ class BasePlayer(ABC):
         pass
 
     @abstractmethod
-    async def speak(self, text: str):
-        """Annuncio vocale del testo."""
+    async def speak(self, text: str, language: str = "en"):
+        """Annuncio vocale del testo nella lingua specificata."""
         pass
