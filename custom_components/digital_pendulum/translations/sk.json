@@ -27,7 +27,7 @@
           "custom_chime_path": "Napr.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechajte prázdne pre predvolené)",
           "announce_half_hours_voice": "Ak je vypnuté, zvonček bude stále hrať v polhodinách, ale hlasové oznámenie nebude vykonané",
           "after_chime_delay": "Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1.2)",
-          "use_half_hour_chime": "Ak je zapnuté, v polhodinách sa prehrá zvláštny zvuk (half_an_hour.mp3) namiesto normálneho zvončeka",
+          "use_half_hour_chime": "Ak je zapnuté, v polhodinách sa prehrá zvláštny zvuk namiesto normálneho zvončeka",
           "announce_quarter_hours": "Ak je zapnuté, o :15 a :45 sa prehrá zvláštny zvuk (bez hlasového oznámenia)"
         }
       }
@@ -61,8 +61,8 @@
           "custom_chime_path": "Napr.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechajte prázdne pre predvolené)",
           "announce_half_hours_voice": "Ak je vypnuté, zvonček bude stále hrať v polhodinách, ale hlasové oznámenie nebude vykonané",
           "after_chime_delay": "Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1.2)",
-          "use_half_hour_chime": "Ak je zapnuté, v polhodinách sa prehrá zvláštny zvuk (half_an_hour.mp3) namiesto normálneho zvončeka",
-          "announce_quarter_hours": "Ak je zapnuté, o :15 a :45 sa prehrá zvláštny zvuk (quarter_an_hour_two.mp3) (bez hlasového oznámenia)"
+          "use_half_hour_chime": "Ak je zapnuté, v polhodinách sa prehrá zvláštny zvuk namiesto normálneho zvončeka",
+          "announce_quarter_hours": "Ak je zapnuté, o :15 a :45 sa prehrá zvláštny zvuk (bez hlasového oznámenia)"
         }
       }
     }
