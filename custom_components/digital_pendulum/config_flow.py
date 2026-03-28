@@ -18,6 +18,7 @@ from .const import (
     CONF_AFTER_CHIME_DELAY,
     CONF_ANNOUNCE_HALF_HOURS_VOICE,
     CONF_USE_HALF_HOUR_CHIME,
+    CONF_ANNOUNCE_QUARTER_HOURS,
     CONF_LANGUAGE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
@@ -31,6 +32,7 @@ from .const import (
     DEFAULT_AFTER_CHIME_DELAY,
     DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
     DEFAULT_USE_HALF_HOUR_CHIME,
+    DEFAULT_ANNOUNCE_QUARTER_HOURS,
     DEFAULT_LANGUAGE,
     PRESET_CHIMES,
     PLAYER_TYPES,
@@ -46,22 +48,18 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 title="Digital Pendulum",
                 data=user_input,
             )
-
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
         ]
-
         player_type_options = [
             selector.SelectOptionDict(value=key, label=label)
             for key, label in PLAYER_TYPES.items()
         ]
-
         language_options = [
             selector.SelectOptionDict(value=key, label=label)
             for key, label in LANGUAGES.items()
         ]
-
         schema = vol.Schema(
             {
                 # 0) Tipo di player
@@ -177,6 +175,11 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONF_USE_HALF_HOUR_CHIME,
                     default=DEFAULT_USE_HALF_HOUR_CHIME,
                 ): bool,
+                # 12) Suono ai quarti d'ora
+                vol.Required(
+                    CONF_ANNOUNCE_QUARTER_HOURS,
+                    default=DEFAULT_ANNOUNCE_QUARTER_HOURS,
+                ): bool,
             }
         )
         return self.async_show_form(
@@ -191,31 +194,25 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
 
 class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
-
     def __init__(self, config_entry):
         self.entry = config_entry
 
     async def async_step_init(self, user_input=None):
         if user_input is not None:
             return self.async_create_entry(title="", data=user_input)
-
         current_options = self.entry.options or self.entry.data
-
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
         ]
-
         player_type_options = [
             selector.SelectOptionDict(value=key, label=label)
             for key, label in PLAYER_TYPES.items()
         ]
-
         language_options = [
             selector.SelectOptionDict(value=key, label=label)
             for key, label in LANGUAGES.items()
         ]
-
         schema = vol.Schema(
             {
                 # 0) Tipo di player
@@ -331,6 +328,11 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 vol.Required(
                     CONF_USE_HALF_HOUR_CHIME,
                     default=current_options.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME),
+                ): bool,
+                # 12) Suono ai quarti d'ora
+                vol.Required(
+                    CONF_ANNOUNCE_QUARTER_HOURS,
+                    default=current_options.get(CONF_ANNOUNCE_QUARTER_HOURS, DEFAULT_ANNOUNCE_QUARTER_HOURS),
                 ): bool,
             }
         )
