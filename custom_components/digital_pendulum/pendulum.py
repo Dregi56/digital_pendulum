@@ -18,6 +18,7 @@ from .const import (
     CONF_AFTER_CHIME_DELAY,
     CONF_ANNOUNCE_HALF_HOURS_VOICE,
     CONF_USE_HALF_HOUR_CHIME,
+    CONF_ANNOUNCE_QUARTER_HOURS,
     CONF_LANGUAGE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
@@ -31,6 +32,7 @@ from .const import (
     DEFAULT_AFTER_CHIME_DELAY,
     DEFAULT_ANNOUNCE_HALF_HOURS_VOICE,
     DEFAULT_USE_HALF_HOUR_CHIME,
+    DEFAULT_ANNOUNCE_QUARTER_HOURS,
     DEFAULT_LANGUAGE,
     PRESET_CHIMES,
     DOMAIN,
@@ -54,12 +56,14 @@ DE_NEXT_HOUR_NAMES = {
     9: "neun", 10: "zehn", 11: "elf", 12: "zwölf",
 }
 
+
 def _create_player(hass, player_entity_id: str, player_type: str):
     if player_type == "google":
         return GooglePlayer(hass, player_entity_id)
     elif player_type == "alexa":
         return AlexaPlayer(hass, player_entity_id)
     return AlexaPlayer(hass, player_entity_id)
+
 
 class DigitalPendulum:
     def __init__(self, hass, entry):
@@ -83,6 +87,7 @@ class DigitalPendulum:
         self.after_chime_delay = max(0.0, min(10.0, float(config.get(CONF_AFTER_CHIME_DELAY, DEFAULT_AFTER_CHIME_DELAY))))
         self.announce_half_hours_voice = config.get(CONF_ANNOUNCE_HALF_HOURS_VOICE, DEFAULT_ANNOUNCE_HALF_HOURS_VOICE)
         self.use_half_hour_chime = config.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME)
+        self.announce_quarter_hours = config.get(CONF_ANNOUNCE_QUARTER_HOURS, DEFAULT_ANNOUNCE_QUARTER_HOURS)
         self.language = config.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
@@ -126,13 +131,18 @@ class DigitalPendulum:
         local_time = dt_util.as_local(now)
         hour = local_time.hour
         minute = local_time.minute
-        if minute not in (0, 30):
+        if minute not in (0, 15, 30, 45):
+            return
+        if minute in (15, 45) and not self.announce_quarter_hours:
             return
         if minute == 30 and not self.announce_half_hours:
             return
         if hour < self.start_hour or hour > self.end_hour:
             return
         if hour == self.end_hour and minute > 0:
+            return
+        if minute in (15, 45):
+            await self._play_quarter_chime()
             return
         text = self._build_text(hour, minute)
         await self._speak(text, hour, minute)
@@ -339,6 +349,18 @@ class DigitalPendulum:
             "en": fallback,
         }
         return translations.get(language, fallback)
+
+    async def _play_quarter_chime(self):
+        """Suona il chime dedicato ai quarti d'ora."""
+        quarter_url = PRESET_CHIMES["quarter-hour"]["url"]
+        try:
+            await self._player.play_chime(quarter_url)
+        except Exception as e:
+            _LOGGER.error(
+                "Digital Pendulum: errore durante il chime del quarto d'ora su '%s': %s",
+                self.player,
+                e,
+            )
 
     async def _play_chime(self, hour: int = None, minute: int = None):
         if self.tower_clock and hour == 12 and minute == 0:
