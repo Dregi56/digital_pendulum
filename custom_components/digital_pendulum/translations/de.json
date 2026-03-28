@@ -28,7 +28,7 @@
           "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
           "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)",
           "use_half_hour_chime": "Wenn aktiviert, wird zur halben Stunde ein dedizierter Klang (half_an_hour.mp3) anstelle des normalen Glockentons abgespielt",
-          "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang (quarter_an_hour_two.mp3) abgespielt (keine Sprachansage)"
+          "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang abgespielt (keine Sprachansage)"
         }
       }
     }
