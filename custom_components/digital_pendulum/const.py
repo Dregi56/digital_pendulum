@@ -105,6 +105,10 @@ PRESET_CHIMES = {
         "name": "Half Hour",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/half_an_hour.mp3"
     },
+    "quarter-hour": {
+    "name": "Quarter Hour",
+    "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/quarter_an_hour_two.mp3"
+    },
     "custom": {
         "name": "Custom (use custom path)",
         "url": ""
