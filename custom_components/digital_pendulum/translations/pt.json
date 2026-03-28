@@ -27,7 +27,7 @@
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - deixe vazio para o padrão)",
           "announce_half_hours_voice": "Se desativado, o sino continuará a tocar nas meias horas mas o anúncio vocal não será feito",
           "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.2)",
-          "use_half_hour_chime": "Se ativado, um som dedicado (half_an_hour.mp3) será reproduzido nas meias horas em vez do sino normal",
+          "use_half_hour_chime": "Se ativado, um som dedicado será reproduzido nas meias horas em vez do sino normal",
           "announce_quarter_hours": "Se ativado, um som dedicado será reproduzido às :15 e :45 (sem anúncio vocal)"
         }
       }
@@ -61,8 +61,8 @@
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - deixe vazio para o padrão)",
           "announce_half_hours_voice": "Se desativado, o sino continuará a tocar nas meias horas mas o anúncio vocal não será feito",
           "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.2)",
-          "use_half_hour_chime": "Se ativado, um som dedicado (half_an_hour.mp3) será reproduzido nas meias horas em vez do sino normal",
-          "announce_quarter_hours": "Se ativado, um som dedicado (quarter_an_hour_two.mp3) será reproduzido às :15 e :45 (sem anúncio vocal)"
+          "use_half_hour_chime": "Se ativado, um som dedicado será reproduzido nas meias horas em vez do sino normal",
+          "announce_quarter_hours": "Se ativado, um som dedicado será reproduzido às :15 e :45 (sem anúncio vocal)"
         }
       }
     }
