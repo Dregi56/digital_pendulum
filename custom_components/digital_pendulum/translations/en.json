@@ -29,7 +29,7 @@
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)",
           "use_half_hour_chime": "If enabled, a dedicated sound (half_an_hour.mp3) will play at half hours instead of the normal chime",
-          "announce_quarter_hours": "If enabled, a dedicated sound (quarter_an_hour_two.mp3) will play at :15 and :45 (no voice announcement)"
+          "announce_quarter_hours": "If enabled, a dedicated sound will play at :15 and :45 (no voice announcement)"
         }
       }
     }
