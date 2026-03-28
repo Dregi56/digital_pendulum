@@ -27,7 +27,7 @@
           "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)",
           "announce_half_hours_voice": "Se disabilitato, la campana suonerà comunque alla mezz'ora ma non verrà fatto l'annuncio vocale",
           "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)",
-          "use_half_hour_chime": "Se abilitato, alla mezz'ora verrà riprodotto un suono dedicato (half_an_hour.mp3) invece della campana normale",
+          "use_half_hour_chime": "Se abilitato, alla mezz'ora verrà riprodotto un suono dedicato invece della campana normale",
           "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (nessun annuncio vocale)"
         }
       }
@@ -61,8 +61,8 @@
           "custom_chime_path": "Es.: www/sounds/bell.mp3 (Formati: MP3, WAV, OGG - lascia vuoto per default)",
           "announce_half_hours_voice": "Se disabilitato, la campana suonerà comunque alla mezz'ora ma non verrà fatto l'annuncio vocale",
           "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)",
-          "use_half_hour_chime": "Se abilitato, alla mezz'ora verrà riprodotto un suono dedicato (half_an_hour.mp3) invece della campana normale",
-          "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (quarter_an_hour_two.mp3) (nessun annuncio vocale)"
+          "use_half_hour_chime": "Se abilitato, alla mezz'ora verrà riprodotto un suono dedicato invece della campana normale",
+          "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (nessun annuncio vocale)"
         }
       }
     }
