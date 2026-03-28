@@ -19,14 +19,16 @@
           "preset_chime": "Predefiniowany dźwięk",
           "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)",
           "after_chime_delay": "Pauza po dzwonku (sekundy)",
-          "use_half_hour_chime": "Użyj dedykowanego dźwięku dla półgodziny"
+          "use_half_hour_chime": "Użyj dedykowanego dźwięku dla półgodziny",
+          "announce_quarter_hours": "Dzwonek o kwadransach"
         },
         "data_description": {
           "language": "Wybierz język ogłoszeń czasowych. 'Automatyczny' używa ustawienia języka Home Assistant",
           "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
           "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)",
-          "use_half_hour_chime": "Jeśli włączone, o półgodzinach zostanie odtworzony dedykowany dźwięk (half_an_hour.mp3) zamiast normalnego dzwonka"
+          "use_half_hour_chime": "Jeśli włączone, o półgodzinach zostanie odtworzony dedykowany dźwięk (half_an_hour.mp3) zamiast normalnego dzwonka",
+          "announce_quarter_hours": "Jeśli włączone, o :15 i :45 zostanie odtworzony dedykowany dźwięk (quarter_an_hour_two.mp3) (bez ogłoszenia głosowego)"
         }
       }
     }
@@ -51,14 +53,16 @@
           "preset_chime": "Predefiniowany dźwięk",
           "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)",
           "after_chime_delay": "Pauza po dzwonku (sekundy)",
-          "use_half_hour_chime": "Użyj dedykowanego dźwięku dla półgodziny"
+          "use_half_hour_chime": "Użyj dedykowanego dźwięku dla półgodziny",
+          "announce_quarter_hours": "Dzwonek o kwadransach"
         },
         "data_description": {
           "language": "Wybierz język ogłoszeń czasowych. 'Automatyczny' używa ustawienia języka Home Assistant",
           "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
           "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)",
-          "use_half_hour_chime": "Jeśli włączone, o półgodzinach zostanie odtworzony dedykowany dźwięk (half_an_hour.mp3) zamiast normalnego dzwonka"
+          "use_half_hour_chime": "Jeśli włączone, o półgodzinach zostanie odtworzony dedykowany dźwięk (half_an_hour.mp3) zamiast normalnego dzwonka",
+          "announce_quarter_hours": "Jeśli włączone, o :15 i :45 zostanie odtworzony dedykowany dźwięk (quarter_an_hour_two.mp3) (bez ogłoszenia głosowego)"
         }
       }
     }
