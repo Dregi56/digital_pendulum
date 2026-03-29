@@ -19,14 +19,16 @@
           "preset_chime": "Přednastavený zvuk",
           "custom_chime_path": "Vlastní cesta ke zvuku (volitelné)",
           "after_chime_delay": "Pauza po zvonku (sekundy)",
-          "use_half_hour_chime": "Použít vyhrazený zvuk pro půlhodinu"
+          "use_half_hour_chime": "Použít vyhrazený zvuk pro půlhodinu",
+          "announce_quarter_hours": "Zvonit ve čtvrthodinách"
         },
         "data_description": {
           "language": "Vyberte jazyk pro hlasová oznámení. 'Automaticky' použije nastavení jazyka Home Assistant",
           "custom_chime_path": "Např.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechte prázdné pro výchozí)",
           "announce_half_hours_voice": "Pokud je vypnuto, zvon bude stále hrát v půlhodinách, ale hlasové oznámení nebude provedeno",
           "after_chime_delay": "Doba čekání v sekundách mezi zvonkem a hlasovým oznámením (výchozí: 1.2)",
-          "use_half_hour_chime": "Pokud je zapnuto, v půlhodinách se přehraje vyhrazený zvuk (half_an_hour.mp3) místo normálního zvonku"
+          "use_half_hour_chime": "Pokud je zapnuto, v půlhodinách se přehraje vyhrazený zvuk místo normálního zvonku",
+          "announce_quarter_hours": "Pokud je zapnuto, v :15 a :45 se přehraje vyhrazený zvuk (bez hlasového oznámení)"
         }
       }
     }
@@ -51,14 +53,16 @@
           "preset_chime": "Přednastavený zvuk",
           "custom_chime_path": "Vlastní cesta ke zvuku (volitelné)",
           "after_chime_delay": "Pauza po zvonku (sekundy)",
-          "use_half_hour_chime": "Použít vyhrazený zvuk pro půlhodinu"
+          "use_half_hour_chime": "Použít vyhrazený zvuk pro půlhodinu",
+          "announce_quarter_hours": "Zvonit ve čtvrthodinách"
         },
         "data_description": {
           "language": "Vyberte jazyk pro hlasová oznámení. 'Automaticky' použije nastavení jazyka Home Assistant",
           "custom_chime_path": "Např.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechte prázdné pro výchozí)",
           "announce_half_hours_voice": "Pokud je vypnuto, zvon bude stále hrát v půlhodinách, ale hlasové oznámení nebude provedeno",
           "after_chime_delay": "Doba čekání v sekundách mezi zvonkem a hlasovým oznámením (výchozí: 1.2)",
-          "use_half_hour_chime": "Pokud je zapnuto, v půlhodinách se přehraje vyhrazený zvuk (half_an_hour.mp3) místo normálního zvonku"
+          "use_half_hour_chime": "Pokud je zapnuto, v půlhodinách se přehraje vyhrazený zvuk místo normálního zvonku",
+          "announce_quarter_hours": "Pokud je zapnuto, v :15 a :45 se přehraje vyhrazený zvuk (bez hlasového oznámení)"
         }
       }
     }

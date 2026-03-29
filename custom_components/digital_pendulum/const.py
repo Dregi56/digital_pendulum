@@ -9,6 +9,7 @@ CONF_CUSTOM_CHIME_PATH = "custom_chime_path"
 CONF_PRESET_CHIME = "preset_chime"
 CONF_TOWER_CLOCK = "tower_clock"
 CONF_ANNOUNCE_HALF_HOURS = "announce_half_hours"
+CONF_ANNOUNCE_QUARTER_HOURS = "announce_quarter_hours"
 CONF_VOICE_ANNOUNCEMENT = "voice_announcement"
 CONF_PLAYER_TYPE = "player_type"
 CONF_AFTER_CHIME_DELAY = "after_chime_delay"
@@ -26,6 +27,7 @@ DEFAULT_PRESET_CHIME = "church-bell"
 DEFAULT_TOWER_CLOCK = False
 DEFAULT_AFTER_CHIME_DELAY = 1.2
 DEFAULT_ANNOUNCE_HALF_HOURS_VOICE = True
+DEFAULT_ANNOUNCE_QUARTER_HOURS = False
 DEFAULT_USE_HALF_HOUR_CHIME = False
 DEFAULT_LANGUAGE = "auto"
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
@@ -102,6 +104,10 @@ PRESET_CHIMES = {
     "half-hour": {
         "name": "Half Hour",
         "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/half_an_hour.mp3"
+    },
+    "quarter-hour": {
+    "name": "Quarter Hour",
+    "url": "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/quarter_an_hour_two.mp3"
     },
     "custom": {
         "name": "Custom (use custom path)",
