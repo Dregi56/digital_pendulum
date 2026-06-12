@@ -14,7 +14,6 @@ class GooglePlayer(BasePlayer):
                     "entity_id": self.player,
                     "media_content_id": chime_url,
                     "media_content_type": "audio/mp3",
-                    "announce": True,          # ← ripristina lo stato precedente
                 },
                 blocking=True,
             )
@@ -46,7 +45,6 @@ class GooglePlayer(BasePlayer):
                     "media_player_entity_id": self.player,
                     "message": text,
                     "language": language,
-                    "announce": True, #<--ripristina lo stato precedente
                 },
                 blocking=False,
             )
