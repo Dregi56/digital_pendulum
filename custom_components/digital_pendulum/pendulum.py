@@ -89,8 +89,8 @@ class DigitalPendulum:
         self.use_half_hour_chime = config.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME)
         self.announce_quarter_hours = config.get(CONF_ANNOUNCE_QUARTER_HOURS, DEFAULT_ANNOUNCE_QUARTER_HOURS)
         self.language = config.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
-        player_type = config.get(CONF_PLAYER_TYPE, "alexa")
-        self._player = _create_player(self.hass, self.player, player_type)
+        self.player_type = config.get(CONF_PLAYER_TYPE, "alexa")
+        self._player = _create_player(self.hass, self.player, self.player_type)
 
     def update_config(self):
         self._load_config()
@@ -100,6 +100,9 @@ class DigitalPendulum:
             return self.language
         lang = self.hass.config.language or "en"
         return lang[:2].lower()
+
+    def _tts_language(self) -> str:
+        return self.language or DEFAULT_LANGUAGE
 
     def _to_12h_with_period(self, hour: int):
         hour12 = hour % 12
@@ -389,7 +392,7 @@ class DigitalPendulum:
             if self.voice_announcement:
                 if minute == 30 and not self.announce_half_hours_voice:
                     return
-                await self._player.speak(text, self._normalize_language())
+                await self._player.speak(text, self._tts_language())
         except Exception as e:
             _LOGGER.error(
                 "Digital Pendulum: errore durante l'annuncio su '%s': %s",

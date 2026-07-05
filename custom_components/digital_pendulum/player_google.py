@@ -3,9 +3,32 @@ import voluptuous as vol
 from .player_base import BasePlayer
 
 _LOGGER = logging.getLogger(__name__)
+DEFAULT_TTS_LANGUAGE = "en"
+CLOUD_TTS_LANGUAGE_MAP = {
+    "en": "en-US",
+    "it": "it-IT",
+    "de": "de-DE",
+    "es": "es-ES",
+    "fr": "fr-FR",
+    "pt": "pt-PT",
+    "pl": "pl-PL",
+    "cs": "cs-CZ",
+    "sk": "sk-SK",
+}
 
 
 class GooglePlayer(BasePlayer):
+    def _tts_language_for_service(self, tts_entity: str | None, language: str) -> str | None:
+        is_cloud_tts = tts_entity == "tts.home_assistant_cloud"
+        if language == "auto":
+            if is_cloud_tts:
+                return None
+            hass_lang = self.hass.config.language or DEFAULT_TTS_LANGUAGE
+            return hass_lang[:2].lower()
+        if is_cloud_tts:
+            return CLOUD_TTS_LANGUAGE_MAP.get(language, language)
+        return language
+
     async def play_default_chime(self):
         pass
 
@@ -56,16 +79,18 @@ class GooglePlayer(BasePlayer):
             return state.entity_id
         return None
 
-    async def speak(self, text: str, language: str = "en"):
+    async def speak(self, text: str, language: str = DEFAULT_TTS_LANGUAGE):
         """Annuncio vocale nella lingua specificata."""
         tts_entity = self._find_tts_entity()
+        service_language = self._tts_language_for_service(tts_entity, language)
         if tts_entity:
             base_data = {
                 "entity_id": tts_entity,
                 "media_player_entity_id": self.player,
                 "message": text,
-                "language": language,
             }
+            if service_language:
+                base_data["language"] = service_language
             try:
                 await self.hass.services.async_call(
                     "tts",
@@ -91,7 +116,7 @@ class GooglePlayer(BasePlayer):
                 {
                     "entity_id": self.player,
                     "message": text,
-                    "language": language,
+                    "language": service_language,
                 },
                 blocking=False,
             )
