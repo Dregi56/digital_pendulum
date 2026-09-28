@@ -51,8 +51,41 @@ Digital Pendulum supporta tre tipi di player:
 | **Alexa** | Dispositivi Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) tramite HACS |
 | **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (integrazione nativa HA) |
 | **Generico** | Qualsiasi altro dispositivo HA media_player | Motore TTS configurato in HA (le funzionalità possono variare) |
+| **Script** | Tutto ciò che può fare un tuo script | Uno script di Home Assistant (vedi sotto) |
 
 Durante la configurazione ti verrà chiesto di selezionare prima il tipo di player, poi il dispositivo specifico.
+
+### 🧩 Player Script (avanzato)
+
+Con il tipo di player **Script** Digital Pendulum non suona nulla da solo: avvia uno script di Home Assistant a tua scelta, passando
+- `chime_url` per ogni rintocco (stringa vuota = rintocco di default), oppure
+- `message` e `language` per ogni annuncio (il testo già pronto nella tua lingua).
+
+È lo script a decidere come e dove riprodurli: più altoparlanti, un motore TTS specifico, un'integrazione di notifiche, condizioni aggiuntive (per esempio il non disturbare). Usa `mode: queued` perché rintocco e annuncio escano sempre nell'ordine giusto.
+
+```yaml
+script:
+  pendolo_altoparlante:
+    mode: queued
+    sequence:
+      - if: "{{ chime_url is defined and chime_url != '' }}"
+        then:
+          - action: media_player.play_media
+            target:
+              entity_id: media_player.cucina
+            data:
+              media_content_id: "{{ chime_url }}"
+              media_content_type: audio/mp3
+              announce: true
+      - if: "{{ message is defined }}"
+        then:
+          - action: tts.speak
+            target:
+              entity_id: tts.home_assistant_cloud
+            data:
+              media_player_entity_id: media_player.cucina
+              message: "{{ message }}"
+```
 
 ## ✨ Funzionalità principali
 
@@ -154,7 +187,7 @@ Si crea così un effetto simile a un vero pendolo 🎶.
 
 | Opzione | Descrizione |
 |------|------------|
-| player_type | Tipo di dispositivo player (Alexa, Google Home, Generico) |
+| player_type | Tipo di dispositivo player (Alexa, Google Home, Generico, Script) |
 | player | Dispositivo di destinazione |
 | start_hour | Ora di inizio operatività |
 | end_hour | Ora di fine operatività |

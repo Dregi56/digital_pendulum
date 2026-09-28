@@ -36,18 +36,33 @@ from .const import (
     DEFAULT_LANGUAGE,
     PRESET_CHIMES,
     PLAYER_TYPES,
+    PLAYER_TYPE_SCRIPT,
     LANGUAGES,
 )
+
+
+def _validate_player(user_input: dict) -> dict:
+    """Check that the selected entity matches the selected player type."""
+    is_script = str(user_input.get(CONF_PLAYER_DEVICE, "")).startswith("script.")
+    if user_input.get(CONF_PLAYER_TYPE) == PLAYER_TYPE_SCRIPT:
+        if not is_script:
+            return {CONF_PLAYER_DEVICE: "script_required"}
+    elif is_script:
+        return {CONF_PLAYER_DEVICE: "media_player_required"}
+    return {}
 
 class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
 
     async def async_step_user(self, user_input=None):
+        errors = {}
         if user_input is not None:
-            return self.async_create_entry(
-                title="Digital Pendulum",
-                data=user_input,
-            )
+            errors = _validate_player(user_input)
+            if not errors:
+                return self.async_create_entry(
+                    title="Digital Pendulum",
+                    data=user_input,
+                )
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
             for key, info in PRESET_CHIMES.items()
@@ -77,7 +92,7 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONF_PLAYER_DEVICE
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="media_player",
+                        domain=["media_player", "script"],
                     )
                 ),
                 # 2) Orario di lavoro
@@ -182,9 +197,12 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 ): bool,
             }
         )
+        if user_input is not None:
+            schema = self.add_suggested_values_to_schema(schema, user_input)
         return self.async_show_form(
             step_id="user",
             data_schema=schema,
+            errors=errors,
         )
 
     @staticmethod
@@ -198,8 +216,11 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
         self.entry = config_entry
 
     async def async_step_init(self, user_input=None):
+        errors = {}
         if user_input is not None:
-            return self.async_create_entry(title="", data=user_input)
+            errors = _validate_player(user_input)
+            if not errors:
+                return self.async_create_entry(title="", data=user_input)
         current_options = self.entry.options or self.entry.data
         chime_options = [
             selector.SelectOptionDict(value=key, label=info["name"])
@@ -231,7 +252,7 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                     default=current_options.get(CONF_PLAYER_DEVICE)
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="media_player",
+                        domain=["media_player", "script"],
                     )
                 ),
                 # 2) Orario di lavoro
@@ -336,7 +357,10 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 ): bool,
             }
         )
+        if user_input is not None:
+            schema = self.add_suggested_values_to_schema(schema, user_input)
         return self.async_show_form(
             step_id="init",
             data_schema=schema,
+            errors=errors,
         )

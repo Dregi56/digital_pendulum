@@ -28,9 +28,14 @@
           "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.8)",
           "use_half_hour_chime": "Jeśli włączone, o półgodzinach zostanie odtworzony dedykowany dźwięk zamiast normalnego dzwonka",
-          "announce_quarter_hours": "Jeśli włączone, o :15 i :45 zostanie odtworzony dedykowany dźwięk (bez ogłoszenia głosowego)"
+          "announce_quarter_hours": "Jeśli włączone, o :15 i :45 zostanie odtworzony dedykowany dźwięk (bez ogłoszenia głosowego)",
+          "player_device": "Odtwarzacz multimediów lub skrypt (script.*), jeśli typ odtwarzacza to Skrypt. Skrypt otrzymuje jako zmienne chime_url albo message i language."
         }
       }
+    },
+    "error": {
+      "script_required": "Dla typu odtwarzacza Skrypt wybierz encję skryptu (script.*)",
+      "media_player_required": "Ten typ odtwarzacza wymaga encji odtwarzacza multimediów (media_player.*)"
     }
   },
   "options": {
@@ -62,9 +67,14 @@
           "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)",
           "use_half_hour_chime": "Jeśli włączone, o półgodzinach zostanie odtworzony dedykowany dźwięk zamiast normalnego dzwonka",
-          "announce_quarter_hours": "Jeśli włączone, o :15 i :45 zostanie odtworzony dedykowany dźwięk (bez ogłoszenia głosowego)"
+          "announce_quarter_hours": "Jeśli włączone, o :15 i :45 zostanie odtworzony dedykowany dźwięk (bez ogłoszenia głosowego)",
+          "player_device": "Odtwarzacz multimediów lub skrypt (script.*), jeśli typ odtwarzacza to Skrypt. Skrypt otrzymuje jako zmienne chime_url albo message i language."
         }
       }
+    },
+    "error": {
+      "script_required": "Dla typu odtwarzacza Skrypt wybierz encję skryptu (script.*)",
+      "media_player_required": "Ten typ odtwarzacza wymaga encji odtwarzacza multimediów (media_player.*)"
     }
   },
   "entity": {

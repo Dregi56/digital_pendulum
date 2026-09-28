@@ -40,6 +40,7 @@ from .const import (
 )
 from .player_alexa import AlexaPlayer
 from .player_google import GooglePlayer
+from .player_script import ScriptPlayer
 from .languages import (
     PL_HOUR_NAMES,
     CS_HOUR_NAMES_EXACT,
@@ -66,6 +67,8 @@ def _create_player(hass, player_entity_id: str, player_type: str):
         return GooglePlayer(hass, player_entity_id)
     elif player_type == "alexa":
         return AlexaPlayer(hass, player_entity_id)
+    elif player_type == "script":
+        return ScriptPlayer(hass, player_entity_id)
     return GooglePlayer(hass, player_entity_id)
 
 

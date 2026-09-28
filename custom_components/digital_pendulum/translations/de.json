@@ -28,9 +28,14 @@
           "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
           "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.8)",
           "use_half_hour_chime": "Wenn aktiviert, wird zur halben Stunde ein dedizierter Klang anstelle des normalen Glockentons abgespielt",
-          "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang abgespielt (keine Sprachansage)"
+          "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang abgespielt (keine Sprachansage)",
+          "player_device": "Zu verwendender Media Player oder ein Skript (script.*), wenn der Player-Typ Skript ist. Das Skript erhält chime_url oder message und language als Variablen."
         }
       }
+    },
+    "error": {
+      "script_required": "Beim Player-Typ Skript eine Skript-Entität (script.*) auswählen",
+      "media_player_required": "Dieser Player-Typ erfordert eine Media-Player-Entität (media_player.*)"
     }
   },
   "options": {
@@ -62,9 +67,14 @@
           "announce_half_hours_voice": "Wenn deaktiviert, erklingt der Glockenton weiterhin zur halben Stunde, aber die Sprachansage wird nicht durchgeführt",
           "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)",
           "use_half_hour_chime": "Wenn aktiviert, wird zur halben Stunde ein dedizierter Klang anstelle des normalen Glockentons abgespielt",
-          "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang abgespielt (keine Sprachansage)"
+          "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang abgespielt (keine Sprachansage)",
+          "player_device": "Zu verwendender Media Player oder ein Skript (script.*), wenn der Player-Typ Skript ist. Das Skript erhält chime_url oder message und language als Variablen."
         }
       }
+    },
+    "error": {
+      "script_required": "Beim Player-Typ Skript eine Skript-Entität (script.*) auswählen",
+      "media_player_required": "Dieser Player-Typ erfordert eine Media-Player-Entität (media_player.*)"
     }
   },
   "entity": {

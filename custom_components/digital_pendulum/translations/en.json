@@ -29,9 +29,14 @@
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.8)",
           "use_half_hour_chime": "If enabled, a dedicated sound will play at half hours instead of the normal chime",
-          "announce_quarter_hours": "If enabled, a dedicated sound will play at :15 and :45 (no voice announcement)"
+          "announce_quarter_hours": "If enabled, a dedicated sound will play at :15 and :45 (no voice announcement)",
+          "player_device": "Media player to use, or a script (script.*) when the player type is Script. The script receives chime_url, or message and language, as variables."
         }
       }
+    },
+    "error": {
+      "script_required": "With the Script player type, select a script entity (script.*)",
+      "media_player_required": "This player type requires a media player entity (media_player.*)"
     }
   },
   "options": {
@@ -64,9 +69,14 @@
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)",
           "use_half_hour_chime": "If enabled, a dedicated sound will play at half hours instead of the normal chime",
-          "announce_quarter_hours": "If enabled, a dedicated sound will play at :15 and :45 (no voice announcement)"
+          "announce_quarter_hours": "If enabled, a dedicated sound will play at :15 and :45 (no voice announcement)",
+          "player_device": "Media player to use, or a script (script.*) when the player type is Script. The script receives chime_url, or message and language, as variables."
         }
       }
+    },
+    "error": {
+      "script_required": "With the Script player type, select a script entity (script.*)",
+      "media_player_required": "This player type requires a media player entity (media_player.*)"
     }
   },
   "entity": {

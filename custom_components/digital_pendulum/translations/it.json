@@ -28,9 +28,14 @@
           "announce_half_hours_voice": "Se disabilitato, la campana suonerà comunque alla mezz'ora ma non verrà fatto l'annuncio vocale",
           "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.8)",
           "use_half_hour_chime": "Se abilitato, alla mezz'ora verrà riprodotto un suono dedicato invece della campana normale",
-          "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (nessun annuncio vocale)"
+          "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (nessun annuncio vocale)",
+          "player_device": "Media player da usare, oppure uno script (script.*) se il tipo di player è Script. Lo script riceve come variabili chime_url, oppure message e language."
         }
       }
+    },
+    "error": {
+      "script_required": "Con il tipo di player Script seleziona un'entità script (script.*)",
+      "media_player_required": "Questo tipo di player richiede un'entità media player (media_player.*)"
     }
   },
   "options": {
@@ -62,9 +67,14 @@
           "announce_half_hours_voice": "Se disabilitato, la campana suonerà comunque alla mezz'ora ma non verrà fatto l'annuncio vocale",
           "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)",
           "use_half_hour_chime": "Se abilitato, alla mezz'ora verrà riprodotto un suono dedicato invece della campana normale",
-          "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (nessun annuncio vocale)"
+          "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (nessun annuncio vocale)",
+          "player_device": "Media player da usare, oppure uno script (script.*) se il tipo di player è Script. Lo script riceve come variabili chime_url, oppure message e language."
         }
       }
+    },
+    "error": {
+      "script_required": "Con il tipo di player Script seleziona un'entità script (script.*)",
+      "media_player_required": "Questo tipo di player richiede un'entità media player (media_player.*)"
     }
   },
   "entity": {

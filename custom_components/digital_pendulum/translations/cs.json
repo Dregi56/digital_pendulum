@@ -28,9 +28,14 @@
           "announce_half_hours_voice": "Pokud je vypnuto, zvon bude stále hrát v půlhodinách, ale hlasové oznámení nebude provedeno",
           "after_chime_delay": "Doba čekání v sekundách mezi zvonkem a hlasovým oznámením (výchozí: 1.8)",
           "use_half_hour_chime": "Pokud je zapnuto, v půlhodinách se přehraje vyhrazený zvuk místo normálního zvonku",
-          "announce_quarter_hours": "Pokud je zapnuto, v :15 a :45 se přehraje vyhrazený zvuk (bez hlasového oznámení)"
+          "announce_quarter_hours": "Pokud je zapnuto, v :15 a :45 se přehraje vyhrazený zvuk (bez hlasového oznámení)",
+          "player_device": "Přehrávač médií, nebo skript (script.*), pokud je typ přehrávače Skript. Skript dostává jako proměnné chime_url, nebo message a language."
         }
       }
+    },
+    "error": {
+      "script_required": "U typu přehrávače Skript vyberte entitu skriptu (script.*)",
+      "media_player_required": "Tento typ přehrávače vyžaduje entitu přehrávače médií (media_player.*)"
     }
   },
   "options": {
@@ -62,9 +67,14 @@
           "announce_half_hours_voice": "Pokud je vypnuto, zvon bude stále hrát v půlhodinách, ale hlasové oznámení nebude provedeno",
           "after_chime_delay": "Doba čekání v sekundách mezi zvonkem a hlasovým oznámením (výchozí: 1.2)",
           "use_half_hour_chime": "Pokud je zapnuto, v půlhodinách se přehraje vyhrazený zvuk místo normálního zvonku",
-          "announce_quarter_hours": "Pokud je zapnuto, v :15 a :45 se přehraje vyhrazený zvuk (bez hlasového oznámení)"
+          "announce_quarter_hours": "Pokud je zapnuto, v :15 a :45 se přehraje vyhrazený zvuk (bez hlasového oznámení)",
+          "player_device": "Přehrávač médií, nebo skript (script.*), pokud je typ přehrávače Skript. Skript dostává jako proměnné chime_url, nebo message a language."
         }
       }
+    },
+    "error": {
+      "script_required": "U typu přehrávače Skript vyberte entitu skriptu (script.*)",
+      "media_player_required": "Tento typ přehrávače vyžaduje entitu přehrávače médií (media_player.*)"
     }
   },
   "entity": {

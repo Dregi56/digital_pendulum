@@ -28,9 +28,14 @@
           "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
           "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.8)",
           "use_half_hour_chime": "Si está activado, se reproducirá un sonido dedicado en las medias horas en lugar de la campana normal",
-          "announce_quarter_hours": "Si está activado, se reproducirá un sonido dedicado a las :15 y :45 (sin anuncio de voz)"
+          "announce_quarter_hours": "Si está activado, se reproducirá un sonido dedicado a las :15 y :45 (sin anuncio de voz)",
+          "player_device": "Media player a usar, o un script (script.*) si el tipo de reproductor es Script. El script recibe chime_url, o message y language, como variables."
         }
       }
+    },
+    "error": {
+      "script_required": "Con el tipo de reproductor Script, selecciona una entidad script (script.*)",
+      "media_player_required": "Este tipo de reproductor requiere una entidad media player (media_player.*)"
     }
   },
   "options": {
@@ -62,9 +67,14 @@
           "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
           "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)",
           "use_half_hour_chime": "Si está activado, se reproducirá un sonido dedicado en las medias horas en lugar de la campana normal",
-          "announce_quarter_hours": "Si está activado, se reproducirá un sonido dedicado a las :15 y :45 (sin anuncio de voz)"
+          "announce_quarter_hours": "Si está activado, se reproducirá un sonido dedicado a las :15 y :45 (sin anuncio de voz)",
+          "player_device": "Media player a usar, o un script (script.*) si el tipo de reproductor es Script. El script recibe chime_url, o message y language, como variables."
         }
       }
+    },
+    "error": {
+      "script_required": "Con el tipo de reproductor Script, selecciona una entidad script (script.*)",
+      "media_player_required": "Este tipo de reproductor requiere una entidad media player (media_player.*)"
     }
   },
   "entity": {

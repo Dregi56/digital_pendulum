@@ -28,9 +28,14 @@
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
           "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.8)",
           "use_half_hour_chime": "Si activé, un son dédié sera joué aux demi-heures à la place de la cloche normale",
-          "announce_quarter_hours": "Si activé, un son dédié sera joué à :15 et :45 (sans annonce vocale)"
+          "announce_quarter_hours": "Si activé, un son dédié sera joué à :15 et :45 (sans annonce vocale)",
+          "player_device": "Media player à utiliser, ou un script (script.*) si le type de lecteur est Script. Le script reçoit chime_url, ou message et language, comme variables."
         }
       }
+    },
+    "error": {
+      "script_required": "Avec le type de lecteur Script, sélectionnez une entité script (script.*)",
+      "media_player_required": "Ce type de lecteur nécessite une entité media player (media_player.*)"
     }
   },
   "options": {
@@ -62,9 +67,14 @@
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
           "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)",
           "use_half_hour_chime": "Si activé, un son dédié sera joué aux demi-heures à la place de la cloche normale",
-          "announce_quarter_hours": "Si activé, un son dédié sera joué à :15 et :45 (sans annonce vocale)"
+          "announce_quarter_hours": "Si activé, un son dédié sera joué à :15 et :45 (sans annonce vocale)",
+          "player_device": "Media player à utiliser, ou un script (script.*) si le type de lecteur est Script. Le script reçoit chime_url, ou message et language, comme variables."
         }
       }
+    },
+    "error": {
+      "script_required": "Avec le type de lecteur Script, sélectionnez une entité script (script.*)",
+      "media_player_required": "Ce type de lecteur nécessite une entité media player (media_player.*)"
     }
   },
   "entity": {

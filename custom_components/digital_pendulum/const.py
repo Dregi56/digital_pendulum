@@ -35,7 +35,9 @@ PLAYER_TYPES = {
     "alexa": "Alexa (alexa_media_player)",
     "google": "Google Home / Assistant",
     "generic": "Generic (media_player)",
+    "script": "Script (custom action)",
 }
+PLAYER_TYPE_SCRIPT = "script"
 LANGUAGES = {
     "auto": "Automatic (same as Home Assistant)",
     "en": "English",
