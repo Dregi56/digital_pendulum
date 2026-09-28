@@ -34,17 +34,17 @@ class DigitalPendulumStatusSensor(BinarySensorEntity):
     @property
     def is_on(self):
         """Return True if there are actual problems."""
-        # Problema 1: Integrazione disabilitata
-        if not self.pendulum.enabled:
-            return True
-        
-        # Problema 2: Dispositivo Alexa non disponibile
+        # Switching the clock off is a user choice, not a problem: it is
+        # still reported in the attributes ("Integration disabled").
+
+        # Problema 1: player non disponibile
         player_state = self.hass.states.get(self.pendulum.player)
         if not player_state or player_state.state == "unavailable":
             return True
         
-        # Problema 3: Orari configurati male
-        if self.pendulum.start_hour >= self.pendulum.end_hour:
+        # Problema 2: orari configurati male. start > end is a valid range
+        # across midnight (e.g. 22 -> 7); only start == end is ambiguous.
+        if self.pendulum.start_hour == self.pendulum.end_hour:
             return True
         
         # Nessun problema
@@ -66,16 +66,16 @@ class DigitalPendulumStatusSensor(BinarySensorEntity):
         if not self.pendulum.enabled:
             warnings.append("Integration disabled")
         
-        # Controlla player Alexa
+        # Controlla player
         player_state = self.hass.states.get(self.pendulum.player)
         if not player_state:
-            warnings.append("Alexa device not found")
+            warnings.append("Player device not found")
         elif player_state.state == "unavailable":
-            warnings.append("Alexa device offline")
+            warnings.append("Player device offline")
         
         # Controlla orari
-        if self.pendulum.start_hour >= self.pendulum.end_hour:
-            warnings.append("Invalid time range (start >= end)")
+        if self.pendulum.start_hour == self.pendulum.end_hour:
+            warnings.append("Invalid time range (start == end)")
         
         return {
             "warnings": warnings if warnings else ["No issues"],
