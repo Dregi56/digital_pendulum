@@ -3,6 +3,10 @@ test_announcement:
   description: Test the time announcement immediately with current time
   fields:
     entity_id:
-      description: The Digital Pendulum entity to test
-      example: "digital_pendulum.speaking_clock"
+      name: Entity
+      description: Any entity of the Digital Pendulum to test (switch, button or sensor). Leave empty to test all clocks.
       required: false
+      selector:
+        entity:
+          integration: digital_pendulum
+          multiple: true

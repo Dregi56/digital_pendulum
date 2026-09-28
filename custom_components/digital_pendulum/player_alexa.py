@@ -12,10 +12,13 @@ class AlexaPlayer(BasePlayer):
                 "data": {"type": "announce"},
                 "message": " ",
             },
-            blocking=False,
+            blocking=True,
         )
 
     async def play_chime(self, chime_url: str):
+        # blocking=True is required for the fallback below to work: with
+        # blocking=False the error is raised later inside the HA core, after
+        # this except clause has already exited (same as GooglePlayer).
         try:
             await self.hass.services.async_call(
                 "notify",
@@ -25,7 +28,7 @@ class AlexaPlayer(BasePlayer):
                     "message": f"<audio src='{chime_url}'/>",
                     "data": {"type": "tts"},
                 },
-                blocking=False,
+                blocking=True,
             )
         except Exception:
             await self.play_default_chime()
@@ -40,5 +43,5 @@ class AlexaPlayer(BasePlayer):
                 "message": text,
                 "data": {"type": "tts"},
             },
-            blocking=False,
+            blocking=True,
         )

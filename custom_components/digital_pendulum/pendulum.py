@@ -1,6 +1,7 @@
 import asyncio
 import logging
 from datetime import datetime
+from homeassistant.core import callback
 from homeassistant.helpers.event import async_track_time_change
 from homeassistant.util import dt as dt_util
 from .const import (
@@ -73,6 +74,8 @@ class DigitalPendulum:
         self.hass = hass
         self.entry = entry
         self._unsub_timer = None
+        self._listeners = []
+        self._configured_enabled = None
         self._load_config()
 
     def _load_config(self):
@@ -80,7 +83,13 @@ class DigitalPendulum:
         self.start_hour = int(config.get(CONF_START_HOUR, DEFAULT_START_HOUR))
         self.end_hour = int(config.get(CONF_END_HOUR, DEFAULT_END_HOUR))
         self.player = config.get(CONF_PLAYER_DEVICE)
-        self.enabled = config.get(CONF_ENABLED, DEFAULT_ENABLED)
+        # The "enabled" switch is the runtime source of truth: only apply the
+        # configured value at startup or when the option itself was changed,
+        # so saving unrelated options does not re-enable a clock switched off.
+        configured_enabled = config.get(CONF_ENABLED, DEFAULT_ENABLED)
+        if configured_enabled != self._configured_enabled:
+            self.enabled = configured_enabled
+        self._configured_enabled = configured_enabled
         self.use_chime = config.get(CONF_USE_CHIME, DEFAULT_USE_CHIME)
         self.preset_chime = config.get(CONF_PRESET_CHIME, DEFAULT_PRESET_CHIME)
         self.custom_chime_path = config.get(CONF_CUSTOM_CHIME_PATH, DEFAULT_CUSTOM_CHIME_PATH)
@@ -97,6 +106,23 @@ class DigitalPendulum:
 
     def update_config(self):
         self._load_config()
+        self._notify_listeners()
+
+    @callback
+    def async_add_listener(self, update_callback):
+        """Register a callback run when the configuration changes."""
+        self._listeners.append(update_callback)
+
+        @callback
+        def remove_listener():
+            self._listeners.remove(update_callback)
+
+        return remove_listener
+
+    @callback
+    def _notify_listeners(self):
+        for update_callback in list(self._listeners):
+            update_callback()
 
     def _normalize_language(self) -> str:
         if self.language and self.language != "auto":

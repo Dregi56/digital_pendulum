@@ -35,6 +35,9 @@ class DigitalPendulumSwitch(SwitchEntity, RestoreEntity):
         last_state = await self.async_get_last_state()
         if last_state is not None:
             self.pendulum.enabled = last_state.state == "on"
+        self.async_on_remove(
+            self.pendulum.async_add_listener(self.async_write_ha_state)
+        )
 
     @property
     def is_on(self):
