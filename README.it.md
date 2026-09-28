@@ -44,7 +44,7 @@ Il risultato è un effetto elegante e discreto, ideale per la casa o l'ufficio.
 
 ## 🔊 Dispositivi supportati
 
-Digital Pendulum supporta tre tipi di player:
+Digital Pendulum supporta quattro tipi di player:
 
 | Tipo | Descrizione | Requisito |
 |------|-------------|-------------|
@@ -321,7 +321,7 @@ Digital Pendulum usa automaticamente la lingua di Home Assistant.
 - Integrazione abilitata? (Interruttore ON)
 - Sei nella fascia oraria configurata? (default 8:00-22:00)
 - Dispositivo online?
-- Tipo di player corretto selezionato? (Alexa, Google, Generico)
+- Tipo di player corretto selezionato? (Alexa, Google, Generico, Script)
 - Prova il pulsante "Test"
 
 ---

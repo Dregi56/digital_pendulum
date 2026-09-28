@@ -44,15 +44,48 @@ O resultado é um efeito elegante e discreto, ideal para casa ou escritório.
 
 ## 🔊 Dispositivos compatíveis
 
-Digital Pendulum suporta três tipos de reprodutores:
+Digital Pendulum suporta quatro tipos de reprodutores:
 
 | Tipo | Descrição | Requisito |
 |------|-------------|-------------|
 | **Alexa** | Dispositivos Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) via HACS |
 | **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (integração nativa HA) |
 | **Genérico** | Qualquer outro dispositivo HA media_player | Motor TTS configurado no HA (a funcionalidade pode variar) |
+| **Script** | Tudo o que o seu próprio script consegue fazer | Um script do Home Assistant (ver abaixo) |
 
 Durante a configuração, será solicitado que selecione primeiro o tipo de reprodutor e depois o dispositivo específico.
+
+### 🧩 Leitor Script (avançado)
+
+Com o tipo de leitor **Script**, o Digital Pendulum não reproduz nada sozinho: inicia um script do Home Assistant à sua escolha e passa-lhe
+- `chime_url` em cada badalada (texto vazio = som predefinido), ou
+- `message` e `language` em cada anúncio (o texto já pronto no seu idioma).
+
+É o script que decide como e onde os reproduzir: várias colunas, um motor TTS específico, uma integração de notificações, condições adicionais (por exemplo, não incomodar). Use `mode: queued` para que a badalada e o anúncio saiam sempre pela ordem certa.
+
+```yaml
+script:
+  pendulo_coluna:
+    mode: queued
+    sequence:
+      - if: "{{ chime_url is defined and chime_url != '' }}"
+        then:
+          - action: media_player.play_media
+            target:
+              entity_id: media_player.cozinha
+            data:
+              media_content_id: "{{ chime_url }}"
+              media_content_type: audio/mp3
+              announce: true
+      - if: "{{ message is defined }}"
+        then:
+          - action: tts.speak
+            target:
+              entity_id: tts.home_assistant_cloud
+            data:
+              media_player_entity_id: media_player.cozinha
+              message: "{{ message }}"
+```
 
 ## ✨ Funcionalidades principais
 
@@ -153,7 +186,7 @@ Isto cria um efeito semelhante a um pêndulo real 🎶.
 
 | Opção | Descrição |
 |------|------------|
-| player_type | Tipo de dispositivo reprodutor (Alexa, Google Home, Genérico) |
+| player_type | Tipo de dispositivo reprodutor (Alexa, Google Home, Genérico, Script) |
 | player | Dispositivo de destino |
 | start_hour | Hora de início de funcionamento |
 | end_hour | Hora de fim de funcionamento |
@@ -287,7 +320,7 @@ O Digital Pendulum usa automaticamente o idioma do Home Assistant.
 - Integração ativada? (Interruptor ON)
 - Está dentro do intervalo de tempo configurado? (padrão 8:00-22:00)
 - Dispositivo online?
-- Tipo de reprodutor correto selecionado? (Alexa, Google, Genérico)
+- Tipo de reprodutor correto selecionado? (Alexa, Google, Genérico, Script)
 - Experimente o botão "Teste"
 
 ---
