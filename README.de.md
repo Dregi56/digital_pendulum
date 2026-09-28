@@ -79,6 +79,7 @@ Bei der Einrichtung werden Sie zuerst gebeten, den Wiedergabetyp auszuwählen, d
 
 ### 🕐 Konfigurierbares Zeitfenster
 - z.B. nur von 8:00 bis 22:00
+- oder über Mitternacht, z.B. von 22:00 bis 7:00 (Startstunde größer als Endstunde)
 
 ### 🔔 Optionale Glocke
 - 🎵 12 voreingestellte Klänge zur Auswahl
@@ -198,7 +199,7 @@ Digital Pendulum enthält einen Diagnosesensor:
 
 **Zustände:**
 - ✅ **OFF** - Alles funktioniert korrekt
-- ⚠️ **ON** - Probleme erkannt (Integration deaktiviert, Alexa offline usw.)
+- ⚠️ **ON** - Probleme erkannt (Player offline, Startstunde gleich Endstunde usw.)
 
 **Verwendung:**
 - Dashboard-Überwachung

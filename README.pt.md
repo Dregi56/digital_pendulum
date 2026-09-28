@@ -79,6 +79,7 @@ Durante a configuração, será solicitado que selecione primeiro o tipo de repr
 
 ### 🕐 Intervalo de tempo configurável
 - ex. apenas das 8:00 às 22:00
+- ou atravessando a meia-noite, ex. das 22:00 às 7:00 (hora de início maior que a hora de fim)
 
 ### 🔔 Sino opcional
 - 🎵 12 sons predefinidos para escolher
@@ -198,7 +199,7 @@ Digital Pendulum inclui um sensor de diagnóstico:
 
 **Estados:**
 - ✅ **OFF** - Tudo a funcionar corretamente
-- ⚠️ **ON** - Problemas detetados (integração desativada, Alexa offline, etc.)
+- ⚠️ **ON** - Problemas detetados (leitor offline, hora de início igual à hora de fim, etc.)
 
 **Utilizações:**
 - Monitorização do painel de controlo

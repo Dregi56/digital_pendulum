@@ -113,6 +113,7 @@ script:
 
 ### 🕐 Configurable time slot
 - e.g. only from 8:00 to 22:00
+- or across midnight, e.g. from 22:00 to 7:00 (start hour greater than end hour)
 
 ###  🔔 Optional bell
 - 🎵 12 preset sounds to choose from
@@ -233,7 +234,7 @@ Digital Pendulum includes a diagnostic sensor:
 
 **States:**
 - ✅ **OFF** - Everything working correctly
-- ⚠️ **ON** - Issues detected (integration disabled, Alexa offline, etc.)
+- ⚠️ **ON** - Issues detected (player offline, start hour equal to end hour, etc.)
 
 **Uses:**
 - Dashboard monitoring

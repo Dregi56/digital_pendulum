@@ -79,6 +79,7 @@ Podczas konfiguracji zostaniesz najpierw poproszony o wybranie typu odtwarzacza,
 
 ### 🕐 Konfigurowalny przedział czasowy
 - np. tylko od 8:00 do 22:00
+- lub przez północ, np. od 22:00 do 7:00 (godzina rozpoczęcia większa niż godzina zakończenia)
 
 ### 🔔 Opcjonalny dzwonek
 - 🎵 12 predefiniowanych dźwięków do wyboru
@@ -199,7 +200,7 @@ Digital Pendulum zawiera czujnik diagnostyczny:
 
 **Stany:**
 - ✅ **OFF** - Wszystko działa poprawnie
-- ⚠️ **ON** - Wykryto problemy (integracja wyłączona, Alexa offline itp.)
+- ⚠️ **ON** - Wykryto problemy (odtwarzacz offline, godzina rozpoczęcia równa godzinie zakończenia itp.)
 
 **Zastosowania:**
 - Monitorowanie pulpitu nawigacyjnego
