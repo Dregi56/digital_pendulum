@@ -20,7 +20,8 @@
           "custom_chime_path": "Custom chime path (optional)",
           "after_chime_delay": "Delay after chime (seconds)",
           "use_half_hour_chime": "Use dedicated half hour chime sound",
-          "announce_quarter_hours": "Play chime at quarter hours"
+          "announce_quarter_hours": "Play chime at quarter hours",
+          "count_strikes": "Count the hours with strikes"
         },
         "data_description": {
           "player_type": "Select your device type (Alexa, Google Home, or Generic)",
@@ -30,7 +31,8 @@
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.8)",
           "use_half_hour_chime": "If enabled, a dedicated sound will play at half hours instead of the normal chime",
           "announce_quarter_hours": "If enabled, a dedicated sound will play at :15 and :45 (no voice announcement)",
-          "player_device": "Media player to use, or a script (script.*) when the player type is Script. The script receives chime_url, or message and language, as variables."
+          "player_device": "Media player to use, or a script (script.*) when the player type is Script. The script receives chime_url, or message and language, as variables.",
+          "count_strikes": "On the hour the clock strikes like a pendulum clock: 1 strike at 1 o'clock, 3 at 3, 12 at noon and midnight. Replaces the chime sound on the hour; with the tower clock, Westminster plays first. Requires 'Use chime sound'."
         }
       }
     },
@@ -60,7 +62,8 @@
           "custom_chime_path": "Custom chime path (optional)",
           "after_chime_delay": "Delay after chime (seconds)",
           "use_half_hour_chime": "Use dedicated half hour chime sound",
-          "announce_quarter_hours": "Play chime at quarter hours"
+          "announce_quarter_hours": "Play chime at quarter hours",
+          "count_strikes": "Count the hours with strikes"
         },
         "data_description": {
           "player_type": "Select your device type (Alexa, Google Home, or Generic)",
@@ -70,7 +73,8 @@
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)",
           "use_half_hour_chime": "If enabled, a dedicated sound will play at half hours instead of the normal chime",
           "announce_quarter_hours": "If enabled, a dedicated sound will play at :15 and :45 (no voice announcement)",
-          "player_device": "Media player to use, or a script (script.*) when the player type is Script. The script receives chime_url, or message and language, as variables."
+          "player_device": "Media player to use, or a script (script.*) when the player type is Script. The script receives chime_url, or message and language, as variables.",
+          "count_strikes": "On the hour the clock strikes like a pendulum clock: 1 strike at 1 o'clock, 3 at 3, 12 at noon and midnight. Replaces the chime sound on the hour; with the tower clock, Westminster plays first. Requires 'Use chime sound'."
         }
       }
     },

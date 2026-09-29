@@ -20,7 +20,8 @@
           "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)",
           "after_chime_delay": "Pauza po dzwonku (sekundy)",
           "use_half_hour_chime": "Użyj dedykowanego dźwięku dla półgodziny",
-          "announce_quarter_hours": "Dzwonek o kwadransach"
+          "announce_quarter_hours": "Dzwonek o kwadransach",
+          "count_strikes": "Wybijaj godziny uderzeniami"
         },
         "data_description": {
           "language": "Wybierz język ogłoszeń czasowych. 'Automatyczny' używa ustawienia języka Home Assistant",
@@ -29,7 +30,8 @@
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.8)",
           "use_half_hour_chime": "Jeśli włączone, o półgodzinach zostanie odtworzony dedykowany dźwięk zamiast normalnego dzwonka",
           "announce_quarter_hours": "Jeśli włączone, o :15 i :45 zostanie odtworzony dedykowany dźwięk (bez ogłoszenia głosowego)",
-          "player_device": "Odtwarzacz multimediów lub skrypt (script.*), jeśli typ odtwarzacza to Skrypt. Skrypt otrzymuje jako zmienne chime_url albo message i language."
+          "player_device": "Odtwarzacz multimediów lub skrypt (script.*), jeśli typ odtwarzacza to Skrypt. Skrypt otrzymuje jako zmienne chime_url albo message i language.",
+          "count_strikes": "O pełnej godzinie zegar wybija uderzenia jak zegar wahadłowy: 1 o pierwszej, 3 o trzeciej, 12 w południe i o północy. Zastępuje dźwięk dzwonka o pełnej godzinie; z zegarem wieżowym najpierw gra Westminster. Wymaga 'Użyj dźwięku dzwonka'."
         }
       }
     },
@@ -59,7 +61,8 @@
           "custom_chime_path": "Własna ścieżka dźwięku (opcjonalne)",
           "after_chime_delay": "Pauza po dzwonku (sekundy)",
           "use_half_hour_chime": "Użyj dedykowanego dźwięku dla półgodziny",
-          "announce_quarter_hours": "Dzwonek o kwadransach"
+          "announce_quarter_hours": "Dzwonek o kwadransach",
+          "count_strikes": "Wybijaj godziny uderzeniami"
         },
         "data_description": {
           "language": "Wybierz język ogłoszeń czasowych. 'Automatyczny' używa ustawienia języka Home Assistant",
@@ -68,7 +71,8 @@
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)",
           "use_half_hour_chime": "Jeśli włączone, o półgodzinach zostanie odtworzony dedykowany dźwięk zamiast normalnego dzwonka",
           "announce_quarter_hours": "Jeśli włączone, o :15 i :45 zostanie odtworzony dedykowany dźwięk (bez ogłoszenia głosowego)",
-          "player_device": "Odtwarzacz multimediów lub skrypt (script.*), jeśli typ odtwarzacza to Skrypt. Skrypt otrzymuje jako zmienne chime_url albo message i language."
+          "player_device": "Odtwarzacz multimediów lub skrypt (script.*), jeśli typ odtwarzacza to Skrypt. Skrypt otrzymuje jako zmienne chime_url albo message i language.",
+          "count_strikes": "O pełnej godzinie zegar wybija uderzenia jak zegar wahadłowy: 1 o pierwszej, 3 o trzeciej, 12 w południe i o północy. Zastępuje dźwięk dzwonka o pełnej godzinie; z zegarem wieżowym najpierw gra Westminster. Wymaga 'Użyj dźwięku dzwonka'."
         }
       }
     },

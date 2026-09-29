@@ -102,6 +102,13 @@ Durante la configuración se le pedirá primero que seleccione el tipo de reprod
 - Se reproduce **solo a las 12:00** (mediodía)
 - Reemplaza la campana normal en ese momento
 
+**Campanadas contadas:**
+- Opción separada "count_strikes" (desactivada por defecto)
+- A la hora en punto el reloj da tantas campanadas como la hora, de 1 a 12 (3 a las 3 y a las 15, 12 a mediodía y medianoche)
+- Sustituye la campana normal en la hora en punto; las medias horas y los cuartos no cambian
+- Con "tower_clock", a las 12:00 suena primero Westminster y luego las 12 campanadas
+- El anuncio de voz espera a la última campanada
+
 **Anuncio de voz:**
 - **Activado** (predeterminado): el dispositivo pronuncia la hora después de la campana
 - **Desactivado**: solo sonido de campana, sin anuncio de voz
@@ -164,6 +171,7 @@ Esto crea un efecto similar a un péndulo real 🎶.
 | announce_half_hours_voice | Activa/desactiva el anuncio de voz en las medias horas (la campana sigue sonando) |
 | voice_announcement | Activa/desactiva el anuncio de voz de la hora |
 | tower_clock | Activa la melodía de Westminster a las 12:00 |
+| count_strikes | Da las horas como un reloj de péndulo (3 campanadas a las 3) |
 | use_chime | Activa/desactiva la campana antes del anuncio |
 | preset_chime | Elección del sonido de campana (12 preajustes disponibles) |
 | custom_chime_path | Ruta para el sonido de campana personalizado |

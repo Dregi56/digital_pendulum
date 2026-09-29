@@ -102,6 +102,13 @@ Podczas konfiguracji zostaniesz najpierw poproszony o wybranie typu odtwarzacza,
 - Odtwarza się **tylko o 12:00** (południe)
 - Zastępuje normalny dzwonek o tej porze
 
+**Liczone uderzenia:**
+- Osobna opcja "count_strikes" (domyślnie wyłączona)
+- O pełnej godzinie zegar wybija liczbę godzin, od 1 do 12 (3 uderzenia o 3 i o 15, 12 w południe i o północy)
+- Zastępuje zwykły dzwonek o pełnej godzinie; pół i kwadranse bez zmian
+- Z "tower_clock" o 12:00 najpierw gra Westminster, a potem 12 uderzeń
+- Komunikat głosowy czeka na ostatnie uderzenie
+
 **Ogłoszenie głosowe:**
 - **Włączone** (domyślnie): urządzenie wymawia godzinę po dzwonku
 - **Wyłączone**: tylko dźwięk dzwonka, bez ogłoszenia głosowego
@@ -164,6 +171,7 @@ Tworzy to efekt podobny do prawdziwego wahadła 🎶.
 | announce_half_hours_voice | Włącza/wyłącza ogłoszenie głosowe o półgodzinach (dzwonek nadal gra) |
 | voice_announcement | Włącza/wyłącza głosowe ogłoszenie godziny |
 | tower_clock | Włącza melodię Westminster o 12:00 |
+| count_strikes | Wybija godziny jak zegar wahadłowy (3 uderzenia o 3) |
 | use_chime | Włącza/wyłącza dzwonek przed ogłoszeniem |
 | preset_chime | Wybór dźwięku dzwonka (12 dostępnych ustawień wstępnych) |
 | custom_chime_path | Ścieżka do niestandardowego dźwięku dzwonka |

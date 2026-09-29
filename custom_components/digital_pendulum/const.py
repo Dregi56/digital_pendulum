@@ -16,6 +16,7 @@ CONF_AFTER_CHIME_DELAY = "after_chime_delay"
 CONF_ANNOUNCE_HALF_HOURS_VOICE = "announce_half_hours_voice"
 CONF_USE_HALF_HOUR_CHIME = "use_half_hour_chime"
 CONF_LANGUAGE = "language"
+CONF_COUNT_STRIKES = "count_strikes"
 DEFAULT_ENABLED = True
 DEFAULT_ANNOUNCE_HALF_HOURS = True
 DEFAULT_VOICE_ANNOUNCEMENT = True
@@ -30,6 +31,12 @@ DEFAULT_ANNOUNCE_HALF_HOURS_VOICE = True
 DEFAULT_ANNOUNCE_QUARTER_HOURS = False
 DEFAULT_USE_HALF_HOUR_CHIME = False
 DEFAULT_LANGUAGE = "auto"
+DEFAULT_COUNT_STRIKES = False
+
+# Counted strikes: sounds/strikes/strike_<n>.mp3 contains n strikes of
+# clock-strikes.mp3, one every STRIKE_INTERVAL seconds.
+STRIKES_URL = "https://raw.githubusercontent.com/Dregi56/digital_pendulum/main/sounds/strikes/strike_{count}.mp3"
+STRIKE_INTERVAL = 1.6
 SWITCH_ENTITY_ID = "digital_pendulum_enabled"
 PLAYER_TYPES = {
     "alexa": "Alexa (alexa_media_player)",

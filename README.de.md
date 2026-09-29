@@ -101,6 +101,13 @@ Bei der Einrichtung werden Sie zuerst gebeten, den Wiedergabetyp auszuwählen, d
 - Wird **nur um 12:00** (Mittag) abgespielt
 - Ersetzt den normalen Glockenton zu dieser Zeit
 
+**Gezählte Schläge:**
+- Eigene Option "count_strikes" (standardmäßig aus)
+- Zur vollen Stunde schlägt die Uhr die Stundenzahl, 1 bis 12 (3 Schläge um 3 und um 15 Uhr, 12 zu Mittag und Mitternacht)
+- Ersetzt die normale Glocke zur vollen Stunde; halbe und viertel Stunden bleiben unverändert
+- Mit "tower_clock" erklingt um 12:00 zuerst Westminster, dann die 12 Schläge
+- Die Sprachansage wartet auf den letzten Schlag
+
 **Sprachansage:**
 - **Aktiviert** (Standard): Das Gerät spricht die Uhrzeit nach der Glocke aus
 - **Deaktiviert**: Nur Glockenton, keine Sprachansage
@@ -163,6 +170,7 @@ Dies erzeugt einen Effekt ähnlich einer echten Pendeluhr 🎶.
 | announce_half_hours_voice | Aktiviert/deaktiviert Sprachansage zur halben Stunde (Glocke spielt weiterhin) |
 | voice_announcement | Aktiviert/deaktiviert die Zeitsprachansage |
 | tower_clock | Aktiviert Westminster-Melodie um 12:00 |
+| count_strikes | Schlägt die Stunden wie eine Pendeluhr (3 Schläge um 3 Uhr) |
 | use_chime | Aktiviert/deaktiviert den Glockenton vor der Ansage |
 | preset_chime | Auswahl des Glockentons (12 verfügbare Voreinstellungen) |
 | custom_chime_path | Pfad für benutzerdefinierten Glockenton |

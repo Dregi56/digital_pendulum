@@ -20,7 +20,8 @@
           "custom_chime_path": "Chemin de cloche personnalisé (optionnel)",
           "after_chime_delay": "Pause après la cloche (secondes)",
           "use_half_hour_chime": "Utiliser un son dédié pour la demi-heure",
-          "announce_quarter_hours": "Sonner aux quarts d'heure"
+          "announce_quarter_hours": "Sonner aux quarts d'heure",
+          "count_strikes": "Compter les heures avec des coups"
         },
         "data_description": {
           "language": "Sélectionnez la langue pour les annonces horaires. 'Automatique' utilise le paramètre de langue de Home Assistant",
@@ -29,7 +30,8 @@
           "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.8)",
           "use_half_hour_chime": "Si activé, un son dédié sera joué aux demi-heures à la place de la cloche normale",
           "announce_quarter_hours": "Si activé, un son dédié sera joué à :15 et :45 (sans annonce vocale)",
-          "player_device": "Media player à utiliser, ou un script (script.*) si le type de lecteur est Script. Le script reçoit chime_url, ou message et language, comme variables."
+          "player_device": "Media player à utiliser, ou un script (script.*) si le type de lecteur est Script. Le script reçoit chime_url, ou message et language, comme variables.",
+          "count_strikes": "À l'heure pile, l'horloge sonne comme une pendule : 1 coup à 1 heure, 3 à 3 heures, 12 à midi et à minuit. Remplace le carillon à l'heure pile ; avec l'horloge de tour, Westminster sonne d'abord. Nécessite « Utiliser un son de cloche »."
         }
       }
     },
@@ -59,7 +61,8 @@
           "custom_chime_path": "Chemin de cloche personnalisé (optionnel)",
           "after_chime_delay": "Pause après la cloche (secondes)",
           "use_half_hour_chime": "Utiliser un son dédié pour la demi-heure",
-          "announce_quarter_hours": "Sonner aux quarts d'heure"
+          "announce_quarter_hours": "Sonner aux quarts d'heure",
+          "count_strikes": "Compter les heures avec des coups"
         },
         "data_description": {
           "language": "Sélectionnez la langue pour les annonces horaires. 'Automatique' utilise le paramètre de langue de Home Assistant",
@@ -68,7 +71,8 @@
           "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)",
           "use_half_hour_chime": "Si activé, un son dédié sera joué aux demi-heures à la place de la cloche normale",
           "announce_quarter_hours": "Si activé, un son dédié sera joué à :15 et :45 (sans annonce vocale)",
-          "player_device": "Media player à utiliser, ou un script (script.*) si le type de lecteur est Script. Le script reçoit chime_url, ou message et language, comme variables."
+          "player_device": "Media player à utiliser, ou un script (script.*) si le type de lecteur est Script. Le script reçoit chime_url, ou message et language, comme variables.",
+          "count_strikes": "À l'heure pile, l'horloge sonne comme une pendule : 1 coup à 1 heure, 3 à 3 heures, 12 à midi et à minuit. Remplace le carillon à l'heure pile ; avec l'horloge de tour, Westminster sonne d'abord. Nécessite « Utiliser un son de cloche »."
         }
       }
     },

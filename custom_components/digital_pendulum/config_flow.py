@@ -20,6 +20,7 @@ from .const import (
     CONF_USE_HALF_HOUR_CHIME,
     CONF_ANNOUNCE_QUARTER_HOURS,
     CONF_LANGUAGE,
+    CONF_COUNT_STRIKES,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -34,6 +35,7 @@ from .const import (
     DEFAULT_USE_HALF_HOUR_CHIME,
     DEFAULT_ANNOUNCE_QUARTER_HOURS,
     DEFAULT_LANGUAGE,
+    DEFAULT_COUNT_STRIKES,
     PRESET_CHIMES,
     PLAYER_TYPES,
     PLAYER_TYPE_SCRIPT,
@@ -195,6 +197,11 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONF_ANNOUNCE_QUARTER_HOURS,
                     default=DEFAULT_ANNOUNCE_QUARTER_HOURS,
                 ): bool,
+                # 13) Rintocchi contati (3 colpi alle 3)
+                vol.Required(
+                    CONF_COUNT_STRIKES,
+                    default=DEFAULT_COUNT_STRIKES,
+                ): bool,
             }
         )
         if user_input is not None:
@@ -354,6 +361,11 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                 vol.Required(
                     CONF_ANNOUNCE_QUARTER_HOURS,
                     default=current_options.get(CONF_ANNOUNCE_QUARTER_HOURS, DEFAULT_ANNOUNCE_QUARTER_HOURS),
+                ): bool,
+                # 13) Rintocchi contati (3 colpi alle 3)
+                vol.Required(
+                    CONF_COUNT_STRIKES,
+                    default=current_options.get(CONF_COUNT_STRIKES, DEFAULT_COUNT_STRIKES),
                 ): bool,
             }
         )

@@ -20,7 +20,8 @@
           "custom_chime_path": "Vlastná cesta k zvuku (voliteľné)",
           "after_chime_delay": "Pauza po zvončeku (sekundy)",
           "use_half_hour_chime": "Použiť zvláštny zvuk pre polhodinu",
-          "announce_quarter_hours": "Zvoniť v štvrťhodinách"
+          "announce_quarter_hours": "Zvoniť v štvrťhodinách",
+          "count_strikes": "Odbíjať hodiny údermi"
         },
         "data_description": {
           "language": "Vyberte jazyk pre hlasové oznámenia. 'Automaticky' použije nastavenie jazyka Home Assistant",
@@ -29,7 +30,8 @@
           "after_chime_delay": "Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1.8)",
           "use_half_hour_chime": "Ak je zapnuté, v polhodinách sa prehrá zvláštny zvuk namiesto normálneho zvončeka",
           "announce_quarter_hours": "Ak je zapnuté, o :15 a :45 sa prehrá zvláštny zvuk (bez hlasového oznámenia)",
-          "player_device": "Prehrávač médií alebo skript (script.*), ak je typ prehrávača Skript. Skript dostáva ako premenné chime_url, alebo message a language."
+          "player_device": "Prehrávač médií alebo skript (script.*), ak je typ prehrávača Skript. Skript dostáva ako premenné chime_url, alebo message a language.",
+          "count_strikes": "V celú hodinu hodiny odbíjajú ako kyvadlové hodiny: 1 úder o jednej, 3 o tretej, 12 na poludnie a o polnoci. Nahrádza zvuk zvona v celú hodinu; s vežovými hodinami zaznie najprv Westminster. Vyžaduje 'Použiť zvuk zvončeka'."
         }
       }
     },
@@ -59,7 +61,8 @@
           "custom_chime_path": "Vlastná cesta k zvuku (voliteľné)",
           "after_chime_delay": "Pauza po zvončeku (sekundy)",
           "use_half_hour_chime": "Použiť zvláštny zvuk pre polhodinu",
-          "announce_quarter_hours": "Zvoniť v štvrťhodinách"
+          "announce_quarter_hours": "Zvoniť v štvrťhodinách",
+          "count_strikes": "Odbíjať hodiny údermi"
         },
         "data_description": {
           "language": "Vyberte jazyk pre hlasové oznámenia. 'Automaticky' použije nastavenie jazyka Home Assistant",
@@ -68,7 +71,8 @@
           "after_chime_delay": "Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1.2)",
           "use_half_hour_chime": "Ak je zapnuté, v polhodinách sa prehrá zvláštny zvuk namiesto normálneho zvončeka",
           "announce_quarter_hours": "Ak je zapnuté, o :15 a :45 sa prehrá zvláštny zvuk (bez hlasového oznámenia)",
-          "player_device": "Prehrávač médií alebo skript (script.*), ak je typ prehrávača Skript. Skript dostáva ako premenné chime_url, alebo message a language."
+          "player_device": "Prehrávač médií alebo skript (script.*), ak je typ prehrávača Skript. Skript dostáva ako premenné chime_url, alebo message a language.",
+          "count_strikes": "V celú hodinu hodiny odbíjajú ako kyvadlové hodiny: 1 úder o jednej, 3 o tretej, 12 na poludnie a o polnoci. Nahrádza zvuk zvona v celú hodinu; s vežovými hodinami zaznie najprv Westminster. Vyžaduje 'Použiť zvuk zvončeka'."
         }
       }
     },

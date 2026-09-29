@@ -102,6 +102,13 @@ Lors de la configuration, il vous sera d'abord demandé de sélectionner le type
 - Joue **uniquement à 12:00** (midi)
 - Remplace la sonnerie normale à ce moment
 
+**Coups comptés :**
+- Option séparée "count_strikes" (désactivée par défaut)
+- À l'heure pile l'horloge sonne le nombre de l'heure, de 1 à 12 (3 coups à 3 h et à 15 h, 12 à midi et à minuit)
+- Remplace le carillon normal à l'heure pile ; les demi-heures et les quarts ne changent pas
+- Avec "tower_clock", à 12:00 Westminster sonne d'abord, puis les 12 coups
+- L'annonce vocale attend le dernier coup
+
 **Annonce vocale :**
 - **Activée** (par défaut) : l'appareil prononce l'heure après la sonnerie
 - **Désactivée** : son de sonnerie uniquement, pas d'annonce vocale
@@ -164,6 +171,7 @@ Cela crée un effet similaire à un vrai pendule 🎶.
 | announce_half_hours_voice | Active/désactive l'annonce vocale à la demi-heure (la sonnerie joue toujours) |
 | voice_announcement | Active/désactive l'annonce vocale de l'heure |
 | tower_clock | Active la mélodie de Westminster à 12:00 |
+| count_strikes | Sonne les heures comme une pendule (3 coups à 3 heures) |
 | use_chime | Active/désactive la sonnerie avant l'annonce |
 | preset_chime | Choix du son de sonnerie (12 préréglages disponibles) |
 | custom_chime_path | Chemin pour le son de sonnerie personnalisé |

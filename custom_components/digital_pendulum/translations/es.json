@@ -20,7 +20,8 @@
           "custom_chime_path": "Ruta de campana personalizada (opcional)",
           "after_chime_delay": "Pausa después de la campana (segundos)",
           "use_half_hour_chime": "Usar sonido dedicado para la media hora",
-          "announce_quarter_hours": "Sonar en los cuartos de hora"
+          "announce_quarter_hours": "Sonar en los cuartos de hora",
+          "count_strikes": "Contar las horas con campanadas"
         },
         "data_description": {
           "language": "Seleccione el idioma para los anuncios de hora. 'Automático' usa la configuración de idioma de Home Assistant",
@@ -29,7 +30,8 @@
           "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.8)",
           "use_half_hour_chime": "Si está activado, se reproducirá un sonido dedicado en las medias horas en lugar de la campana normal",
           "announce_quarter_hours": "Si está activado, se reproducirá un sonido dedicado a las :15 y :45 (sin anuncio de voz)",
-          "player_device": "Media player a usar, o un script (script.*) si el tipo de reproductor es Script. El script recibe chime_url, o message y language, como variables."
+          "player_device": "Media player a usar, o un script (script.*) si el tipo de reproductor es Script. El script recibe chime_url, o message y language, como variables.",
+          "count_strikes": "A la hora en punto el reloj da las campanadas como un reloj de péndulo: 1 a la una, 3 a las 3, 12 a mediodía y medianoche. Sustituye el sonido de la campana en la hora en punto; con el reloj de torre suena primero Westminster. Requiere 'Usar sonido de campana'."
         }
       }
     },
@@ -59,7 +61,8 @@
           "custom_chime_path": "Ruta de campana personalizada (opcional)",
           "after_chime_delay": "Pausa después de la campana (segundos)",
           "use_half_hour_chime": "Usar sonido dedicado para la media hora",
-          "announce_quarter_hours": "Sonar en los cuartos de hora"
+          "announce_quarter_hours": "Sonar en los cuartos de hora",
+          "count_strikes": "Contar las horas con campanadas"
         },
         "data_description": {
           "language": "Seleccione el idioma para los anuncios de hora. 'Automático' usa la configuración de idioma de Home Assistant",
@@ -68,7 +71,8 @@
           "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)",
           "use_half_hour_chime": "Si está activado, se reproducirá un sonido dedicado en las medias horas en lugar de la campana normal",
           "announce_quarter_hours": "Si está activado, se reproducirá un sonido dedicado a las :15 y :45 (sin anuncio de voz)",
-          "player_device": "Media player a usar, o un script (script.*) si el tipo de reproductor es Script. El script recibe chime_url, o message y language, como variables."
+          "player_device": "Media player a usar, o un script (script.*) si el tipo de reproductor es Script. El script recibe chime_url, o message y language, como variables.",
+          "count_strikes": "A la hora en punto el reloj da las campanadas como un reloj de péndulo: 1 a la una, 3 a las 3, 12 a mediodía y medianoche. Sustituye el sonido de la campana en la hora en punto; con el reloj de torre suena primero Westminster. Requiere 'Usar sonido de campana'."
         }
       }
     },

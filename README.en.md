@@ -136,6 +136,13 @@ script:
 - Plays **only at 12:00** (noon)
 - Replaces the normal chime at that time
 
+**Counted strikes:**
+- Separate "count_strikes" option (off by default)
+- On the hour the clock strikes the number of the hour, 1 to 12 (3 strikes at 3 and at 15, 12 at noon and midnight)
+- Replaces the normal chime on the hour; half and quarter hours are unchanged
+- With "tower_clock", at 12:00 Westminster plays first and then the 12 strikes
+- The voice announcement waits for the last strike
+
 **Voice announcement:**
 - **Enabled** (default): the device pronounces the time after the bell
 - **Disabled**: Bell sound only, no voice announcement
@@ -198,6 +205,7 @@ This creates an effect similar to a real pendulum 🎶.
 | announce_half_hours_voice | Enables/disables voice announcement at half hours (chime still plays) |
 | voice_announcement | Enables/disables the voice time announcement |
 | tower_clock | Enables Westminster melody at 12:00 |
+| count_strikes | Strikes the hours like a pendulum clock (3 strikes at 3) |
 | use_chime | Enables/disables the bell before the announcement |
 | preset_chime | Choice of bell sound (12 available presets) |
 | custom_chime_path | Path for custom bell sound |

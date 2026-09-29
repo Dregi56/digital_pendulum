@@ -102,6 +102,13 @@ Během nastavení budete nejprve požádáni o výběr typu přehrávače, poté
 - Přehrává se **pouze ve 12:00** (poledne)
 - Nahrazuje normální zvon v tu dobu
 
+**Počítané údery:**
+- Samostatná možnost "count_strikes" (ve výchozím stavu vypnutá)
+- V celou hodinu hodiny odbijí počet hodin, 1 až 12 (3 údery ve 3 a v 15, 12 v poledne a o půlnoci)
+- Nahrazuje běžný zvon v celou hodinu; půlhodiny a čtvrthodiny se nemění
+- S "tower_clock" ve 12:00 zazní nejprve Westminster a pak 12 úderů
+- Hlasové oznámení počká na poslední úder
+
 **Hlasové oznámení:**
 - **Zapnuto** (výchozí): zařízení vyslovuje čas po zvonu
 - **Vypnuto**: pouze zvuk zvonu, žádné hlasové oznámení
@@ -164,6 +171,7 @@ Vzniká tak efekt podobný skutečnému kyvadlu 🎶.
 | announce_half_hours_voice | Zapíná/vypíná hlasové oznámení v půl hodinách (zvon stále hraje) |
 | voice_announcement | Zapíná/vypíná hlasové oznámení času |
 | tower_clock | Zapíná westminsterskou melodii ve 12:00 |
+| count_strikes | Odbíjí hodiny jako kyvadlové hodiny (3 údery ve tři) |
 | use_chime | Zapíná/vypíná zvon před oznámením |
 | preset_chime | Výběr zvuku zvonu (12 dostupných předvoleb) |
 | custom_chime_path | Cesta k vlastnímu zvuku zvonu |

@@ -135,6 +135,13 @@ script:
 - Suona **solo alle 12:00** (mezzogiorno)
 - Sostituisce la campana normale in quel momento
 
+**Rintocchi contati:**
+- Opzione separata "count_strikes" (disattivata di default)
+- Allo scoccare dell'ora l'orologio batte il numero dell'ora, da 1 a 12 (3 rintocchi alle 3 e alle 15, 12 a mezzogiorno e a mezzanotte)
+- Sostituisce la campana normale allo scoccare dell'ora; mezz'ore e quarti non cambiano
+- Con "tower_clock", alle 12:00 suona prima Westminster e poi i 12 rintocchi
+- L'annuncio vocale aspetta l'ultimo rintocco
+
 **Annuncio vocale:**
 - **Abilitato** (default): il dispositivo pronuncia l'ora dopo la campana
 - **Disabilitato**: solo suono della campana, nessun annuncio vocale
@@ -197,6 +204,7 @@ Si crea così un effetto simile a un vero pendolo 🎶.
 | announce_half_hours_voice | Abilita/disabilita l'annuncio vocale alle mezz'ore (la campana suona comunque) |
 | voice_announcement | Abilita/disabilita l'annuncio vocale dell'ora |
 | tower_clock | Abilita la melodia di Westminster alle 12:00 |
+| count_strikes | Batte le ore come una pendola (3 rintocchi alle 3) |
 | use_chime | Abilita/disabilita la campana prima dell'annuncio |
 | preset_chime | Scelta del suono della campana (12 preset disponibili) |
 | custom_chime_path | Percorso per il suono campana personalizzato |

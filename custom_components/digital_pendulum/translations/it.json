@@ -20,7 +20,8 @@
           "custom_chime_path": "Percorso campana personalizzata (opzionale)",
           "after_chime_delay": "Pausa dopo la campana (secondi)",
           "use_half_hour_chime": "Usa suono dedicato per la mezz'ora",
-          "announce_quarter_hours": "Suona ai quarti d'ora"
+          "announce_quarter_hours": "Suona ai quarti d'ora",
+          "count_strikes": "Batti le ore con i rintocchi"
         },
         "data_description": {
           "language": "Seleziona la lingua per gli annunci dell'ora. 'Automatico' usa la lingua impostata in Home Assistant",
@@ -29,7 +30,8 @@
           "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.8)",
           "use_half_hour_chime": "Se abilitato, alla mezz'ora verrà riprodotto un suono dedicato invece della campana normale",
           "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (nessun annuncio vocale)",
-          "player_device": "Media player da usare, oppure uno script (script.*) se il tipo di player è Script. Lo script riceve come variabili chime_url, oppure message e language."
+          "player_device": "Media player da usare, oppure uno script (script.*) se il tipo di player è Script. Lo script riceve come variabili chime_url, oppure message e language.",
+          "count_strikes": "Allo scoccare dell'ora l'orologio batte i colpi come una pendola: 1 rintocco all'una, 3 alle 3, 12 a mezzogiorno e a mezzanotte. Sostituisce il suono della campana allo scoccare dell'ora; con l'orologio da torre suona prima Westminster. Richiede 'Usa Suono Campana'."
         }
       }
     },
@@ -59,7 +61,8 @@
           "custom_chime_path": "Percorso campana personalizzata (opzionale)",
           "after_chime_delay": "Pausa dopo la campana (secondi)",
           "use_half_hour_chime": "Usa suono dedicato per la mezz'ora",
-          "announce_quarter_hours": "Suona ai quarti d'ora"
+          "announce_quarter_hours": "Suona ai quarti d'ora",
+          "count_strikes": "Batti le ore con i rintocchi"
         },
         "data_description": {
           "language": "Seleziona la lingua per gli annunci dell'ora. 'Automatico' usa la lingua impostata in Home Assistant",
@@ -68,7 +71,8 @@
           "after_chime_delay": "Tempo di attesa in secondi tra la campana e l'annuncio vocale (default: 1.2)",
           "use_half_hour_chime": "Se abilitato, alla mezz'ora verrà riprodotto un suono dedicato invece della campana normale",
           "announce_quarter_hours": "Se abilitato, alle :15 e alle :45 verrà riprodotto un suono dedicato (nessun annuncio vocale)",
-          "player_device": "Media player da usare, oppure uno script (script.*) se il tipo di player è Script. Lo script riceve come variabili chime_url, oppure message e language."
+          "player_device": "Media player da usare, oppure uno script (script.*) se il tipo di player è Script. Lo script riceve come variabili chime_url, oppure message e language.",
+          "count_strikes": "Allo scoccare dell'ora l'orologio batte i colpi come una pendola: 1 rintocco all'una, 3 alle 3, 12 a mezzogiorno e a mezzanotte. Sostituisce il suono della campana allo scoccare dell'ora; con l'orologio da torre suona prima Westminster. Richiede 'Usa Suono Campana'."
         }
       }
     },

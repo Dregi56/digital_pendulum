@@ -102,6 +102,13 @@ Durante a configuração, será solicitado que selecione primeiro o tipo de repr
 - Reproduz **apenas às 12:00** (meio-dia)
 - Substitui o sino normal nesse momento
 
+**Badaladas contadas:**
+- Opção separada "count_strikes" (desativada por predefinição)
+- À hora certa o relógio bate o número da hora, de 1 a 12 (3 badaladas às 3 e às 15, 12 ao meio-dia e à meia-noite)
+- Substitui o sino normal à hora certa; as meias horas e os quartos não mudam
+- Com "tower_clock", às 12:00 toca primeiro Westminster e depois as 12 badaladas
+- O anúncio de voz espera pela última badalada
+
 **Anúncio de voz:**
 - **Ativado** (padrão): o dispositivo pronuncia a hora após o sino
 - **Desativado**: apenas som do sino, sem anúncio de voz
@@ -163,6 +170,7 @@ Isto cria um efeito semelhante a um pêndulo real 🎶.
 | announce_half_hours_voice | Ativa/desativa o anúncio de voz nas meias horas (o sino continua a tocar) |
 | voice_announcement | Ativa/desativa o anúncio de voz da hora |
 | tower_clock | Ativa a melodia de Westminster às 12:00 |
+| count_strikes | Bate as horas como um relógio de pêndulo (3 badaladas às 3) |
 | use_chime | Ativa/desativa o sino antes do anúncio |
 | preset_chime | Escolha do som do sino (12 predefinições disponíveis) |
 | custom_chime_path | Caminho para o som do sino personalizado |

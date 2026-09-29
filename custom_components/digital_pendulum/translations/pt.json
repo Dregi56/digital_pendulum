@@ -20,7 +20,8 @@
           "custom_chime_path": "Caminho do sino personalizado (opcional)",
           "after_chime_delay": "Pausa após o sino (segundos)",
           "use_half_hour_chime": "Usar som dedicado para a meia hora",
-          "announce_quarter_hours": "Tocar sino nos quartos de hora"
+          "announce_quarter_hours": "Tocar sino nos quartos de hora",
+          "count_strikes": "Contar as horas com badaladas"
         },
         "data_description": {
           "language": "Selecione o idioma para os anúncios de hora. 'Automático' usa a configuração de idioma do Home Assistant",
@@ -29,7 +30,8 @@
           "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.8)",
           "use_half_hour_chime": "Se ativado, um som dedicado será reproduzido nas meias horas em vez do sino normal",
           "announce_quarter_hours": "Se ativado, um som dedicado será reproduzido às :15 e :45 (sem anúncio vocal)",
-          "player_device": "Media player a utilizar, ou um script (script.*) se o tipo de leitor for Script. O script recebe chime_url, ou message e language, como variáveis."
+          "player_device": "Media player a utilizar, ou um script (script.*) se o tipo de leitor for Script. O script recebe chime_url, ou message e language, como variáveis.",
+          "count_strikes": "À hora certa o relógio bate as badaladas como um relógio de pêndulo: 1 à uma, 3 às 3, 12 ao meio-dia e à meia-noite. Substitui o som do sino à hora certa; com o relógio de torre toca primeiro Westminster. Requer 'Usar Som de Sino'."
         }
       }
     },
@@ -59,7 +61,8 @@
           "custom_chime_path": "Caminho do sino personalizado (opcional)",
           "after_chime_delay": "Pausa após o sino (segundos)",
           "use_half_hour_chime": "Usar som dedicado para a meia hora",
-          "announce_quarter_hours": "Tocar sino nos quartos de hora"
+          "announce_quarter_hours": "Tocar sino nos quartos de hora",
+          "count_strikes": "Contar as horas com badaladas"
         },
         "data_description": {
           "language": "Selecione o idioma para os anúncios de hora. 'Automático' usa a configuração de idioma do Home Assistant",
@@ -68,7 +71,8 @@
           "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.2)",
           "use_half_hour_chime": "Se ativado, um som dedicado será reproduzido nas meias horas em vez do sino normal",
           "announce_quarter_hours": "Se ativado, um som dedicado será reproduzido às :15 e :45 (sem anúncio vocal)",
-          "player_device": "Media player a utilizar, ou um script (script.*) se o tipo de leitor for Script. O script recebe chime_url, ou message e language, como variáveis."
+          "player_device": "Media player a utilizar, ou um script (script.*) se o tipo de leitor for Script. O script recebe chime_url, ou message e language, como variáveis.",
+          "count_strikes": "À hora certa o relógio bate as badaladas como um relógio de pêndulo: 1 à uma, 3 às 3, 12 ao meio-dia e à meia-noite. Substitui o som do sino à hora certa; com o relógio de torre toca primeiro Westminster. Requer 'Usar Som de Sino'."
         }
       }
     },

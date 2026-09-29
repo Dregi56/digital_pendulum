@@ -20,7 +20,8 @@
           "custom_chime_path": "Eigener Glockenton-Pfad (optional)",
           "after_chime_delay": "Pause nach dem Glockenton (Sekunden)",
           "use_half_hour_chime": "Dedizierten Glockenton für die halbe Stunde verwenden",
-          "announce_quarter_hours": "Glockenton zur Viertelstunde"
+          "announce_quarter_hours": "Glockenton zur Viertelstunde",
+          "count_strikes": "Stunden mit Schlägen zählen"
         },
         "data_description": {
           "language": "Wählen Sie die Sprache für die Zeitansagen. 'Automatisch' verwendet die Spracheinstellung von Home Assistant",
@@ -29,7 +30,8 @@
           "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.8)",
           "use_half_hour_chime": "Wenn aktiviert, wird zur halben Stunde ein dedizierter Klang anstelle des normalen Glockentons abgespielt",
           "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang abgespielt (keine Sprachansage)",
-          "player_device": "Zu verwendender Media Player oder ein Skript (script.*), wenn der Player-Typ Skript ist. Das Skript erhält chime_url oder message und language als Variablen."
+          "player_device": "Zu verwendender Media Player oder ein Skript (script.*), wenn der Player-Typ Skript ist. Das Skript erhält chime_url oder message und language als Variablen.",
+          "count_strikes": "Zur vollen Stunde schlägt die Uhr wie eine Pendeluhr: 1 Schlag um 1 Uhr, 3 um 3 Uhr, 12 zu Mittag und Mitternacht. Ersetzt den Glockenton zur vollen Stunde; mit der Turmuhr erklingt zuerst Westminster. Erfordert 'Glockenton verwenden'."
         }
       }
     },
@@ -59,7 +61,8 @@
           "custom_chime_path": "Eigener Glockenton-Pfad (optional)",
           "after_chime_delay": "Pause nach dem Glockenton (Sekunden)",
           "use_half_hour_chime": "Dedizierten Glockenton für die halbe Stunde verwenden",
-          "announce_quarter_hours": "Glockenton zur Viertelstunde"
+          "announce_quarter_hours": "Glockenton zur Viertelstunde",
+          "count_strikes": "Stunden mit Schlägen zählen"
         },
         "data_description": {
           "language": "Wählen Sie die Sprache für die Zeitansagen. 'Automatisch' verwendet die Spracheinstellung von Home Assistant",
@@ -68,7 +71,8 @@
           "after_chime_delay": "Wartezeit in Sekunden zwischen Glockenton und Sprachansage (Standard: 1.2)",
           "use_half_hour_chime": "Wenn aktiviert, wird zur halben Stunde ein dedizierter Klang anstelle des normalen Glockentons abgespielt",
           "announce_quarter_hours": "Wenn aktiviert, wird um :15 und :45 Uhr ein dedizierter Klang abgespielt (keine Sprachansage)",
-          "player_device": "Zu verwendender Media Player oder ein Skript (script.*), wenn der Player-Typ Skript ist. Das Skript erhält chime_url oder message und language als Variablen."
+          "player_device": "Zu verwendender Media Player oder ein Skript (script.*), wenn der Player-Typ Skript ist. Das Skript erhält chime_url oder message und language als Variablen.",
+          "count_strikes": "Zur vollen Stunde schlägt die Uhr wie eine Pendeluhr: 1 Schlag um 1 Uhr, 3 um 3 Uhr, 12 zu Mittag und Mitternacht. Ersetzt den Glockenton zur vollen Stunde; mit der Turmuhr erklingt zuerst Westminster. Erfordert 'Glockenton verwenden'."
         }
       }
     },

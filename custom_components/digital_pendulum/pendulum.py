@@ -35,6 +35,10 @@ from .const import (
     DEFAULT_USE_HALF_HOUR_CHIME,
     DEFAULT_ANNOUNCE_QUARTER_HOURS,
     DEFAULT_LANGUAGE,
+    CONF_COUNT_STRIKES,
+    DEFAULT_COUNT_STRIKES,
+    STRIKES_URL,
+    STRIKE_INTERVAL,
     PRESET_CHIMES,
     DOMAIN,
 )
@@ -104,6 +108,7 @@ class DigitalPendulum:
         self.use_half_hour_chime = config.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME)
         self.announce_quarter_hours = config.get(CONF_ANNOUNCE_QUARTER_HOURS, DEFAULT_ANNOUNCE_QUARTER_HOURS)
         self.language = config.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
+        self.count_strikes = config.get(CONF_COUNT_STRIKES, DEFAULT_COUNT_STRIKES)
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
 
@@ -394,37 +399,53 @@ class DigitalPendulum:
                 e,
             )
 
-    async def _play_chime(self, hour: int = None, minute: int = None):
+    @staticmethod
+    def _strike_count(hour: int) -> int:
+        """Number of strikes for an hour, like a pendulum clock (1-12)."""
+        return hour % 12 or 12
+
+    async def _play_strikes(self, hour: int) -> float:
+        """Play the counted strikes and return the wait before the voice."""
+        count = self._strike_count(hour)
+        await self._player.play_chime(STRIKES_URL.format(count=count))
+        # Same gap after the last strike as after a single chime.
+        return (count - 1) * STRIKE_INTERVAL + self.after_chime_delay
+
+    async def _play_chime(self, hour: int = None, minute: int = None) -> float:
+        """Play the chime and return how long to wait before the voice."""
+        on_the_hour = hour is not None and minute == 0
         if self.tower_clock and hour == 12 and minute == 0:
             westminster_url = PRESET_CHIMES["westminster"]["url"]
             await self._player.play_chime(westminster_url)
-            return
+            if not self.count_strikes:
+                return WESTMINSTER_CHIME_DURATION
+            # Like a tower clock: Westminster first, then the twelve strikes.
+            await asyncio.sleep(WESTMINSTER_CHIME_DURATION)
+            return await self._play_strikes(hour)
+        if self.count_strikes and on_the_hour:
+            return await self._play_strikes(hour)
         if minute == 30 and self.use_half_hour_chime:
             half_hour_url = PRESET_CHIMES["half-hour"]["url"]
             await self._player.play_chime(half_hour_url)
-            return
+            return self.after_chime_delay
         if self.preset_chime and self.preset_chime != "custom":
             chime_info = PRESET_CHIMES.get(self.preset_chime)
             if chime_info and chime_info["url"]:
                 await self._player.play_chime(chime_info["url"])
-                return
+                return self.after_chime_delay
         elif self.preset_chime == "custom" and self.custom_chime_path and self.custom_chime_path.strip():
             await self._player.play_chime(self.custom_chime_path.strip())
-            return
+            return self.after_chime_delay
         await self._player.play_default_chime()
+        return self.after_chime_delay
 
     async def _speak(self, text: str, hour: int = None, minute: int = None):
         try:
             if self.use_chime:
-                await self._play_chime(hour, minute)
-                # Alle 12 in punto (con tower_clock attivo) suona westminster.mp3,
-                # che dura circa 19 secondi: il delay classico configurato
-                # dall'utente non basterebbe, quindi in questo caso specifico
-                # usiamo un'attesa fissa dedicata invece di after_chime_delay.
-                if self.tower_clock and hour == 12 and minute == 0:
-                    delay = WESTMINSTER_CHIME_DURATION
-                else:
-                    delay = self.after_chime_delay
+                # _play_chime returns the wait before the voice: the
+                # configured after_chime_delay, the fixed Westminster duration
+                # at 12:00 (tower_clock), or the length of the counted strikes.
+                delay = await self._play_chime(hour, minute)
                 await asyncio.sleep(delay)
             if self.voice_announcement:
                 if minute == 30 and not self.announce_half_hours_voice:
