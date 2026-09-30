@@ -112,6 +112,7 @@ script:
 
 ### 🕐 Créneau horaire configurable
 - ex. uniquement de 8h00 à 22h00
+- ou à cheval sur minuit, ex. de 22h00 à 7h00 (heure de début supérieure à l'heure de fin)
 
 ### 🔔 Sonnerie optionnelle
 - 🎵 12 sons prédéfinis au choix
@@ -232,7 +233,7 @@ Digital Pendulum inclut un capteur de diagnostic :
 
 **États :**
 - ✅ **OFF** - Tout fonctionne correctement
-- ⚠️ **ON** - Problèmes détectés (intégration désactivée, Alexa hors ligne, etc.)
+- ⚠️ **ON** - Problèmes détectés (lecteur hors ligne, heure de début égale à l'heure de fin, etc.)
 
 **Utilisations :**
 - Surveillance du tableau de bord

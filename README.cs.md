@@ -112,6 +112,7 @@ script:
 
 ### 🕐 Konfigurovatelný časový rozsah
 - např. pouze od 8:00 do 22:00
+- nebo přes půlnoc, např. od 22:00 do 7:00 (počáteční hodina větší než koncová)
 
 ### 🔔 Volitelný zvon
 - 🎵 12 přednastavených zvuků na výběr
@@ -232,7 +233,7 @@ Digital Pendulum obsahuje diagnostický senzor:
 
 **Stavy:**
 - ✅ **OFF** - Vše funguje správně
-- ⚠️ **ON** - Zjištěny problémy (integrace zakázána, Alexa offline atd.)
+- ⚠️ **ON** - Zjištěny problémy (přehrávač offline, počáteční hodina stejná jako koncová atd.)
 
 **Použití:**
 - Monitorování dashboardu

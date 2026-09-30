@@ -112,6 +112,7 @@ script:
 
 ### 🕐 Intervalo de tiempo configurable
 - p.ej. solo de 8:00 a 22:00
+- o pasando la medianoche, p.ej. de 22:00 a 7:00 (hora de inicio mayor que la hora de fin)
 
 ### 🔔 Campana opcional
 - 🎵 12 sonidos predefinidos para elegir
@@ -232,7 +233,7 @@ Digital Pendulum incluye un sensor de diagnóstico:
 
 **Estados:**
 - ✅ **OFF** - Todo funciona correctamente
-- ⚠️ **ON** - Problemas detectados (integración desactivada, Alexa sin conexión, etc.)
+- ⚠️ **ON** - Problemas detectados (reproductor sin conexión, hora de inicio igual a la hora de fin, etc.)
 
 **Usos:**
 - Monitoreo del panel de control
