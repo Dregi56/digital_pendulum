@@ -45,7 +45,7 @@ The result is an elegant and discreet effect, ideal for home or office.
 
 ## 🔊 Supported Devices
 
-Digital Pendulum supports three player types:
+Digital Pendulum supports four player types:
 
 | Type | Description | Requirement |
 |------|-------------|-------------|
@@ -322,7 +322,7 @@ Digital Pendulum automatically uses the Home Assistant language.
 - Integration enabled? (Switch ON)
 - Are you within the configured time slot? (default 8:00-22:00)
 - Device online?
-- Correct player type selected? (Alexa, Google, Generic)
+- Correct player type selected? (Alexa, Google, Generic, Script)
 - Try the "Test" button
 
 ---
