@@ -14,7 +14,7 @@ class DigitalPendulumTestButton(ButtonEntity):
     """Pulsante per testare l'annuncio del pendolo."""
 
     _attr_has_entity_name = True
-    _attr_name = "Test Announcement"
+    _attr_translation_key = "test_announcement"
     _attr_icon = "mdi:bell-ring"
     _attr_entity_category = EntityCategory.DIAGNOSTIC
 

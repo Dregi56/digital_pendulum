@@ -14,7 +14,7 @@ class DigitalPendulumSwitch(SwitchEntity, RestoreEntity):
     """Switch per abilitare/disabilitare il pendolo digitale."""
 
     _attr_has_entity_name = True
-    _attr_name = "Enabled"
+    _attr_translation_key = "digital_pendulum_enabled"
     _attr_icon = "mdi:clock-outline"
     _attr_entity_category = EntityCategory.CONFIG
 

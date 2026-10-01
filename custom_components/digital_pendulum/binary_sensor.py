@@ -16,7 +16,7 @@ class DigitalPendulumStatusSensor(BinarySensorEntity):
     """Binary sensor che mostra problemi di configurazione o stato."""
     
     _attr_has_entity_name = True
-    _attr_name = "Status Warning"
+    _attr_translation_key = "status_warning"
     _attr_device_class = BinarySensorDeviceClass.PROBLEM
     _attr_entity_category = EntityCategory.DIAGNOSTIC
 
