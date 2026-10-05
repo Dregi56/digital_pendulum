@@ -11,6 +11,7 @@
           "end_hour": "Godzina końcowa",
           "enabled": "Włączone",
           "language": "Język ogłoszeń",
+          "announcement_style": "Styl komunikatów",
           "announce_half_hours": "Ogłaszaj półgodziny",
           "voice_announcement": "Ogłoszenie głosowe",
           "announce_half_hours_voice": "Ogłoszenie głosowe o półgodzinach",
@@ -24,6 +25,7 @@
         },
         "data_description": {
           "language": "Wybierz język ogłoszeń czasowych. 'Automatyczny' używa ustawienia języka Home Assistant",
+          "announcement_style": "Klasyczny: „Ore 15 e trenta”. Potoczny: „Sono le 3 e mezza”, „È mezzanotte”, „È l'una”. Na razie dotyczy tylko języka włoskiego: pozostałe języki zawsze używają stylu klasycznego.",
           "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
           "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.8)",
@@ -50,6 +52,7 @@
           "end_hour": "Godzina końcowa",
           "enabled": "Włączone",
           "language": "Język ogłoszeń",
+          "announcement_style": "Styl komunikatów",
           "announce_half_hours": "Ogłaszaj półgodziny",
           "voice_announcement": "Ogłoszenie głosowe",
           "announce_half_hours_voice": "Ogłoszenie głosowe o półgodzinach",
@@ -63,6 +66,7 @@
         },
         "data_description": {
           "language": "Wybierz język ogłoszeń czasowych. 'Automatyczny' używa ustawienia języka Home Assistant",
+          "announcement_style": "Klasyczny: „Ore 15 e trenta”. Potoczny: „Sono le 3 e mezza”, „È mezzanotte”, „È l'una”. Na razie dotyczy tylko języka włoskiego: pozostałe języki zawsze używają stylu klasycznego.",
           "custom_chime_path": "Np.: www/sounds/bell.mp3 (Formaty: MP3, WAV, OGG - pozostaw puste dla domyślnego)",
           "announce_half_hours_voice": "Jeśli wyłączone, dzwonek nadal będzie grać o półgodzinach, ale ogłoszenie głosowe nie zostanie wykonane",
           "after_chime_delay": "Czas oczekiwania w sekundach między dzwonkiem a ogłoszeniem głosowym (domyślnie: 1.2)",
@@ -75,6 +79,14 @@
     "error": {
       "script_required": "Dla typu odtwarzacza Skrypt wybierz encję skryptu (script.*)",
       "media_player_required": "Ten typ odtwarzacza wymaga encji odtwarzacza multimediów (media_player.*)"
+    }
+  },
+  "selector": {
+    "announcement_style": {
+      "options": {
+        "classic": "Klasyczny",
+        "colloquial": "Potoczny"
+      }
     }
   },
   "entity": {

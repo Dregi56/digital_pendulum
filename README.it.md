@@ -161,6 +161,8 @@ La lingua viene rilevata automaticamente da Homeassistant
 
 🌐 **Lingua degli annunci:** Possibilità di scegliere la lingua degli annunci vocali indipendentemente dalla lingua impostata in Home Assistant (disponibili: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, oppure Automatico per seguire la lingua di Home Assistant).
 
+🗨️ **Stile degli annunci:** *Classico* (predefinito) o *Colloquiale*. Lo stile colloquiale dice "Sono le 3 e mezza", "È mezzanotte", "È mezzogiorno", "È l'una" invece di "Ore 15 e trenta", "Ore 0", "Ore 12", "Ore una". Per ora vale solo per l'italiano: le altre lingue usano sempre lo stile classico.
+
 Esempi di annunci:
 
 | Lingua | Ora | Annuncio |

@@ -11,6 +11,7 @@
           "end_hour": "End hour",
           "enabled": "Enabled",
           "language": "Announcement language",
+          "announcement_style": "Announcement style",
           "announce_half_hours": "Announce half hours",
           "voice_announcement": "Voice announcement",
           "announce_half_hours_voice": "Voice announcement at half hours",
@@ -25,6 +26,7 @@
         "data_description": {
           "player_type": "Select your device type (Alexa, Google Home, or Generic)",
           "language": "Select the language for time announcements. 'Automatic' uses the Home Assistant language setting",
+          "announcement_style": "Classic: \"Ore 15 e trenta\". Colloquial: \"Sono le 3 e mezza\", \"È mezzanotte\", \"È l'una\". For now it only affects Italian: the other languages always use the classic style.",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)",
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)",
@@ -46,6 +48,7 @@
           "end_hour": "End hour",
           "enabled": "Enabled",
           "language": "Announcement language",
+          "announcement_style": "Announcement style",
           "announce_half_hours": "Announce half hours",
           "voice_announcement": "Voice announcement",
           "announce_half_hours_voice": "Voice announcement at half hours",
@@ -60,12 +63,21 @@
         "data_description": {
           "player_type": "Select your device type (Alexa, Google Home, or Generic)",
           "language": "Select the language for time announcements. 'Automatic' uses the Home Assistant language setting",
+          "announcement_style": "Classic: \"Ore 15 e trenta\". Colloquial: \"Sono le 3 e mezza\", \"È mezzanotte\", \"È l'una\". For now it only affects Italian: the other languages always use the classic style.",
           "custom_chime_path": "E.g.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - leave empty for default)",
           "announce_half_hours_voice": "If disabled, the chime will still play at half hours but no voice announcement will be made",
           "after_chime_delay": "Waiting time in seconds between the chime and the voice announcement (default: 1.2)",
           "use_half_hour_chime": "If enabled, a dedicated sound will play at half hours instead of the normal chime",
           "announce_quarter_hours": "If enabled, a dedicated sound will play at :15 and :45 (no voice announcement)"
         }
+      }
+    }
+  },
+  "selector": {
+    "announcement_style": {
+      "options": {
+        "classic": "Classic",
+        "colloquial": "Colloquial"
       }
     }
   },

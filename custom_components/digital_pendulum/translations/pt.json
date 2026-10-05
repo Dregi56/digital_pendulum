@@ -11,6 +11,7 @@
           "end_hour": "Hora de Fim",
           "enabled": "Ativado",
           "language": "Idioma dos anúncios",
+          "announcement_style": "Estilo dos anúncios",
           "announce_half_hours": "Anunciar as meias horas",
           "voice_announcement": "Anúncio vocal",
           "announce_half_hours_voice": "Anúncio vocal nas meias horas",
@@ -24,6 +25,7 @@
         },
         "data_description": {
           "language": "Selecione o idioma para os anúncios de hora. 'Automático' usa a configuração de idioma do Home Assistant",
+          "announcement_style": "Clássico: \"Ore 15 e trenta\". Coloquial: \"Sono le 3 e mezza\", \"È mezzanotte\", \"È l'una\". Por enquanto só afeta o italiano: os outros idiomas usam sempre o estilo clássico.",
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - deixe vazio para o padrão)",
           "announce_half_hours_voice": "Se desativado, o sino continuará a tocar nas meias horas mas o anúncio vocal não será feito",
           "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.8)",
@@ -50,6 +52,7 @@
           "end_hour": "Hora de Fim",
           "enabled": "Ativado",
           "language": "Idioma dos anúncios",
+          "announcement_style": "Estilo dos anúncios",
           "announce_half_hours": "Anunciar as meias horas",
           "voice_announcement": "Anúncio vocal",
           "announce_half_hours_voice": "Anúncio vocal nas meias horas",
@@ -63,6 +66,7 @@
         },
         "data_description": {
           "language": "Selecione o idioma para os anúncios de hora. 'Automático' usa a configuração de idioma do Home Assistant",
+          "announcement_style": "Clássico: \"Ore 15 e trenta\". Coloquial: \"Sono le 3 e mezza\", \"È mezzanotte\", \"È l'una\". Por enquanto só afeta o italiano: os outros idiomas usam sempre o estilo clássico.",
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - deixe vazio para o padrão)",
           "announce_half_hours_voice": "Se desativado, o sino continuará a tocar nas meias horas mas o anúncio vocal não será feito",
           "after_chime_delay": "Tempo de espera em segundos entre o sino e o anúncio vocal (padrão: 1.2)",
@@ -75,6 +79,14 @@
     "error": {
       "script_required": "Com o tipo de leitor Script, selecione uma entidade script (script.*)",
       "media_player_required": "Este tipo de leitor requer uma entidade media player (media_player.*)"
+    }
+  },
+  "selector": {
+    "announcement_style": {
+      "options": {
+        "classic": "Clássico",
+        "colloquial": "Coloquial"
+      }
     }
   },
   "entity": {

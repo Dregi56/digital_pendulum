@@ -161,6 +161,8 @@ Jazyk je automaticky rozpoznán z Home Assistant.
 
 🌐 **Jazyk oznámení:** Možnost zvolit jazyk hlasových oznámení nezávisle na jazyce nastaveném v Home Assistant (dostupné: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, nebo Automaticky pro sledování jazyka Home Assistant).
 
+🗨️ **Styl hlášení:** *Klasický* (výchozí) nebo *Hovorový*. Hovorovou variantu má zatím jen italština: „Sono le 3 e mezza“, „È mezzanotte“, „È l'una“ místo „Ore 15 e trenta“, „Ore 0“, „Ore una“. Ostatní jazyky vždy používají klasický styl.
+
 Příklady oznámení:
 
 | Jazyk | Čas | Oznámení |

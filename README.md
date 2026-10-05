@@ -162,6 +162,8 @@ The language is automatically detected from Home Assistant.
 
 🌐 **Announcement language:** Possibility to choose the language of voice announcements independently from the language set in Home Assistant (available: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, or Automatic to follow the Home Assistant language).
 
+🗨️ **Announcement style:** *Classic* (default) or *Colloquial*. For now only Italian has a colloquial variant: "Sono le 3 e mezza", "È mezzanotte", "È l'una" instead of "Ore 15 e trenta", "Ore 0", "Ore una". The other languages always use the classic style.
+
 Announcement examples:
 
 | Language | Time | Announcement |

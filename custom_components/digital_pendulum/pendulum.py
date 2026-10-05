@@ -21,6 +21,7 @@ from .const import (
     CONF_USE_HALF_HOUR_CHIME,
     CONF_ANNOUNCE_QUARTER_HOURS,
     CONF_LANGUAGE,
+    CONF_ANNOUNCEMENT_STYLE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -35,6 +36,8 @@ from .const import (
     DEFAULT_USE_HALF_HOUR_CHIME,
     DEFAULT_ANNOUNCE_QUARTER_HOURS,
     DEFAULT_LANGUAGE,
+    DEFAULT_ANNOUNCEMENT_STYLE,
+    ANNOUNCEMENT_STYLE_COLLOQUIAL,
     PRESET_CHIMES,
     DOMAIN,
 )
@@ -104,6 +107,7 @@ class DigitalPendulum:
         self.use_half_hour_chime = config.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME)
         self.announce_quarter_hours = config.get(CONF_ANNOUNCE_QUARTER_HOURS, DEFAULT_ANNOUNCE_QUARTER_HOURS)
         self.language = config.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
+        self.announcement_style = config.get(CONF_ANNOUNCEMENT_STYLE, DEFAULT_ANNOUNCEMENT_STYLE)
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
 
@@ -132,6 +136,21 @@ class DigitalPendulum:
             return self.language
         lang = self.hass.config.language or "en"
         return lang[:2].lower()
+
+    def _is_colloquial(self) -> bool:
+        return self.announcement_style == ANNOUNCEMENT_STYLE_COLLOQUIAL
+
+    @staticmethod
+    def _it_colloquial_hour(hour: int) -> str:
+        """Ora in italiano colloquiale: "È mezzanotte", "È l'una", "Sono le 3"."""
+        if hour == 0:
+            return "È mezzanotte"
+        if hour == 12:
+            return "È mezzogiorno"
+        hour12 = hour % 12
+        if hour12 == 1:
+            return "È l'una"
+        return f"Sono le {hour12}"
 
     def _to_12h_with_period(self, hour: int):
         hour12 = hour % 12
@@ -256,15 +275,13 @@ class DigitalPendulum:
 
         # --- Italiano ---
         if language == "it":
-            special = {0: "mezzanotte", 12: "mezzogiorno", 1: "l'una"}
-            if hour in special:
-                name = special[hour]
-                if minute == 30:
-                    return f"{name[0].upper()}{name[1:]} e trenta"
-                return f"È {name}"
+            if self._is_colloquial():
+                suffix = " e mezza" if minute == 30 else ""
+                return self._it_colloquial_hour(hour) + suffix
+            hour_text = "una" if hour == 1 else str(hour)
             if minute == 30:
-                return f"Ore {hour} e trenta"
-            return f"Ore {hour}"
+                return f"Ore {hour_text} e trenta"
+            return f"Ore {hour_text}"
 
         # --- Portoghese ---
         if language == "pt":
@@ -349,10 +366,10 @@ class DigitalPendulum:
 
         # --- Italiano ---
         if language == "it":
-            special = {0: "Mezzanotte", 12: "Mezzogiorno", 1: "L'una"}
-            if hour in special:
-                return f"{special[hour]} e {minute}"
-            return f"Ore {hour} e {minute}"
+            if self._is_colloquial():
+                return f"{self._it_colloquial_hour(hour)} e {minute}"
+            hour_text = "una" if hour == 1 else str(hour)
+            return f"Ore {hour_text} e {minute}"
 
         # --- Portoghese ---
         if language == "pt":

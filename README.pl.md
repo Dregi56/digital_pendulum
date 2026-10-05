@@ -161,6 +161,8 @@ Język jest wykrywany automatycznie przez Home Assistant.
 
 🌐 **Język ogłoszeń:** Możliwość wyboru języka ogłoszeń głosowych niezależnie od języka ustawionego w Home Assistant (dostępne: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, lub Automatyczny aby podążać za językiem Home Assistant).
 
+🗨️ **Styl komunikatów:** *Klasyczny* (domyślny) lub *Potoczny*. Na razie wariant potoczny ma tylko język włoski: „Sono le 3 e mezza”, „È mezzanotte”, „È l'una” zamiast „Ore 15 e trenta”, „Ore 0”, „Ore una”. Pozostałe języki zawsze używają stylu klasycznego.
+
 Przykłady ogłoszeń:
 
 | Język | Godzina | Ogłoszenie |

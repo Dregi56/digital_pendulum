@@ -11,6 +11,7 @@
           "end_hour": "Heure de fin",
           "enabled": "Activé",
           "language": "Langue des annonces",
+          "announcement_style": "Style des annonces",
           "announce_half_hours": "Annoncer les demi-heures",
           "voice_announcement": "Annonce vocale",
           "announce_half_hours_voice": "Annonce vocale aux demi-heures",
@@ -24,6 +25,7 @@
         },
         "data_description": {
           "language": "Sélectionnez la langue pour les annonces horaires. 'Automatique' utilise le paramètre de langue de Home Assistant",
+          "announcement_style": "Classique : « Ore 15 e trenta ». Familier : « Sono le 3 e mezza », « È mezzanotte », « È l'una ». Pour l'instant, ne concerne que l'italien : les autres langues utilisent toujours le style classique.",
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)",
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
           "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.8)",
@@ -50,6 +52,7 @@
           "end_hour": "Heure de fin",
           "enabled": "Activé",
           "language": "Langue des annonces",
+          "announcement_style": "Style des annonces",
           "announce_half_hours": "Annoncer les demi-heures",
           "voice_announcement": "Annonce vocale",
           "announce_half_hours_voice": "Annonce vocale aux demi-heures",
@@ -63,6 +66,7 @@
         },
         "data_description": {
           "language": "Sélectionnez la langue pour les annonces horaires. 'Automatique' utilise le paramètre de langue de Home Assistant",
+          "announcement_style": "Classique : « Ore 15 e trenta ». Familier : « Sono le 3 e mezza », « È mezzanotte », « È l'una ». Pour l'instant, ne concerne que l'italien : les autres langues utilisent toujours le style classique.",
           "custom_chime_path": "Ex.: www/sounds/bell.mp3 (Formats: MP3, WAV, OGG - laisser vide pour défaut)",
           "announce_half_hours_voice": "Si désactivé, la cloche sonnera quand même aux demi-heures mais l'annonce vocale ne sera pas effectuée",
           "after_chime_delay": "Temps d'attente en secondes entre la cloche et l'annonce vocale (défaut : 1.2)",
@@ -75,6 +79,14 @@
     "error": {
       "script_required": "Avec le type de lecteur Script, sélectionnez une entité script (script.*)",
       "media_player_required": "Ce type de lecteur nécessite une entité media player (media_player.*)"
+    }
+  },
+  "selector": {
+    "announcement_style": {
+      "options": {
+        "classic": "Classique",
+        "colloquial": "Familier"
+      }
     }
   },
   "entity": {
