@@ -44,15 +44,48 @@ Das Ergebnis ist ein eleganter und dezenter Effekt, ideal für Zuhause oder Bür
 
 ## 🔊 Unterstützte Geräte
 
-Digital Pendulum unterstützt drei Wiedergabetypen:
+Digital Pendulum unterstützt vier Wiedergabetypen:
 
 | Typ | Beschreibung | Voraussetzung |
 |------|-------------|-------------|
 | **Alexa** | Amazon Echo Geräte | [alexa_media_player](https://github.com/custom-components/alexa_media_player) über HACS |
 | **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (native HA-Integration) |
 | **Generisch** | Jedes andere HA media_player Gerät | TTS-Engine in HA konfiguriert (Funktionalität kann variieren) |
+| **Skript** | Alles, was Ihr eigenes Skript kann | Ein Home Assistant Skript (siehe unten) |
 
 Bei der Einrichtung werden Sie zuerst gebeten, den Wiedergabetyp auszuwählen, dann das spezifische Gerät.
+
+### 🧩 Skript-Player (fortgeschritten)
+
+Mit dem Player-Typ **Skript** spielt Digital Pendulum selbst nichts ab: Es startet ein Home Assistant Skript Ihrer Wahl und übergibt
+- `chime_url` bei jedem Glockenschlag (leerer Text = Standardton), oder
+- `message` und `language` bei jeder Ansage (der bereits fertige Text in Ihrer Sprache).
+
+Das Skript entscheidet, wie und wo sie abgespielt werden: mehrere Lautsprecher, eine bestimmte TTS-Engine, eine Benachrichtigungs-Integration, zusätzliche Bedingungen (z. B. Nicht stören). Verwenden Sie `mode: queued`, damit Glockenschlag und Ansage immer in der richtigen Reihenfolge kommen.
+
+```yaml
+script:
+  pendel_lautsprecher:
+    mode: queued
+    sequence:
+      - if: "{{ chime_url is defined and chime_url != '' }}"
+        then:
+          - action: media_player.play_media
+            target:
+              entity_id: media_player.kueche
+            data:
+              media_content_id: "{{ chime_url }}"
+              media_content_type: audio/mp3
+              announce: true
+      - if: "{{ message is defined }}"
+        then:
+          - action: tts.speak
+            target:
+              entity_id: tts.home_assistant_cloud
+            data:
+              media_player_entity_id: media_player.kueche
+              message: "{{ message }}"
+```
 
 ## ✨ Hauptfunktionen
 
@@ -79,6 +112,7 @@ Bei der Einrichtung werden Sie zuerst gebeten, den Wiedergabetyp auszuwählen, d
 
 ### 🕐 Konfigurierbares Zeitfenster
 - z.B. nur von 8:00 bis 22:00
+- oder über Mitternacht, z.B. von 22:00 bis 7:00 (Startstunde größer als Endstunde)
 
 ### 🔔 Optionale Glocke
 - 🎵 12 voreingestellte Klänge zur Auswahl
@@ -153,7 +187,7 @@ Dies erzeugt einen Effekt ähnlich einer echten Pendeluhr 🎶.
 
 | Option | Beschreibung |
 |------|------------|
-| player_type | Typ des Wiedergabegeräts (Alexa, Google Home, Generisch) |
+| player_type | Typ des Wiedergabegeräts (Alexa, Google Home, Generisch, Skript) |
 | player | Zielgerät |
 | start_hour | Betriebsbeginn |
 | end_hour | Betriebsende |
@@ -198,7 +232,7 @@ Digital Pendulum enthält einen Diagnosesensor:
 
 **Zustände:**
 - ✅ **OFF** - Alles funktioniert korrekt
-- ⚠️ **ON** - Probleme erkannt (Integration deaktiviert, Alexa offline usw.)
+- ⚠️ **ON** - Probleme erkannt (Player offline, Startstunde gleich Endstunde usw.)
 
 **Verwendung:**
 - Dashboard-Überwachung
@@ -287,7 +321,7 @@ Digital Pendulum verwendet automatisch die Home Assistant Sprache.
 - Integration aktiviert? (Schalter ON)
 - Befinden Sie sich im konfigurierten Zeitfenster? (Standard 8:00-22:00)
 - Gerät online?
-- Richtiger Wiedergabetyp ausgewählt? (Alexa, Google, Generisch)
+- Richtiger Wiedergabetyp ausgewählt? (Alexa, Google, Generisch, Skript)
 - Versuchen Sie die Schaltfläche "Test"
 
 ---

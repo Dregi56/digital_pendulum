@@ -44,15 +44,48 @@ Efektem jest elegancki i dyskretny efekt, idealny do domu lub biura.
 
 ## 🔊 Obsługiwane urządzenia
 
-Digital Pendulum obsługuje trzy typy odtwarzaczy:
+Digital Pendulum obsługuje cztery typy odtwarzaczy:
 
 | Typ | Opis | Wymaganie |
 |------|-------------|-------------|
 | **Alexa** | Urządzenia Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) przez HACS |
 | **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (natywna integracja HA) |
 | **Ogólny** | Dowolne inne urządzenie HA media_player | Silnik TTS skonfigurowany w HA (funkcjonalność może się różnić) |
+| **Skrypt** | Wszystko, co potrafi Twój własny skrypt | Skrypt Home Assistant (patrz niżej) |
 
 Podczas konfiguracji zostaniesz najpierw poproszony o wybranie typu odtwarzacza, a następnie konkretnego urządzenia.
+
+### 🧩 Odtwarzacz Skrypt (zaawansowane)
+
+Przy typie odtwarzacza **Skrypt** Digital Pendulum sam niczego nie odtwarza: uruchamia wybrany przez Ciebie skrypt Home Assistant i przekazuje mu
+- `chime_url` przy każdym dzwonku (pusty tekst = dźwięk domyślny), albo
+- `message` i `language` przy każdym komunikacie (gotowy tekst w Twoim języku).
+
+To skrypt decyduje, jak i gdzie je odtworzyć: kilka głośników, wybrany silnik TTS, integracja powiadomień, dodatkowe warunki (np. nie przeszkadzać). Użyj `mode: queued`, aby dzwonek i komunikat zawsze były odtwarzane we właściwej kolejności.
+
+```yaml
+script:
+  wahadlo_glosnik:
+    mode: queued
+    sequence:
+      - if: "{{ chime_url is defined and chime_url != '' }}"
+        then:
+          - action: media_player.play_media
+            target:
+              entity_id: media_player.kuchnia
+            data:
+              media_content_id: "{{ chime_url }}"
+              media_content_type: audio/mp3
+              announce: true
+      - if: "{{ message is defined }}"
+        then:
+          - action: tts.speak
+            target:
+              entity_id: tts.home_assistant_cloud
+            data:
+              media_player_entity_id: media_player.kuchnia
+              message: "{{ message }}"
+```
 
 ## ✨ Główne funkcje
 
@@ -79,6 +112,7 @@ Podczas konfiguracji zostaniesz najpierw poproszony o wybranie typu odtwarzacza,
 
 ### 🕐 Konfigurowalny przedział czasowy
 - np. tylko od 8:00 do 22:00
+- lub przez północ, np. od 22:00 do 7:00 (godzina rozpoczęcia większa niż godzina zakończenia)
 
 ### 🔔 Opcjonalny dzwonek
 - 🎵 12 predefiniowanych dźwięków do wyboru
@@ -154,7 +188,7 @@ Tworzy to efekt podobny do prawdziwego wahadła 🎶.
 
 | Opcja | Opis |
 |------|------------|
-| player_type | Typ urządzenia odtwarzającego (Alexa, Google Home, Ogólny) |
+| player_type | Typ urządzenia odtwarzającego (Alexa, Google Home, Ogólny, Skrypt) |
 | player | Urządzenie docelowe |
 | start_hour | Godzina rozpoczęcia działania |
 | end_hour | Godzina zakończenia działania |
@@ -199,7 +233,7 @@ Digital Pendulum zawiera czujnik diagnostyczny:
 
 **Stany:**
 - ✅ **OFF** - Wszystko działa poprawnie
-- ⚠️ **ON** - Wykryto problemy (integracja wyłączona, Alexa offline itp.)
+- ⚠️ **ON** - Wykryto problemy (odtwarzacz offline, godzina rozpoczęcia równa godzinie zakończenia itp.)
 
 **Zastosowania:**
 - Monitorowanie pulpitu nawigacyjnego
@@ -288,7 +322,7 @@ Digital Pendulum automatycznie używa języka Home Assistant.
 - Integracja włączona? (Przełącznik ON)
 - Czy jesteś w skonfigurowanym przedziale czasowym? (domyślnie 8:00-22:00)
 - Urządzenie online?
-- Wybrany właściwy typ odtwarzacza? (Alexa, Google, Ogólny)
+- Wybrany właściwy typ odtwarzacza? (Alexa, Google, Ogólny, Skrypt)
 - Spróbuj przycisku "Test"
 
 ---

@@ -44,15 +44,48 @@ Le résultat est un effet élégant et discret, idéal pour la maison ou le bure
 
 ## 🔊 Appareils compatibles
 
-Digital Pendulum prend en charge trois types de lecteurs :
+Digital Pendulum prend en charge quatre types de lecteurs :
 
 | Type | Description | Prérequis |
 |------|-------------|-------------|
 | **Alexa** | Appareils Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) via HACS |
 | **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (intégration native HA) |
 | **Générique** | Tout autre appareil HA media_player | Moteur TTS configuré dans HA (les fonctionnalités peuvent varier) |
+| **Script** | Tout ce que votre propre script peut faire | Un script Home Assistant (voir ci-dessous) |
 
 Lors de la configuration, il vous sera d'abord demandé de sélectionner le type de lecteur, puis l'appareil spécifique.
+
+### 🧩 Lecteur Script (avancé)
+
+Avec le type de lecteur **Script**, Digital Pendulum ne joue rien lui-même : il lance un script Home Assistant de votre choix en lui passant
+- `chime_url` à chaque carillon (texte vide = son par défaut), ou
+- `message` et `language` à chaque annonce (le texte déjà prêt dans votre langue).
+
+C'est le script qui décide comment et où les jouer : plusieurs enceintes, un moteur TTS précis, une intégration de notifications, des conditions supplémentaires (par exemple ne pas déranger). Utilisez `mode: queued` pour que le carillon et l'annonce soient toujours joués dans l'ordre.
+
+```yaml
+script:
+  pendule_enceinte:
+    mode: queued
+    sequence:
+      - if: "{{ chime_url is defined and chime_url != '' }}"
+        then:
+          - action: media_player.play_media
+            target:
+              entity_id: media_player.cuisine
+            data:
+              media_content_id: "{{ chime_url }}"
+              media_content_type: audio/mp3
+              announce: true
+      - if: "{{ message is defined }}"
+        then:
+          - action: tts.speak
+            target:
+              entity_id: tts.home_assistant_cloud
+            data:
+              media_player_entity_id: media_player.cuisine
+              message: "{{ message }}"
+```
 
 ## ✨ Fonctionnalités principales
 
@@ -79,6 +112,7 @@ Lors de la configuration, il vous sera d'abord demandé de sélectionner le type
 
 ### 🕐 Créneau horaire configurable
 - ex. uniquement de 8h00 à 22h00
+- ou à cheval sur minuit, ex. de 22h00 à 7h00 (heure de début supérieure à l'heure de fin)
 
 ### 🔔 Sonnerie optionnelle
 - 🎵 12 sons prédéfinis au choix
@@ -154,7 +188,7 @@ Cela crée un effet similaire à un vrai pendule 🎶.
 
 | Option | Description |
 |------|------------|
-| player_type | Type d'appareil lecteur (Alexa, Google Home, Générique) |
+| player_type | Type d'appareil lecteur (Alexa, Google Home, Générique, Script) |
 | player | Appareil cible |
 | start_hour | Heure de début de fonctionnement |
 | end_hour | Heure de fin de fonctionnement |
@@ -199,7 +233,7 @@ Digital Pendulum inclut un capteur de diagnostic :
 
 **États :**
 - ✅ **OFF** - Tout fonctionne correctement
-- ⚠️ **ON** - Problèmes détectés (intégration désactivée, Alexa hors ligne, etc.)
+- ⚠️ **ON** - Problèmes détectés (lecteur hors ligne, heure de début égale à l'heure de fin, etc.)
 
 **Utilisations :**
 - Surveillance du tableau de bord
@@ -288,7 +322,7 @@ Digital Pendulum utilise automatiquement la langue de Home Assistant.
 - Intégration activée ? (Interrupteur ON)
 - Êtes-vous dans le créneau horaire configuré ? (défaut 8h00-22h00)
 - Appareil en ligne ?
-- Type de lecteur correct sélectionné ? (Alexa, Google, Générique)
+- Type de lecteur correct sélectionné ? (Alexa, Google, Générique, Script)
 - Essayez le bouton "Test"
 
 ---

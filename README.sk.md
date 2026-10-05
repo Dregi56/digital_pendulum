@@ -44,15 +44,48 @@ Výsledkom je elegantný a nenápadný efekt, ideálny pre domov alebo kancelár
 
 ## 🔊 Podporované zariadenia
 
-Digital Pendulum podporuje tri typy prehrávačov:
+Digital Pendulum podporuje štyri typy prehrávačov:
 
 | Typ | Popis | Požiadavka |
 |------|-------------|-------------|
 | **Alexa** | Zariadenia Amazon Echo | [alexa_media_player](https://github.com/custom-components/alexa_media_player) cez HACS |
 | **Google Home / Nest** | Google Home, Nest Mini, Nest Hub, Chromecast | Google Cast (natívna integrácia HA) |
 | **Všeobecný** | Akékoľvek iné zariadenie HA media_player | TTS engine nakonfigurovaný v HA (funkčnosť sa môže líšiť) |
+| **Skript** | Čokoľvek, čo zvládne váš vlastný skript | Skript Home Assistant (pozri nižšie) |
 
 Počas nastavenia budete najskôr požiadaní o výber typu prehrávača, potom konkrétneho zariadenia.
+
+### 🧩 Prehrávač Skript (pokročilé)
+
+S typom prehrávača **Skript** Digital Pendulum sám nič neprehráva: spustí skript Home Assistant podľa vášho výberu a odovzdá mu
+- `chime_url` pri každom zvone (prázdny text = predvolený zvuk), alebo
+- `message` a `language` pri každom oznámení (hotový text vo vašom jazyku).
+
+Skript rozhoduje, ako a kde ich prehrať: viac reproduktorov, konkrétny TTS engine, integrácia oznámení, ďalšie podmienky (napr. nerušiť). Použite `mode: queued`, aby zvon a oznámenie vždy zazneli v správnom poradí.
+
+```yaml
+script:
+  kyvadlo_reproduktor:
+    mode: queued
+    sequence:
+      - if: "{{ chime_url is defined and chime_url != '' }}"
+        then:
+          - action: media_player.play_media
+            target:
+              entity_id: media_player.kuchyna
+            data:
+              media_content_id: "{{ chime_url }}"
+              media_content_type: audio/mp3
+              announce: true
+      - if: "{{ message is defined }}"
+        then:
+          - action: tts.speak
+            target:
+              entity_id: tts.home_assistant_cloud
+            data:
+              media_player_entity_id: media_player.kuchyna
+              message: "{{ message }}"
+```
 
 ## ✨ Hlavné funkcie
 
@@ -79,6 +112,7 @@ Počas nastavenia budete najskôr požiadaní o výber typu prehrávača, potom 
 
 ### 🕐 Konfigurovateľný časový rozsah
 - napr. iba od 8:00 do 22:00
+- alebo cez polnoc, napr. od 22:00 do 7:00 (začiatočná hodina väčšia ako koncová)
 
 ### 🔔 Voliteľný zvonček
 - 🎵 12 prednastavených zvukov na výber
@@ -154,7 +188,7 @@ Vzniká tak efekt podobný skutočnému kyvadlu 🎶.
 
 | Možnosť | Popis |
 |------|------------|
-| player_type | Typ prehrávača (Alexa, Google Home, Všeobecný) |
+| player_type | Typ prehrávača (Alexa, Google Home, Všeobecný, Skript) |
 | player | Cieľové zariadenie |
 | start_hour | Čas začiatku prevádzky |
 | end_hour | Čas konca prevádzky |
@@ -199,7 +233,7 @@ Digital Pendulum obsahuje diagnostický senzor:
 
 **Stavy:**
 - ✅ **OFF** - Všetko funguje správne
-- ⚠️ **ON** - Zistené problémy (integrácia vypnutá, Alexa offline atď.)
+- ⚠️ **ON** - Zistené problémy (prehrávač offline, začiatočná hodina rovnaká ako koncová atď.)
 
 **Použitie:**
 - Monitorovanie dashboardu
@@ -288,7 +322,7 @@ Digital Pendulum automaticky používa jazyk Home Assistant.
 - Je integrácia zapnutá? (Prepínač ON)
 - Ste v nakonfigurovanom časovom rozsahu? (predvolené 8:00-22:00)
 - Je zariadenie online?
-- Je vybraný správny typ prehrávača? (Alexa, Google, Všeobecný)
+- Je vybraný správny typ prehrávača? (Alexa, Google, Všeobecný, Skript)
 - Skúste tlačidlo "Test"
 
 ---

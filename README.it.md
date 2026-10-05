@@ -44,7 +44,7 @@ Il risultato è un effetto elegante e discreto, ideale per la casa o l'ufficio.
 
 ## 🔊 Dispositivi supportati
 
-Digital Pendulum supporta tre tipi di player:
+Digital Pendulum supporta quattro tipi di player:
 
 | Tipo | Descrizione | Requisito |
 |------|-------------|-------------|
@@ -112,6 +112,7 @@ script:
 
 ### 🕐 Fascia oraria configurabile
 - es. solo dalle 8:00 alle 22:00
+- oppure a cavallo della mezzanotte, es. dalle 22:00 alle 7:00 (ora di inizio maggiore dell'ora di fine)
 
 ### 🔔 Campana opzionale
 - 🎵 12 suoni preimpostati tra cui scegliere
@@ -232,7 +233,7 @@ Digital Pendulum include un sensore diagnostico:
 
 **Stati:**
 - ✅ **OFF** - Tutto funziona correttamente
-- ⚠️ **ON** - Problemi rilevati (integrazione disabilitata, Alexa offline, ecc.)
+- ⚠️ **ON** - Problemi rilevati (player offline, ora di inizio uguale all'ora di fine, ecc.)
 
 **Utilizzi:**
 - Monitoraggio dashboard
@@ -321,7 +322,7 @@ Digital Pendulum usa automaticamente la lingua di Home Assistant.
 - Integrazione abilitata? (Interruttore ON)
 - Sei nella fascia oraria configurata? (default 8:00-22:00)
 - Dispositivo online?
-- Tipo di player corretto selezionato? (Alexa, Google, Generico)
+- Tipo di player corretto selezionato? (Alexa, Google, Generico, Script)
 - Prova il pulsante "Test"
 
 ---

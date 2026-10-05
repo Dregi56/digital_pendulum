@@ -169,15 +169,28 @@ class DigitalPendulum:
             return
         if minute == 30 and not self.announce_half_hours:
             return
-        if hour < self.start_hour or hour > self.end_hour:
-            return
-        if hour == self.end_hour and minute > 0:
+        if not self._in_active_hours(hour, minute):
             return
         if minute in (15, 45):
             await self._play_quarter_chime()
             return
         text = self._build_text(hour, minute)
         await self._speak(text, hour, minute)
+
+    def _in_active_hours(self, hour: int, minute: int) -> bool:
+        """Return True if hour:minute falls in the configured time range.
+
+        The end hour is included only at :00. A start hour greater than the
+        end hour is a range across midnight (e.g. 22 -> 7).
+        """
+        start, end = self.start_hour, self.end_hour
+        if start <= end:
+            inside = start <= hour <= end
+        else:
+            inside = hour >= start or hour <= end
+        if not inside:
+            return False
+        return not (hour == end and minute > 0)
 
     def _build_text(self, hour: int, minute: int) -> str:
         language = self._normalize_language()
