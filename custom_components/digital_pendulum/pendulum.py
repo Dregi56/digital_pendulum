@@ -21,6 +21,7 @@ from .const import (
     CONF_USE_HALF_HOUR_CHIME,
     CONF_ANNOUNCE_QUARTER_HOURS,
     CONF_LANGUAGE,
+    CONF_ANNOUNCEMENT_STYLE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -35,6 +36,8 @@ from .const import (
     DEFAULT_USE_HALF_HOUR_CHIME,
     DEFAULT_ANNOUNCE_QUARTER_HOURS,
     DEFAULT_LANGUAGE,
+    DEFAULT_ANNOUNCEMENT_STYLE,
+    ANNOUNCEMENT_STYLE_COLLOQUIAL,
     PRESET_CHIMES,
     DOMAIN,
 )
@@ -104,6 +107,7 @@ class DigitalPendulum:
         self.use_half_hour_chime = config.get(CONF_USE_HALF_HOUR_CHIME, DEFAULT_USE_HALF_HOUR_CHIME)
         self.announce_quarter_hours = config.get(CONF_ANNOUNCE_QUARTER_HOURS, DEFAULT_ANNOUNCE_QUARTER_HOURS)
         self.language = config.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
+        self.announcement_style = config.get(CONF_ANNOUNCEMENT_STYLE, DEFAULT_ANNOUNCEMENT_STYLE)
         player_type = config.get(CONF_PLAYER_TYPE, "alexa")
         self._player = _create_player(self.hass, self.player, player_type)
 
@@ -132,6 +136,21 @@ class DigitalPendulum:
             return self.language
         lang = self.hass.config.language or "en"
         return lang[:2].lower()
+
+    def _is_colloquial(self) -> bool:
+        return self.announcement_style == ANNOUNCEMENT_STYLE_COLLOQUIAL
+
+    @staticmethod
+    def _it_colloquial_hour(hour: int) -> str:
+        """Ora in italiano colloquiale: "È mezzanotte", "È l'una", "Sono le 3"."""
+        if hour == 0:
+            return "È mezzanotte"
+        if hour == 12:
+            return "È mezzogiorno"
+        hour12 = hour % 12
+        if hour12 == 1:
+            return "È l'una"
+        return f"Sono le {hour12}"
 
     def _to_12h_with_period(self, hour: int):
         hour12 = hour % 12
@@ -198,6 +217,10 @@ class DigitalPendulum:
 
         # --- Inglese ---
         if language == "en":
+            if minute == 0 and hour == 0:
+                return "It's midnight"
+            if minute == 0 and hour == 12:
+                return "It's noon"
             hour12, period = self._to_12h_with_period(hour)
             if minute == 30:
                 return f"It's {hour12} thirty {period}"
@@ -224,6 +247,10 @@ class DigitalPendulum:
                 if minute == 30:
                     return "Il est midi et demi"
                 return "Il est midi"
+            if hour == 1:
+                if minute == 30:
+                    return "Il est une heure et demie"
+                return "Il est une heure"
             if minute == 30:
                 return f"Il est {hour} heures et demie"
             return f"Il est {hour} heures"
@@ -236,11 +263,11 @@ class DigitalPendulum:
                 return "Es la una"
             if hour == 0:
                 if minute == 30:
-                    return "Es la medianoche y media"
+                    return "Son las doce y media"
                 return "Es medianoche"
             if hour == 12:
                 if minute == 30:
-                    return "Es el mediodía y medio"
+                    return "Son las doce y media"
                 return "Es mediodía"
             if minute == 30:
                 return f"Son las {hour % 12 if hour > 12 else hour} y media"
@@ -248,6 +275,9 @@ class DigitalPendulum:
 
         # --- Italiano ---
         if language == "it":
+            if self._is_colloquial():
+                suffix = " e mezza" if minute == 30 else ""
+                return self._it_colloquial_hour(hour) + suffix
             hour_text = "una" if hour == 1 else str(hour)
             if minute == 30:
                 return f"Ore {hour_text} e trenta"
@@ -262,13 +292,11 @@ class DigitalPendulum:
             if hour == 12 and minute == 0:
                 return "É meio-dia"
             if hour == 12 and minute == 30:
-                return "São meio-dia e meia"
+                return "É meio-dia e meia"
             if minute == 30:
-                if 1 <= hour <= 11:
-                    hour_word = "uma" if hour == 1 else str(hour)
-                    return f"É {hour_word} e meia"
-                else:
-                    return f"São {hour} e trinta"
+                if hour == 1:
+                    return "É uma e meia"
+                return f"São {hour} e meia"
             if hour == 1:
                 return "É uma hora"
             return f"São {hour} horas"
@@ -311,47 +339,47 @@ class DigitalPendulum:
         # --- Inglese ---
         if language == "en":
             hour12, period = self._to_12h_with_period(hour)
-            return f"It's {hour12} and {minute:02d} {period}"
+            return f"It's {hour12}:{minute:02d} {period}"
 
         # --- Tedesco ---
         if language == "de":
-            return f"Es ist {hour} Uhr {minute:02d}"
+            return f"Es ist {hour} Uhr {minute}"
 
         # --- Francese ---
         if language == "fr":
             if hour == 0:
-                return f"Il est minuit et {minute:02d}"
+                return f"Il est minuit {minute}"
             if hour == 12:
-                return f"Il est midi et {minute:02d}"
-            return f"Il est {hour} heures {minute:02d}"
+                return f"Il est midi {minute}"
+            if hour == 1:
+                return f"Il est une heure {minute}"
+            return f"Il est {hour} heures {minute}"
 
         # --- Spagnolo ---
         if language == "es":
-            if hour == 0:
-                return f"Es medianoche y {minute:02d}"
             if hour == 1 or hour == 13:
-                return f"Es la una y {minute:02d}"
-            if hour == 12:
-                return f"Es el mediodía y {minute:02d}"
+                return f"Es la una y {minute}"
+            if hour in (0, 12):
+                return f"Son las doce y {minute}"
             h = hour % 12 if hour > 12 else hour
-            return f"Son las {h} y {minute:02d}"
+            return f"Son las {h} y {minute}"
 
         # --- Italiano ---
         if language == "it":
+            if self._is_colloquial():
+                return f"{self._it_colloquial_hour(hour)} e {minute}"
             hour_text = "una" if hour == 1 else str(hour)
-            return f"Ore {hour_text} e {minute:02d}"
+            return f"Ore {hour_text} e {minute}"
 
         # --- Portoghese ---
         if language == "pt":
             if hour == 0:
-                return f"É meia-noite e {minute:02d}"
+                return f"É meia-noite e {minute}"
             if hour == 12:
-                return f"São meio-dia e {minute:02d}"
+                return f"É meio-dia e {minute}"
             if hour == 1:
-                return f"É uma e {minute:02d}"
-            if 2 <= hour <= 11:
-                return f"É {hour} e {minute:02d}"
-            return f"São {hour} e {minute:02d}"
+                return f"É uma e {minute}"
+            return f"São {hour} e {minute}"
 
         # --- Polacco ---
         if language == "pl":

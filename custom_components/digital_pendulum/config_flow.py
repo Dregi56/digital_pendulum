@@ -20,6 +20,7 @@ from .const import (
     CONF_USE_HALF_HOUR_CHIME,
     CONF_ANNOUNCE_QUARTER_HOURS,
     CONF_LANGUAGE,
+    CONF_ANNOUNCEMENT_STYLE,
     DEFAULT_START_HOUR,
     DEFAULT_END_HOUR,
     DEFAULT_ENABLED,
@@ -34,6 +35,8 @@ from .const import (
     DEFAULT_USE_HALF_HOUR_CHIME,
     DEFAULT_ANNOUNCE_QUARTER_HOURS,
     DEFAULT_LANGUAGE,
+    DEFAULT_ANNOUNCEMENT_STYLE,
+    ANNOUNCEMENT_STYLES,
     PRESET_CHIMES,
     PLAYER_TYPES,
     PLAYER_TYPE_SCRIPT,
@@ -129,6 +132,17 @@ class DigitalPendulumConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     selector.SelectSelectorConfig(
                         options=language_options,
                         mode=selector.SelectSelectorMode.DROPDOWN,
+                    )
+                ),
+                # 4b) Stile degli annunci (classico / colloquiale)
+                vol.Required(
+                    CONF_ANNOUNCEMENT_STYLE,
+                    default=DEFAULT_ANNOUNCEMENT_STYLE,
+                ): selector.SelectSelector(
+                    selector.SelectSelectorConfig(
+                        options=ANNOUNCEMENT_STYLES,
+                        mode=selector.SelectSelectorMode.DROPDOWN,
+                        translation_key=CONF_ANNOUNCEMENT_STYLE,
                     )
                 ),
                 # 5) Annunci
@@ -289,6 +303,17 @@ class DigitalPendulumOptionsFlow(config_entries.OptionsFlow):
                     selector.SelectSelectorConfig(
                         options=language_options,
                         mode=selector.SelectSelectorMode.DROPDOWN,
+                    )
+                ),
+                # 4b) Stile degli annunci (classico / colloquiale)
+                vol.Required(
+                    CONF_ANNOUNCEMENT_STYLE,
+                    default=current_options.get(CONF_ANNOUNCEMENT_STYLE, DEFAULT_ANNOUNCEMENT_STYLE),
+                ): selector.SelectSelector(
+                    selector.SelectSelectorConfig(
+                        options=ANNOUNCEMENT_STYLES,
+                        mode=selector.SelectSelectorMode.DROPDOWN,
+                        translation_key=CONF_ANNOUNCEMENT_STYLE,
                     )
                 ),
                 # 5) Annunci

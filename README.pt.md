@@ -160,6 +160,8 @@ Tudo acontece automaticamente sem necessidade de configurar automatizações!
 O idioma é detetado automaticamente pelo Home Assistant.
 🌐 **Idioma dos anúncios:** Possibilidade de escolher o idioma dos anúncios vocais independentemente do idioma configurado no Home Assistant (disponíveis: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, ou Automático para seguir o idioma do Home Assistant).
 
+🗨️ **Estilo dos anúncios:** *Clássico* (predefinido) ou *Coloquial*. Por enquanto só o italiano tem uma variante coloquial: "Sono le 3 e mezza", "È mezzanotte", "È l'una" em vez de "Ore 15 e trenta", "Ore 0", "Ore una". Os outros idiomas usam sempre o estilo clássico.
+
 Exemplos de anúncios:
 
 | Idioma | Hora | Anúncio |

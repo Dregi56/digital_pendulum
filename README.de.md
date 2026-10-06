@@ -160,6 +160,8 @@ Die Sprache wird automatisch von Home Assistant erkannt.
 
 🌐 **Sprache der Ansagen:** Möglichkeit, die Sprache der Sprachansagen unabhängig von der in Home Assistant eingestellten Sprache zu wählen (verfügbar: Italiano, English, Deutsch, Español, Français, Português, Polski, Čeština, Slovenčina, oder Automatisch um der Sprache von Home Assistant zu folgen).
 
+🗨️ **Ansagestil:** *Klassisch* (Standard) oder *Umgangssprachlich*. Derzeit gibt es nur für Italienisch eine umgangssprachliche Variante: „Sono le 3 e mezza“, „È mezzanotte“, „È l'una“ statt „Ore 15 e trenta“, „Ore 0“, „Ore una“. Die anderen Sprachen verwenden immer den klassischen Stil.
+
 Ansagebeispiele:
 
 | Sprache | Zeit | Ansage |

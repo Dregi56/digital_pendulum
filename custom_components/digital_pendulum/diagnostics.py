@@ -45,6 +45,7 @@ async def async_get_config_entry_diagnostics(
             if player_state and key in player_state.attributes
         },
         "announcement_language": pendulum._normalize_language(),
+        "announcement_style": pendulum.announcement_style,
         "start_hour": pendulum.start_hour,
         "end_hour": pendulum.end_hour,
     }

@@ -11,6 +11,7 @@
           "end_hour": "Koncová hodina",
           "enabled": "Povolené",
           "language": "Jazyk oznámení",
+          "announcement_style": "Štýl hlásení",
           "announce_half_hours": "Oznamovať polhodiny",
           "voice_announcement": "Hlasové oznámenie",
           "announce_half_hours_voice": "Hlasové oznámenie v polhodinách",
@@ -24,6 +25,7 @@
         },
         "data_description": {
           "language": "Vyberte jazyk pre hlasové oznámenia. 'Automaticky' použije nastavenie jazyka Home Assistant",
+          "announcement_style": "Klasický: „Ore 15 e trenta“. Hovorový: „Sono le 3 e mezza“, „È mezzanotte“, „È l'una“. Zatiaľ platí len pre taliančinu: ostatné jazyky vždy používajú klasický štýl.",
           "custom_chime_path": "Napr.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechajte prázdne pre predvolené)",
           "announce_half_hours_voice": "Ak je vypnuté, zvonček bude stále hrať v polhodinách, ale hlasové oznámenie nebude vykonané",
           "after_chime_delay": "Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1.8)",
@@ -50,6 +52,7 @@
           "end_hour": "Koncová hodina",
           "enabled": "Povolené",
           "language": "Jazyk oznámení",
+          "announcement_style": "Štýl hlásení",
           "announce_half_hours": "Oznamovať polhodiny",
           "voice_announcement": "Hlasové oznámenie",
           "announce_half_hours_voice": "Hlasové oznámenie v polhodinách",
@@ -63,6 +66,7 @@
         },
         "data_description": {
           "language": "Vyberte jazyk pre hlasové oznámenia. 'Automaticky' použije nastavenie jazyka Home Assistant",
+          "announcement_style": "Klasický: „Ore 15 e trenta“. Hovorový: „Sono le 3 e mezza“, „È mezzanotte“, „È l'una“. Zatiaľ platí len pre taliančinu: ostatné jazyky vždy používajú klasický štýl.",
           "custom_chime_path": "Napr.: www/sounds/bell.mp3 (Formáty: MP3, WAV, OGG - nechajte prázdne pre predvolené)",
           "announce_half_hours_voice": "Ak je vypnuté, zvonček bude stále hrať v polhodinách, ale hlasové oznámenie nebude vykonané",
           "after_chime_delay": "Čas čakania v sekundách medzi zvončekom a hlasovým oznámením (predvolené: 1.2)",
@@ -75,6 +79,14 @@
     "error": {
       "script_required": "Pri type prehrávača Skript vyberte entitu skriptu (script.*)",
       "media_player_required": "Tento typ prehrávača vyžaduje entitu prehrávača médií (media_player.*)"
+    }
+  },
+  "selector": {
+    "announcement_style": {
+      "options": {
+        "classic": "Klasický",
+        "colloquial": "Hovorový"
+      }
     }
   },
   "entity": {

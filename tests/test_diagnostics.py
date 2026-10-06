@@ -39,6 +39,7 @@ async def test_diagnostics(hass: HomeAssistant) -> None:
     assert runtime["player_state"] == "idle"
     assert runtime["player_attributes"] == {"friendly_name": "Kitchen", "volume_level": 0.4}
     assert runtime["announcement_language"] == "it"
+    assert runtime["announcement_style"] == "classic"
     assert runtime["enabled"] is True
 
 

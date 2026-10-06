@@ -11,6 +11,7 @@
           "end_hour": "Hora de fin",
           "enabled": "Habilitado",
           "language": "Idioma de los anuncios",
+          "announcement_style": "Estilo de los anuncios",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
           "announce_half_hours_voice": "Anuncio de voz en las medias horas",
@@ -24,6 +25,7 @@
         },
         "data_description": {
           "language": "Seleccione el idioma para los anuncios de hora. 'Automático' usa la configuración de idioma de Home Assistant",
+          "announcement_style": "Clásico: «Ore 15 e trenta». Coloquial: «Sono le 3 e mezza», «È mezzanotte», «È l'una». Por ahora solo afecta al italiano: los demás idiomas usan siempre el estilo clásico.",
           "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
           "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
           "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.8)",
@@ -50,6 +52,7 @@
           "end_hour": "Hora de fin",
           "enabled": "Habilitado",
           "language": "Idioma de los anuncios",
+          "announcement_style": "Estilo de los anuncios",
           "announce_half_hours": "Anunciar las medias horas",
           "voice_announcement": "Anuncio de voz",
           "announce_half_hours_voice": "Anuncio de voz en las medias horas",
@@ -63,6 +66,7 @@
         },
         "data_description": {
           "language": "Seleccione el idioma para los anuncios de hora. 'Automático' usa la configuración de idioma de Home Assistant",
+          "announcement_style": "Clásico: «Ore 15 e trenta». Coloquial: «Sono le 3 e mezza», «È mezzanotte», «È l'una». Por ahora solo afecta al italiano: los demás idiomas usan siempre el estilo clásico.",
           "custom_chime_path": "Ej.: www/sounds/bell.mp3 (Formatos: MP3, WAV, OGG - dejar vacío para predeterminado)",
           "announce_half_hours_voice": "Si está desactivado, la campana seguirá sonando en las medias horas pero no se realizará el anuncio de voz",
           "after_chime_delay": "Tiempo de espera en segundos entre la campana y el anuncio de voz (predeterminado: 1.2)",
@@ -75,6 +79,14 @@
     "error": {
       "script_required": "Con el tipo de reproductor Script, selecciona una entidad script (script.*)",
       "media_player_required": "Este tipo de reproductor requiere una entidad media player (media_player.*)"
+    }
+  },
+  "selector": {
+    "announcement_style": {
+      "options": {
+        "classic": "Clásico",
+        "colloquial": "Coloquial"
+      }
     }
   },
   "entity": {
